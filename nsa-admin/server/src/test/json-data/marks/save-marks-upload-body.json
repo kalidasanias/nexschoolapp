@@ -1,0 +1,23 @@
+{
+  "writtenExamId" : "09147fbc-a56d-416e-bc5c-c3ff6bf138f0",
+  "writtenExamName": "Unit 1",
+  "classId": "09147fbc-a56d-416e-bc5c-c3ff6bf138f0",
+  "className": "Class 1",
+  "sectionId": "09147fbc-a56d-416e-bc5c-c3ff6bf138f0",
+  "sectionName": "Section A",
+  "users" : [{
+    "userName": "1234100S",
+    "userCode": "1234",
+    "firstName": "kiranmai",
+    "subjects": [{
+      "subjectId": "09147fbc-a56d-416e-bc5c-c3ff6bf138f0",
+      "subjectName": "Telugu",
+      "marksObtained": "98",
+      "maxMarks": "100"
+    }]
+  }],
+  "totalMarks": "600",
+  "examDate": "15 February, 2017",
+  "status": false,
+  "remarks": ""
+}

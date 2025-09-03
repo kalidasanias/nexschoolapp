@@ -1,0 +1,23 @@
+<div class="tab-pane">
+    <hr/>
+    <div class="panel-heading">
+        <h6 class="panel-title"><span class="text-semibold"><i class="fa fa-bars"></i> List of Employees</span></h6>
+
+    </div>
+    <hr/>
+    <input type="hidden" id="viewButton" data-size="70%" data-title="Leave History" data-id="#viewHistory" class="btn btn-sm btn-primary" (click)="viewDetails($event)"/>
+    <div class="form-group">
+        <table class="table datatable-reporting-leaves">
+            <thead>
+            <tr>
+                <th data-priority="1">Employee Id</th>
+                <th data-hide="phone,tablet">Employee Name</th>
+                <th data-hide="phone,tablet"  data-priority="2">Designation</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+
+        </table>
+    </div>
+</div>
+<view-leave></view-leave>

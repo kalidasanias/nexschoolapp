@@ -1,0 +1,68 @@
+<ng-container *ngIf="albumObjs">
+    <ng-container *ngFor="let album of albumObjs">
+        <div class="col-md-4 col-sm-6 padding-top10">
+            <div class="panel panel-flat flexslider">
+                <input hidden id="deleteButton" (click)="deleteAlbum($event)" type="button" style="display: none;">
+                <div class="panel-body album-panel-body">
+                    <ul class="slides">
+                        <ng-container *ngIf="!album.albumDetails">No Media Found. <a [routerLink]="['./gallery-view/', album.album_id, album.name]" [queryParams]="{fi: featureId}" [id]="[album.name]"> Click here </a>to Add Media</ng-container>
+                        <ng-container *ngFor="let details of album.albumDetails; let myIndex = index">
+                            <ng-container *ngIf="myIndex == 0">
+                                <li>
+                                    <a class="display-block content-group" [routerLink]="['./gallery-view/', album.album_id, album.name]" [queryParams]="{fi: featureId}" [id]="[album.name]">
+                                        <a *ngIf="details.file_type == 'image'" class="display-block content-group" [routerLink]="['./gallery-view/', album.album_id, album.name]" [queryParams]="{fi: featureId}" [id]="[album.name]">
+                                            <img src="{{baseUrl + '/'+ details.file_url}}" width="357" height="250"/>
+                                        </a>
+                                        <a *ngIf="details.file_type == 'video'" class="display-block content-group" [routerLink]="['./gallery-view/', album.album_id, album.name]" [queryParams]="{fi: featureId}" [id]="[album.name]">
+                                            <img src="../../../../../../public/assets/img/video-thumbnail.jpg" width="357" height="250"/>
+                                        </a>
+                                    </a>
+                                </li>
+                            </ng-container>
+                            <ng-container *ngIf="myIndex > 0">
+                                <li>
+                                    <a *ngIf="details.file_type == 'image'" class="display-block content-group" [routerLink]="['./gallery-view/', album.album_id, album.name]" [queryParams]="{fi: featureId}" [id]="[album.name]">
+                                        <img class="lazy" attr.data-src="{{baseUrl + '/'+ details.file_url}}" width="357" height="250"/>
+                                    </a>
+                                    <a *ngIf="details.file_type == 'video'" class="video-thumbnail display-block content-group" [routerLink]="['./gallery-view/', album.album_id, album.name]" [queryParams]="{fi: featureId}" [id]="[album.name]">
+                                        <img class="lazy" data-src="../../../../../../public/assets/img/video-thumbnail.jpg" width="357" height="250"/>
+                                    </a>
+                                </li>
+                            </ng-container>
+                        </ng-container>
+                    </ul>
+                    <h6 class="content-group text-semibold">
+                        <span class="text-dot">Album Name : {{album.name}}</span><span class="text-semibold pull-right">
+                                <i class="icon-history position-left"></i>{{album.updated_date | date: 'dd-MM-yy hh:mm a'}}</span>
+                    </h6>
+                </div>
+
+                <div class="panel-footer">
+                    <ul>
+                        <!--<li><a><i class="icon-eye4 position-left"></i>{{album.viewed_count || 0}}</a></li>-->
+                    </ul>
+                    <ul class="pull-right">
+                        <div class="btn-group btn-group-animated margin-top10 cursor-hand padding-bottom8">
+                            <div data-toggle="dropdown"><i class="icon-menu9 position-right"></i></div>
+                            <ul class="dropdown-menu">
+                                <li><a class="edit-album" data-size="50%" data-title="Edit Album Details"  data-toggle="from-right" data-id="#addNewGallery" (click)="editAlbum($event)"><i class="icon-pencil"></i> Edit</a><input class="event-obj" type="hidden" [value]="[album.album_id]"></li>
+                                <!--<li><a class="share-album" data-size="50%" data-title="Share Album"  data-toggle="from-right" data-id="#albumShare" (click)="shareAlbum($event)"><i class="icon-share3 position-left"></i> Share</a><input class="event-obj" type="hidden" [value]="[album.album_id]"></li>-->
+                                <li><a class="delete-album" (click)="delteRequest($event)"><i class="icon-trash"></i> Delete</a><input class="event-obj" type="hidden" [value]="[album.album_id]"></li>
+                            </ul>
+                        </div>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</ng-container>
+<ng-container *ngIf="showWarning">
+    <div class="col-md-10">
+        <div class="col-md-offset-2 alert alert-warning no-border text-center">
+            <span class="text-semibold">No Albums Found. </span>
+        </div>
+    </div>
+</ng-container>
+<share-album></share-album>
+<add-new-gallery></add-new-gallery>

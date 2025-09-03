@@ -1,0 +1,14 @@
+{
+  "name": "@nsa/nsa-bodybuilder",
+  "version": "1.1.39",
+  "description": "nsa elastic search body builder",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "nsa",
+  "license": "ISC",
+  "dependencies": {
+    "bodybuilder": "^2.0.0"
+  }
+}

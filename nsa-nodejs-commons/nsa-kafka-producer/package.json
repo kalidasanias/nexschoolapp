@@ -1,0 +1,25 @@
+{
+  "name": "@nsa/nsa-kafka-client",
+  "version": "0.0.1",
+  "description": "nsa-kafka-client",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test-unit",
+    "test-unit": "NODE_ENV=test mocha --require co-mocha 'lib/*.spec.js'"
+  },
+  "keywords": [
+    "kafka"
+  ],
+  "author": "nsa",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "3.5.0",
+    "co-mocha": "1.1.2",
+    "mocha": "2.5.3",
+    "sinon": "1.17.4",
+    "sinon-chai": "2.8.0"
+  },
+  "dependencies": {
+    "kafka-node": "^1.3.4"
+  }
+}

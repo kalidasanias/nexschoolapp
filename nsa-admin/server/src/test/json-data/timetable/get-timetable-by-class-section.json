@@ -1,0 +1,237 @@
+{
+	"status": {
+	"code": 201,
+	"message": "Success"
+},
+"data" : [
+	{
+		"periodId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+		"periodName": "Period 1",
+		"periodStartTime" : "9 00 AM",
+		"periodEndTime": "9 45 AM",
+		"days" : [
+					{
+						"dayId" : 1,
+						"dayName" : "Monday",
+						"assignee" : {
+								"employeeId" : "100S123",
+								"employeeName" : "Kumar D",
+								"employeeCode" : "K.D",
+								"subjectName": "Maths",
+								"subjectId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+								"subjectCode" : "M"
+
+						},
+						"notes" : {
+							"attachments" : ["/hiflame", "/hiflame", "/hiflame"],
+							"desc" : "adgesg"
+						},
+						"classId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+						"className": "Class 1",
+						"sectionId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7ccd",
+						"sectionName": "Section A"
+										
+					},
+			{
+				"dayId": 2,
+				"dayName": "Tuesday",
+				"assignee": {
+					"employeeId": "100S123",
+					"employeeName": "Kumar D",
+					"employeeCode": "K.D",
+					"subjectName": "Maths",
+					"subjectId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+					"subjectCode": "M"
+				},
+				"notes": {
+					"attachments": [
+						"/hiflame",
+						"/hiflame",
+						"/hiflame"
+					],
+					"desc": "adgesg"
+				},
+				"classId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+				"className": "Class 1",
+				"sectionId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7ccd",
+				"sectionName": "Section A"
+			}
+		]
+	},
+
+	{
+		"periodId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+		"periodName": "Period 2",
+		"periodStartTime" : "9:00 AM",
+		"periodEndTime": "9: 45 AM",
+		"days" : [
+					{
+						"dayId" : 1,
+						"dayName" : "Monday",
+						"assignee" : {
+								"employeeId" : "100S123",
+								"employeeName" : "Kumar D",
+								"employeeCode" : "K.D",
+								"subjectName": "Maths",
+								"subjectId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+								"subjectCode" : "M"
+
+						},
+						"notes": {
+							"attachments": [
+								"/hiflame",
+								"/hiflame",
+								"/hiflame"
+							],
+							"desc": "adgesg"
+						},
+						"classId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+						"className": "Class 2",
+						"sectionId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7ccd",
+						"sectionName": "Section B"
+										
+					},
+			{
+				"dayId": 2,
+				"dayName": "Tuesday",
+				"assignee": {
+					"employeeId": "100S123",
+					"employeeName": "Kumar D",
+					"employeeCode": "K.D",
+					"subjectName": "Maths",
+					"subjectId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+					"subjectCode": "M"
+				},
+				"notes": {
+					"attachments": [
+						"/hiflame",
+						"/hiflame",
+						"/hiflame"
+					],
+					"desc": "adgesg"
+				},
+				"classId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+				"className": "Class 2",
+				"sectionId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7ccd",
+				"sectionName": "Section C"
+			}
+		]
+	},
+	{
+		"periodId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+		"periodName": "Period 3",
+		"periodStartTime" : "9:00 AM",
+		"periodEndTime": "9: 45 AM",
+		"days" : [
+					{
+						"dayId" : 1,
+						"dayName" : "Monday",
+						"assignee" : {
+								"employeeId" : "100S123",
+								"employeeName" : "Kumar D",
+								"employeeCode" : "K.D",
+								"subjectName": "Maths",
+								"subjectId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+								"subjectCode" : "M"
+
+						},
+						"notes": {
+							"attachments": [
+								"/hiflame",
+								"/hiflame",
+								"/hiflame"
+							],
+							"desc": "adgesg"
+						},
+						"classId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+						"className": "Class 1",
+						"sectionId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7ccd",
+						"sectionName": "Section D"
+										
+					},
+			{
+				"dayId": 2,
+				"dayName": "Tuesday",
+				"assignee": {
+					"employeeId": "100S123",
+					"employeeName": "Kumar D",
+					"employeeCode": "K.D",
+					"subjectName": "Maths",
+					"subjectId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+					"subjectCode": "M"
+				},
+				"notes": {
+					"attachments": [
+						"/hiflame",
+						"/hiflame",
+						"/hiflame"
+					],
+					"desc": "adgesg"
+				},
+				"classId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+				"className": "Class 1",
+				"sectionId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7ccd",
+				"sectionName": "Section B"
+			}
+		]
+	},
+	{
+		"periodId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+		"periodName": "Period 4",
+		"periodStartTime" : "9:00 AM",
+		"periodEndTime": "9: 45 AM",
+		"days" : [
+			{
+				"dayId": 1,
+				"dayName": "Monday",
+				"assignee": {
+					"employeeId": "100S123",
+					"employeeName": "Kumar D",
+					"employeeCode": "K.D",
+					"subjectName": "Maths",
+					"subjectId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+					"subjectCode": "M"
+				},
+				"notes": {
+					"attachments": [
+						"/hiflame",
+						"/hiflame",
+						"/hiflame"
+					],
+					"desc": "adgesg"
+				},
+				"classId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+				"className": "Class 4",
+				"sectionId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7ccd",
+				"sectionName": "Section A"
+			},
+					{
+					"dayId" : 2,
+					"dayName" : "Tuesday",
+					"assignee" : {
+							"employeeId" : "100S123",
+							"employeeName" : "Kumar D",
+							"employeeCode" : "K.D",
+							"subjectName": "Maths",
+							"subjectId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+							"subjectCode" : "M"
+
+					},
+						"notes": {
+							"attachments": [
+								"/hiflame",
+								"/hiflame",
+								"/hiflame"
+							],
+							"desc": "adgesg"
+						},
+						"classId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+						"className": "Class 5",
+						"sectionId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7ccd",
+						"sectionName": "Section A"
+
+				}
+			]
+	}
+]
+}

@@ -1,0 +1,25 @@
+<div class="panel-heading">
+    <h6 class="panel-title"><span class="text-semibold"><i class="fa fa-bars"></i> List of Leave Requests</span></h6>
+    <div class="heading-elements">
+        <input *ngIf="enable" type="button" value="Approval History" data-size="70%" data-title="Approval History" data-id="#approvalHistory" class="btn btn-sm btn-primary" (click)="viewApproval($event)"/>
+        <input type="hidden" id="resLeav"  data-size="70%" data-title="Leave Request" data-id="#respondLeave" class="btn btn-sm btn-primary" (click)="respondLeaves($event)"/>
+        <input hidden id="warningButton" (click)="requested_warning()" type="button" style="display: none;">
+        <!--<input hidden id="deleteButton" (click)="requested_delete($event)" type="button" style="display: none;">-->
+    </div>
+</div>
+<hr/>
+<div class="panel-body">
+    <table class="table datatable-requested-leaves">
+        <thead>
+        <tr>
+            <th data-priority="1">Employee ID</th>
+            <th data-hide="phone,tablet">Employee Name</th>
+            <th data-hide="phone,tablet">Duration Requested</th>
+            <th data-hide="phone,tablet">Status</th>
+            <th data-priority="2">Action</th>
+        </tr>
+        </thead>
+    </table>
+</div>
+<approval-history></approval-history>
+<respond-leave></respond-leave>

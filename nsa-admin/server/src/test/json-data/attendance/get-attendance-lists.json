@@ -1,0 +1,80 @@
+ 
+{
+   "status":{
+      "code":201,
+      "message":"Success"
+   },
+   "data":[
+      {
+         "attendanceId":"630386f4-d0f4-470d-8452-6f2d3ddfa514",
+         "tenantId ":"5085fce0-d7f0-11e6-acdf-73c63acb96df",
+         "schoolId  ":"1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+         "academicYear" : "2016-2017",
+         "classId": "630386f4-d0f4-470d-8452-6f2d3ddfa517",
+         "className": "class 1",
+         "sectionId": "630386f4-d0f4-470d-8452-6f2d3ddfad58",
+         "sectionName": "section A",
+         "totalStrength ":"40",
+         "noOfPresent ":"35",
+         "recordedBy": "100S634",
+         "recordedUserName": "sam",
+         "updatedBy": "100E555",
+         "updatedUserName": "ram",
+         "updatedDate": "Mar 11 2017 1:27 PM"
+      },
+       {
+         "attendanceId":"630386f4-d0f4-470d-8452-6f2d3ddfa524",
+         "tenantId ":"5085fce0-d7f0-11e6-acdf-73c63acb96df",
+         "schoolId  ":"1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+         "academicYear" : "2016-2017",
+         "classId": "630386f4-d0f4-470d-8452-6f2d3ddfa517",
+         "className": "class 1",
+         "sectionId": "630386f4-d0f4-470d-8452-6f2d3ddfad58",
+         "sectionName": "section A",
+         "totalStrength ":"40",
+         "noOfPresent ":"35",
+         "recordedBy": "100S634",
+         "recordedUserName": "sam",
+         "updatedBy": "100E555",
+         "updatedUserName": "ram",
+         "updatedDate": "Mar 10 2017 1:27 PM"
+
+      },
+      {
+         "attendanceId":"630386f4-d0f4-470d-8452-6f2d3ddfa534",
+         "tenantId ":"5085fce0-d7f0-11e6-acdf-73c63acb96df",
+         "schoolId  ":"1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+         "academicYear" : "2016-2017",
+         "classId": "630386f4-d0f4-470d-8452-6f2d3ddfa597",
+         "className": "class 2",
+         "sectionId": "630386f4-d0f4-470d-8452-6f2d3ddfad58",
+         "sectionName": "section A",
+         "totalStrength ":"40",
+         "noOfPresent ":"35",
+         "recordedBy": "100S634",
+         "recordedUserName": "sam",
+         "updatedBy": "100E555",
+         "updatedUserName": "ram",
+         "updatedDate": "Mar 11 2017 1:27 PM"
+
+      },
+      {
+         "attendanceId":"630386f4-d0f4-470d-8452-6f2d3ddfa564",
+         "tenantId ":"5085fce0-d7f0-11e6-acdf-73c63acb96df",
+         "schoolId  ":"1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+         "academicYear" : "2016-2017",
+         "classId": "630386f4-d0f4-470d-8452-6f2d3ddfa587",
+         "className": "class 4",
+         "sectionId": "630386f4-d0f4-470d-8452-6f2d3ddfad58",
+         "sectionName": "section A",
+         "totalStrength ":"40",
+         "noOfPresent ":"35",
+         "recordedBy": "100S634",
+         "recordedUserName": "sam",
+         "updatedBy": "100E555",
+         "updatedUserName": "ram",
+         "updatedDate": "Mar 11 2017 1:27 PM"
+
+      }
+   ]
+}

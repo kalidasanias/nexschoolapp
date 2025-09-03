@@ -1,0 +1,278 @@
+{
+  "status":{
+    "code":200,
+    "message":"Success"
+  },
+  "timetable":[
+    {
+      "day":"Monday",
+      "date":"12-05-2017",
+      "classHours":[
+        {
+          "classHourId":"1231231231",
+          "classHour":"09:00 - 09:45",
+          "subject":"Maths",
+          "classSection":"1-A"
+        },
+        {
+          "classHourId":"1231231231",
+          "classHour":"09:45 - 10:30",
+          "subject":"",
+          "classSection":""
+        },
+        {
+          "classHourId":"1231231231",
+          "classHour":"11:00 - 11:45",
+          "subject":"",
+          "classSection":""
+        },
+        {
+          "classHourId":"1231231231",
+          "classHour":"11:45 - 12:30",
+          "subject":"",
+          "classSection":""
+        },
+        {
+          "classHourId":"1231231231",
+          "classHour":"01:30 - 02:15",
+          "subject":"Maths",
+          "classSection":"1-A"
+        },
+        {
+          "classHourId":"1231231231",
+          "classHour":"02:15 - 03:00",
+          "subject":"",
+          "classSection":""
+        },
+        {
+          "classHourId":"1231231231",
+          "classHour":"03:00 - 03:45",
+          "subject":"",
+          "classSection":""
+        },
+        {
+          "classHourId":"1231231231",
+          "classHour":"03:45 - 04:30",
+          "subject":"",
+          "classSection":""
+        }
+      ]
+    },
+    {
+      "day":"Tuesday",
+      "date":"13-05-2017",
+      "classHours":[
+        {
+          "classHourId":"1231231231",
+          "classHour":"09:00 - 09:45",
+          "subject":"",
+          "classSection":""
+        },
+        {
+          "classHourId":"1231231231",
+          "classHour":"09:45 - 10:30",
+          "subject":"Mathis",
+          "classSection":"10-D"
+        },
+        {
+          "classHourId":"1231231231",
+          "classHour":"11:00 - 11:45",
+          "subject":"",
+          "classSection":""
+        },
+        {
+          "classHourId":"1231231231",
+          "classHour":"11:45 - 12:30",
+          "subject":"",
+          "classSection":""
+        },
+        {
+          "classHourId":"1231231231",
+          "classHour":"01:30 - 02:15",
+          "subject":"Maths",
+          "classSection":"1-A"
+        },
+        {
+          "classHourId":"1231231231",
+          "classHour":"02:15 - 03:00",
+          "subject":"",
+          "classSection":""
+        },
+        {
+          "classHourId":"1231231231",
+          "classHour":"03:00 - 03:45",
+          "subject":"",
+          "classSection":""
+        },
+        {
+          "classHourId":"1231231231",
+          "classHour":"03:45 - 04:30",
+          "subject":"",
+          "classSection":""
+        }
+      ]
+    },
+    {
+      "day":"Wednesday",
+      "date":"14-05-2017",
+      "classHours":[
+        {
+          "classHourId":"1231231231",
+          "classHour":"09:00 - 09:45",
+          "subject":"",
+          "classSection":""
+        },
+        {
+          "classHourId":"1231231231",
+          "classHour":"09:45 - 10:30",
+          "subject":"Mathis",
+          "classSection":"10-D"
+        },
+        {
+          "classHourId":"1231231231",
+          "classHour":"11:00 - 11:45",
+          "subject":"",
+          "classSection":""
+        },
+        {
+          "classHourId":"1231231231",
+          "classHour":"11:45 - 12:30",
+          "subject":"",
+          "classSection":""
+        },
+        {
+          "classHourId":"1231231231",
+          "classHour":"01:30 - 02:15",
+          "subject":"Maths",
+          "classSection":"1-A"
+        },
+        {
+          "classHourId":"1231231231",
+          "classHour":"02:15 - 03:00",
+          "subject":"",
+          "classSection":""
+        },
+        {
+          "classHourId":"1231231231",
+          "classHour":"03:00 - 03:45",
+          "subject":"",
+          "classSection":""
+        },
+        {
+          "classHourId":"1231231231",
+          "classHour":"03:45 - 04:30",
+          "subject":"",
+          "classSection":""
+        }
+      ]
+    },
+    {
+      "day":"Thursday",
+      "date":"15-05-2017",
+      "classHours":[
+        {
+          "classHourId":"1231231231",
+          "classHour":"09:00 - 09:45",
+          "subject":"",
+          "classSection":""
+        },
+        {
+          "classHourId":"1231231231",
+          "classHour":"09:45 - 10:30",
+          "subject":"Mathis",
+          "classSection":"10-D"
+        },
+        {
+          "classHourId":"1231231231",
+          "classHour":"11:00 - 11:45",
+          "subject":"",
+          "classSection":""
+        },
+        {
+          "classHourId":"1231231231",
+          "classHour":"11:45 - 12:30",
+          "subject":"",
+          "classSection":""
+        },
+        {
+          "classHourId":"1231231231",
+          "classHour":"01:30 - 02:15",
+          "subject":"Maths",
+          "classSection":"1-A"
+        },
+        {
+          "classHourId":"1231231231",
+          "classHour":"02:15 - 03:00",
+          "subject":"",
+          "classSection":""
+        },
+        {
+          "classHourId":"1231231231",
+          "classHour":"03:00 - 03:45",
+          "subject":"",
+          "classSection":""
+        },
+        {
+          "classHourId":"1231231231",
+          "classHour":"03:45 - 04:30",
+          "subject":"",
+          "classSection":""
+        }
+      ]
+    },
+    {
+      "day":"Friday",
+      "date":"16-05-2017",
+      "classHours":[
+        {
+          "classHourId":"1231231231",
+          "classHour":"09:00 - 09:45",
+          "subject":"",
+          "classSection":""
+        },
+        {
+          "classHourId":"1231231231",
+          "classHour":"09:45 - 10:30",
+          "subject":"Mathis",
+          "classSection":"10-D"
+        },
+        {
+          "classHourId":"1231231231",
+          "classHour":"11:00 - 11:45",
+          "subject":"",
+          "classSection":""
+        },
+        {
+          "classHourId":"1231231231",
+          "classHour":"11:45 - 12:30",
+          "subject":"",
+          "classSection":""
+        },
+        {
+          "classHourId":"1231231231",
+          "classHour":"01:30 - 02:15",
+          "subject":"Maths",
+          "classSection":"1-A"
+        },
+        {
+          "classHourId":"1231231231",
+          "classHour":"02:15 - 03:00",
+          "subject":"",
+          "classSection":""
+        },
+        {
+          "classHourId":"1231231231",
+          "classHour":"03:00 - 03:45",
+          "subject":"",
+          "classSection":""
+        },
+        {
+          "classHourId":"1231231231",
+          "classHour":"03:45 - 04:30",
+          "subject":"",
+          "classSection":""
+        }
+      ]
+    }
+  ]
+}

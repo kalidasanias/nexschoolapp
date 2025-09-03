@@ -1,0 +1,21 @@
+[{
+	"venue_type_name" : "Auditorium",
+	"location": "Ground Floor",
+	"venue_type_id": "102fc7de-d340-40d9-ad7e-58bdbfb66140",
+	"updated_by": "deepak",
+	"updated_date" : "April 25 2017"
+},
+{
+	"venue_type_name" : "Physics Lab",
+	"location": "Second Floor",
+	"venue_type_id": "102fc7de-d340-40d9-ad7e-58bdbfb66140",
+	"updated_by": "deepak",
+	"updated_date" : "April 25 2017"
+},
+{
+	"venue_type_name" : "Sports Ground",
+	"location": "Ground Floor",
+	"venue_type_id": "102fc7de-d340-40d9-ad7e-58bdbfb66140",
+	"updated_by": "deepak",
+	"updated_date" : "April 25 2017"
+}]

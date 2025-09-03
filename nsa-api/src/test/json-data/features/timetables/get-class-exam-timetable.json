@@ -1,0 +1,23 @@
+{
+  "status":{
+    "code":200,
+    "message":"Success"
+  },
+  "examSchedules":[
+    {
+      "examId":"2342342342",
+      "examName":"SA1 - Term",
+      "examSchedule":"Sep 23 2017 - Sep 29 2017"
+    },
+    {
+      "examId":"5435232432",
+      "examName":"SA2 - Term",
+      "examSchedule":"Nov 15 2017 - Nov 28 2017"
+    },
+    {
+      "examId":"4534545455",
+      "examName":"SA3 - Term",
+      "examSchedule":"Dec 21 2017 - Jan 12 2018"
+    }
+  ]
+}

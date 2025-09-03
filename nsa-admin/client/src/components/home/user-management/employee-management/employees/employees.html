@@ -1,0 +1,120 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h6 class="panel-title"><span class="text-semibold text-uppercase"><i class="fa fa-users position-left"></i>Employees</span><i class="icon-arrow-right15 text-pink-600"></i> <small>List of All Employees </small></h6>
+        <div class="heading-elements">
+            <ul class="icons-list">
+                <!--<li class="dropdown">
+                   <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-sort-amount-desc position-left"></i> By Department <span class="caret"></span></a>
+                   <ul class="dropdown-menu ">
+                       <li><a href="#">Show all</a></li>
+                       <li class="divider"></li>
+                       <li><a href="#">Open</a></li>
+                       <li><a href="#">On hold</a></li>
+                       <li><a href="#">Resolved</a></li>
+                       <li><a href="#">Closed</a></li>
+                       <li><a href="#">Dublicate</a></li>
+                       <li><a href="#">Invalid</a></li>
+                       <li><a href="#">Wontfix</a></li>
+                   </ul>
+                   </li>
+                   <li class="dropdown">
+                   <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-sort-amount-desc position-left"></i> By Designation <span class="caret"></span></a>
+                   <ul class="dropdown-menu ">
+                       <li><a href="#">Show all</a></li>
+                       <li class="divider"></li>
+                       <li><a href="#">Open</a></li>
+                       <li><a href="#">On hold</a></li>
+                       <li><a href="#">Resolved</a></li>
+                       <li><a href="#">Closed</a></li>
+                       <li><a href="#">Dublicate</a></li>
+                       <li><a href="#">Invalid</a></li>
+                       <li><a href="#">Wontfix</a></li>
+                   </ul>
+                   </li>-->
+            </ul>
+            <!--<button class="btn btn-sm btn-primary heading-btn" data-toggle="modal" data-target="#modal_theme_primary1"><i class="fa fa-upload position-left"></i>Import</button>-->
+            <input *ngIf="enable" type="button" value="Add Employee" data-size="75%" data-title="Add Employee" data-toggle="from-right" data-id="#addEmployee" class="btn btn-sm btn-primary heading-btn" (click)="addEmployee($event)"/>
+        </div>
+    </div>
+    <div class="panel-body">
+        <input hidden id="deleteEmp" (click)="deleteEmployee($event)" type="button" style="display: none;">
+        <input hidden id="resetPwd" (click)="resetPwd($event)" type="button">
+        <input hidden id="resetWarning" (click)="request_warning()" type="button" style="display: none;">
+        <input type="hidden" id="deleteButton" (click)="confirmDelete()" />
+        <input type="hidden" id="reload" (click)="reload()" />
+        <input hidden id="editEmp" (click)="editEmployee($event)" data-title="Edit Employee" data-size="75%" data-id="#addEmployee" type="button" style="display: none;">
+        <table class="table datatable-employee">
+            <thead>
+            <tr>
+                <th data-priority="1">Username</th>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Designation</th>
+                <th>Contact</th>
+                <th>Status</th>
+                <th data-priority="3">Reset Password</th>
+                <th data-priority="2">Action</th>
+                <th>Active/Inactive</th>
+            </tr>
+            </thead>
+            <tfoot>
+            <tr>
+                <th>Username</th>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Designation</th>
+                <th>Contact</th>
+                <th>Status</th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+<div id="modal_theme_primary1" class="modal fade refuse">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-info">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h5 class="modal-title">Import Employee</h5>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal form-validate">
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label text-semibold">Select File</label>
+                        <div class="col-lg-10">
+                            <input type="file" class="file-input">
+                        </div>
+                    </div>
+                </form>
+                <div class="form-group">
+                    <div class="panel border-left-lg border-left-primary">
+                        <div class="panel-body alpha-blue">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <h6 class="no-margin-top text-semibold">General Instructions</h6>
+                                    <ul>
+                                        <li>The Field with red color are mandatory</li>
+                                        <li>All date must be enter in DD/MM/YYYY format</li>
+                                        <li>Birth date must be less than curren date</li>
+                                        <li>E-mail id and phone number shoulld be in valid format</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-sm btn-primary heading-btn" data-toggle="modal" data-target="#modal_theme_primary1"><i class="fa fa-download position-left"></i>Template</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+<add-employee></add-employee>

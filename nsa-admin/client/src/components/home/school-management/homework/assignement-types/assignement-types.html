@@ -1,0 +1,28 @@
+<div class="panel panel-default">
+    <input hidden id="assignmentsEdit" (click)="getAssignment('addAssignment',$event)" type="button" style="display: none;">
+    <div class="panel-heading">
+        <h6 class="panel-title"><span class="text-semibold text-uppercase"><i class="icon-file-text2 position-left"></i>Homework Types </span><i class="icon-arrow-right15 text-pink-600"></i> <small>List of Types </small></h6>
+        <div class="heading-elements">
+           <!-- <input type="button" value="Add New Type" data-size="75%" data-title="Add New Type" data-toggle="from-right" data-id="#addAssignmentTypes" class="btn btn-sm btn-primary" "/>-->
+            <input *ngIf="enable" type="button" value="Add New Type" data-size="50%" data-title="Add New Type" data-toggle="from-right" data-id="#addAssignmentTypes" class="btn btn-sm btn-primary" (click)="addAssignmentTypes($event)"/>
+            <input hidden id="warningAssignment" (click)="requested_warning()" type="button" style="display: none;">
+            <input hidden id="deleteButton" (click)="requested_delete($event)" type="button" style="display: none;">
+            <input hidden id="assEditButton" (click)="getAssignmentType($event)" data-size="50%" data-id="#addAssignmentTypes" type="button" style="display: none;">
+        </div>
+    </div>
+
+    <div class="panel-body">
+        <table class="table datatable-align datatable-assignament-types">
+            <thead>
+            <tr>
+                <th data-priority="1">Type Name</th>
+                <th>Description</th>
+                <th>Updated By</th>
+                <th>Updated Date</th>
+                <th data-priority="2">Action</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+<add-assignment-types></add-assignment-types>

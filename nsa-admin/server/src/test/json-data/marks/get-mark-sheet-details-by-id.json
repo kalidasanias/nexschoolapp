@@ -1,0 +1,42 @@
+[
+  {
+    "userName": "1234100S",
+    "userCode": "1234",
+    "firstName": "kiranmai",
+    "subjects": [
+      {
+        "subjectId": "09147fbc-a56d-416e-bc5c-c3ff6bf138f0",
+        "subjectName": "Telugu",
+        "marksObtained": "98",
+        "maxMarks": "100"
+      },
+      {
+        "subjectId": "09147fbc-a56d-416e-bc5c-c3ff6bf138f1",
+        "subjectName": "Hindi",
+        "marksObtained": "90",
+        "maxMarks": "100"
+      }
+    ],
+    "remarks": ""
+  },
+  {
+    "userName": "1235100S",
+    "userCode": "1235",
+    "firstName": "senthil",
+    "subjects": [
+      {
+        "subjectId": "09147fbc-a56d-416e-bc5c-c3ff6bf138f0",
+        "subjectName": "Telugu",
+        "marksObtained": "95",
+        "maxMarks": "100"
+      },
+      {
+        "subjectId": "09147fbc-a56d-416e-bc5c-c3ff6bf138f1",
+        "subjectName": "Hindi",
+        "marksObtained": "95",
+        "maxMarks": "100"
+      }
+    ],
+    "remarks": ""
+  }
+]

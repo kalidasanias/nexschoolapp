@@ -1,0 +1,25 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h6 class="panel-title"><span class="text-semibold text-uppercase"><i class="icon-location4 position-left"></i>Event Venues</span> <i class="icon-arrow-right15 text-pink-600"></i> <small>List of Venues</small></h6>
+        <div class="heading-elements">
+            <input *ngIf="enable" type="button" value="Add Venue" data-size="50%" data-title="Add Venue" data-toggle="from-right" data-id="#addEventVenues" class="btn btn-sm btn-primary" (click)="addEventVenues($event)"/>
+        </div>
+    </div>
+    <input hidden id="warningEventVenue" (click)="requested_warning()" type="button" style="display: none;">
+    <input hidden id="deleteButton" (click)="requested_delete($event)" type="button" style="display: none;">
+    <input hidden id="eventVenueEditButton" (click)="getEventVenue('addEventVenues',$event)" data-size="50%" data-id="#addEventVenues" type="button" style="display: none;">
+
+    <div class="panel-body">
+        <table class="table datatable-event-venue datatable-align">
+            <thead>
+            <tr>
+                <th data-priority="1">Venue Name</th>
+                <th>Location</th>
+                <th>Updated By</th>
+                <th data-priority="2">Action</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+<add-venue></add-venue>

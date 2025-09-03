@@ -1,0 +1,29 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h6 class="panel-title"><span class="text-semibold text-uppercase"><i class="icon-bus position-left"></i>Vehicles </span><i class="icon-arrow-right15 text-pink-600"></i> <small>List of Vehicles </small></h6>
+        <div class="heading-elements">
+            <input *ngIf="enable" type="button" value="Add Vehicle" data-size="75%" data-title="Add Vehicle" data-toggle="from-right" data-id="#addVehicle" class="btn btn-sm btn-primary" (click)="addVehicle($event)"/>
+        </div>
+    </div>
+
+    <div class="panel-body">
+        <input type="hidden" id="deleteButton" (click)="confirmDelete($event)" />
+        <input type="hidden" id="confirmSubmit" (click)="changeStatus($event)" />
+        <input hidden id="vehicleStatus" (click)="vehicleStatus($event)" type="button" style="display: none;">
+        <input hidden id="deleteVehicle" (click)="deleteVehicle($event)" type="button" style="display: none;">
+        <input hidden id="editVehicle" (click)="updateVehicle($event)" data-title="Edit Vehicle Details" data-size="75%" data-id="#addVehicle" type="button" style="display: none;">
+        <table class="table datatable-vehicle">
+            <thead>
+            <tr>
+                <th data-priority="1">Register Number</th>
+                <th>Vehicle Type</th>
+                <th>Seating Capacity</th>
+                <th>FC Date</th>
+                <th data-priority="2">Action</th>
+                <th data-priority="3">Status</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+<add-vehicle></add-vehicle>

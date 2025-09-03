@@ -1,0 +1,166 @@
+<div class="panel panel-default">
+    <!-- <div class="panel-heading">
+       <h5 class="panel-title"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Exam System</h5>
+       <div class="heading-elements">
+           <ul class="icons-list">
+               <button type="button" class="btn btn-default btn-sm btn-primary text-right" data-toggle="modal" data-target="#modal_default">Add Exam System</i>
+               </button>
+           </ul>
+       </div>
+       </div> -->
+    <div class="panel-heading">
+        <h6 class="panel-title"><span class="text-semibold text-uppercase"><i class="icon-file-text2 position-left"></i>Exam System </span><i class="icon-arrow-right15 text-pink-600"></i> <small>List of Exams </small></h6>
+        <div class="heading-elements">
+            <button type="button" class="btn btn-sm btn-primary heading-btn" data-toggle="modal" data-target="#modal_default">Add Exam System
+            </button>
+        </div>
+    </div>
+    <div class="panel-body">
+        <table class="table datatable-export">
+            <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Classes Applicable</th>
+                <th>Exam Name</th>
+                <th>Duration</th>
+                <th>Marks <span class="help-block">(Per Subject)</span>
+                </th>
+                <th>Grading System</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1</td>
+                <td>Class 12</td>
+                <td>FA 1</td>
+                <td>Jan 17 2017 2:45 PM - Jan 22 2017 2:45 PM</td>
+                <td>20</td>
+                <td>CCE</td>
+                <td><span class="label label-success">Active</span>
+                </td>
+                <td>&nbsp;&nbsp;<a class="icon-primary"><i class="fa fa-pencil-square-o fa-lg"></i></a>
+                    <a class="icon-danger"><i class="fa fa-trash-o fa-lg"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Class 11</td>
+                <td>FA 2</td>
+                <td>Jan 17 2017 2:45 PM - Jan 22 2017 2:45 PM</td>
+                <td>30</td>
+                <td>CCE</td>
+                <td><span class="label label-success">Active</span>
+                </td>
+                <td>&nbsp;&nbsp;<a class="icon-primary"><i class="fa fa-pencil-square-o fa-lg"></i></a>
+                    <a class="icon-danger"><i class="fa fa-trash-o fa-lg"></i></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div id="modal_default" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-info">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h5 class="modal-title">Create New Exam System</h5>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" action="#">
+                    <fieldset class="">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Term <span class="text-danger">*</span>
+                                </label>
+                                <div class="col-sm-8">
+                                    <select class="bootstrap-select" data-width="100%">
+                                        <option>Select Term</option>
+                                        <option value="Cambodia">Mid Term</option>
+                                        <option value="Martic">Half Term</option>
+                                        <option value="State">Full Term</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Exam Name <span class="text-danger">*</span>
+                                </label>
+                                <div class="col-sm-8">
+                                    <input type="email" class="form-control" id="email">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Description
+                                </label>
+                                <div class="col-sm-8">
+                                    <textarea rows="1" cols="1" class="form-control" placeholder=""></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="col-lg-4 control-label">Classes Applicable <span class="text-danger">*</span>
+                                </label>
+                                <div class="col-lg-8">
+                                    <select class="bootstrap-select" multiple="multiple" data-width="100%">
+                                        <optgroup label="Annex">
+                                            <option value="AK">Class 1</option>
+                                            <option value="HI">Class 2</option>
+                                        </optgroup>
+                                        <optgroup label="Secondary">
+                                            <option value="CA">Class 3</option>
+                                            <option value="NV">Class 12</option>
+                                            <option value="WA">Class 11</option>
+                                        </optgroup>
+                                        <optgroup label="Matric">
+                                            <option value="AZ">Class 10</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group ">
+                                <label class="col-lg-4 control-label">Marks <span class="help-block">(Each Subject)</span>
+                                </label>
+                                <div class="col-sm-3">
+                                    <input type="email" class="form-control" id="email">
+                                </div>
+                                <div class="col-sm-5 form-horizontal">
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" class="styled" checked="checked">
+                                        Grading System Applicable
+                                    </label>
+                                    <!--            <div class="checker"><span class="checked"><input class="styled" checked="checked" type="checkbox"></span></div> Grading System Applicable -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="col-lg-4 control-label">Duration <span class="text-danger">*</span>
+                                </label>
+                                <div class="col-sm-8">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="icon-calendar22"></i></span>
+                                        <input type="text" class="form-control daterange-weeknumbers" value="03/18/2013 - 03/23/2013">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <hr/>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

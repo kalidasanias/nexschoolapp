@@ -1,0 +1,79 @@
+<div class="content-wrapper pdf-content" style="display:none">
+    <!-- Invoice template -->
+    <div class="panel panel-white" id="HTMLtoPDF" style="position: absolute;font-size: 20px;">
+        <div id="printThis">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-md-4">
+                            <a><img id="printerLogo" style="background-color: #ffffff;display:block;margin:auto;"  width="100" hight="100" src="{{schoolDetails}}" ></a>
+                    </div>
+                    <div class="col-md-8">
+                        <b *ngIf="user" style="color: red" class="title">{{user.school_name}}</b><br>
+                        <span *ngIf="address" [innerHTML]="address"></span><br>
+                        <span *ngIf="feeDetails" class="title txt-align-center">{{feeDetails.feeAssignmentName}} - {{feeDetails.academicYear}}</span>
+                    </div>
+                </div><hr/>
+            </div>
+            <div class="panel-body"  style="margin-top:-45px;">
+                <div class="row" style="margin-top: 1px !important; margin-bottom: -20px !important;">
+                    <div class="col-md-5 col-lg-6 content-group">
+                        <span class="text-uppercase txt-align-left text-semibold">Student Details:</span>
+                        <ul class="list-condensed list-unstyled txt" *ngIf="feeDetails">
+                            <li>Name:&nbsp;{{feeDetails.firstName}}</li>
+                            <li>Class:&nbsp;{{feeDetails.className}} / {{feeDetails.sectionName}}</li>
+                            <li>Invoice Date:&nbsp;{{generatedDate | date: 'dd-MM-yyyy-hh:mm' }}</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-7 txt-align-center col-lg-6 content-group">
+                        <ul class="list-condensed list-unstyled txt-align-left" *ngIf="transactions">
+                            <li>Transaction Ref No :&nbsp;<span class="text-semibold">{{transactions.tracking_id}}</span>
+                            </li>
+                            <li>Mode:&nbsp;<span class="text-semibold">{{transactions.payment_gateway}}</span>
+                            </li>
+                            <li>Paid On:&nbsp;<span class="text-semibold">{{transactions.txn_date | date: 'dd-MM-yyyy-hh:mm'}} </span></li>
+                        </ul>
+                    </div>
+                </div><hr style="margin-bottom: -25px !important;"/>
+                <div class="table-responsive no-boader">
+                    <table class="table" style="margin-top: -25px !important; margin-bottom: -20px !important;">
+                        <thead>
+                        <tr>
+                            <th>S.no</th>
+                            <th>Term Name</th>
+                            <th>Description</th>
+                            <th>Amount</th>
+                        </tr>
+                        </thead>
+                        <tbody *ngIf="feeDetails">
+                        <tr *ngFor="let feeDetail of feeDetails.feeTypes; let i=index">
+                            <td>{{i + 1}}</td>
+                            <td>{{feeDetails.termName}}</td>
+                            <td class="no-margin">{{feeDetail.name}}</td>
+                            <td>{{feeDetail.amount}}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <th>Paid&nbsp;Amount</th>
+                            <td>
+                                {{transactions.amount}}
+                            </td>
+                        </tr>
+                        <tr *ngIf="feeDetails.netAmount - feeDetails.paidAmount > 0">
+                            <td style="border-top: 0px;"></td>
+                            <td style="border-top: 0px;"></td>
+                            <th style="border-top: 0px;">Pending&nbsp;Amount</th>
+                            <td style="border-top: 0px;">
+                                {{feeDetails.netAmount - feeDetails.paidAmount}}
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <hr/>
+                </div>
+                <p class="text-muted">This is a computer generated invoice. No Signature is required</p>
+            </div>
+        </div>
+        <!-- /invoice template -->
+    </div>
+</div>

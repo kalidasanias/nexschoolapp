@@ -1,0 +1,25 @@
+{
+	"eventName": "Orientation Program",
+	"eventType": "attend",
+	"startDate": "Mar 21",
+	"endDate": "Mar 25",
+	"endTime": "01:30 PM",
+	"startTime": "12:30 AM",
+	"venue": "School Auditorium",
+	"classes": " class 4 -6",
+	"desc": "desc",
+	"attendeesDetails" : [
+	{
+		"userName": "deepak",
+		"className": "Class 1",
+		"sectionName": "1",
+		"isRegistered": true
+	},
+	{
+		"userName": "deepak Kumar",
+		"className": "Class 1",
+		"sectionName": "1",
+		"isRegistered": true
+	}
+	]
+}

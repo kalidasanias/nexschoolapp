@@ -1,0 +1,30 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h6 class="panel-title"><span class="text-semibold text-uppercase"><i class="icon-file-text2 position-left"></i>Fee Payments </span><i class="icon-arrow-right15 text-pink-600"></i> <small>List of Fee</small></h6>
+        <div class="heading-elements">
+            <input hidden id="payButton" (click)="payNow($event)" data-title="Fee Details" data-size="70%" data-id="#payment" type="button">
+            <input hidden id="download" (click)="getTransactionDetails($event)" data-size="70%" data-id="#invoice" type="button" style="display: none;">
+        </div>
+    </div>
+
+    <div class="panel-body">
+        <table class="table datatable-fee-pay">
+            <thead>
+            <tr>
+                <th data-priority="1">Student Name</th>
+                <th>Term Name</th>
+                <th>Fee Name</th>
+                <th>Net.Amt</th>
+                <th>Paid.Amt</th>
+                <th>Due Date</th>
+                <th>Status</th>
+                <th data-priority="2">Action</th>
+                <th data-priority="3">Receipt</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+<payment></payment>
+<invoice></invoice>
+<transaction-details [feeDetailsObj]="feeDetailsObj" [feeTansactionDetails]="feeTansactionDetails"></transaction-details>

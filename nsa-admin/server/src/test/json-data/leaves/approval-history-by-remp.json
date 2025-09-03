@@ -1,0 +1,32 @@
+[
+	{
+		"empId" : "999",
+		"empName": "Johnson R",
+		"fromDate" : "5 Oct",
+		"toDate" : " 6 Oct",
+		"leaveTypeName": "Casual Leaves",
+		"leaveReason": "Unwell, Fever",
+		"status": "Approved",
+		"updatedDate": "4 Oct, 2017"
+	},
+	{
+		"empId" : "999",
+		"empName": "Whitney S",
+		"fromDate" : "5 Oct",
+		"toDate" : " 6 Oct",
+		"leaveTypeName": "Casual Leaves",
+		"leaveReason": "Unwell, Fever",
+		"status": "Approved",
+		"updatedDate": "4 Oct, 2017"
+	},
+	{
+		"empId" : "999",
+		"empName": "Whitney Rsoe",
+		"fromDate" : "5 Oct",
+		"toDate" : " 6 Oct",
+		"leaveTypeName": "Casual Leaves",
+		"leaveReason": "Unwell, Fever",
+		"status": "Approved",
+		"updatedDate": "4 Oct, 2017"
+	}
+]		 

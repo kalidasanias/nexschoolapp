@@ -1,0 +1,32 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h6 class="panel-title"><span class="text-semibold text-uppercase"><i class="icon-user-plus position-left"></i>Assign Vehicle to Users </span><i class="icon-arrow-right15 text-pink-600"></i> <small>List of Users </small></h6>
+        <div class="heading-elements">
+            <input *ngIf="enable" type="button" value="Assign User" data-size="75%" data-title="Assign User" data-toggle="from-right" data-id="#assignUser" class="btn btn-sm btn-primary" (click)="assignUser($event)"/>
+            <!--<a routerlink="./allocated/assign-user" ng-reflect-router-link="./assign-user"
+               ng-reflect-href="#/home/allocated/assign-user" href="#/home/allocated/assign-user" ><button  data-target="#modal_default" data-toggle="modal" type="button" class="btn btn-sm btn-primary heading-btn">Assign User</button></a>-->
+        </div>
+    </div>
+
+    <div class="panel-body">
+        <input type="hidden" id="deleteButton" (click)="confirmDelete($event)" />
+        <input type="hidden" id="warningDel" (click)="unassignStudent()" />
+
+        <table class="table datatable-student-allocation">
+            <thead>
+            <tr>
+                <th class="fc-title" width="10%" data-priority="1">Route</th>
+                <th>Reg No</th>
+                <th class="fc-title" width="20%">Location</th>
+                <th>Admn No. / Roll No.</th>
+                <th>Name</th>
+                <th>Class</th>
+                <th>Section</th>
+                <th data-priority="2">Action</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+<assign-user></assign-user>

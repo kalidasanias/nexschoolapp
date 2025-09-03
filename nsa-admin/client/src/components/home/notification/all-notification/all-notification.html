@@ -1,0 +1,252 @@
+<input type="hidden" id="existingFiles" (click)="getExistingFiles($event)">
+<div class="panel-heading" style="bottom:25px;">
+        <h6 class="panel-title" style="bottom: -13px">
+            <span class="text-semibold"><i class="fa fa-bars"></i> List of Notifications</span>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Time Period
+        </h6>
+
+        <input id="getDataByDuration" type="hidden" (click)="getDataByDuration($event)">
+        <div class="filer-section filter-label-top">
+            <label class="margin-left160 radio-inline hidden-xs">
+                <input type="radio" name="filter" value="today" checked (click)="duration($event)">Duration
+            </label>
+            <button [disabled]="!isDuration" #date type="button" class="margin-left10 hidden-xs btn btn-default attendance daterange-basic-disabledFuture">
+                <i class="icon-calendar22 position-left"></i>
+                <span></span>
+                <b class="caret"></b>
+            </button>
+
+            <label class="margin-left10 radio-inline">
+                <input type="radio" name="filter" value="today" checked (click)="today($event)"> Today
+            </label>
+            <label class="margin-left10 radio-inline">
+                <input type="radio" name="filter" value="week" (click)="week($event)"> This Week
+            </label>
+            <label class="margin-left10 radio-inline">
+                <input type="radio" name="filter" value="month" (click)="month($event)"> This Month
+            </label>
+
+        </div>
+        <div class="heading-elements" style="top:32px;">
+            <input *ngIf="enable" type="button" value="Create New Notification" data-size="75%" data-title="Create New Notification" data-toggle="from-right" data-id="#modal_theme_primary" class="btn btn-sm btn-primary" (click)="openOverlay($event)"/>
+            <!--<input hidden id="deleteButton" (click)="requested_delete($event)" type="button" style="display: none;">-->
+        </div>
+        <a class="heading-elements-toggle"><i class="icon-menu"></i></a>
+        <input hidden id="warningButton" (click)="requested_warning()" type="button" style="display: none;">
+        <input hidden id="deleteButton" (click)="requested_delete($event)" type="button" style="display: none;">
+        <input hidden id="sendButton" (click)="getNotificationById($event, 'false')" type="button" style="display: none;">
+        <input hidden id="editButton" (click)="getNotificationById($event, 'true')" data-size="75%" data-id="#modal_theme_primary" type="button" style="display: none;">
+    </div>
+    <div class="panel-body">
+        <table class="table datatable-nested">
+            <thead>
+            <tr>
+                <th data-priority="1">Notification Name</th>
+                <th>Total Count</th>
+                <th>Status</th>
+                <th>Updated By</th>
+                <th data-priority="2">Action</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+
+<!-- /generated column content -->
+<!-- Primary modal -->
+
+<div id="modal_theme_primary" class="overlay-popup footer-popup" style="display: none;">
+    <!-- RIGHT PANEL STARTS -->
+    <div class="cd-panel">
+        <div class="cd-panel-header">
+            <!-- <div class="hidden-xs simple-field-hf"></div> -->
+            <div class="simple-field-hf">
+            </div>
+            <a (click)="closeOverlay($event)" class="cd-panel-close">Close</a>
+        </div>
+        <div class="cd-panel-container">
+            <div class="cd-panel-content" id="side-panel-container">
+                <form class="form-horizontal form-validate" [formGroup]="templateForm" >
+                    <div class="modal-body" [ngClass]="{'not-active': !enableData}">
+                        <div class="collapse in">
+                            <div *ngFor="let p of media" class="alert alert-info-new alert-info alert-styled-left alert-arrow-left alert-component" style="padding: 0px !important;">
+                                <label class="control-label col-md-offset-1 col-sm-offset-1">Total SMS : </label><label class="text-danger">{{p.available_limit}}</label>
+                                <label class="control-label col-md-offset-2 col-sm-offset-2">Used : </label><label class="text-danger">{{p.used_count}}</label>
+                                <label class="control-label col-md-offset-3 col-sm-offset-3">Available : </label><label class="text-danger">{{p.available_limit - p.used_count}}</label>
+                            </div>
+                            <fieldset formGroupName="smsTemplate">
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">Notification Name <span class="text-danger">*</span></label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" [ngModel]="title" required="required" placeholder="Enter Title" formControlName="title">
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <div class="form-group" >
+                                <label class="control-label col-md-3">Mobile Number </label>
+                                <div class="col-md-9">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="icon-mobile2"></i></span>
+                                        <input type="text" class="form-control"  placeholder="Mobile Number" formControlName="phoneNo" >
+                                        <input type="hidden" class="form-control"  placeholder="Mobile Number" formControlName="notificationId" >
+                                    </div>
+                                    <label class="text-danger">Note :  Send messages for multiple mobile numbers by separating them with comma(,)</label>
+                                </div>
+                            </div>
+                            <div class="form-group" >
+                                <label class="control-label col-md-3">Students </label>
+                                <div class="col-md-9">
+                                    <p-autoComplete field="suggestStudent" placeholder="Search Students" [(ngModel)]="texts" styleclass="wid100" formControlName="students" [suggestions]="results" (completeMethod)="search($event)" [multiple]="true"></p-autoComplete>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Message For </label>
+                                <div class="col-md-9">
+                                    <p-tree  [value]="data" >
+                                        <template let-node  pTemplate type="default">
+                                            <input type="hidden" formControlName="classes">
+                                            <input type="checkbox" [(ngModel)]="node.selected" [ngModelOptions]="{standalone: true}" [indeterminate]="node.partialSelection" (ngModelChange)="nodeSelected(node)"><span style="margin-left: 6px">{{node.label}}</span>
+                                        </template>
+                                    </p-tree>
+                                </div>
+                            </div>
+                            <!--<fieldset formGroupName="notifyTo">
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">Message For</label>
+                                    <div class="col-md-9">
+                                        <select name="select" class="form-control" formControlName="roleId">
+                                            <option *ngFor="let p of prototypes" [value]="p.id" selected="p==={{myDefault}}">
+                                                {{ p.name }}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </fieldset>-->
+                            <fieldset formGroupName="smsTemplate">
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">Template </label>
+                                    <div class="col-md-9">
+                                        <!--<select (change)="getTemplateById($event.target.value)" name="select" class="form-control" formControlName="templateId" >
+                                            <option *ngFor="let selectedType of selectedTypes" [value]="selectedType.templateId" selected="selectedType==={{myDefault}}">{{selectedType.templateName}}</option>
+                                            <option [value]="template.template_id"  *ngFor="let template of templates">{{template.template_title}}</option>
+                                        </select>-->
+                                        <select  (click)="getTemplateById($event.target.value)" class="select-change" #singleClass id="bootstrap-class" data-width="100%">
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">Message <span class="text-danger">*</span></label>
+                                    <div class="col-md-9" *ngFor="let template1 of template">
+                                        <!-- Basic layout-->
+                                        <textarea id="templateName" ng-trim="false" [maxlength]="900" formControlName="templateName" rows="3" cols="3" class="form-control hide-scroll" (keydown)="keyDown()" [ngModel]="template1.template_message" required="required"[value]="template1.template_message" ></textarea><br/>
+                                        <input hidden type="text" formControlName="templateTitle" [ngModel]="template1.template_title" [value]="template1.template_title">
+                                        <span>{{currentText}} Characters</span> <span formControlname="count">({{count}} SMS) </span> |  <span> Characters Left : {{ charsLeft }}/900 </span><br/>
+                                        <label class="text-danger">Note : Replace * with valid data</label>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <div class="row form-horizontal">
+                                <div class="col-md-12" style="margin-left:81px;">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label" style="right:80px;">Attachments</label>
+                                        <div class="col-sm-4">
+                                            <div class="uploader bg-info"><input type="file" accept=".xls,.xlsx,.jpg,.jpeg,.png,.txt,.doc,.docx,.xl,.pdf,.pptx,.gif,.html,.xml" class="file-styled" name="multiple" ng2FileSelect [uploader]="uploader" multiple><span class="filename" style="user-select: none;">Select File to Upload</span><span class="action" style="user-select: none;"><i class="icon-plus2"></i></span></div>
+                                            <span class="help-block">No.of Files Selected: {{ uploader?.queue?.length }}<ng-container *ngIf="notifyObj.attachments"><span class="text-pink-700">&nbsp;||&nbsp;</span><a id="viewAttachment" class="blink-text" (click)="viewAttachment()">view attachments</a></ng-container></span>
+                                        </div>
+                                        <label class="control-label col-md-2" style="left: 50px;" *ngIf="enable">Channels
+                                        </label>
+                                        <div class="col-md-4" formGroupName="notify" *ngIf="enable">
+                                            <div class="form-group">
+                                                <div class="col-sm-12">
+                                                    <div class="row">
+                                                        <div class="col-md-3 sms hide">
+                                                            <div class="form-group">
+                                                                <label class="checkbox-inline" style="font-size:12px;">
+                                                                    <input  #sms type="checkbox">SMS
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-3 email hide">
+                                                            <div class="form-group">
+                                                                <label class="checkbox-inline" style="font-size:12px;">
+                                                                    <input #email type="checkbox" class="emailChecked">Email
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-3 push hide">
+                                                            <div class="form-group">
+                                                                <label class="checkbox-inline" style="font-size:12px;">
+                                                                    <input #push type="checkbox">App
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th width="30%">Name</th>
+                                            <th>Size</th>
+                                            <th width="15%">Progress</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr *ngFor="let item of uploader.queue">
+                                            <td class="fc-title">{{ item.file.name }}</td>
+                                            <td nowrap>{{ item.file.size/1024/1024 | number:'.2' }} MB</td>
+                                            <td>
+                                                <div class="progress progress-xxs" style="margin-bottom: 0;">
+                                                    <div class="progress-bar progress-bar-success" role="progressbar" [ngStyle]="{ 'width': item.progress + '%' }"></div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center">
+                                                <span *ngIf="item.isSuccess"><i class="glyphicon glyphicon-ok text-success"></i></span>
+                                                <span *ngIf="item.isError"><i class="glyphicon glyphicon-remove text-danger"></i></span>
+                                            </td>
+                                            <td>
+                                                <!--<a class="icon-upload4 text-success" (click)="item.upload()" [ngClass]="{'disabled': item.isReady || item.isUploading || item.isSuccess}"></a>-->
+                                                <a class="fa fa-trash-o fa-lg text-danger" (click)="item.remove()"></a>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <hr/>
+                                    <div>
+                                        <div class="content-group-sm">
+                                            <p class="text-semibold">Uploading Status</p>
+                                            <div class="progress progress-xxs">
+                                                <div class="progress-bar progress-bar-success"  [ngClass]="{'active progress-bar-striped': uploader.progress != 100}" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>
+                                            </div>
+                                            <span [ngClass]="{'text-success-800':uploader.progress > 0,'blink-text': uploader.progress == 100}">{{uploader.progress + '% Completed'}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="overlay-footer">
+                        <div class="right-align overlay-footer-content-rt">
+                            <button type="button" class="btn btn-sm btn-default" (click)="closeOverlay($event)">Close</button>
+                            <button *ngIf="enable" type="submit" id="Draft" (click)="saveNotification('Draft')" class="btn btn-primary btn-ladda btn-ladda-progress Draft" data-style="expand-right" data-spinner-size="20"><span class="ladda-label">Save as Draft</span></button>
+                            <button *ngIf="enable" type="submit" id="Sent" (click)="saveNotification('Sent')" class="btn btn-primary btn-ladda btn-ladda-progress Sent" data-style="expand-right" data-spinner-size="20"><span class="ladda-label">Send</span></button>
+                        </div>
+                    </div>
+                </form>
+                <br><br><br><br>
+            </div>
+    </div>
+</div>
+<!-- /primary modal -->
+
+</div>
+    <attachment></attachment>

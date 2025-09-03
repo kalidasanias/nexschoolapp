@@ -1,0 +1,67 @@
+<div id="edit-leave-overlay" class="overlay-popup footer-popup" style="display: none;">
+    <!-- RIGHT PANEL STARTS -->
+    <div class="cd-panel">
+        <div class="cd-panel-header">
+            <!-- <div class="hidden-xs simple-field-hf"></div> -->
+            <div class="simple-field-hf">
+
+            </div>
+            <a (click)="closeOverlay($event)" class="cd-panel-close">Close</a>
+        </div>
+        <div class="cd-panel-container">
+            <div class="cd-panel-content" id="side-panel-container">
+                <form class="form-horizontal form-validate" [formGroup]="leaveForm">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">Employee ID&nbsp;<span class="text-danger">*</span></label>
+                            <div class="form-group col-lg-4">
+                                <input type="" class="form-control" placeholder="" formControlName="emp_id">
+                            </div>
+                            <label class="col-lg-2 control-label">Employee Name&nbsp;<span class="text-danger">*</span></label>
+                            <div class="form-group col-lg-4">
+                                <input type="" class="form-control" placeholder="Employee Name" formControlName="emp_username">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">Reporting Manager ID&nbsp;<span class="text-danger">*</span></label>
+                            <div class="form-group col-lg-4">
+                                <input type="" class="form-control" placeholder="" formControlName="reporting_emp_id">
+                            </div>
+                            <label class="col-lg-2 control-label">Reporting Manager Name&nbsp;<span class="text-danger">*</span></label>
+                            <div class="form-group col-lg-4">
+                                <input type="" class="form-control" placeholder="Employee Name" formControlName="reporting_emp_username">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">Department</label>
+                            <div class="form-group col-lg-4">
+                                <input type="" class="form-control" placeholder="Department" formControlName="department">
+                            </div>
+                            <label class="col-lg-2 control-label">No Of Days</label>
+                            <div class="form-group col-lg-4">
+                                <input type="text" class="form-control" value="" formControlName="no_of_leaves">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">Leave Type <span class="text-danger">*</span></label>
+                            <div class="form-group col-lg-4">
+                                <input type="" class="form-control" placeholder="" formControlName="leave_type_name">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="overlay-footer">
+                        <div class="right-align overlay-footer-content-rt">
+                            <button type="button" class="btn btn-default" (click)="closeOverlay($event)">Close</button>
+                            <button type="submit" [disabled]="!leaveForm.valid" id="save" (click)="saveLeave('saveLeave')" class="btn btn-primary">Update</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- cd-panel-container -->
+        </div>
+    </div>
+    <!-- right panel script -->
+</div>
+

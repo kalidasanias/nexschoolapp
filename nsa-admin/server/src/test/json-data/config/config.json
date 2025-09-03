@@ -1,0 +1,88 @@
+{
+  "status":{
+    "code":200,
+    "message":"Success Message Here"
+  },
+  "tenant":{
+    "tenantId":"",
+    "schoolId":"",
+    "academicYear":""
+  },
+  "features":[
+    {
+      "featureId":"1",
+      "featureName":"Notifications",
+      "featureDesc":"Notifications",
+      "enabled":true,
+      "assetUrl":"images/notifications/"
+    },
+    {
+      "featureId":"2",
+      "featureName":"Assignments",
+      "featureDesc":"Assignments",
+      "enabled":true,
+      "assetUrl":"images/assignments/"
+    },
+    {
+      "featureId":"3",
+      "featureName":"Schedules",
+      "featureDesc":"Schedules",
+      "assetUrl":"images/schedules/",
+      "enabled":true
+    },
+    {
+      "featureId":"4",
+      "featureName":"Events",
+      "featureDesc":"Events",
+      "assetUrl":"images/assetUrl/",
+      "enabled":true
+    },
+    {
+      "featureId":"5",
+      "featureName":"Attendance",
+      "featureDesc":"Attendance",
+      "assetUrl":"images/attendance/",
+      "enabled":true
+    },
+    {
+      "featureId":"6",
+      "featureName":"Fee Management",
+      "featureDesc":"Fee Management",
+      "assetUrl":"images/fee-management/",
+      "enabled":true
+    },
+    {
+      "featureId":"7",
+      "featureName":"Progress Card",
+      "featureDesc":"Progress Card",
+      "assetUrl":"images/progress-card/",
+      "enabled":true
+    },
+    {
+      "featureId":"8",
+      "featureName":"Transport",
+      "featureDesc":"Transport",
+      "assetUrl":"images/transport/",
+      "enabled":true
+    },
+    {
+      "featureId":"9",
+      "featureName":"Journals",
+      "featureDesc":"Journals",
+      "assetUrl":"images/journals/",
+      "enabled":true
+    },
+    {
+      "featureId":"10",
+      "featureName":"Photo Gallery",
+      "featureDesc":"Photo Gallery",
+      "assetUrl":"images/photo-gallery/",
+      "enabled":true
+    }
+  ],
+  "urls":{
+    "assetBaseUrl":"http://www.imagebaseurl.com/",
+    "videoBaseUrl":"http://www.videobaseurl.com/"
+  },
+  "version":"1.0.0"
+}

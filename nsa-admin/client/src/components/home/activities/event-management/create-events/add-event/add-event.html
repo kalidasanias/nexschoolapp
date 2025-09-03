@@ -1,0 +1,265 @@
+<div id="addEvent" class="overlay-popup footer-popup" style="display: none;">
+    <!-- RIGHT PANEL STARTS -->
+    <div class="cd-panel">
+        <div class="cd-panel-header">
+            <!-- <div class="hidden-xs simple-field-hf"></div> -->
+            <div class="simple-field-hf">
+            </div>
+            <a (click)="closeOverlay($event)" (click)="uploader.clearQueue()" class="cd-panel-close">Close</a>
+        </div>
+        <div class="cd-panel-container">
+            <div class="cd-panel-content" id="side-panel-container">
+                <form class="form-horizontal" [formGroup]="eventForm">
+                    <div class="modal-body">
+                        <div class="row form-horizontal">
+                            <div class="col-md-6 ">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4">Activity Title  <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" formControlName="eventName">
+                                        <div control-messages class="validation-error-label" [control]="eventForm.controls.eventName"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 ">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4">Description
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <textarea ng-trim="false" [maxlength]="160" id="templateName" rows="3" cols="3"
+                                                  class="form-control hide-scroll" (keydown)="keyDown()"
+                                                  formControlName="desc"></textarea>
+                                        <span class="text-danger">Characters limit : 160</span>&nbsp; &nbsp; &nbsp; &nbsp;
+                                        <span> Characters Left : {{ charsLeft }}/160 </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row form-horizontal">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4">Duration  <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-sm-8" >
+                                        <button #dueDate type="button" class="col-sm-12 btn btn-default daterange-basic-disabled">
+                                            <i class="icon-calendar22 position-left" style="float: left;padding: 4px;"></i>
+                                            <span style="text-align: center" class="selectedDate"></span>
+                                            <b class="caret" style="padding: 4px; float: right;"></b>
+
+                                        </button>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Activity Time <span
+                                            class="text-danger">*</span></label>
+                                    <div class="col-sm-8" style="bottom: 20px; right:9px;">
+                                        <div #pickerStartTime class="col-md-6">
+                                            <datetime  [datepicker]="false" [timepicker]="{ showMeridian: true, minuteStep: 1, placeholder: o}"  [ngModelOptions]="{standalone: true}" [(ngModel)]="datei"></datetime>
+                                        </div>
+
+                                        <div #pickerEndTime class="col-md-6">
+                                            <datetime [datepicker]="false" [timepicker]="{ showMeridian: true, minuteStep: 1, placeholder: o}"  [ngModelOptions]="{standalone: true}" [(ngModel)]="datey"></datetime>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row form-horizontal">
+                            <div class="col-md-6 ">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4">Activity Type <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <select #selectActivity id="activity-type" data-width="100%">
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 ">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4">Category
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <select #selectCategory id="event-category" data-width="100%">
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row form-horizontal">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4">Venue <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <div class="multi-select-full">
+                                            <select #selectVenue class="event-venue" multiple="multiple">
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--<div class="col-md-6 ">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4">Attendees 
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <div class="multi-select-full">
+                                            <select #selectStudents class="event-users" multiple="multiple">
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>-->
+                        </div>
+                        <div class="row form-horizontal">
+                            <div class="form-group">
+                                <label class="control-label col-md-2" style="padding-left: 20px;">Classes <span class="text-danger">*</span></label>
+                                <div class="col-md-10" style="padding-left: 16px;">
+                                    <p-tree  [value]="data" >
+                                        <template let-node  pTemplate type="default">
+                                            <input type="checkbox" [(ngModel)]="node.selected" [ngModelOptions]="{standalone: true}" [indeterminate]="node.partialSelection" (ngModelChange)="nodeSelected(node)"><span style="margin-left: 6px">{{node.label}}</span>
+                                        </template>
+                                    </p-tree>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row form-horizontal">
+                            <!--<div class="col-md-6 ">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4">Outside School
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <div class="input-group">
+                                           <span class="input-group-btn">
+                                           <button class="btn btn-default btn-icon" type="button"><i class="icon-location4"></i></button>
+                                           </span>
+                                            <input class="form-control" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>-->
+                            <div class="col-md-12 ">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Students
+                                    </label>
+                                    <div class="col-sm-5">
+                                        <p-autoComplete field="suggestStudent" placeholder="Search Students" [(ngModel)]="texts" styleclass="wid100" formControlName="students" [suggestions]="results" (completeMethod)="search($event)" [multiple]="true"></p-autoComplete>
+                                    </div>
+                                    <div class="col-sm-5" align="center">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" checked="checked" formControlName="isMandatory">
+                                            <span style="font-size: 15px"><b>This activity is mandatory to attend</b></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row form-horizontal">
+                            <div class="col-md-12" formGroupName="notify">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Notification
+                                    </label>
+                                    <div class="col-sm-10">
+                                        <div class="row">
+                                            <div class="col-md-2 sms hide">
+                                                <div class="form-group">
+                                                    <label class="checkbox-inline" style="font-size:12px;">
+                                                        <input  #sms type="checkbox" class="smsChecked">SMS
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2 email hide">
+                                                <div class="form-group">
+                                                    <label class="checkbox-inline" style="font-size:12px;">
+                                                        <input #email type="checkbox" class="emailChecked">Email
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2 push hide">
+                                                <div class="form-group">
+                                                    <label class="checkbox-inline" style="font-size:12px;">
+                                                        <input #push type="checkbox" class="pushChecked">App
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row form-horizontal">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Attachments</label>
+                                    <div class="col-sm-4">
+                                        <div class="uploader bg-info"><input type="file" accept=".xls,.xlsx,.jpg,.jpeg,.png,.txt,.doc,.docx,.xl,.pdf,.pptx,.gif,.html,.xml" class="file-styled" name="multiple" ng2FileSelect [uploader]="uploader" multiple><span class="filename" style="user-select: none;">Select File to Upload</span><span class="action" style="user-select: none;"><i class="icon-plus2"></i></span></div>
+                                        <span class="help-block">No.of Files Selected: {{ uploader?.queue?.length }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th width="30%">Name</th>
+                                        <th>Size</th>
+                                        <th width="15%">Progress</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr *ngFor="let item of uploader.queue">
+                                        <td class="fc-title">{{ item.file.name }}</td>
+                                        <td nowrap>{{ item.file.size/1024/1024 | number:'.2' }} MB</td>
+                                        <td>
+                                            <div class="progress progress-xxs" style="margin-bottom: 0;">
+                                                <div class="progress-bar progress-bar-success" role="progressbar" [ngStyle]="{ 'width': item.progress + '%' }"></div>
+                                            </div>
+                                        </td>
+                                        <td class="text-center">
+                                            <span *ngIf="item.isSuccess"><i class="glyphicon glyphicon-ok text-success"></i></span>
+                                            <span *ngIf="item.isError"><i class="glyphicon glyphicon-remove text-danger"></i></span>
+                                        </td>
+                                        <td>
+                                            <!--<a class="icon-upload4 text-success" (click)="item.upload()" [ngClass]="{'disabled': item.isReady || item.isUploading || item.isSuccess}"></a>-->
+                                            <a class="fa fa-trash-o fa-lg text-danger" (click)="item.remove()"></a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <hr/>
+                                <div>
+                                    <div class="content-group-sm">
+                                        <p class="text-semibold">Uploading Status</p>
+                                        <div class="progress progress-xxs">
+                                            <div class="progress-bar progress-bar-success"  [ngClass]="{'active progress-bar-striped': uploader.progress != 100}" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>
+                                        </div>
+                                        <span [ngClass]="{'text-success-800':uploader.progress > 0,'blink-text': uploader.progress == 100}">{{uploader.progress + '% Completed'}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row form-horizontal">
+                        </div>
+                    </div>
+                    <div class="overlay-footer">
+                        <div class="right-align overlay-footer-content-rt">
+                            <button type="button" class="btn btn-default" (click)="closeOverlay($event)">Close</button>
+                            <button type="button" [disabled]="!eventForm.valid" (click)="save('saveEvent')" id="saveEvent" class="btn btn-primary btn-ladda btn-ladda-progres" data-spinner-size="20" data-style="expand-right">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- cd-panel-container -->
+        </div>
+    </div>
+    <!-- right panel script -->
+</div>
+

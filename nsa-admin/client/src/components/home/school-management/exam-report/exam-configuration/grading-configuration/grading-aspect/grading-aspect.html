@@ -1,0 +1,28 @@
+<hr/>
+
+<div class="panel-heading">
+    <h6 class="panel-title"><span class="text-semibold text-uppercase">
+        <i class="icon-clipboard position-left"></i>List of Grading Aspects</span></h6>
+    <div class="heading-elements">
+        <input type="button" value="Add Grading Aspect" data-size="50%" data-title="Add Grading Aspect"
+               data-toggle="from-right" data-id="#add_grading" class="btn btn-sm btn-primary heading-btn"
+               (click)="addGradingAspect($event)"/>
+    </div>
+</div>
+<hr/>
+<div class="panel-body">
+    <table class="table datatable-export">
+        <thead>
+        <tr>
+            <th>S.No</th>
+            <th>Grading Aspects</th>
+            <th>Aspect Type</th>
+            <th>Grading Entities</th>
+            <th>Updated By</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+
+    </table>
+</div>
+<add-grading-aspect></add-grading-aspect>

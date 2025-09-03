@@ -1,0 +1,78 @@
+ [
+    {
+      "assignmentName":"English-Study",
+      "assignmentDesc":"Study the poem The Palm of life tomorrow you all will be having oral test",
+      "createdBy": "Admin",
+      "assignmentClass":[
+        {
+          "className":"5th Standart",
+          "classId":"2312312312312312",
+          "sections":[
+            {
+              "sectionName":"A",
+              "sectionId":"32423423423423"
+            },
+            {
+              "sectionName":"B",
+              "sectionId":"32423423423423"
+            }
+          ]
+        }
+      ],
+      "subject":"English",
+      "assignmentType":"Study",
+      "dueDate":"15-06-2017",
+      "dueTime":"01.00 PM",
+      "repeat":"None",
+      "attachment":[
+        {
+          "fileName":"English Assignment",
+          "filePath":""
+        },
+        {
+          "fileName":"English Assignment1",
+          "filePath":""
+        }
+      ],
+      "priority":"High",
+      "reminderToStudent":true
+    },
+    {
+      "assignmentName":"Hindi Task",
+      "assignmentDesc":"Study lesson 1 paragraph question and answers you all will have 15 mins test on that each one will be given seperate questions",
+      "assignmentClass":[
+        {
+          "className":"7th Standart",
+          "classId":"56456456456456",
+          "sections":[
+            {
+              "sectionName":"B",
+              "sectionId":"45433453453345"
+            },
+            {
+              "sectionName":"C",
+              "sectionId":"34534534534535"
+            }
+          ]
+        }
+      ],
+      "subject":"Social",
+      "assignmentType":"Test",
+      "dueDate":"18-06-2017",
+      "dueTime":"10.00 AM",
+      "repeat":"None",
+      "createdBy": "Admin",
+      "attachment":[
+        {
+          "fileName":"Social Assignment",
+          "filePath":""
+        },
+        {
+          "fileName":"Social Assignment",
+          "filePath":""
+        }
+      ],
+      "priority":"High",
+      "reminderToStudent":false
+    }
+  ]

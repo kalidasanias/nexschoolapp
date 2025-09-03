@@ -1,0 +1,144 @@
+<div id="record_attendance" class="overlay-popup footer-popup" style="display: none;">
+    <!-- RIGHT PANEL STARTS -->
+    <div class="cd-panel">
+        <div class="cd-panel-header">
+            <!-- <div class="hidden-xs simple-field-hf"></div> -->
+            <div class="simple-field-hf">
+            </div>
+            <a (click)="closeOverlay($event)" class="cd-panel-close">Close</a>
+        </div>
+        <div class="cd-panel-container">
+            <div class="cd-panel-content" id="side-panel-container">
+                <form class="form-horizontal">
+                    <div class="modal-body">
+                        <div class="row form-horizontal">
+                            <div class="col-md-3 margin-left20">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4">Class <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <div class="row">
+                                            <select (click)="getSectionByClass()" class="select-change" #singleClass id="attendance-class" data-width="100%">
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="sections" class="col-md-3 margin-left20 hide">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4">Section <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <div class="row">
+                                            <select #singleSection id="attendance-section" data-width="100%">
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2 margin-left20">Date <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-sm-10">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="icon-calendar3"></i></span>
+                                            <input #date type="text" name="first" [ngModel]="currentDate | date:'dd MMMM, yyyy'" class="form-control pickadate-disable-future" placeholder="End Date&hellip;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2 navbar-right txt-align-right">
+                                <div class="form-group">
+                                    <input class="btn btn-default " id="cancel-back" value="Clear" (click)="resetForm()"   type="button">
+                                    <input class="btn btn btn-primary ui-wizard-content margin-right10 ui-formwizard-button" (click)="getAttendanceData()" id="cancel-next" value="Search" type="button">
+                                </div>
+                            </div>
+                        </div>
+
+                        <legend class="text-semibold">
+                            <i class="icon-paragraph-justify2"></i>
+                            Student List
+                        </legend>
+                        <table class="table datatable-record-attendance">
+                            <thead>
+                            <tr>
+                                <th class="">Admn No. / Roll No.</th>
+                                <th class="">Student Name</th>
+                                <th class="">Record Attendance</th>
+                                <th class="">Remarks</th>
+                            </tr>
+                            </thead>
+                        </table>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Notify For
+                            </label>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="checkbox-inline" style="font-size:12px;">
+                                                        <input  #presntees type="checkbox" class="present"  >Present
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="checkbox-inline" style="font-size:12px;">
+                                                        <input #absentees type="checkbox" class="absent" checked="checked">Absent
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <label class="control-label col-md-2">Notification
+                            </label>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <div class="row">
+                                            <div class="col-md-3 sms hide">
+                                                <div class="form-group">
+                                                    <label class="checkbox-inline" style="font-size:12px;">
+                                                        <input  #sms type="checkbox" class="smsChecked">SMS
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 email hide">
+                                                <div class="form-group">
+                                                    <label class="checkbox-inline" style="font-size:12px;">
+                                                        <input #email type="checkbox" class="emailChecked">Email
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 push hide">
+                                                <div class="form-group">
+                                                    <label class="checkbox-inline" style="font-size:12px;">
+                                                        <input #push type="checkbox" class="pushChecked">App
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="overlay-footer">
+                        <div class="right-align overlay-footer-content-rt">
+                            <button type="button" class="btn btn-default" (click)="closeOverlay($event)">Close</button>
+                            <input hidden id="saveAtdnce" (click)="save('saveAttendance', $event)" type="button" style="display: none;">
+                            <button type="button" id="saveAttendance" disabled="disabled" class="btn btn-primary btn-ladda btn-ladda-progress"style="padding-right:15px;">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- cd-panel-container -->
+        </div>
+    </div>
+    <!-- right panel script -->
+</div>

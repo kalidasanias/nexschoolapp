@@ -1,0 +1,487 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h6 class="panel-title"><span class="text-semibold text-uppercase"><i class = "icon-graph position-left"></i>Exam Scores</span></h6>
+        <div class="heading-elements">
+            <button type="button" class="btn btn-sm btn-primary heading-btn" data-toggle="modal" data-target="#modal_full">Add marks</button>
+        </div>
+    </div>
+    <div class="panel-body">
+        <form class="form-horizontal" action="#">
+            <div class="row form-horizontal">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label col-sm-5">Exam Name
+                        </label>
+                        <div class="col-sm-7">
+                            <div class="row">
+                                <select class="bootstrap-select" data-width="100%">
+                                    <option value="term1">-Select Exam-</option>
+                                    <option value="term2">FA 1</option>
+                                    <option value="term2">FA 2</option>
+                                    <option value="term3">FA 3</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 margin-left30">
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">Class
+                        </label>
+                        <div class="col-sm-8">
+                            <div class="row">
+                                <select class="bootstrap-select" data-width="100%">
+                                    <option value="term1">-- Select Class --</option>
+                                    <option value="term2">Class 1</option>
+                                    <option value="term2">Class 2</option>
+                                    <option value="term3">Class 3</option>
+                                    <option value="term4">Class 4</option>
+                                    <option value="term5">Class 5</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 margin-left40">
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">Section
+                        </label>
+                        <div class="col-sm-8">
+                            <div class="row">
+                                <select class="bootstrap-select" data-width="100%">
+                                    <option value="sub1">-- Select Section --</option>
+                                    <option value="sub2">Section A</option>
+                                    <option value="sub2">Section B</option>
+                                    <option value="sub3">Section C</option>
+                                    <option value="sub4">Section D</option>
+                                    <option value="sub5">Section E</option>
+                                    <option value="sub6">Section F</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 navbar-right txt-align-right">
+                    <div class="form-group">
+                        <input class="btn btn-default " id="cancel-back" value="Clear"  type="reset">
+                        <input class="btn btn btn-primary ui-wizard-content margin-right10 ui-formwizard-button" id="cancel-next" value="Submit" type="submit">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h6 class="panel-title"><span class="text-semibold text-uppercase"><i class="icon-list position-left"></i>List of Classes </span><i class="icon-arrow-right15 text-pink-600"></i> <small>Formative Assesment 1 </small></h6>
+    </div>
+
+    <div class="panel-body">
+        <table class="table datatable-export21">
+            <thead>
+            <tr>
+                <th>S.No.</th>
+                <th>Class</th>
+                <th>Section</th>
+                <th>Exam Dates</th>
+                <th>Overall Pass%</th>
+                <th>Grade Average</th>
+                <th>stats</th>
+                <th>Updated By</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1</td>
+                <td>Class 1</td>
+                <td>Section A</td>
+                <td>Sep 20- Sep 27</td>
+                <td>90</td>
+                <td>B1</td>
+                <td>
+                    <a class="icon-primary"><i class="icon-table2 fa-lg"></i></a>&nbsp;&nbsp;
+                    <a class="icon-danger"><i class="icon-graph fa-lg"></i></a>
+                </td>
+                <td>Admin-Jan 30 2017 2:45 P.M</td>
+                <td>
+                    <a class="icon-primary"><i class="fa fa-pencil-square-o fa-lg"></i></a>
+                    <a class="icon-danger"><i class="fa fa-trash-o fa-lg"></i></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div id="modal_full" class="modal fade refuse">
+    <div class="modal-dialog modal-full">
+        <div class="modal-content">
+            <div class="modal-header bg-info">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h5 class="modal-title">Create Exam</h5>
+            </div>
+            <div class="modal-body">
+                <form action="#" class="form-horizontal">
+                    <div class="row form-horizontal">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label col-sm-5">Exam Name
+                                </label>
+                                <div class="col-sm-7">
+                                    <div class="row">
+                                        <select class="bootstrap-select" data-width="100%">
+                                            <option value="term1">-Select Exam-</option>
+                                            <option value="term2">FA 1</option>
+                                            <option value="term2">FA 2</option>
+                                            <option value="term3">FA 3</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 margin-left30">
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Class
+                                </label>
+                                <div class="col-sm-8">
+                                    <div class="row">
+                                        <select class="bootstrap-select" data-width="100%">
+                                            <option value="term1">-- Select Class --</option>
+                                            <option value="term2">Class 1</option>
+                                            <option value="term2">Class 2</option>
+                                            <option value="term3">Class 3</option>
+                                            <option value="term4">Class 4</option>
+                                            <option value="term5">Class 5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 margin-left40">
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Section
+                                </label>
+                                <div class="col-sm-8">
+                                    <div class="row">
+                                        <select class="bootstrap-select" data-width="100%">
+                                            <option value="sub1">-- Select Section --</option>
+                                            <option value="sub2">Section A</option>
+                                            <option value="sub2">Section B</option>
+                                            <option value="sub3">Section C</option>
+                                            <option value="sub4">Section D</option>
+                                            <option value="sub5">Section E</option>
+                                            <option value="sub6">Section F</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 navbar-right txt-align-right">
+                            <div class="form-group">
+                                <input class="btn btn-default " id="cancel-back" value="Clear"  type="reset">
+                                <input class="btn btn btn-primary ui-wizard-content margin-right10 ui-formwizard-button" id="cancel-next" value="Submit" type="submit">
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="panel-heading">
+                        <h6 class="panel-title"><span class="text-semibold text-uppercase"><i class="icon-list position-left"></i>List of Classes </span><i class="icon-arrow-right15 text-pink-600"></i> <small>Formative Assesment 1 </small></h6>
+
+
+                        <div class="heading-elements">
+                            <ul class="icons-list">
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-sort-amount-desc position-left"></i> By Grade <span class="caret"></span></a>
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                        <li><a href="#">Show all</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">Open</a></li>
+                                        <li><a href="#">On hold</a></li>
+                                        <li><a href="#">Resolved</a></li>
+                                        <li><a href="#">Closed</a></li>
+                                        <li><a href="#">Dublicate</a></li>
+                                        <li><a href="#">Invalid</a></li>
+                                        <li><a href="#">Wontfix</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul class="icons-list">
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-sort-amount-desc position-left"></i> By Total <span class="caret"></span></a>
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                        <li><a href="#">Show all</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">Open</a></li>
+                                        <li><a href="#">On hold</a></li>
+                                        <li><a href="#">Resolved</a></li>
+                                        <li><a href="#">Closed</a></li>
+                                        <li><a href="#">Dublicate</a></li>
+                                        <li><a href="#">Invalid</a></li>
+                                        <li><a href="#">Wontfix</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul class="icons-list">
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-sort-amount-desc position-left"></i> By Status <span class="caret"></span></a>
+                                    <ul class="dropdown-menu ">
+                                        <li><a href="#">Show all</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">Open</a></li>
+                                        <li><a href="#">On hold</a></li>
+                                        <li><a href="#">Resolved</a></li>
+                                        <li><a href="#">Closed</a></li>
+                                        <li><a href="#">Dublicate</a></li>
+                                        <li><a href="#">Invalid</a></li>
+                                        <li><a href="#">Wontfix</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <button class="btn btn-sm btn-primary heading-btn" data-toggle="modal" data-target="#modal_theme_primary1"><i class="fa fa-upload position-left"></i>Import</button>
+
+                        </div>
+                    </div>
+
+                    <div class="panel-body">
+                        <table class="table datatable-fixed-complex">
+                            <thead>
+                            <tr>
+                                <th rowspan="2">Name</th>
+                                <th colspan="4">HR Information</th>
+                                <th colspan="4">Details</th>
+                            </tr>
+                            <tr>
+                                <th>Username</th>
+                                <th>Position</th>
+                                <th>Office</th>
+                                <th>Age</th>
+                                <th>Start date</th>
+                                <th>Salary</th>
+                                <th>Extn.</th>
+                                <th>E-mail</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Tiger</td>
+                                <td>Nixon</td>
+                                <td>System Architect</td>
+                                <td>Edinburgh</td>
+                                <td>61</td>
+                                <td>2011/04/25</td>
+                                <td><span class="label label-info">$320,800</span></td>
+                                <td>5421</td>
+                                <td><a href="#">t.nixon@datatables.net</a></td>
+                            </tr>
+                            <tr>
+                                <td>Garrett</td>
+                                <td>Winters</td>
+                                <td>Accountant</td>
+                                <td>Tokyo</td>
+                                <td>63</td>
+                                <td>2011/07/25</td>
+                                <td><span class="label label-danger">$170,750</span></td>
+                                <td>8422</td>
+                                <td><a href="#">g.winters@datatables.net</a></td>
+                            </tr>
+                            <tr>
+                                <td>Ashton</td>
+                                <td>Cox</td>
+                                <td>Junior Technical Author</td>
+                                <td>San Francisco</td>
+                                <td>66</td>
+                                <td>2009/01/12</td>
+                                <td><span class="label label-default">$86,000</span></td>
+                                <td>1562</td>
+                                <td><a href="#">a.cox@datatables.net</a></td>
+                            </tr>
+                            <tr>
+                                <td>Cedric</td>
+                                <td>Kelly</td>
+                                <td>Senior Javascript Developer</td>
+                                <td>Edinburgh</td>
+                                <td>22</td>
+                                <td>2012/03/29</td>
+                                <td><span class="label label-success">$433,060</span></td>
+                                <td>6224</td>
+                                <td><a href="#">c.kelly@datatables.net</a></td>
+                            </tr>
+                            <tr>
+                                <td>Airi</td>
+                                <td>Satou</td>
+                                <td>Accountant</td>
+                                <td>Tokyo</td>
+                                <td>33</td>
+                                <td>2008/11/28</td>
+                                <td><span class="label label-danger">$162,700</span></td>
+                                <td>5407</td>
+                                <td><a href="#">a.satou@datatables.net</a></td>
+                            </tr>
+                            <tr>
+                                <td>Brielle</td>
+                                <td>Williamson</td>
+                                <td>Integration Specialist</td>
+                                <td>New York</td>
+                                <td>61</td>
+                                <td>2012/12/02</td>
+                                <td><span class="label label-info">$372,000</span></td>
+                                <td>4804</td>
+                                <td><a href="#">b.williamson@datatables.net</a></td>
+                            </tr>
+                            <tr>
+                                <td>Herrod</td>
+                                <td>Chandler</td>
+                                <td>Sales Assistant</td>
+                                <td>San Francisco</td>
+                                <td>59</td>
+                                <td>2012/08/06</td>
+                                <td><span class="label label-danger">$137,500</span></td>
+                                <td>9608</td>
+                                <td><a href="#">h.chandler@datatables.net</a></td>
+                            </tr>
+                            <tr>
+                                <td>Rhona</td>
+                                <td>Davidson</td>
+                                <td>Integration Specialist</td>
+                                <td>Tokyo</td>
+                                <td>55</td>
+                                <td>2010/10/14</td>
+                                <td><span class="label label-default">$97,900</span></td>
+                                <td>6200</td>
+                                <td><a href="#">r.davidson@datatables.net</a></td>
+                            </tr>
+                            <tr>
+                                <td>Colleen</td>
+                                <td>Hurst</td>
+                                <td>Javascript Developer</td>
+                                <td>San Francisco</td>
+                                <td>39</td>
+                                <td>2009/09/15</td>
+                                <td><span class="label label-success">$405,500</span></td>
+                                <td>2360</td>
+                                <td><a href="#">c.hurst@datatables.net</a></td>
+                            </tr>
+                            <tr>
+                                <td>Sonya</td>
+                                <td>Frost</td>
+                                <td>Software Engineer</td>
+                                <td>Edinburgh</td>
+                                <td>23</td>
+                                <td>2008/12/13</td>
+                                <td><span class="label label-danger">$103,600</span></td>
+                                <td>1667</td>
+                                <td><a href="#">s.frost@datatables.net</a></td>
+                            </tr>
+                            <tr>
+                                <td>Jena</td>
+                                <td>Gaines</td>
+                                <td>Office Manager</td>
+                                <td>London</td>
+                                <td>30</td>
+                                <td>2008/12/19</td>
+                                <td><span class="label label-default">$90,560</span></td>
+                                <td>3814</td>
+                                <td><a href="#">j.gaines@datatables.net</a></td>
+                            </tr>
+                            <tr>
+                                <td>Quinn</td>
+                                <td>Flynn</td>
+                                <td>Support Lead</td>
+                                <td>Edinburgh</td>
+                                <td>22</td>
+                                <td>2013/03/03</td>
+                                <td><span class="label label-info">$342,000</span></td>
+                                <td>9497</td>
+                                <td><a href="#">q.flynn@datatables.net</a></td>
+                            </tr>
+                            <tr>
+                                <td>Charde</td>
+                                <td>Marshall</td>
+                                <td>Regional Director</td>
+                                <td>San Francisco</td>
+                                <td>36</td>
+                                <td>2008/10/16</td>
+                                <td><span class="label label-success">$470,600</span></td>
+                                <td>6741</td>
+                                <td><a href="#">c.marshall@datatables.net</a></td>
+                            </tr>
+                            <tr>
+                                <td>Haley</td>
+                                <td>Kennedy</td>
+                                <td>Senior Marketing Designer</td>
+                                <td>London</td>
+                                <td>43</td>
+                                <td>2012/12/18</td>
+                                <td><span class="label label-danger">$113,500</span></td>
+                                <td>3597</td>
+                                <td><a href="#">h.kennedy@datatables.net</a></td>
+                            </tr>
+                            <tr>
+                                <td>Tatyana</td>
+                                <td>Fitzpatrick</td>
+                                <td>Regional Director</td>
+                                <td>London</td>
+                                <td>19</td>
+                                <td>2010/03/17</td>
+                                <td><span class="label label-info">$385,750</span></td>
+                                <td>1965</td>
+                                <td><a href="#">t.fitzpatrick@datatables.net</a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer" >
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary"style="padding-right:15px;">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modal_theme_primary1" class="modal fade refuse">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-info">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h5 class="modal-title">Import Employee</h5>
+            </div>
+
+            <div class="modal-body">
+                <form class="form-horizontal form-validate">
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label text-semibold">Select File</label>
+                        <div class="col-lg-10">
+                            <input type="file" class="file-input">
+                        </div>
+                    </div>
+                </form>
+                <div class="form-group">
+                    <div class="panel border-left-lg border-left-primary">
+                        <div class="panel-body alpha-blue">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <h6 class="no-margin-top text-semibold">General Instructions</h6>
+                                    <ul>
+                                        <li>The Field with red color are mandatory</li>
+                                        <li>All date must be enter in DD/MM/YYYY format</li>
+                                        <li>Birth date must be less than curren date</li>
+                                        <li>E-mail id and phone number shoulld be in valid format</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-sm btn-primary heading-btn" data-toggle="modal" data-target="#modal_theme_primary1"><i class="fa fa-download position-left"></i>Template</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

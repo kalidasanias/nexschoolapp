@@ -1,0 +1,120 @@
+<div id="Marklist-upload" class="overlay-popup footer-popup" style="display: none;">
+    <!-- RIGHT PANEL STARTS -->
+    <div class="cd-panel">
+        <div class="cd-panel-header">
+            <!-- <div class="hidden-xs simple-field-hf"></div> -->
+            <div class="simple-field-hf">
+            </div>
+            <a (click)="closeOverlay($event)" class="cd-panel-close">Close</a>
+        </div>
+        <div class="cd-panel-container">
+            <div class="cd-panel-content" id="side-panel-container">
+                <form action="#" class="form-horizontal" [formGroup]="markListUploadForm">
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="control-label col-md-4 txt-align-left">Class&nbsp;<span
+                                        class="text-danger">*</span></label>
+                                <div class="col-md-7">
+                                    <select #markListclassSelect id="markListclass-name" class="select-change" (click)="getSectionByClass()" data-width="100%">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="control-label col-md-4 txt-align-left">Section&nbsp;<span
+                                        class="text-danger">*</span></label>
+                                <div class="col-md-7">
+                                    <select #markListsectionSelect id="markListsection-name" data-width="100%" class="select-change" (click)="getExamsByClassAndSections()">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="control-label col-md-4 txt-align-left">Exam Name&nbsp;<span
+                                        class="text-danger">*</span></label>
+                                <div class="col-md-7">
+                                    <select #markListexamSelect id="markListexam-name" class="select-change" data-width="100%">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="control-label col-md-4 txt-align-left">Download Template Excel File<br><span class="help-block">(Download the  excel template for updating the marks)</span></label>
+                                <div class="col-md-7">
+                                    <button type="button" class="btn btn-info" (click)="getDownloadTemplate()">Download Template&nbsp;&nbsp;
+                                        <i class="glyphicon glyphicon-download-alt"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="control-label col-md-4 txt-align-left">Upload Marks Excel File:&nbsp;<span class="text-danger">*</span><br><span class="help-block">(Please upload the template after updating the marks)</span></label>
+                                <div class="col-md-7">
+                                    <div class="uploader bg-info"><input type="file" id="selectFile" class="file-styled" [disabled]="uploader.queue.length" name="multiple" ng2FileSelect [uploader]="uploader"><span class="filename" style="user-select: none;">Select File to Upload</span><span class="action" style="user-select: none;"><i class="icon-plus2"></i></span></div>
+                                    <span class="help-block">No.of Files Selected: {{ uploader?.queue?.length }}<ng-container><span class="text-pink-700">&nbsp;||&nbsp;</span><span class="blink-text" style="font-weight: bold" *ngIf="uploader.queue.length">Only one file can be uploaded at a time.</span><!--<a class="blink-text" (click)="viewAttachment()">view attachments</a>--></ng-container></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th width="30%">Name</th>
+                                    <th>Size</th>
+                                    <th width="15%">Progress</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr *ngFor="let item of uploader.queue">
+                                    <td class="fc-title">{{ item.file.name }}</td>
+                                    <td nowrap>{{ item.file.size/1024/1024 | number:'.2' }} MB</td>
+                                    <td>
+                                        <div class="progress progress-xxs" style="margin-bottom: 0;">
+                                            <div class="progress-bar progress-bar-success" role="progressbar" [ngStyle]="{ 'width': item.progress + '%' }"></div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <span *ngIf="item.isSuccess"><i class="glyphicon glyphicon-ok text-success"></i></span>
+                                        <span *ngIf="item.isError"><i class="glyphicon glyphicon-remove text-danger"></i></span>
+                                    </td>
+                                    <td>
+                                        <!--<a class="icon-upload4 text-success" (click)="item.upload()" [ngClass]="{'disabled': item.isReady || item.isUploading || item.isSuccess}"></a>-->
+                                        <a class="fa fa-trash-o fa-lg text-danger" (click)="item.remove();uploader.progress =0; itemCancel();"></a>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <hr/>
+                            <div>
+                                <div class="content-group-sm">
+                                    <p class="text-semibold">Uploading Status</p>
+                                    <div class="progress progress-xxs">
+                                        <div class="progress-bar progress-bar-success"  [ngClass]="{'active progress-bar-striped': uploader.progress != 100}" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>
+                                    </div>
+                                    <!--<span>{{uploader.progress | number}}</span>-->
+                                    <span [ngClass]="{'text-success-800':uploader.progress > 0,'blink-text': uploader.progress == 100}">{{uploader.progress + '% Completed'}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="overlay-footer">
+                        <div class="right-align overlay-footer-content-rt">
+                            <button type="button" class="btn btn-default" (click)="closeOverlay($event)">Close</button>
+                            <button type="submit" id="save" [disabled]="!markListUploadForm.valid && !uploader.queue.length" (click)="uploadMarkList('save')"  class="btn btn-primary btn-ladda btn-ladda-progres">Upload Marks</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- cd-panel-container -->
+        </div>
+    </div>
+    <!-- right panel script -->
+</div>

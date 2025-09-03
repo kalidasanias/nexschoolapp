@@ -1,0 +1,28 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h6 class="panel-title"><span class="text-semibold"><i class="fa fa-bars"></i> List of Audios</span> </h6>
+        <div class="heading-elements">
+            <!--<button type="button" valclass="btn btn-sm btn-primary heading-btn" data-toggle="modal" data-target="#modal_full" (click)="addDriver($event)">Add Driver</button>-->
+            <input *ngIf="enable" type="button" value="Add Audio" data-size="75%" data-title="Add Audio" data-toggle="from-right" data-id="#addAudio" class="btn btn-sm btn-primary" (click)="addAudio($event)"/>
+        </div>
+    </div>
+
+    <div class="panel-body">
+        <!--
+                <input type="hidden" id="deleteButton" (click)="confirmDelete($event)" />
+                <input hidden id="deleteWarning" (click)="deleteWarning($event)" type="button" style="display: none;">
+                <input hidden id="editDriver" (click)="updateDriver($event)" data-title="Edit Driver" data-size="75%" data-id="#addDriver" type="button" style="display: none;">
+        -->
+        <table class="table datatable-audios">
+            <thead>
+            <tr>
+                <th data-priority="1">Audio File Name</th>
+                <th>Updated By</th>
+                <th>Play</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+<add-audio></add-audio>

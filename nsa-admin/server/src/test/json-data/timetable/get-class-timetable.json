@@ -1,0 +1,32 @@
+[
+  {
+    "timetableId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7ccy",
+    "classId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7ccr",
+    "className": "Class 1",
+    "sectionId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7cce",
+    "sectionName": "Section A",
+    "schoolHours": "8 AM to 3PM",
+    "createdBy": "Admin",
+    "updatedBy": "Marg"
+  },
+  {
+    "timetableId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7ccZ",
+    "classId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7ccr",
+    "className": "Class 1",
+    "sectionId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7cce",
+    "sectionName": "Section B",
+    "schoolHours": "8 AM to 3PM",
+    "createdBy": "Admin",
+    "updatedBy": "Marg"
+  },
+  {
+    "timetableId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7cc1",
+    "classId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7ccr",
+    "className": "Class 1",
+    "sectionId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7cce",
+    "sectionName": "Section C",
+    "schoolHours": "8 AM to 3PM",
+    "createdBy": "Admin",
+    "updatedBy": "Marg"
+  }
+]

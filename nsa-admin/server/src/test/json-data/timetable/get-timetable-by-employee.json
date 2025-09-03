@@ -1,0 +1,314 @@
+{
+	"day" : [
+		{
+			"dayId" : 1,
+			"dayName" : "Monday",
+			"periods" : [
+				{
+					"periodId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+					"periodName": "Period 1",
+					"periodStartTime" : "9 00 AM",
+					"periodEndTime": "9 45 AM",
+					"assignee" : {
+						"subjectName": "Maths",
+						"subjectId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+						"subjectCode" : "M"
+					},
+					"classId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+					"className": "Class 1",
+					"sectionId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7ccd",
+					"sectionName": "Section A",
+					"notes" : {
+						"attachments" : [
+							{
+								"url" : "/hiflame"
+							},
+							{
+								"url" : "/hiflame"
+							},
+							{
+								"url" : "/hiflame"
+							},
+							{
+								"url" : "/hiflame"
+							}
+						],
+						"desc" : "adgesg"
+					}
+
+				},
+				{
+
+					"periodId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+					"periodName": "Period 1",
+					"periodStartTime" : "9 00 AM",
+					"periodEndTime": "9 45 AM",
+					"assignee" : {
+
+						"subjectName": "Maths",
+						"subjectId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+						"subjectCode" : "M"
+
+					},
+					"classId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+					"className": "Class 1",
+					"sectionId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7ccd",
+					"sectionName": "Section A",
+					"notes" : {
+						"attachments" : [
+							{
+								"url" : "/hiflame"
+							},
+							{
+								"url" : "/hiflame"
+							},
+							{
+								"url" : "/hiflame"
+							},
+							{
+								"url" : "/hiflame"
+							}
+						],
+						"desc" : "adgesg"
+					}
+
+				}
+			]
+		},
+
+		{
+			"dayId" : 2,
+			"dayName" : "Tuesday",
+			"periods" : [
+				{
+
+					"periodId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+					"periodName": "Period 1",
+					"periodStartTime" : "9 00 AM",
+					"periodEndTime": "9 45 AM",
+					"assignee" : {
+
+						"subjectName": "Maths",
+						"subjectId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+						"subjectCode" : "M"
+
+					},
+					"classId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+					"className": "Class 1",
+					"sectionId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7ccd",
+					"sectionName": "Section A",
+					"notes" : {
+						"attachments" : [
+							{
+								"url" : "/hiflame"
+							},
+							{
+								"url" : "/hiflame"
+							},
+							{
+								"url" : "/hiflame"
+							},
+							{
+								"url" : "/hiflame"
+							}
+						],
+						"desc" : "adgesg"
+					}
+
+				},
+				{
+
+					"periodId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+					"periodName": "Period 1",
+					"periodStartTime" : "9 00 AM",
+					"periodEndTime": "9 45 AM",
+					"assignee" : {
+
+						"subjectName": "Maths",
+						"subjectId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+						"subjectCode" : "M"
+
+					},
+					"classId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+					"className": "Class 1",
+					"sectionId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7ccd",
+					"sectionName": "Section A",
+					"notes" : {
+						"attachments" : [
+							{
+								"url" : "/hiflame"
+							},
+							{
+								"url" : "/hiflame"
+							},
+							{
+								"url" : "/hiflame"
+							},
+							{
+								"url" : "/hiflame"
+							}
+						],
+						"desc" : "adgesg"
+					}
+
+				}
+			]
+		},
+		{
+			"dayId" : 3,
+			"dayName" : "Wednesday",
+			"periods" : [
+				{
+
+					"periodId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+					"periodName": "Period 1",
+					"periodStartTime" : "9 00 AM",
+					"periodEndTime": "9 45 AM",
+					"assignee" : {
+
+						"subjectName": "Maths",
+						"subjectId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+						"subjectCode" : "M"
+
+					},
+					"classId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+					"className": "Class 1",
+					"sectionId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7ccd",
+					"sectionName": "Section A",
+					"notes" : {
+						"attachments" : [
+							{
+								"url" : "/hiflame"
+							},
+							{
+								"url" : "/hiflame"
+							},
+							{
+								"url" : "/hiflame"
+							},
+							{
+								"url" : "/hiflame"
+							}
+						],
+						"desc" : "adgesg"
+					}
+
+				},
+				{
+
+					"periodId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+					"periodName": "Period 1",
+					"periodStartTime" : "9 00 AM",
+					"periodEndTime": "9 45 AM",
+					"assignee" : {
+
+						"subjectName": "Maths",
+						"subjectId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+						"subjectCode" : "M"
+
+					},
+					"classId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+					"className": "Class 1",
+					"sectionId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7ccd",
+					"sectionName": "Section A",
+					"notes" : {
+						"attachments" : [
+							{
+								"url" : "/hiflame"
+							},
+							{
+								"url" : "/hiflame"
+							},
+							{
+								"url" : "/hiflame"
+							},
+							{
+								"url" : "/hiflame"
+							}
+						],
+						"desc" : "adgesg"
+					}
+
+				}
+			]
+		},
+		{
+			"dayId" : 4,
+			"dayName" : "Thursday",
+			"periods" : [
+				{
+
+					"periodId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+					"periodName": "Period 1",
+					"periodStartTime" : "9 00 AM",
+					"periodEndTime": "9 45 AM",
+					"assignee" : {
+
+						"subjectName": "Maths",
+						"subjectId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+						"subjectCode" : "M"
+
+					},
+					"classId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+					"className": "Class 1",
+					"sectionId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7ccd",
+					"sectionName": "Section A",
+					"notes" : {
+						"attachments" : [
+							{
+								"url" : "/hiflame"
+							},
+							{
+								"url" : "/hiflame"
+							},
+							{
+								"url" : "/hiflame"
+							},
+							{
+								"url" : "/hiflame"
+							}
+						],
+						"desc" : "adgesg"
+					}
+
+				},
+				{
+
+					"periodId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+					"periodName": "Period 1",
+					"periodStartTime" : "9 00 AM",
+					"periodEndTime": "9 45 AM",
+					"assignee" : {
+
+						"subjectName": "Maths",
+						"subjectId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+						"subjectCode" : "M"
+
+					},
+					"classId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+					"className": "Class 1",
+					"sectionId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7ccd",
+					"sectionName": "Section A",
+					"notes" : {
+						"attachments" : [
+							{
+								"url" : "/hiflame"
+							},
+							{
+								"url" : "/hiflame"
+							},
+							{
+								"url" : "/hiflame"
+							},
+							{
+								"url" : "/hiflame"
+							}
+						],
+						"desc" : "adgesg"
+					}
+
+				}
+			]
+		}
+	]
+}

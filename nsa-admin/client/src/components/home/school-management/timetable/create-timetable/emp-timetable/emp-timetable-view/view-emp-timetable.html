@@ -1,0 +1,23 @@
+<div id="view-emp-timetable" class="overlay-popup footer-popup" style="display: none;">
+    <!-- RIGHT PANEL STARTS -->
+    <div class="cd-panel">
+        <div class="cd-panel-header">
+            <input type="hidden" id="empWeekData"(click)="getWeekData($event)" value="">
+            <!-- <div class="hidden-xs simple-field-hf"></div> -->
+            <div class="simple-field-hf"></div>
+            <a (click)="closeOverlay($event)" class="cd-panel-close">Close</a>
+        </div>
+        <div class="cd-panel-container">
+            <div class="cd-panel-content" id="side-panel-container">
+                <ext-calendar></ext-calendar>
+                <div class="overlay-footer">
+                    <div class="right-align overlay-footer-content-rt">
+                        <button class="btn btn-default btn-sm" (click)="closeOverlay($event)">Close</button>
+                    </div>
+                </div>
+            </div>
+            <!-- cd-panel-container -->
+        </div>
+    </div>
+    <!-- right panel script -->
+</div>

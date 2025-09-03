@@ -1,0 +1,28 @@
+[{
+	"categoryName" : "Culturals",
+	"description": "Culturals Event",
+	"categoryId": "102fc7de-d340-40d9-ad7e-58bdbfb66140",
+	"createdBy": "deepak",
+	"upadtedBy" : "deepak"
+},
+{
+	"categoryName" : "Sports day",
+	"description": "Sports day Event",
+	"categoryId": "102fc7de-d340-40d9-ad7e-58bdbfb66140",
+	"createdBy": "deepak",
+	"upadtedBy" : "deepak"
+},
+{
+	"categoryName" : "Dance",
+	"description": "Dance Event",
+	"categoryId": "102fc7de-d340-40d9-ad7e-58bdbfb66140",
+	"createdBy": "deepak",
+	"upadtedBy" : "deepak"
+},
+{
+	"categoryName" : "Music",
+	"description": "Music Event",
+	"categoryId": "102fc7de-d340-40d9-ad7e-58bdbfb66140",
+	"createdBy": "deepak",
+	"upadtedBy" : "deepak"
+}]

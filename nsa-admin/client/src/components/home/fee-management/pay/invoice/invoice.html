@@ -1,0 +1,124 @@
+<div id="invoice" class="overlay-popup footer-popup" style="display: none;">
+    <!-- RIGHT PANEL STARTS -->
+    <div class="cd-panel">
+        <div class="cd-panel-header">
+            <!-- <div class="hidden-xs simple-field-hf"></div> -->
+            <div class="simple-field-hf">
+              <div *ngIf="feeDetails">Receipt - {{feeDetails.feeAssignmentName}}
+              </div>
+            </div>
+            <a (click)="closeOverlay($event)" class="cd-panel-close">Close</a>
+        </div>
+        <div class="cd-panel-container">
+            <div class="cd-panel-content" id="side-panel-container" #test style="background-color: #fff;">
+                <!--<div id="printThis">
+                    <div class="panel-body no-padding-bottom">
+                        <div class="row">
+                            <legend class="text-semibold">
+                                <div class="text-center">
+                                    <span *ngIf="user" class="title">{{user.school_name}}</span><br/>
+                                    <span *ngIf="feeDetails" class="title">{{feeDetails.feeAssignmentName}} - {{feeDetails.academicYear}}</span>
+                                </div>
+                            </legend>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-lg-9 content-group">
+                                <span class="text-uppercase text-semibold">Student Details:</span>
+                                <ul class="list-condensed list-unstyled" *ngIf="feeDetails">
+                                    <li>{{feeDetails.firstName}}</li>
+                                    <li>{{feeDetails.className}} / {{feeDetails.sectionName}}</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6 col-lg-3 content-group">
+                                <ul class="list-condensed list-unstyled tex-right" *ngIf="transactions">
+                                    <li>Invoice No:&nbsp;<span class="text-semibold">{{transactions.tracking_id}}</span>
+                                    </li>
+                                    <li>Transaction Ref No :&nbsp;<span class="text-semibold">{{transactions.tracking_id}}</span>
+                                    </li>
+                                    <li>Paid On:&nbsp;<span class="text-semibold">{{transactions.txn_date}} </span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="table-responsive">
+                        <table class="table table-lg">
+                            <thead>
+                            <tr>
+                                <th class="col-sm-2">S.no</th>
+                                <th class="col-sm-3">Term Name</th>
+                                <th class="col-sm-3">Description</th>
+                                <th class="col-sm-2">Amount</th>
+                                <th class="col-sm-2">Balance</th>
+                            </tr>
+                            </thead>
+                            <tbody *ngIf="feeDetails">
+                            <tr *ngFor="let feeDetail of feeDetails.feeTypes; let i=index">
+                                <td>{{i + 1}}</td>
+                                <td>{{feeDetails.termName}}</td>
+                                <td class="no-margin">{{feeDetail.name}}</td>
+                                <td>{{feeDetail.amount}}</td>
+                                <td>{{feeDetails.feeDiscountAmount}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <hr>
+                    <div class="panel-body">
+                        <div class="row invoice-payment">
+                            <div class="row ">
+                                <div class="col-sm-6">
+                                    <div class="content-group">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="content-group">
+                                        <div class="table-responsive no-border">
+                                            <table class="table">
+                                                <tbody>
+                                                <tr>
+                                                    <th style="border-top: 0px;">Total Amount</th>
+                                                    <td *ngIf="feeDetails" style="border-top: 0px;" class="text-right">
+                                                        {{feeDetails.netAmount}}
+                                                    </td>
+                                                </tr>
+                                                <tr *ngIf="feeDetails">
+                                                    <th>Discount</th>
+                                                    <td *ngIf="feeDetails.feeDiscountAmount == null" class="text-right">
+                                                        0
+                                                    </td>
+                                                    <td *ngIf="feeDetails.feeDiscountAmount != null" class="text-right">
+                                                        {{feeDetails.feeDiscountAmount}}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Paid Date:</th>
+                                                    <td *ngIf="transactions" class="text-right">
+                                                        {{transactions.txn_date}}
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-muted">This is a computer generated invoice. No Signature is required</p>
+                    </div>
+                </div>-->
+                <div class="overlay-footer">
+                    <div class="right-align overlay-footer-content-rt">
+                        <button type="button" class="btn btn-default" (click)="closeOverlay($event)">Close</button>
+                        <button (click)="HTMLtoPDF()" type="button" class="btn btn-primary"><i
+                                class="icon-printer position-left"></i>Print
+                        </button>
+                    </div>
+                </div>
+                <!-- cd-panel-container -->
+            </div>
+        </div>
+        <!-- right panel script -->
+    </div>
+</div>

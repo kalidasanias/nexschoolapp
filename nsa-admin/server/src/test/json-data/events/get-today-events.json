@@ -1,0 +1,53 @@
+[
+{
+	"eventName": "Stroy Telling",
+	"eventDesc" : "Story Telling For Class 1",
+	"month": "Mar",
+	"date" : "29",
+	"startDate": "March 29,2017",
+	"endDate": "March 30, 2017",
+	"startTime": "12:30",
+	"endTime": "1:30"
+},
+{
+	"eventName": "Sports Day",
+	"eventDesc" : "Sports Day For Class 1",
+	"month": "Mar",
+	"date" : "01",
+	"startDate": "March 01,2017",
+	"endDate": "March 02, 2017",
+	"startTime": "12:30",
+	"endTime": "1:30"
+},
+{
+	"eventName": "Alumini Day",
+	"eventDesc" : "Alumini Day",
+	"month": "Mar",
+	"date" : "03",
+	"startDate": "March 03,2017",
+	"endDate": "March 04, 2017",
+	"startTime": "12:30",
+	"endTime": "1:30"
+},
+	{
+		"eventName": "Alumini Day",
+		"eventDesc" : "Alumini Day",
+		"month": "Mar",
+		"date" : "03",
+		"startDate": "March 03,2017",
+		"endDate": "March 04, 2017",
+		"startTime": "12:30",
+		"endTime": "1:30"
+	},
+	{
+		"eventName": "Alumini Day",
+		"eventDesc" : "Alumini Day",
+		"month": "Mar",
+		"date" : "03",
+		"startDate": "March 03,2017",
+		"endDate": "March 04, 2017",
+		"startTime": "12:30",
+		"endTime": "1:30"
+	}
+
+]

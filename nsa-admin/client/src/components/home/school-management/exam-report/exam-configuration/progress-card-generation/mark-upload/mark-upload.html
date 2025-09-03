@@ -1,0 +1,56 @@
+<div class="panel panel-flat">
+    <div class="panel-heading">
+        <h6 class="panel-title"><span class="text-semibold text-uppercase"><i
+                class="icon-clipboard position-left"></i>Marks upload</span></h6>
+        <div class="heading-elements">
+            <input *ngIf="enable" type="button" value="Progress Card Print" data-size="99%" data-title="Progress Card Print"
+                   data-toggle="from-right" data-id="#print-progress-card" class="btn btn-sm btn-primary heading-btn"
+                   (click)="progressCardPrint($event)"/>
+
+            <input *ngIf="enable" type="button" value="Upload Marklist" data-size="50%" data-title="Upload Marklist"
+                   data-toggle="from-right" data-id="#Marklist-upload" class="btn btn-sm btn-primary heading-btn"
+                   (click)="addMarklistUploadConfig($event)"/>
+
+            <input *ngIf="enable" type="button" value="Enter Marks" data-size="99%" data-title="Enter Marks"
+                   data-toggle="from-right" data-id="#mark-upload-config" class="btn btn-sm btn-primary heading-btn"
+                   (click)="addMarkUploadConfig($event)"/>
+
+            <input type="hidden" id="edit-marksheet" data-size="99%" data-title="Enter Marks"
+                   data-toggle="from-right" data-id="#mark-upload-config" class="btn btn-sm btn-primary heading-btn"
+                   (click)="editMarkSheet($event)"/>
+            <input type="hidden" id="marksheet-stat" data-size="90%" data-title="Statistics"
+                   data-toggle="from-right" data-id="#statistics" class="btn btn-sm btn-primary heading-btn"
+                   (click)="viewStatistics($event)"/>
+
+            <input type="hidden" id="publish-marksheet" data-size="99%" data-title="Enter Marks"
+                   data-toggle="from-right" data-id="#mark-upload-config" class="btn btn-sm btn-primary heading-btn"
+                   (click)="publishMarkSheet($event)"/>
+            <input hidden id="warningButton" (click)="requested_warning()" type="button" style="display: none;">
+            <input hidden id="deleteButton" (click)="requested_delete($event)" type="button" style="display: none;">
+            <input hidden id="notificationLogs" (click)="getNotificationLog($event)" data-size="75%" data-title="Notification Logs" data-id="#notificationLog" type="button" style="display: none;">
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="form-group">
+            <table class="table exam-details">
+                <thead>
+                <tr>
+                    <th>Class - Section</th>
+                    <th>Written Examination</th>
+                    <th>Updated By</th>
+                    <th>Status</th>
+                    <th align="center" data-priority="3">Logs</th>
+                    <th data-priority="2">Publish</th>
+                    <th data-priority="1">Action</th>
+                </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+<statistics></statistics>
+<mark-upload-config></mark-upload-config>
+<notification-logs></notification-logs>
+<marklist-upload></marklist-upload>
+<print-progress-card></print-progress-card>
+

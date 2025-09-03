@@ -1,0 +1,73 @@
+{
+  "status":{
+    "code":201,
+    "message":"Success Message"
+  },
+  "notification":{
+    "notificationId":"",
+    "tenant":{
+      "tenantId":"",
+      "schoolId":"",
+      "academicYear":""
+    },
+    "notifyTo":{
+      "all":false,
+      "classes":[
+        {
+          "all":false,
+          "classId1":[
+            "section1",
+            "section2"
+          ]
+        },
+        {
+          "all":false,
+          "classId2":[
+            "section1",
+            "section2"
+          ]
+        }
+      ],
+      "students":[
+        "studentId1",
+        "studentId2"
+      ],
+      "parents":[
+        "parentId1",
+        "parentId2"
+      ],
+      "groups":[
+        "groupId1",
+        "groupId2"
+      ]
+    },
+    "notifyFrom":{
+      "userId" : "1233",
+      "userPhoneNo" : "1242342",
+      "userName" : "Sujatha S",
+      "userEmail" : "sujatha123@gmail.com"
+    },
+    "notify":{
+      "sms":true,
+      "email":false,
+      "pushNotification":false
+    },
+    "sms":{
+      "tempate":true,
+      "templateId":"",
+      "title":"",
+      "message":""
+    },
+    "email":{
+      "template":true,
+      "templateId":"",
+      "subject":"",
+      "message":""
+    },
+    "pushNotification":{
+      "title":"",
+      "message":"",
+      "type":""
+    }
+  }
+}

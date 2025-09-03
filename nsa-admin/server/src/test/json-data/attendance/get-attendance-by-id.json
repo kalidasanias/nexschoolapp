@@ -1,0 +1,76 @@
+ 
+{
+   "status":{
+      "code":201,
+      "message":"Success"
+   },
+   "data": [
+
+      {
+         "attendanceDetailId" : "630386f4-d0f4-470d-8452-6f2d3ddfa254",
+         "attendanceId":"630386f4-d0f4-470d-8452-6f2d3ddfa514",
+         "tenantId ":"5085fce0-d7f0-11e6-acdf-73c63acb96df",
+         "schoolId  ":"1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+         "academicYear" : "2016-2017",
+         "admissionNo":"12455324523",
+         "userId":"123123e",
+         "firstName": "sam",
+         "classId": "630386f4-d0f4-470d-8452-6f2d3ddfa517",
+         "className": "class 1",
+         "sectionId": "630386f4-d0f4-470d-8452-6f2d3ddfad58",
+         "sectionName": "section A",
+         "isPresent": true,
+         "recordedBy": "100S634",
+         "recordedUserName": "sam",
+         "recordedDate": "Mar 11 2017 1:27 PM",
+         "updatedBy": "100E555",
+         "updatedUserName": "ram",
+         "updatedDate": "Mar 11 2017 1:27 PM",
+         "remarks": "Going to marriage"
+      },
+      {
+         "attendanceDetailId" : "630386f4-d0f4-470d-8452-6f2d3ddfa264",
+         "attendanceId":"630386f4-d0f4-470d-8452-6f2d3ddfa514",
+         "tenantId ":"5085fce0-d7f0-11e6-acdf-73c63acb96df",
+         "schoolId  ":"1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+         "academicYear" : "2016-2017",
+         "admissionNo":"12455324523",
+         "userId":"123123e",
+         "firstName": "ram",
+         "classId": "630386f4-d0f4-470d-8452-6f2d3ddfa517",
+         "className": "class 1",
+         "sectionId": "630386f4-d0f4-470d-8452-6f2d3ddfad58",
+         "sectionName": "section A",
+         "isPresent": true,
+         "recordedBy": "100S634",
+         "recordedUserName": "sam",
+         "recordedDate": "Mar 11 2017 1:27 PM",
+         "updatedBy": "100E555",
+         "updatedUserName": "ram",
+         "updatedDate": "Mar 11 2017 1:27 PM",
+         "remarks": "Going to marriage"
+      },
+      {
+         "attendanceDetailId" : "630386f4-d0f4-470d-8452-6f2d3ddfa254",
+         "attendanceId":"630386f4-d0f4-470d-8452-6f2d3ddfa514",
+         "tenantId ":"5085fce0-d7f0-11e6-acdf-73c63acb96df",
+         "schoolId  ":"1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+         "academicYear" : "2016-2017",
+         "admissionNo":"12455324523",
+         "userId":"123123e",
+         "firstName": "rahim",
+         "classId": "630386f4-d0f4-470d-8452-6f2d3ddfa517",
+         "className": "class 1",
+         "sectionId": "630386f4-d0f4-470d-8452-6f2d3ddfad58",
+         "sectionName": "section A",
+         "isPresent": true,
+         "recordedBy": "100S634",
+         "recordedUserName": "sam",
+         "recordedDate": "Mar 11 2017 1:27 PM",
+         "updatedBy": "100E555",
+         "updatedUserName": "ram",
+         "updatedDate": "Mar 11 2017 1:27 PM",
+         "remarks": "Going to marriage"
+      }
+   ]      
+}

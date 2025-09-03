@@ -1,0 +1,14 @@
+{
+	"classId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+	"className": "Class 2",
+	"sectionId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7ccd",
+	"sectionName": "Section A",
+	"assignDayId" : 1,
+	"assignDayName" : "Monday"
+	"date" : "Mar 29, 2017",
+	"notify" : {
+		"sms": true,
+		"email": true,
+		"push" : false,
+	}
+}

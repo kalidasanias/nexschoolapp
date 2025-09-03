@@ -1,0 +1,26 @@
+{
+  "status":{
+    "code":200,
+    "message":"Success"
+  },
+  "holidays" : [
+    {
+      "holidayId" : "2342342342",
+      "holidayName" : "Singh Jayanthi",
+      "holidaySchedule" : "Oc 25 2017",
+      "govenmentHoliday" : true
+    },
+    {
+      "holidayId" : "345354",
+      "holidayName" : "Vasanth Panchami",
+      "holidaySchedule" : "Nov 13 2017",
+      "govenmentHoliday" : true
+    },
+    {
+      "holidayId" : "43534534534",
+      "holidayName" : "Holi",
+      "holidaySchedule" : "Nov 30 2017",
+      "govenmentHoliday" : true
+    }
+  ]
+}

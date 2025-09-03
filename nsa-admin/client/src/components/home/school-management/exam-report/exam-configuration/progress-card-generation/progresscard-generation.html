@@ -1,0 +1,40 @@
+<div class="panel panel-default">
+    <div class="filter-panel-body">
+        <form class="form-horizontal">
+            <div class="form-group col-md-3">
+                <label class="control-label col-md-3">Class <span class="text-danger">*</span>
+                </label>
+                <div class="col-md-8">
+                    <div class="row">
+                        <select #singleClass id="class-select" class="select-change" (click)="getSectionByClass()" data-width="100%">
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-md-4" [hidden]="!classId">
+                <label class="control-label col-md-3">Section <span class="text-danger">*</span>
+                </label>
+                <div class="col-md-8">
+                    <select #sectionSelect id="section-select" class="select-change" (click)="getExamsByClassAndSections()">
+                    </select>
+                </div>
+            </div>
+            <div class="form-group col-md-4" [hidden]="!classId || !sectionId">
+                <label class="control-label col-md-5">Examination Name <span class="text-danger">*</span>
+                </label>
+                <div class="col-md-6">
+                    <div class="row">
+                        <select #examSelect id="exam-select" data-width="100%" class="select-change" (click)="getMarkListByClassAndSections()">
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="form-group col-md-2 pull-right">
+                <button class="btn btn-default">Clear</button>
+                <button class="btn btn-primary">Submit</button>
+            </div>-->
+        </form>
+    </div>
+</div>
+<mark-upload></mark-upload>
+

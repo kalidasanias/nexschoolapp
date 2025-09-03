@@ -1,0 +1,53 @@
+[
+	{
+		"classId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+		"className": "Class 2",
+		"sectionId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7ccd",
+		"sectionName": "Section A",
+		"periodId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7ccd",
+		"periodName": "Period 1",
+		"dayId" : 1,
+		"dayName" : "Monday"
+	},
+	{
+		"classId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+		"className": "Class 2",
+		"sectionId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7ccd",
+		"sectionName": "Section A",
+		"periodId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7ccd",
+		"periodName": "Period 2",
+		"dayId" : 1,
+		"dayName" : "Tuesday"
+	},
+	{
+		"classId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+		"className": "Class 2",
+		"sectionId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7ccd",
+		"sectionName": "Section A",
+		"periodId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7ccd",
+		"periodName": "Period 3",
+		"dayId" : 1,
+		"dayName" : "Wednesday"
+	},
+	{
+		"classId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+		"className": "Class 2",
+		"sectionId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7ccd",
+		"sectionName": "Section A",
+		"periodId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7ccd",
+		"periodName": "Period 4",
+		"dayId" : 1,
+		"dayName" : "Thursday"
+	},
+
+	{
+		"classId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+		"className": "Class 2",
+		"sectionId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7ccd",
+		"sectionName": "Section A",
+		"periodId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7ccd",
+		"periodName": "Period 5",
+		"dayId" : 1,
+		"dayName" : "Friday"
+	}
+]

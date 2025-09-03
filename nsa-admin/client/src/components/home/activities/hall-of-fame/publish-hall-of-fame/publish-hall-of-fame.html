@@ -1,0 +1,93 @@
+<div id="hallOfFamePublish" class="overlay-popup footer-popup" style="display: none;">
+    <!-- RIGHT PANEL STARTS -->
+    <div class="cd-panel">
+        <div class="cd-panel-header">
+            <div class="simple-field-hf">
+            </div>
+            <a (click)="closeOverlay($event)" class="cd-panel-close">Close</a>
+        </div>
+        <div class="cd-panel-container">
+            <div class="cd-panel-content" id="side-panel-container">
+                <form action="#" class="form-horizontal" [formGroup]="edithallOfFameForm">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label class="control-label col-sm-4 txt-align-left">Award Name&nbsp;<span class="text-danger">*</span></label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" formControlName="awardName" readonly>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label class="control-label col-sm-4 txt-align-left">Date of Issue&nbsp;<span class="text-danger">*</span></label>
+                            <div class="col-sm-8">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="icon-calendar22"></i></span>
+                                    <input type="text" class="form-control" formControlName="dateOfIssue" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label class="control-label col-sm-4 txt-align-left">Category </label>
+                            <div class="col-sm-8">
+                                <textarea id="templateName" rows="3" cols="3" class="form-control" formControlName="desc" readonly></textarea><br/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" formGroupName="notify">
+                        <div class="form-group">
+                            <label class="control-label col-md-1 txt-align-right">Notifications
+                            </label>
+                            <div class="col-md-4 txt-align-right">
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                            <div class="col-sm-3 sms hide" >
+                                                <div class="form-group">
+                                                    <label class="checkbox-inline" style="font-size:12px;">
+                                                        <input  #sms type="checkbox" class="smsChecked">SMS
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3 email hide">
+                                                <div class="form-group">
+                                                    <label class="checkbox-inline" style="font-size:12px;">
+                                                        <input #email type="checkbox" class="emailChecked">Email
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3 push hide">
+                                                <div class="form-group">
+                                                    <label class="checkbox-inline" style="font-size:12px;">
+                                                        <input #push type="checkbox" class="pushChecked">App
+                                                    </label>
+                                                </div>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table datatable-publish-hall-of-fame">
+                            <thead>
+                            <tr>
+                                <th data-priority="1">Student Name</th>
+                                <th>Class</th>
+                                <th>Section</th>
+                            </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+                <div class="overlay-footer">
+                    <div class="right-align overlay-footer-content-rt">
+                        <button type="button" class="btn btn-default" (click)="closeOverlay($event)">Close</button>
+                        <button type="button" id="publish" (click)="publishHallOfFame('publish')" class="btn btn-primary btn-ladda btn-ladda-progres">Publish</button>
+                    </div>
+                </div>
+                </form>
+            </div>
+            <!-- cd-panel-container -->
+        </div>
+    </div>
+    <!-- right panel script -->
+</div>

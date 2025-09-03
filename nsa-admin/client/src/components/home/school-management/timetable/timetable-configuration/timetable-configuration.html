@@ -1,0 +1,26 @@
+<input hidden id="deleteButton" (click)="requested_delete($event)" type="button" style="display: none;">
+<input hidden id="structureWarning" (click)="warning()" type="button" style="display: none;">
+<input hidden id="configEditButton" (click)="getTimetableConfig($event)" data-size="75%" data-id="#edit_timetable" type="button" style="display: none;">
+
+<div class="panel panel-default">
+    <div class="panel-heading margin-bottom20">
+        <h6 class="panel-title"><span class="text-semibold text-uppercase"><i class="icon-calendar position-left"></i>Timetable Configuration </span><i class="icon-arrow-right15 text-pink-600"></i><small>List of Configurations </small></h6>
+        <div class="heading-elements">
+            <input *ngIf="enable" type="button" value="New Configuration" data-size="75%" data-title="New Configuration" data-toggle="from-right" data-id="#new_timetable" class="btn btn-sm btn-primary" (click)="newTimetableConfig($event)"/>
+        </div>
+    </div>
+    <table class="table datatable-timetable-config">
+        <thead>
+        <tr>
+            <th data-priority="1">Class</th>
+            <th>Working Days</th>
+            <th>School Hours</th>
+            <th>Number of Class Hours</th>
+            <th>Number of Breaks</th>
+            <th data-priority="2">Action</th>
+        </tr>
+        </thead>
+    </table>
+</div>
+<new-timetable-configuration></new-timetable-configuration>
+<edit-timetable-configuration></edit-timetable-configuration>

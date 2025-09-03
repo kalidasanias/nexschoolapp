@@ -1,0 +1,88 @@
+<div id="aspectOverlay" class="overlay-popup footer-popup" style="">
+    <!-- RIGHT PANEL STARTS -->
+    <div class="cd-panel">
+        <div class="cd-panel-header">
+            <!-- <div class="hidden-xs simple-field-hf"></div> -->
+            <div class="simple-field-hf">
+            </div>
+            <a (click)="closeOverlay($event)" class="cd-panel-close">Close</a>
+        </div>
+        <div class="cd-panel-container">
+            <div class="cd-panel-content" id="side-panel-container">
+                <div class="modal-body">
+                    <div class="panel-title"><span class="text-semibold text-uppercase"><i
+                            class="icon-menu3 position-left"></i> List Of Aspects  </span>
+                        <input type="button" value="Add Aspect" class="btn btn-sm btn-primary heading-btn pull-right"
+                               (click)="aspectShow('addAspect')"/>
+                    </div>
+                    <br>
+                    <input hidden id="SubjectAspectWarning" (click)="requested_warning()" type="button" style="...">
+                    <input hidden id="deleteChildButton" (click)="requested_delete($event)" type="button"
+                           style="display: none;">
+                    <input hidden id="AspectEdit" (click)="getAspect('addAspect',$event)" type="button"
+                           style="display: none;">
+                    <table class="table datatable-aspects">
+                        <thead>
+                        <tr>
+                            <th data-priority="1">Aspect Name</th>
+                            <th>Aspect Code</th>
+                            <th>Updated By</th>
+                            <th data-priority="2">Action</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+            <div class="overlay-footer">
+                <div class="right-align overlay-footer-content-rt">
+                    <button type="button" class="btn btn-sm btn-default" (click)="closeOverlay($event)">Close</button>
+                </div>
+            </div>
+        </div>
+        <!-- cd-panel-container -->
+    </div>
+</div>
+
+
+<div id="addAspect" class="modal fade refuse">
+    <div class="modal-dialog modal-sm ">
+        <div class="modal-content">
+            <div class="modal-header bg-info">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h5 class="modal-title">Add New Aspect</h5>
+            </div>
+            <form action="#" class="form-horizontal" [formGroup]="subjectAspectsForm">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="control-label col-md-4">Aspect Name <span class="text-danger">*</span></label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" formControlName="aspectName" required="required">
+                            <div control-messages class="validation-error-label" [control]="subjectAspectsForm.controls.aspectName">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-4">Aspect Code <span class="text-danger">*</span>
+                        </label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" formControlName="aspectCode" required="required">
+                            <div control-messages class="validation-error-label" [control]="subjectAspectsForm.controls.aspectCode"></div>
+                        </div>
+                    </div>
+                   <!-- <div class="form-group">
+                        <label class="control-label col-md-4">Description
+                        </label>
+                        <div class="col-md-8">
+                            <textarea rows="3" cols="3" class="form-control" formControlName="aspectDesc" placeholder=""></textarea>
+                        </div>
+                    </div>-->
+                </div>
+                <hr/>
+                <div class="modal-footer" >
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" id="saveAspect" [disabled]="!subjectAspectsForm.valid" class="btn btn-primary btn-ladda btn-ladda-progres" (click)="saveAspect('saveAspect')">{{buttonVal}}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

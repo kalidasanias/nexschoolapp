@@ -1,0 +1,48 @@
+<div id="add_exam" class="overlay-popup footer-popup" style="display: none;">
+    <div class="cd-panel">
+        <div class="cd-panel-header">
+            <div class="simple-field-hf">
+            </div>
+            <a (click)="closeOverlay()" class="cd-panel-close">Close</a>
+        </div>
+        <div class="cd-panel-container">
+            <div class="cd-panel-content" id="side-panel-container">
+                <form class="form-horizontal" [formGroup]="examTypeForm" action="#">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label class="control-label col-md-4">Exam Name <span class="text-danger">*</span>
+                            </label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" placeholder="Enter Exam Name" formControlName="written_exam_name">
+                                <div control-messages class="validation-error-label" [control]="examTypeForm.controls.written_exam_name"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-4">Exam Code <span class="text-danger">*</span>
+                            </label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" placeholder="Enter Exam Code" formControlName="written_exam_code">
+                                <div control-messages class="validation-error-label" [control]="examTypeForm.controls.written_exam_code"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-4">Description
+                            </label>
+                            <div class="col-md-8">
+                                <textarea rows="5" cols="1" class="form-control" placeholder="Enter Description" formControlName="written_desription">
+                                </textarea>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="overlay-footer">
+                    <div class="right-align overlay-footer-content-rt">
+                        <button type="button" class="btn btn-sm btn-default" (click)="closeOverlay()">Close</button>
+                        <button type="submit" class="btn btn-primary" [disabled]="!examTypeForm.valid"  id="save" (click)="saveExamType('saveLeaveType')" >{{buttonVal}}</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

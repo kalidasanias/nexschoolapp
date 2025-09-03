@@ -1,0 +1,124 @@
+<div id="add_progress_card" class="overlay-popup footer-popup" style="display: none;">
+    <div class="cd-panel">
+        <div class="cd-panel-header">
+            <div class="simple-field-hf">
+            </div>
+            <a (click)="closeOverlay()" class="cd-panel-close">Close</a>
+        </div>
+        <div class="cd-panel-container">
+            <div class="cd-panel-content" id="side-panel-container">
+                <form class="form-horizontal" action="#">
+                    <fieldset class="">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Term<span class="text-danger"> *</span>
+                                </label>
+                                <div class="col-sm-8">
+                                    <select class="bootstrap-select" data-width="100%">
+                                        <option>Select Term</option>
+                                        <option value="Cambodia">Term 1</option>
+                                        <option value="Martic">Term 2</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Classes Applicable<span
+                                        class="text-danger"> *</span></label>
+                                <div class="col-sm-8">
+                                    <select class="multiselect-select-all" multiple="multiple">
+                                        <option value="class1">Class 1</option>
+                                        <option value="class2">Class 2</option>
+                                        <option value="class3">Class 3</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Assessment Name<span
+                                        class="text-danger"> *</span>
+                                </label>
+                                <div class="col-sm-8">
+                                    <select class="bootstrap-select" data-width="100%">
+                                        <option value="PA1">Periodic Assessment 1</option>
+                                        <option value="PA2">Periodic Assessment 2</option>
+                                        <option value="FA1">Formative Assessment 1</option>
+                                        <option value="FA2">Formative Assessment 2</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Written Examination<span
+                                        class="text-danger"> *</span></label>
+                                <div class="col-sm-8">
+                                    <select class="multiselect-select-all" multiple="multiple">
+                                        <option value="tomatoes">PT 1</option>
+                                        <option value="mozarella">PT 2</option>
+                                        <option value="mozarella">FA 1</option>
+                                        <option value="mozarella">FA 2</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Grading Aspects<span
+                                        class="text-danger"> *</span></label>
+                                <div class="col-sm-8">
+                                    <select class="multiselect-select-all" multiple="multiple">
+                                        <option value="tomatoes">Aspects</option>
+                                        <option value="mozarella">Subject Enrichment Activities
+                                        </option>
+                                        <option value="mozarella">Note Book</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Grading Aspects</label>
+                                <div class="col-sm-8">
+                                    <select class="multiselect-select-all" multiple="multiple">
+                                        <option value="tomatoes">Co-Scholastic</option>
+                                        <option value="mozarella">Personality Development</option>
+                                        <option value="mozarella">Art &amp; Craft</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Display on Report Card<span
+                                        class="text-danger"> *</span></label>
+                                <div class="col-sm-8">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="marks" class="styled"
+                                               checked="checked">
+                                        Marks
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="grades" class="styled">
+                                        Grades
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                </form>
+            </div>
+            <hr/>
+            <div class="overlay-footer">
+                <div class="right-align overlay-footer-content-rt">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

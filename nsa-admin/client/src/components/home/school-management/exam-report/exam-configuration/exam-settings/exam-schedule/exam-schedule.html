@@ -1,0 +1,28 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h6 class="panel-title"><span class="text-semibold text-uppercase"><i class="icon-clipboard position-left"></i>Exam Schedules </span><i class="icon-arrow-right15 text-pink-600"></i> <small>List of Exam Schedules</small></h6>
+        <div class="heading-elements">
+            <input *ngIf="enableAdd"  type="button" value="Schedule Examination" data-size="90%" data-title="Schedule Examination" data-toggle="from-right" data-id="#add_schedule_exam" class="btn btn-sm btn-primary" (click)="addScheduleExam($event)"/>
+            <input id="updateExam" type="hidden" data-size="90%"  data-toggle="from-right" data-id="#add_schedule_exam" (click)="editScheduleExam($event)"/>
+        </div>
+    </div>
+
+    <div class="panel-body">
+        <input type="hidden" id="confirmSubmit" (click)="confirmDelete($event)" />
+        <input type="hidden" id="warningExam" (click)="deleteExam()" />
+        <input type="hidden" id="viewClicked"  />
+        <table class="table datatable-exam-schedule">
+            <thead>
+            <tr>
+                <th>Exam Name</th>
+                <th>Class</th>
+                <th>Updated Date</th>
+                <th>Updated By</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+<add-exam-schedule></add-exam-schedule>

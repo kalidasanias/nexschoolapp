@@ -1,0 +1,106 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h6 class="panel-title"><span class="text-semibold text-uppercase"><i class="icon-copy3 position-left"></i>Communication</span>
+        </h6>
+    </div>
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table class="table" border="1px" bordercolor="lightgrey">
+                <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Sub-Feature</th>
+                    <th>SMS</th>
+                    <!-- <th>Email</th>-->
+                    <th>App</th>
+                    <!--<th>Notify To Hostelers</th>-->
+                    <th style="text-align: center">Overwrite Settings</th>
+                    <th>Confirm</th>
+                </tr>
+                </thead>
+                <tr *ngFor="let feature of channelFeatures let i = index;">
+                    <input type="hidden" id="updateButton" (click)="requested_update($event,'savechannelFeature')" style="...">
+                    <td rowspan="feature.children.length" >{{feature.featureName}}</td>
+                    <input class="length" type="hidden" value="{{feature.children?.length}}">
+                    <td class="featureId" rowspan="feature.children.length">
+                        <table>
+                            <tr  *ngFor="let children of feature.children">
+                                <td style="height: 100px;" *ngIf="children.children == 0">{{children.featureName}} <input class="hide" type="text" value="{{children.id}}"></td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td class="smsChannel">
+                        <table>
+                            <tr *ngFor="let children of feature.children">
+                                <td style="height: 100px;" *ngIf="children.sms == true  && children.children == 0" align="center">
+                                    <input type="checkbox" checked [value]="true">
+                                </td>
+                                <td style="height: 100px;" *ngIf="children.sms != true && children.children == 0" align="center">
+                                    <input type="checkbox" [value]="false">
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <!--     <td class="emailChannel">
+                             <table>
+                                 <tr  *ngFor="let children of feature.children">
+                                     <td style="height: 100px;" *ngIf="children.email == true && children.children == 0">
+                                         <input type="checkbox" checked>
+                                     </td>
+                                     <td style="height: 100px;" *ngIf="children.email != true && children.children == 0">
+                                         <input type="checkbox">
+                                     </td>
+                                 </tr>
+                             </table>
+                         </td>-->
+                    <td class="pushChannel">
+                        <table>
+                            <tr *ngFor="let children of feature.children">
+                                <td style="height: 100px;" *ngIf="children.push == true && children.children == 0">
+                                    <input type="checkbox" checked>
+                                </td>
+                                <td style="height: 100px;" *ngIf="children.push != true && children.children == 0">
+                                    <input type="checkbox">
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <!--<td class="hosterlersChannel">
+                        <table>
+                            <tr  *ngFor="let children of feature.children">
+                                <td style="height: 100px;" *ngIf="children.notifyHostelers  == true && children.children == 0">
+                                    <input type="checkbox" checked [value]="true">
+                                </td>
+                                <td style="height: 100px;" *ngIf="children.notifyHostelers  != true && children.children == 0">
+                                    <input type="checkbox" [value]="false">
+                                </td>
+                            </tr>
+                        </table>
+                    </td>-->
+                    <td class="radiovalue">
+                        <table>
+                            <tr *ngFor="let children of feature.children">
+                                <td style="height: 100px;padding-top:25px;" *ngIf="children.children == 0 && children.isOverride ==true">
+                                    Channel Settings Can be OverWritten While <span style="color:blue">{{children.featureName}}</span> Under <span style="color:blue">{{feature.featureName}}</span>.<br/>
+                                    Overwritten Settings on Respective Page?
+                                    <input type="radio" name="{{children.id}}" value="true" checked><label>&nbsp;Yes&nbsp;&nbsp;</label>
+                                    <input type="radio" name="{{children.id}}"  value="false"><label>&nbsp;No</label>
+                                </td>
+                                <td style="height: 100px;padding-top:25px;" *ngIf="children.children == 0 && children.isOverride !=true">
+                                    Channel Settings Can be OverWritten While <span style="color:blue">{{children.featureName}}</span> Under <span style="color:blue">{{feature.featureName}}</span>.<br/>
+                                    Overwritten Settings on Respective Page?&nbsp;&nbsp;
+                                    <input type="radio" name="{{children.id}}" value="true"><label>&nbsp;Yes</label>&nbsp;&nbsp;
+                                    <input type="radio" name="{{children.id}}"  value="false" checked><label>&nbsp;No</label>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td>
+                        <button [disabled]="!enable" type="button" id="savechannelFeature" class="btn btn-primary btn-ladda btn-ladda-progres" >Save</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

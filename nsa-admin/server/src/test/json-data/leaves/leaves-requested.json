@@ -1,0 +1,35 @@
+[
+	{
+	"empId" : "999",
+	"empName": "Johnson R",
+	"fromDate" : "5 Oct",
+	"toDate" : " 6 Oct",
+	"leaveTypeName": "Casual Leaves",
+	"leaveReason": "Unwell, Fever",
+	"leaveTypeId" : "4d12dd30-c301-4b78-9575-bc355d64c9fa",
+	"status": "Pending",
+	"updatedDate": "4 Oct, 2017"
+	},
+	{
+	"empId" : "999",
+	"empName": "Whitney S",
+	"fromDate" : "5 Oct",
+	"toDate" : " 6 Oct",
+	"leaveTypeName": "Casual Leaves",
+	"leaveReason": "Unwell, Fever",
+	"leaveTypeId" : "4d12dd30-c301-4b78-9575-bc355d64c9fa",
+	"status": "Approved",
+	"updatedDate": "4 Oct, 2017"
+	},
+	{
+	"empId" : "999",
+	"empName": "Whitney Rsoe",
+	"fromDate" : "5 Oct",
+	"toDate" : " 6 Oct",
+	"leaveTypeName": "Casual Leaves",
+	"leaveReason": "Unwell, Fever",
+	"status": "Cancelled",
+	"leaveTypeId" : "4d12dd30-c301-4b78-9575-bc355d64c9fa",
+	"updatedDate": "4 Oct, 2017"
+	}
+]		 

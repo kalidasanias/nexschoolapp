@@ -1,0 +1,8 @@
+http://localhost:9200/notifications/_mapping/notification_master
+{
+  "properties": {
+    "user_types": {
+      "type": "text"
+    }
+  }
+}

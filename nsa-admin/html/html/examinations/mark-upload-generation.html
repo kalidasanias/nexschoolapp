@@ -1,0 +1,2128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NSA-timetable</title>
+    <!-- Global stylesheets -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet"
+          type="text/css">
+    <link href="https://s3-ap-southeast-1.amazonaws.com/hiflame14/ui/css/nxrise/css/icons/icomoon/styles.css"
+          rel="stylesheet" type="text/css">
+    <link href="https://s3-ap-southeast-1.amazonaws.com/hiflame14/ui/css/nxrise/css/icons/fontawesome/styles.min.css"
+          rel="stylesheet" type="text/css">
+    <link href="../../assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="../../assets/css/core.css" rel="stylesheet" type="text/css">
+    <link href="../../assets/css/components.css" rel="stylesheet" type="text/css">
+    <link href="../../assets/css/colors.css" rel="stylesheet" type="text/css">
+    <link href="../../assets/css/admin.css" rel="stylesheet" type="text/css">
+    <link href="../../assets/css/bootstrap-toggle.min.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
+    <link href="../../assets/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css">
+
+    <!-- /global stylesheets -->
+    <!-- Core JS files -->
+    <script type="text/javascript" src="../../assets/js/plugins/loaders/pace.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/core/libraries/jquery.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/core/libraries/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/plugins/loaders/blockui.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/plugins/ui/nicescroll.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/plugins/ui/drilldown.js"></script>
+    <script type="text/javascript" src="../../assets/js/core/libraries/bootstrap-toggle.min.js"></script>
+    <!-- /core JS files -->
+    <!-- plugins JS files -->
+    <script type="text/javascript" src="../../assets/js/plugins/visualization/d3/d3.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/plugins/visualization/d3/d3_tooltip.js"></script>
+    <script type="text/javascript" src="../../assets/js/plugins/forms/styling/switchery.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/plugins/forms/styling/uniform.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/plugins/forms/selects/bootstrap_multiselect.js"></script>
+    <script type="text/javascript" src="../../assets/js/plugins/forms/selects/bootstrap_select.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/plugins/ui/moment/moment.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/plugins/pickers/daterangepicker.js"></script>
+    <script type="text/javascript" src="../../assets/js/plugins/pickers/anytime.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/plugins/pickers/pickadate/picker.js"></script>
+    <script type="text/javascript" src="../../assets/js/plugins/pickers/pickadate/picker.date.js"></script>
+    <script type="text/javascript" src="../../assets/js/plugins/pickers/pickadate/picker.time.js"></script>
+    <script type="text/javascript" src="../../assets/js/plugins/tables/datatables/datatables.min.js"></script>
+    <!--       <script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+     -->
+
+    <script type="text/javascript"
+            src="../../assets/js/plugins/tables/datatables/extensions/responsive.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/core/libraries/jquery_ui/interactions.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/plugins/forms/selects/select2.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/plugins/tables/datatables/extensions/select.min.js"></script>
+    <script type="text/javascript"
+            src="../../assets/js/plugins/tables/datatables/extensions/row_reorder.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/plugins/tables/datatables/extensions/buttons.min.js"></script>
+    <script type="text/javascript"
+            src="../../assets/js/plugins/tables/datatables/extensions/jszip/jszip.min.js"></script>
+    <script type="text/javascript"
+            src="../../assets/js/plugins/tables/datatables/extensions/pdfmake/pdfmake.min.js"></script>
+    <script type="text/javascript"
+            src="../../assets/js/plugins/tables/datatables/extensions/pdfmake/vfs_fonts.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/plugins/ui/fullcalendar/fullcalendar.min.js"></script>
+    <!-- /plugins JS files -->
+    <!-- Theme JS files -->
+    <script type="text/javascript" src="../../assets/js/core/app.js"></script>
+    <script type="text/javascript" src="../../assets/js/pages/datatable.js"></script>
+    <script type="text/javascript" src="../../assets/js/pages/form_select2.js"></script>
+    <script type="text/javascript" src="../../assets/js/pages/picker_date.js"></script>
+    <script type="text/javascript" src="../../assets/js/pages/form_bootstrap_select.js"></script>
+    <script type="text/javascript" src="../../assets/js/pages/form_multiselect.js"></script>
+    <script type="text/javascript" src="../../assets/js/pages/extra_fullcalendar.js"></script>
+    <script type="text/javascript" src="../../assets/js/plugins/pickers/anytime.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/plugins/pickers/pickadate/picker.js"></script>
+    <script type="text/javascript" src="../../assets/js/plugins/pickers/pickadate/picker.date.js"></script>
+    <script type="text/javascript" src="../../assets/js/plugins/pickers/pickadate/picker.time.js"></script>
+    <script type="text/javascript" src="../../assets/js/plugins/pickers/pickadate/legacy.js"></script>
+    <script type="text/javascript" src="../../assets/js/pages/picker_date.js"></script>
+    <script type="text/javascript" src="../../assets/js/plugins/uploaders/fileinput.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/pages/uploader_bootstrap.js"></script>
+    <script type="text/javascript" src="../../assets/js/pages/dataTables.rowsGroup.js"></script>
+
+
+    <!-- /theme JS files -->
+
+    <!-- Theme JS files -->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+    <script type="text/javascript" src="../../assets/js/core/app.js"></script>
+    <script type="text/javascript" src="../../assets/js/charts/google/lines/lines.js"></script>
+    <script type="text/javascript" src="../../assets/js/charts/google/bars/column.js"></script>
+
+
+    <!-- /theme JS files -->
+
+
+    <script type="text/javascript">
+
+        // var model=[{"UserId":1311,"Email":"Carlos.Lopez@humbermail.ca.co","Password":null,"LastName":"Lopez","FirstName":"Carlos","StudentOrTeacherRegistrationNumber":"805687001","Section":"2","AdvisorSection":"0","Placement":"NoPlacement","Site":"NoSite","Unit":"NoUnit","UnitId":233,"StudentOrTeacherUnitId":3520},
+        // {"UserId":1319,"Email":"David.Griffin@humbermail.ca.co","Password":null,"LastName":"Griffin","FirstName":"David","StudentOrTeacherRegistrationNumber":"804790491 ","Section":"7930sdd","AdvisorSection":"0ass","Placement":"NoPlacement","Site":"NoSite","Unit":"NoUnit","UnitId":233,"StudentOrTeacherUnitId":3502},
+        // {"UserId":1648,"Email":"Scott.Meyer@humbermail.ca.co","Password":null,"LastName":"Meyer","FirstName":"Scott","StudentOrTeacherRegistrationNumber":"N00686366 ","Section":"7930","AdvisorSection":"0","Placement":"Agency","Site":"Bridgepoint","Unit":"2155-8","UnitId":177,"StudentOrTeacherUnitId":3503},
+        // {"UserId":1693,"Email":"Robin.Long@humbermail.ca.co","Password":null,"LastName":"Long","FirstName":"Robin","StudentOrTeacherRegistrationNumber":"bllk0246","Section":"7930","AdvisorSection":"0","Placement":"NoPlacement","Site":"NoSite","Unit":"NoUnit","UnitId":233,"StudentOrTeacherUnitId":3504}];
+
+        var model = [
+            {
+                "name": "Senthil",
+                "subject": "English",
+                "pt1": 18,
+                "pt2": 17,
+                "cs": 8,
+                "lab": 4.5,
+                "concept": 5,
+                "total": 4.5,
+                "w": 3.4,
+                "a": 4.5,
+                "overall": 3.9,
+                "grade": 'A1'
+            },
+            {
+                "name": "Senthil",
+                "subject": "Tamil",
+                "pt1": 18,
+                "pt2": 17,
+                "cs": 8,
+                "lab": 4.5,
+                "concept": 5,
+                "total": 4.5,
+                "w": 3.4,
+                "a": 4.5,
+                "overall": 3.9,
+                "grade": 'A1'
+            },
+            {
+                "name": "Deepak",
+                "subject": "English",
+                "pt1": 18,
+                "pt2": 17,
+                "cs": 8,
+                "lab": 4.5,
+                "concept": 5,
+                "total": 4.5,
+                "w": 3.4,
+                "a": 4.5,
+                "overall": 3.9,
+                "grade": 'A1'
+            },
+            {
+                "name": "Deepak",
+                "subject": "Tamil",
+                "pt1": 18,
+                "pt2": 17,
+                "cs": 8,
+                "lab": 4.5,
+                "concept": 5,
+                "total": 4.5,
+                "w": 3.4,
+                "a": 4.5,
+                "overall": 3.9,
+                "grade": 'A1'
+            },
+            {
+                "name": "Kiranmai",
+                "subject": "English",
+                "pt1": 18,
+                "pt2": 17,
+                "cs": 8,
+                "lab": 4.5,
+                "concept": 5,
+                "total": 4.5,
+                "w": 3.4,
+                "a": 4.5,
+                "overall": 3.9,
+                "grade": 'A1'
+            },
+            {
+                "name": "Kiranmai",
+                "subject": "Tamil",
+                "pt1": 18,
+                "pt2": 17,
+                "cs": 8,
+                "lab": 4.5,
+                "concept": 5,
+                "total": 4.5,
+                "w": 3.4,
+                "a": 4.5,
+                "overall": 3.9,
+                "grade": 'A1'
+            },
+        ]
+
+        var marksheet;
+
+
+        $(document).ready(function () {
+            DisplayStudentsCurriculumTableData(model);
+
+        });
+
+        function DisplayStudentsCurriculumTableData(model) {
+            $("#curriculum-students-dataTable").dataTable().fnDestroy();
+            marksheet = $('#curriculum-students-dataTable').dataTable({
+
+                //"bRetrieve": true,
+                "sPaginationType": "full_numbers",
+
+
+                //"bProcessing": true,
+                //"bAutoWidth": false,
+                //"bStateSave": true,
+                "aaSorting": [[1, 'asc']],
+                "aaData": model,
+                rowsGroup: [0, 1, 2],
+                "aoColumns": [
+
+                    {
+                        "data": "name",
+                        sDefaultContent: ""
+                    },
+                    {
+                        "data": "subject",
+                        sDefaultContent: ""
+                    },
+                    {
+                        "data": "pt1",
+                        sDefaultContent: ""
+                    },
+                    {
+                        "data": "pt2",
+                        sDefaultContent: ""
+                    },
+                    {
+                        "data": "cs",
+                        sDefaultContent: ""
+                    },
+                    {
+                        "data": "lab",
+                        sDefaultContent: ""
+                    },
+                    {
+                        "data": "concept",
+                        sDefaultContent: ""
+                    },
+                    {
+                        "data": "total",
+                        sDefaultContent: ""
+                    },
+                    {
+                        "data": "w",
+                        sDefaultContent: ""
+                    },
+                    {
+                        "data": "a",
+                        sDefaultContent: ""
+                    },
+                    {
+                        "data": "overall",
+                        sDefaultContent: ""
+                    },
+                    {
+                        "data": "grade",
+                        sDefaultContent: ""
+                    }
+
+                ],
+
+                dom: 'Blfrtip',
+                select: true,
+                buttons: [
+
+                    'selectAll', {
+                        extend: 'selected', text: 'Deselect All', action: function () {
+                            table.rows().deselect();
+                        }
+                    },
+                    {
+                        extend: 'print',
+                        text: 'Print all'
+                    },
+
+                    {
+                        extend: 'print',
+                        text: 'Print selected',
+                        exportOptions: {
+                            modifier: {
+                                selected: true
+                            }
+                        }
+                    }
+                ],
+
+
+            });
+        }
+    </script>
+
+
+    <script type="text/javascript">
+        // $("label.mytxt").each(function (i) {
+        $(document).on("click", "label.mytxt", function () {
+            var txt = $(".mytxt").text();
+            $(".mytxt").replaceWith("<input class='mytxt'/>");
+            $(".mytxt").val(txt);
+            $('mytxt').css('width', '20px');
+        });
+
+        $(document).on("blur", "input.mytxt", function () {
+            var txt = $(this).val();
+            $(this).replaceWith("<label class='mytxt'></label>");
+            $(".mytxt").text(txt);
+        });
+        //  };
+
+    </script>
+
+
+</head>
+<body class="navbar-top-md-md">
+<!-- Fixed navbars wrapper -->
+<div class="navbar-fixed-top">
+    <!-- Main navbar -->
+    <div class="navbar navbar-inverse">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="../../index.html">
+                NSA ADMIN<!-- <img src="../../assets/images/logo_light.png" alt=""> -->
+            </a>
+            <ul class="nav navbar-nav pull-right visible-xs-block">
+                <li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-menu3"></i></a>
+                </li>
+            </ul>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-mobile">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown language-switch">
+                    <a class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="icon-phone-incoming position-left"></i>
+                        <span class="text-uppercase">Contact Us</span>
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="deutsch"><b>Technical Contact</b><br/> 9791038679 </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown language-switch">
+                    <a href="#" class="text-uppercase"><i class="icon-switch2"></i> Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- /main navbar -->
+    <!-- Second navbar -->
+    <div class="navbar navbar-default" id="navbar-second">
+        <ul class="nav navbar-nav no-border visible-xs-block">
+            <li><a class="text-center collapsed" data-toggle="collapse" data-target="#navbar-second-toggle"><i
+                    class="icon-menu7"></i></a></li>
+        </ul>
+        <div class="navbar-collapse collapse" id="navbar-second-toggle">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="../dashboard/dashboard.html"><i class="icon-home7 position-left"></i>
+                    Dashboard</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="icon-books position-left"></i> Academics <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu width-200">
+                        <li><a href="../academics/academic-year.html"><i class="icon-calendar52"></i> Academic Year</a>
+                        </li>
+                        <li><a href="../academics/course-management.html"><i class="icon-graduation2"></i> Course
+                            Management</a></li>
+                        <li><a href="../academics/classes.html"><i class=" icon-tree6"></i> Classes</a></li>
+                        <li class="dropdown-submenu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-lan2"></i>
+                                Sections</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="../academics/section-list.html"><i class="icon-list"></i> Section List</a>
+                                </li>
+                                <li><a href="../academics/section-allocation.html"><i class="icon-tree5"></i> Section
+                                    Allocation</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-submenu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-notebook"></i>
+                                Subjects</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="../academics/subject-list.html"><i class="icon-list2"></i> Subject List</a>
+                                </li>
+                                <li><a href="../academics/subject-allocation.html"><i class=" icon-book"></i> Subject
+                                    Allocation</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-submenu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-calendar2" \></i>
+                                Holiday Calendar</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="../holiday-calendar/holiday-types.html"><i class=" icon-spinner4"></i>
+                                    Holiday Types</a></li>
+                                <li><a href="../holiday-calendar/holidays.html"><i class="icon-accessibility"></i>
+                                    Holidays</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown mega-menu mega-menu-wide">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-users4 position-left"></i>
+                        User Management <span class="caret"></span></a>
+                    <div class="dropdown-menu dropdown-content">
+                        <div class="dropdown-content-body">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <span class="menu-heading underlined">Employee Management </span>
+                                    <ul class="menu-list">
+                                        <li><a href="../employee-management/department.html"><i class="icon-lan"></i>
+                                            Department </a></li>
+                                        <li><a href="../employee-management/designation.html"><i
+                                                class="icon-sort-amount-desc"></i> Designation</a></li>
+                                        <li><a href="../employee-management/category.html"><i
+                                                class="icon-sort-alpha-asc"></i> Category </a></li>
+                                        <li><a href="../employee-management/add-employees.html"><i
+                                                class="icon-users2"></i> Employees </a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-2">
+                                    <span class="menu-heading underlined">Leave Management</span>
+                                    <ul class="menu-list">
+                                        <li><a href="../leave-management/leave-types.html"><i class="icon-split"></i>
+                                            Leave Types</a></li>
+                                        <li><a href="../leave-management/leave-assignments.html"><i
+                                                class="icon-drag-right"></i> Leave Assignments</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-2">
+                                    <span class="menu-heading underlined">Student Management </span>
+                                    <ul class="menu-list">
+                                        <li><a href="../student-management/student-status.html"><i
+                                                class="icon-align-center-horizontal"></i> Student status</a></li>
+                                        <li><a href="../student-management/add-students.html"><i
+                                                class="icon-man-woman"></i> Students</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-2">
+                                    <span class="menu-heading underlined">Roles & Permissions </span>
+                                    <ul class="menu-list">
+                                    </ul>
+                                </div>
+                                <div class="col-md-2">
+                                    <span class="menu-heading underlined">User Groups </span>
+                                    <ul class="menu-list">
+                                    </ul>
+                                </div>
+                                <div class="col-md-2">
+                                    <span class="menu-heading underlined">Taxonomy </span>
+                                    <ul class="menu-list">
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="dropdown mega-menu mega-menu-wide">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
+                            class=" icon-library2 position-left"></i>School Management <span class="caret"></span></a>
+                    <div class="dropdown-menu dropdown-content">
+                        <div class="dropdown-content-body">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <span class="menu-heading underlined">Homework</span>
+                                    <ul class="menu-list">
+                                        <li><a href="../homework/assignment-types.html"><i
+                                                class="icon-pencil-ruler"></i> Assignment types</a></li>
+                                        <li><a href="../homework/create-assignments.html"><i class=" icon-reading"></i>
+                                            Create Assignments</a></li>
+                                    </ul>
+                                    <span class="menu-heading underlined">Attendance</span>
+                                    <ul class="menu-list">
+                                        <li><a href="../attendance/attendance-information.html"><i
+                                                class=" icon-user-tie"></i> Attendance Information</a></li>
+                                        <li><a href="../attendance/attendance-history.html"><i
+                                                class=" icon-history"></i> Attendance History</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-3">
+                                    <span class="menu-heading underlined">Exams & Progress reports</span>
+                                    <ul class="menu-list">
+                                        <li>
+                                            <a href="#"><i class="icon-compose"></i> Exam Configuration</a>
+                                            <ul>
+                                                <li><a href="../examinations/grading-system.html"><i
+                                                        class="icon-sort-alpha-asc"></i>Grading System</a></li>
+                                                <li><a href="../examinations/exam-system.html"><i
+                                                        class="icon-color-sampler"></i>Exam System</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="../examinations/create-examinations.html"><i
+                                                class="icon-paste3"></i> Create Examinations</a></li>
+                                        <li><a href="../examinations/portions.html"><i class="icon-file-zip2"></i>
+                                            Portions</a></li>
+                                        <li><a href="../examinations/marks-upload.html"><i
+                                                class=" icon-file-upload"></i> Marks Upload</a></li>
+                                        <li><a href="../examinations/promotion-list.html"><i class=" icon-vcard"></i>
+                                            Promotion List</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-3">
+                                    <span class="menu-heading underlined">Fee Management</span>
+                                    <ul class="menu-list">
+                                        <li>
+                                            <a href="#"><i class="icon-cash4"></i> Fee Configuration</a>
+                                            <ul>
+                                                <li><a href="../fee-management/fee-types.html"><i
+                                                        class="icon-menu2"></i>Fee Types</a></li>
+                                                <li><a href="../fee-management/fee-scholarship.html"><i
+                                                        class="icon-bookmarks"></i>Fee Scholarship</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="../fee-management/fee-structure.html"><i
+                                                class="icon-font-size2"></i> Fee Structure</a></li>
+                                        <li><a href="../fee-management/assign-fees.html"><i
+                                                class="icon-credit-card2"></i> Assign Fees</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-3">
+                                    <span class="menu-heading underlined">Timetable</span>
+                                    <ul class="menu-list">
+                                        <li><a href="../timetable/timetable-configuration.html"><i
+                                                class="icon-puzzle3"></i> Timetable Configuration</a></li>
+                                        <li><a href="../timetable/timetable.html"><i class="icon-menu2"></i> Create
+                                            Timetable</a></li>
+                                        <li><a href="../timetable/manage-timetable.html"><i
+                                                class=" icon-stack-text"></i> Manage Timetable</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class=" icon-brain position-left"></i> Activities <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu width-200">
+                        <li class="dropdown-submenu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-trophy3"></i>
+                                Event Management</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="../event-management/event-types.html"><i class=" icon-stars"></i> Event
+                                    types</a></li>
+                                <li><a href="../event-management/create-events.html"><i class=" icon-medal"></i> Create
+                                    Events</a></li>
+                                <li><a href="../event-management/event-venus.html"><i class=" icon-medal"></i> Event
+                                    Venues</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="../event-management/notifications.html"><i class="icon-bell3"></i>
+                            Notifications</a></li>
+                        <li><a href="../event-management/journal-management.html"><i class="icon-file-presentation"></i>
+                            Journal Management</a></li>
+                        <li><a href="../event-management/communication.html"><i class="icon-bubbles3"></i> Communication</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="icon-bus position-left"></i> Transport <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu width-200">
+                        <li><a href="../transport-management/vehicle-details.html"><i class="icon-truck"></i> Vehicle
+                            Details</a></li>
+                        <li><a href="../transport-management/driver-details.html"><i class="icon-user-check"></i> Driver
+                            Details</a></li>
+                        <li><a href="../transport-management/route-details.html"><i class="icon-road"></i> Route Details</a>
+                        </li>
+                        <li><a href="../transport-management/allocate-students.html"><i class="icon-user-plus"></i>
+                            Allocate Students</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="icon-stats-growth position-left"></i> Reports & Analytics <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu width-200">
+                        <li><a href="../reports&analytics/data-collection-reports.html"><i
+                                class="icon-align-center-horizontal"></i> Data Collection Reports</a></li>
+                        <li><a href="../reports&analytics/performance-reports.html"><i class="icon-flip-vertical3"></i>
+                            Performance Reports</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class=" icon-briefcase position-left"></i> Asset Management <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu width-200">
+                        <li><a href="../asset-management/files.html"><i class="icon-file-locked2"></i> Files</a></li>
+                        <li><a href="../asset-management/documents.html"><i class="icon-folder-open3"></i> Documents</a>
+                        </li>
+                        <li><a href="../asset-management/gallery.html"><i class="icon-images3"></i> Gallery</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- /second navbar -->
+</div>
+<!-- /fixed navbars wrapper -->
+<!-- Page header -->
+<div class="breadcrumb-line content-group-lg">
+    <ul class="breadcrumb">
+        <li><a href="#"><i class="icon-home2 position-left"></i> Stand</a>
+        </li>
+        <li><a href="#">Alone</a>
+        </li>
+        <li class="active">Component</li>
+    </ul>
+
+</div>
+<!-- /page header -->
+<!-- Page container -->
+<div class="page-container">
+    <!-- Page content -->
+    <div class="page-content">
+        <!-- Main content -->
+        <div class="content-wrapper">
+            <div class="panel panel-flat">
+                <div class="panel-heading">
+                    <h6 class="panel-title text-semibold text-uppercase">Mark upload and Report Card Generation</h6>
+                </div>
+                <div class="panel-body ">
+                    <div class="tabbable ">
+                        <ul class="nav nav-tabs alpha-blue  nav-tabs-highlight nav-justified">
+                            <li class="active"><a href="#solid-justified-tab1" data-toggle="tab">Mark Upload</a>
+                            </li>
+                            <!-- <li><a href="#solid-justified-tab2" data-toggle="tab">My Timetable</a>
+                               </li> -->
+                            <li><a href="#solid-justified-tab2" data-toggle="tab">Report Card Generation</a>
+                            </li>
+
+                        </ul>
+                        <div class="tab-content">
+
+                            <div class="tab-pane active" id="solid-justified-tab1">
+                                <div class="panel-heading">
+                                    <h6 class="panel-title"><span class="text-semibold text-uppercase"><i
+                                            class="icon-clipboard position-left"></i>Marks upload</span></h6>
+                                    <div class="heading-elements">
+                                        <button type="button" class="btn btn-sm btn-primary heading-btn"
+                                                data-toggle="modal" data-target="#add_exam">Enter Marks
+                                        </button>
+                                        <!-- <button type="button" class="btn btn-sm btn-primary heading-btn" data-toggle="modal"
+                                           data-target="#modal_theme_new_Timetable">Add Written Examination Type</button> -->
+                                    </div>
+                                </div>
+                                <hr/>
+                                <div class="panel-body panel-body-padding">
+                                    <form class="form-horizontal" action="#">
+                                        <div class="row form-horizontal">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label col-sm-4">Exam Name
+                                                    </label>
+                                                    <div class="col-sm-8">
+                                                        <div class="row">
+                                                            <select class="bootstrap-select" data-width="100%">
+                                                                <!--template bindings={}-->
+                                                                <option value="0">
+                                                                    Periodic Test 1
+                                                                </option>
+                                                                <option value="1">
+                                                                    Periodic Test 2
+                                                                </option>
+                                                                <option value="2">
+                                                                    FA 1
+                                                                </option>
+                                                                <option value="3">
+                                                                    FA 2
+                                                                </option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3  margin-left40">
+                                                <div class="form-group">
+                                                    <label class="control-label col-sm-4">Class
+                                                    </label>
+                                                    <div class="col-sm-8">
+                                                        <div class="row">
+                                                            <select class="bootstrap-select" data-width="100%">
+                                                                <option value="">
+                                                                    Select Class
+                                                                </option>
+                                                                <option value="0">
+                                                                    Class 1
+                                                                </option>
+                                                                <option value="2">
+                                                                    Class 2
+                                                                </option>
+                                                                <option value="3">
+                                                                    Class 3
+                                                                </option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 margin-left40">
+                                                <div class="form-group">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-sm-4">Section
+                                                        </label>
+                                                        <div class="col-sm-8">
+                                                            <div class="row">
+                                                                <select class="bootstrap-select" data-width="100%">
+                                                                    <!--template bindings={}-->
+                                                                    <option value="">
+                                                                        Select Section
+                                                                    </option>
+                                                                    <option value="0">
+                                                                        Section A
+                                                                    </option>
+                                                                    <option value="2">
+                                                                        Section B
+                                                                    </option>
+                                                                    <option value="3">
+                                                                        Section C
+                                                                    </option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-2 navbar-right txt-align-right">
+                                                <div class="form-group">
+                                                    <input class="btn btn-default " id="cancel-back" value="Clear"
+                                                           type="reset">
+                                                    <input class="btn btn btn-primary ui-wizard-content margin-right10 ui-formwizard-button"
+                                                           id="cancel-next" value="Search" type="submit">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="panel-body">
+                                    <table class="table datatable-export">
+                                        <thead>
+                                        <tr>
+                                            <th>S.No</th>
+                                            <th>Class - Section</th>
+                                            <th>Assessment Name</th>
+                                            <th>Written Examination</th>
+                                            <th>Subject</th>
+                                            <th>Updated By</th>
+                                            <th>Action</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Class 1 - Section A</td>
+                                            <td>Periodic Assessment 1</td>
+                                            <td>Periodic Test 1</td>
+                                            <td>Maths</td>
+                                            <td>Admin - 19 Apr 2017</td>
+                                            <td>&nbsp;&nbsp;<a class="icon-primary"><i
+                                                    class="fa fa-pencil-square-o fa-lg"></i></a>
+                                                <a class="icon-danger"><i class="fa fa-trash-o fa-lg"></i> </a>
+                                                <a class="icon-info"><i class="fa fa-bar-chart fa-lg"
+                                                                        data-toggle="modal"
+                                                                        data-target="#marklist_stat"></i></a>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Class 2 - Section E</td>
+                                            <td>Periodic Assessment 2</td>
+                                            <td>Periodic Test 2</td>
+                                            <td>English</td>
+                                            <td>Admin - 19 Aug 2017</td>
+                                            <td>&nbsp;&nbsp;<a class="icon-primary"><i
+                                                    class="fa fa-pencil-square-o fa-lg"></i></a>
+                                                <a class="icon-danger"><i class="fa fa-trash-o fa-lg"></i></a>
+                                                <a class="icon-info"><i class="fa fa-bar-chart fa-lg"></i></a>
+
+                                            </td>
+                                        </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div id="add_exam" class="modal fade">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header bg-primary">
+                                                <button type="button" class="close" data-dismiss="modal">&times;
+                                                </button>
+                                                <h5 class="modal-title">Marks Upload</h5>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form class="form-horizontal" action="#">
+                                                    <fieldset class="">
+                                                        <!-- <div class="col-md-12">
+                                                            <div class="form-group">
+                                                                <label class="control-label col-sm-4">Term <span class="text-danger">*</span>
+                                                                </label>
+                                                                <div class="col-sm-8">
+                                                                    <select class="bootstrap-select" data-width="100%">
+                                                                        <option>Select Term</option>
+                                                                        <option value="Cambodia">Mid Term</option>
+                                                                        <option value="Martic">Half Term</option>
+                                                                        <option value="State">Full Term</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div> -->
+                                                        <div class="col-md-12">
+                                                            <div class="form-group">
+                                                                <label class="control-label col-sm-3">Class<span
+                                                                        class="text-danger"> *</span></label>
+                                                                <div class="col-sm-3">
+                                                                    <select class="bootstrap-select" data-width="100%">
+                                                                        <option value="class1">Class 1</option>
+                                                                        <option value="class2">Class 2</option>
+                                                                        <option value="class3">Class 3</option>
+                                                                    </select>
+                                                                </div>
+
+
+                                                                <label class="control-label col-sm-3">Section<span
+                                                                        class="text-danger"> *</span></label>
+                                                                <div class="col-sm-3">
+                                                                    <select class="bootstrap-select" data-width="100%">
+                                                                        <option value="class1">Section A</option>
+                                                                        <option value="class2">Section B</option>
+                                                                        <option value="class3">Section C</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+
+
+                                                        </div>
+
+                                                        <div class="col-md-12">
+                                                            <div class="form-group">
+                                                                <label class="control-label col-sm-3">Assessment
+                                                                    Name<span class="text-danger"> *</span></label>
+                                                                <div class="col-sm-6">
+                                                                    <select class="bootstrap-select" data-width="100%">
+                                                                        <option value="class1">Periodic Assessment 1
+                                                                        </option>
+                                                                        <option value="class2">Periodic Assessment 2
+                                                                        </option>
+                                                                        <option value="class3">halfly Examination
+                                                                        </option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="col-md-12">
+                                                            <div class="panel panel-flat table-responsive">
+                                                                <table class="table">
+                                                                    <thead>
+                                                                    <tr>
+                                                                        <th>Name</th>
+                                                                        <th>Maximum Marks</th>
+                                                                        <th>Convert Scores</th>
+                                                                        <th>Convert to a max score</th>
+                                                                        <th>What will be entered?</th>
+                                                                    </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                    <tr>
+                                                                        <td>Periodic Test 1</td>
+                                                                        <td><input type="text" class="form-control"
+                                                                                   id="code"></td>
+                                                                        <td><input type="checkbox" checked
+                                                                                   data-toggle="toggle" data-height="25"
+                                                                                   data-width="53" data-size="mini"
+                                                                                   checked data-on="Active"
+                                                                                   data-off="De-active"
+                                                                                   data-onstyle="success"
+                                                                                   data-offstyle="danger"></td>
+                                                                        <td><input type="text" class="form-control"
+                                                                                   id="code"></td>
+                                                                        <td><label class="radio-inline">
+                                                                            <input type="radio" name="marks"
+                                                                                   class="styled" checked="checked">
+                                                                            Marks
+                                                                        </label>
+                                                                            <label class="radio-inline">
+                                                                                <input type="radio" name="grades"
+                                                                                       class="styled">
+                                                                                Grades
+                                                                            </label>
+                                                                        </td>
+                                                                    </tr>
+
+                                                                    <tr>
+                                                                        <td>SEA</td>
+                                                                        <td><input type="text" class="form-control"
+                                                                                   id="code"></td>
+                                                                        <td><input type="checkbox" checked
+                                                                                   data-toggle="toggle" data-height="25"
+                                                                                   data-width="53" data-size="mini"
+                                                                                   checked data-on="Active"
+                                                                                   data-off="De-active"
+                                                                                   data-onstyle="success"
+                                                                                   data-offstyle="danger"></td>
+                                                                        <td><input type="text" class="form-control"
+                                                                                   id="code"></td>
+                                                                        <td><label class="radio-inline">
+                                                                            <input type="radio" name="marks"
+                                                                                   class="styled" checked="checked">
+                                                                            Marks
+                                                                        </label>
+                                                                            <label class="radio-inline">
+                                                                                <input type="radio" name="grades"
+                                                                                       class="styled">
+                                                                                Grades
+                                                                            </label>
+                                                                        </td>
+                                                                    </tr>
+
+                                                                    <tr>
+                                                                        <td>NoteBook</td>
+                                                                        <td><input type="text" class="form-control"
+                                                                                   id="code"></td>
+                                                                        <td><input type="checkbox" checked
+                                                                                   data-toggle="toggle" data-height="25"
+                                                                                   data-width="53" data-size="mini"
+                                                                                   checked data-on="Active"
+                                                                                   data-off="De-active"
+                                                                                   data-onstyle="success"
+                                                                                   data-offstyle="danger"></td>
+                                                                        <td><input type="text" class="form-control"
+                                                                                   id="code"></td>
+                                                                        <td><label class="radio-inline">
+                                                                            <input type="radio" name="marks"
+                                                                                   class="styled" checked="checked">
+                                                                            Marks
+                                                                        </label>
+                                                                            <label class="radio-inline">
+                                                                                <input type="radio" name="grades"
+                                                                                       class="styled">
+                                                                                Grades
+                                                                            </label>
+                                                                        </td>
+                                                                    </tr>
+
+
+                                                                    </tbody>
+
+                                                                </table>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-12">
+                                                            <div class="form-group">
+                                                                <label class="control-label col-sm-3">Subject<span
+                                                                        class="text-danger"> *</span></label>
+                                                                <div class="col-sm-6">
+                                                                    <select class="bootstrap-select" data-width="100%">
+                                                                        <option value="class1">English</option>
+                                                                        <option value="class2">Tamil</option>
+                                                                        <option value="class3">Maths</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </fieldset>
+
+                                                </form>
+                                            </div>
+                                            <hr/>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">
+                                                    Close
+                                                </button>
+                                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                                        data-target="#add_marks_upload">Proceed
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- marklist statistics starts-->
+                                <div id="marklist_stat" class="modal fade">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header bg-primary">
+                                                <button type="button" class="close" data-dismiss="modal">&times;
+                                                </button>
+                                                <h5 class="modal-title">Report Statistics</h5>
+                                            </div>
+                                            <div class="modal-body">
+                                                <!-- Grid -->
+                                                <div class="row">
+                                                    <div class="col-md-6">
+
+                                                        <!-- Horizontal form -->
+                                                        <div class="panel panel-flat">
+                                                            <div class="panel-heading">
+                                                                <h5 class="panel-title">Overall Subject Performance</h5>
+
+                                                            </div>
+
+                                                            <div class="panel-body">
+                                                                <div class="table-responsive">
+                                                                    <div class="chart"
+                                                                         id="overall_subjectperformance"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- /horizotal form -->
+
+                                                    </div>
+
+                                                    <div class="col-md-6">
+
+                                                        <!-- Vertical form -->
+                                                        <div class="panel panel-flat">
+                                                            <div class="panel-heading">
+                                                                <h5 class="panel-title">Grade Statistics</h5>
+
+                                                            </div>
+
+                                                            <div class="panel-body">
+                                                                <div class="table-responsive">
+                                                                    <div class="chart" id="grade_statistics"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- /vertical form -->
+
+                                                    </div>
+                                                </div>
+                                                <!-- /grid -->
+                                                <!-- Grid -->
+                                                <div class="row">
+                                                    <div class="col-md-6">
+
+                                                        <!-- Horizontal form -->
+                                                        <div class="panel panel-flat">
+                                                            <div class="panel-heading">
+                                                                <h5 class="panel-title">Overall Report</h5>
+
+                                                            </div>
+
+                                                            <div class="panel-body">
+                                                                <div class="table-responsive pre-scrollable">
+                                                                    <table class="table">
+                                                                        <tr>
+                                                                            <td>Overall pass percentage</td>
+                                                                            <td>79%</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Average Grade</td>
+                                                                            <td>A2</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Average Mark</td>
+                                                                            <td>70.9</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Hightest Score</td>
+                                                                            <td>79/80</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Lowest Score</td>
+                                                                            <td>35/80</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>No. Passed</td>
+                                                                            <td>35</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>No. Failed</td>
+                                                                            <td>15</td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- /horizotal form -->
+
+                                                    </div>
+
+                                                    <div class="col-md-6">
+
+                                                        <!-- Vertical form -->
+                                                        <div class="panel panel-flat">
+                                                            <div class="panel-heading">
+                                                                <h5 class="panel-title">Top Performer</h5>
+
+                                                            </div>
+
+                                                            <div class="panel-body">
+                                                                <div class="table-responsive pre-scrollable">
+                                                                    <table class="table">
+                                                                        <tr>
+                                                                            <td>Overall pass percentage</td>
+                                                                            <td>79%</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Average Grade</td>
+                                                                            <td>A2</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Average Mark</td>
+                                                                            <td>70.9</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Hightest Score</td>
+                                                                            <td>79/80</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Lowest Score</td>
+                                                                            <td>35/80</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>No. Passed</td>
+                                                                            <td>35</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>No. Failed</td>
+                                                                            <td>15</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Overall pass percentage</td>
+                                                                            <td>79%</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Average Grade</td>
+                                                                            <td>A2</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Average Mark</td>
+                                                                            <td>70.9</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Hightest Score</td>
+                                                                            <td>79/80</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Lowest Score</td>
+                                                                            <td>35/80</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>No. Passed</td>
+                                                                            <td>35</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>No. Failed</td>
+                                                                            <td>15</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Overall pass percentage</td>
+                                                                            <td>79%</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Average Grade</td>
+                                                                            <td>A2</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Average Mark</td>
+                                                                            <td>70.9</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Hightest Score</td>
+                                                                            <td>79/80</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Lowest Score</td>
+                                                                            <td>35/80</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>No. Passed</td>
+                                                                            <td>35</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>No. Failed</td>
+                                                                            <td>15</td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- /vertical form -->
+
+                                                    </div>
+                                                </div>
+                                                <!-- /grid -->
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- marklist statistics end-->
+                                <!-- mark upload sheet starts here -->
+                                <div id="add_marks_upload" class="modal fade">
+                                    <!-- <div class="modal-dialog modal-lg"> -->
+                                    <div class="modal-content">
+                                        <div class="modal-header bg-primary">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h5 class="modal-title">Marks List Sheet</h5>
+                                        </div>
+                                        <form class="form-horizontal" action="#">
+                                            <!--  <div class="panel-body"> -->
+                                            <div class="form-group">
+                                                <div class="col-md-12">
+                                                    <div class="panel panel-flat table-responsive">
+                                                        <table id="example"
+                                                               class="display datatable-export datatable-mark"
+                                                               cellspacing="0" width="100%">
+                                                            <thead>
+                                                            <tr>
+                                                                <th colspan="2">Term 1</th>
+                                                                <th colspan="4">Subject : Maths</th>
+                                                                <th colspan="3">Periodic Assessment</th>
+                                                                <th colspan="3">Date : 26 Aug 17</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <th rowspan="2">Name</th>
+                                                                <th colspan="2">Periodic Test</th>
+                                                                <th colspan="1">C.Score</th>
+                                                                <th colspan="3">SEA</th>
+                                                                <th colspan="3">NoteBook.</th>
+
+                                                                <th colspan="1">Grade</th>
+                                                            </tr>
+                                                            <tr>
+
+                                                                <th>PT 1</th>
+                                                                <th>PT 2</th>
+                                                                <th>PT (10)</th>
+                                                                <th>Lab</th>
+                                                                <th>Concept</th>
+                                                                <th>Total (5)</th>
+                                                                <th>W</th>
+                                                                <th>A</th>
+                                                                <th>Total (5)</th>
+                                                                <th></th>
+                                                            </tr>
+                                                            </thead>
+                                                            <!-- <tfoot>
+                                                                <tr>
+                                                                   <th >Name</th>
+                                                                    <th>Periodic Test</th>
+                                                                    <th>Converted Score</th>
+                                                                    <th>SEA</th>
+                                                                    <th>NoteBook.</th>
+                                                                    <th>Assessment Total (20)</th>
+                                                                    <th>Grade</th>
+                                                                </tr>
+                                                            </tfoot> -->
+                                                            <tbody>
+                                                            <tr>
+                                                                <td>Senthil</td>
+                                                                <td><input type="text" name="exam1"
+                                                                           class="form-control inputbox-datatable-size">
+                                                                </td>
+                                                                <td><input type="text" name="exam1"
+                                                                           class="form-control inputbox-datatable-size">
+                                                                </td>
+                                                                <td><input type="text" name="exam1"
+                                                                           class="form-control inputbox-datatable-size">
+                                                                </td>
+                                                                <td><input type="text" name="exam1"
+                                                                           class="form-control inputbox-datatable-size">
+                                                                </td>
+                                                                <td><input type="text" name="exam1"
+                                                                           class="form-control inputbox-datatable-size">
+                                                                </td>
+                                                                <td><input type="text" name="exam1"
+                                                                           class="form-control inputbox-datatable-size">
+                                                                </td>
+                                                                <td><input type="text" name="exam1"
+                                                                           class="form-control inputbox-datatable-size">
+                                                                </td>
+                                                                <td><input type="text" name="exam1"
+                                                                           class="form-control inputbox-datatable-size">
+                                                                </td>
+                                                                <td><input type="text" name="exam1"
+                                                                           class="form-control inputbox-datatable-size">
+                                                                </td>
+                                                                <td><input type="text" name="exam1"
+                                                                           class="form-control inputbox-datatable-size">
+                                                                </td>
+
+
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Kiranmai</td>
+                                                                <td><input type="text" name="exam1"
+                                                                           class="form-control inputbox-datatable-size">
+                                                                </td>
+                                                                <td><input type="text" name="exam1"
+                                                                           class="form-control inputbox-datatable-size">
+                                                                </td>
+                                                                <td><input type="text" name="exam1"
+                                                                           class="form-control inputbox-datatable-size">
+                                                                </td>
+                                                                <td><input type="text" name="exam1"
+                                                                           class="form-control inputbox-datatable-size">
+                                                                </td>
+                                                                <td><input type="text" name="exam1"
+                                                                           class="form-control inputbox-datatable-size">
+                                                                </td>
+                                                                <td><input type="text" name="exam1"
+                                                                           class="form-control inputbox-datatable-size">
+                                                                </td>
+                                                                <td><input type="text" name="exam1"
+                                                                           class="form-control inputbox-datatable-size">
+                                                                </td>
+                                                                <td><input type="text" name="exam1"
+                                                                           class="form-control inputbox-datatable-size">
+                                                                </td>
+                                                                <td><input type="text" name="exam1"
+                                                                           class="form-control inputbox-datatable-size">
+                                                                </td>
+                                                                <td><input type="text" name="exam1"
+                                                                           class="form-control inputbox-datatable-size">
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Deepak</td>
+                                                                <td><input type="text" name="exam1"
+                                                                           class="form-control inputbox-datatable-size">
+                                                                </td>
+                                                                <td><input type="text" name="exam1"
+                                                                           class="form-control inputbox-datatable-size">
+                                                                </td>
+                                                                <td><input type="text" name="exam1"
+                                                                           class="form-control inputbox-datatable-size">
+                                                                </td>
+                                                                <td><input type="text" name="exam1"
+                                                                           class="form-control inputbox-datatable-size">
+                                                                </td>
+                                                                <td><input type="text" name="exam1"
+                                                                           class="form-control inputbox-datatable-size">
+                                                                </td>
+                                                                <td><input type="text" name="exam1"
+                                                                           class="form-control inputbox-datatable-size">
+                                                                </td>
+                                                                <td><input type="text" name="exam1"
+                                                                           class="form-control inputbox-datatable-size">
+                                                                </td>
+                                                                <td><input type="text" name="exam1"
+                                                                           class="form-control inputbox-datatable-size">
+                                                                </td>
+                                                                <td><input type="text" name="exam1"
+                                                                           class="form-control inputbox-datatable-size">
+                                                                </td>
+                                                                <td><input type="text" name="exam1"
+                                                                           class="form-control inputbox-datatable-size">
+                                                                </td>
+                                                            </tr>
+
+
+                                                            </tbody>
+                                                        </table>
+
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--                                              </div>
+                                             -->                                         </form>
+                                        <hr/>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close
+                                            </button>
+                                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                                    data-target="#add_marks_upload">Proceed
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- </div> -->
+                                </div>
+                            </div>
+                            <!-- mark upload sheet ends here -->
+
+                            <!--- Report Card generation starts here -->
+
+                            <div class="tab-pane " id="solid-justified-tab2">
+
+                                <div class="panel-heading">
+                                    <h6 class="panel-title"><span class="text-semibold text-uppercase"><i
+                                            class="icon-clipboard position-left"></i>Report Card Generation</span></h6>
+                                    <div class="heading-elements">
+                                        <button type="button" class="btn btn-sm btn-primary heading-btn"
+                                                data-toggle="modal" data-target="#report_card_gn">Generate Report
+                                        </button>
+                                        <!-- <button type="button" class="btn btn-sm btn-primary heading-btn" data-toggle="modal"
+                                           data-target="#modal_theme_new_Timetable">Add Written Examination Type</button> -->
+                                    </div>
+                                </div>
+                                <hr/>
+                                <div class="panel-body panel-body-padding">
+                                    <form class="form-horizontal" action="#">
+                                        <div class="row form-horizontal">
+
+                                            <div class="col-md-3  margin-left40">
+                                                <div class="form-group">
+                                                    <label class="control-label col-sm-4">Class
+                                                    </label>
+                                                    <div class="col-sm-8">
+                                                        <div class="row">
+                                                            <select class="bootstrap-select" data-width="100%">
+                                                                <option value="">
+                                                                    Select Class
+                                                                </option>
+                                                                <option value="0">
+                                                                    Class 1
+                                                                </option>
+                                                                <option value="2">
+                                                                    Class 2
+                                                                </option>
+                                                                <option value="3">
+                                                                    Class 3
+                                                                </option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 margin-left40">
+                                                <div class="form-group">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-sm-4">Section
+                                                        </label>
+                                                        <div class="col-sm-8">
+                                                            <div class="row">
+                                                                <select class="bootstrap-select" data-width="100%">
+                                                                    <!--template bindings={}-->
+                                                                    <option value="">
+                                                                        Select Section
+                                                                    </option>
+                                                                    <option value="0">
+                                                                        Section A
+                                                                    </option>
+                                                                    <option value="2">
+                                                                        Section B
+                                                                    </option>
+                                                                    <option value="3">
+                                                                        Section C
+                                                                    </option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-2 navbar-right txt-align-right">
+                                                <div class="form-group">
+                                                    <input class="btn btn-default " id="cancel-back" value="Clear"
+                                                           type="reset">
+                                                    <input class="btn btn btn-primary ui-wizard-content margin-right10 ui-formwizard-button"
+                                                           id="cancel-next" value="Search" type="submit">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <div class="panel-body">
+                                    <table class="table datatable-export">
+                                        <thead>
+                                        <tr>
+                                            <th>S.No</th>
+                                            <th>Class - Section</th>
+                                            <th>Assessment Name</th>
+                                            <th>Written Examination</th>
+                                            <th>Updated By</th>
+                                            <th>Action</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Class 1 - Section A</td>
+                                            <td>Periodic Assessment 1</td>
+                                            <td>Periodic Test 1</td>
+                                            <td>Admin - 19 Apr 2017</td>
+                                            <td>&nbsp;&nbsp;<a class="icon-primary"><i
+                                                    class="fa fa-pencil-square-o fa-lg"></i></a>
+                                                <a class="icon-danger"><i class="fa fa-trash-o fa-lg"></i></a>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Class 2 - Section E</td>
+                                            <td>Periodic Assessment 2</td>
+                                            <td>Periodic Test 2</td>
+                                            <td>Admin - 19 Aug 2017</td>
+                                            <td>&nbsp;&nbsp;<a class="icon-primary"><i
+                                                    class="fa fa-pencil-square-o fa-lg"></i></a>
+                                                <a class="icon-danger"><i class="fa fa-trash-o fa-lg"></i></a>
+                                            </td>
+                                        </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div id="report_card_gn" class="modal fade">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header bg-primary">
+                                                <button type="button" class="close" data-dismiss="modal">&times;
+                                                </button>
+                                                <h5 class="modal-title">Report Card Configuration</h5>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form class="form-horizontal" action="#">
+                                                    <fieldset class="">
+                                                        <div class="col-md-12">
+                                                            <div class="form-group">
+                                                                <label class="control-label col-sm-4">Class<span
+                                                                        class="text-danger"> *</span>
+                                                                </label>
+                                                                <div class="col-sm-8">
+                                                                    <select class="bootstrap-select" data-width="100%">
+                                                                        <option>Select Class</option>
+                                                                        <option value="Cambodia">Class 1</option>
+                                                                        <option value="Martic">Class 2</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <div class="form-group">
+                                                                <label class="control-label col-sm-4">Section<span
+                                                                        class="text-danger"> *</span>
+                                                                </label>
+                                                                <div class="col-sm-8">
+                                                                    <select class="bootstrap-select" data-width="100%">
+                                                                        <option>Select Section</option>
+                                                                        <option value="Cambodia">Section A</option>
+                                                                        <option value="Martic">Section B</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <div class="form-group">
+                                                                <label class="control-label col-sm-4">Generate report
+                                                                    for<span class="text-danger"> *</span></label>
+                                                                <div class="col-sm-8">
+                                                                    <label class="radio-inline">
+                                                                        <input type="radio" name="marks" class="styled"
+                                                                               checked="checked">
+                                                                        Term-wise
+                                                                    </label>
+                                                                    <label class="radio-inline">
+                                                                        <input type="radio" name="grades"
+                                                                               class="styled">
+                                                                        Examination
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <div class="form-group">
+                                                                <label class="control-label col-sm-4">Term<span
+                                                                        class="text-danger"> *</span>
+                                                                </label>
+                                                                <div class="col-sm-8">
+                                                                    <select class="bootstrap-select" data-width="100%">
+                                                                        <option>Select Term</option>
+                                                                        <option value="Cambodia">Term 1</option>
+                                                                        <option value="Martic">Term 2</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <div class="form-group">
+                                                                <label class="control-label col-sm-4">Assessment
+                                                                    Name<span class="text-danger"> *</span>
+                                                                </label>
+                                                                <div class="col-sm-8">
+                                                                    <select class="multiselect-select-all"
+                                                                            multiple="multiple">
+                                                                        <option value="PA1">Periodic Assessment 1
+                                                                        </option>
+                                                                        <option value="PA2">Periodic Assessment 2
+                                                                        </option>
+                                                                        <option value="FA1">Formative Assessment 1
+                                                                        </option>
+                                                                        <option value="FA2">Formative Assessment 2
+                                                                        </option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <div class="form-group">
+                                                                <label class="control-label col-sm-4">Written
+                                                                    Examination<span
+                                                                            class="text-danger"> *</span></label>
+                                                                <div class="col-sm-8">
+                                                                    <select class="multiselect-select-all"
+                                                                            multiple="multiple">
+                                                                        <option value="tomatoes">PT 1</option>
+                                                                        <option value="mozarella">PT 2</option>
+                                                                        <option value="mozarella">FA 1</option>
+                                                                        <option value="mozarella">FA 2</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <div class="form-group">
+                                                                <label class="control-label col-sm-4">Display overall
+                                                                    score as<span class="text-danger"> *</span></label>
+                                                                <div class="col-sm-8">
+                                                                    <label class="checkbox-inline">
+                                                                        <input type="checkbox" name="marks"
+                                                                               class="styled" checked="checked">
+                                                                        Marks
+                                                                    </label>
+                                                                    <label class="checkbox-inline">
+                                                                        <input type="checkbox" name="grades"
+                                                                               class="styled">
+                                                                        Grades
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </fieldset>
+
+                                                </form>
+                                            </div>
+                                            <hr/>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">
+                                                    Close
+                                                </button>
+                                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                                        data-target="#generate_marks_sheet">Proceed
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- Generate mark sheet starts here -->
+                                <div id="generate_marks_sheet" class="modal fade">
+                                    <!-- <div class="modal-dialog modal-lg"> -->
+                                    <div class="modal-content">
+                                        <div class="modal-header bg-primary">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h5 class="modal-title">Marks List Sheet</h5>
+                                        </div>
+                                        <form class="form-horizontal" action="#">
+                                            <!--  <div class="panel-body"> -->
+                                            <div class="form-group">
+                                                <div class="col-md-12">
+                                                    <div class="panel panel-flat table-responsive">
+                                                        <table id="curriculum-students-dataTable"
+                                                               class="display datatable-export datatable-mark"
+                                                               cellspacing="0" width="100%">
+                                                            <thead>
+                                                            <tr>
+                                                                <th colspan="2">Term 1</th>
+                                                                <th colspan="4">Class 1 - Section A</th>
+                                                                <th colspan="3">Periodic Assessment</th>
+                                                                <th colspan="3">Date : 26 Aug 17</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <th rowspan="2">Name</th>
+                                                                <th rowspan="2">Subjects</th>
+                                                                <th colspan="2">Periodic Test</th>
+                                                                <th colspan="1">C.Score</th>
+                                                                <th colspan="3">SEA</th>
+                                                                <th colspan="3">NoteBook.</th>
+                                                                <th colspan="1">Grade</th>
+                                                            </tr>
+                                                            <tr>
+
+                                                                <th>PT 1</th>
+                                                                <th>PT 2</th>
+                                                                <th>PT (10)</th>
+                                                                <th>Lab</th>
+                                                                <th>Concept</th>
+                                                                <th>Total (5)</th>
+                                                                <th>W</th>
+                                                                <th>A</th>
+                                                                <th>Total (5)</th>
+                                                                <th>G</th>
+                                                            </tr>
+                                                            </thead>
+                                                            <!-- <tbody>
+                                                                <tr>
+                                                                    <td rowspan="2">Senthil</td>
+                                                                    <td>English</td>
+                                                                    <td><label class="mytxt">18</label></td>
+                                                                    <td><label class="mytxt1">17</label></td>
+                                                                    <td><label class="mytxt2">8</label></td>
+                                                                    <td><label class="mytxt3">5</label></td>
+                                                                    <td><label class="mytxt4">4</label></td>
+                                                                    <td><label class="mytxt5">4.5</label></td>
+                                                                    <td><label class="mytxt6">5</label></td>
+                                                                    <td><label class="mytxt7">5</label></td>
+                                                                    <td><label class="mytxt8">5</label></td>
+                                                                    <td><label class="mytxt9">A1</label></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td></td>
+                                                                    <td>Tamil</td>
+                                                                    <td><label class="mytxt">18</label></td>
+                                                                    <td><label class="mytxt1">17</label></td>
+                                                                    <td><label class="mytxt2">8</label></td>
+                                                                    <td><label class="mytxt3">5</label></td>
+                                                                    <td><label class="mytxt4">4</label></td>
+                                                                    <td><label class="mytxt5">4.5</label></td>
+                                                                    <td><label class="mytxt6">5</label></td>
+                                                                    <td><label class="mytxt7">5</label></td>
+                                                                    <td><label class="mytxt8">5</label></td>
+                                                                    <td><label class="mytxt9">A1</label></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td rowspan="2">Deepak</td>
+                                                                    <td>English</td>
+                                                                    <td><label class="mytxt">18</label></td>
+                                                                    <td><label class="mytxt1">17</label></td>
+                                                                    <td><label class="mytxt2">8</label></td>
+                                                                    <td><label class="mytxt3">5</label></td>
+                                                                    <td><label class="mytxt4">4</label></td>
+                                                                    <td><label class="mytxt5">4.5</label></td>
+                                                                    <td><label class="mytxt6">5</label></td>
+                                                                    <td><label class="mytxt7">5</label></td>
+                                                                    <td><label class="mytxt8">5</label></td>
+                                                                    <td><label class="mytxt9">A1</label></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td></td>
+                                                                    <td>Tamil</td>
+                                                                    <td><label class="mytxt">18</label></td>
+                                                                    <td><label class="mytxt1">17</label></td>
+                                                                    <td><label class="mytxt2">8</label></td>
+                                                                    <td><label class="mytxt3">5</label></td>
+                                                                    <td><label class="mytxt4">4</label></td>
+                                                                    <td><label class="mytxt5">4.5</label></td>
+                                                                    <td><label class="mytxt6">5</label></td>
+                                                                    <td><label class="mytxt7">5</label></td>
+                                                                    <td><label class="mytxt8">5</label></td>
+                                                                    <td><label class="mytxt9">A1</label></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td rowspan="2">Bharat</td>
+                                                                    <td>English</td>
+                                                                    <td><label class="mytxt">18</label></td>
+                                                                    <td><label class="mytxt1">17</label></td>
+                                                                    <td><label class="mytxt2">8</label></td>
+                                                                    <td><label class="mytxt3">5</label></td>
+                                                                    <td><label class="mytxt4">4</label></td>
+                                                                    <td><label class="mytxt5">4.5</label></td>
+                                                                    <td><label class="mytxt6">5</label></td>
+                                                                    <td><label class="mytxt7">5</label></td>
+                                                                    <td><label class="mytxt8">5</label></td>
+                                                                    <td><label class="mytxt9">A1</label></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td></td>
+                                                                    <td>Tamil</td>
+                                                                    <td><label class="mytxt">18</label></td>
+                                                                    <td><label class="mytxt1">17</label></td>
+                                                                    <td><label class="mytxt2">8</label></td>
+                                                                    <td><label class="mytxt3">5</label></td>
+                                                                    <td><label class="mytxt4">4</label></td>
+                                                                    <td><label class="mytxt5">4.5</label></td>
+                                                                    <td><label class="mytxt6">5</label></td>
+                                                                    <td><label class="mytxt7">5</label></td>
+                                                                    <td><label class="mytxt8">5</label></td>
+                                                                    <td><label class="mytxt9">A1</label></td>
+                                                                </tr>
+                                                            </tbody>    -->
+                                                        </table>
+
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--                                              </div>
+                                             -->                                         </form>
+                                        <hr/>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close
+                                            </button>
+                                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                                    data-target="#add_marks_upload">Proceed
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- </div> -->
+                                </div>
+                                <!-- generate mark sheet ends here -->
+                            </div>
+                            <!--- Report Card generation ends here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /main content -->
+    </div>
+    <!-- /page content -->
+    <!-- Footer -->
+    <div class="navbar navbar-default navbar-sm navbar-fixed-bottom">
+        <ul class="nav navbar-nav no-border visible-xs-block">
+            <li><a class="text-center collapsed" data-toggle="collapse" data-target="#navbar-footer"><i
+                    class="icon-circle-up2"></i></a>
+            </li>
+        </ul>
+        <div class="navbar-collapse collapse" id="navbar-footer">
+            <div class="navbar-text">
+                &copy; 2017. <a href="#">Nexrise Technologies Pvt Ltd</a>
+            </div>
+            <div class="navbar-right">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Help center</a>
+                    </li>
+                    <li><a href="#">Policy</a>
+                    </li>
+                    <li><a href="#" class="text-semibold">Upgrade your account</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="icon-cog3"></i>
+                            <span class="visible-xs-inline-block position-right">Settings</span>
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li><a href="#"><i class="icon-dribbble3"></i> Dribbble</a>
+                            </li>
+                            <li><a href="#"><i class="icon-pinterest2"></i> Pinterest</a>
+                            </li>
+                            <li><a href="#"><i class="icon-github"></i> Github</a>
+                            </li>
+                            <li><a href="#"><i class="icon-stackoverflow"></i> Stack Overflow</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /footer -->
+</div>
+<!-- /page container -->
+<!-- bala code starts here-->
+<div id="modal_theme_primary" class="modal fade large refuse">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h5 class="modal-title">Timetable - Emp1</h5>
+            </div>
+            <div class="modal-body">
+                <br/>
+                <button class="btn btn-default btn-rounded btn-primary btn-sm" data-toggle="modal"
+                        data-target="#modal_theme">
+                    Notes
+                </button>
+                <button class="btn btn-default btn-rounded btn-primary btn-sm" data-toggle="modal"
+                        data-target="#modal_theme_images">
+                    <i class="icon-attachment"> Notes</i>
+                </button>
+                <br/>
+                <br/>
+                <div class="fullcalendar-background-colors"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="modal_theme" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h6 class="modal-title">Class Notes - Monday - Period 1 - Maths
+                    <span tyle="font-size:12px">Class 2 Section A - Staff Alex </span>
+                </h6>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" action="#">
+                    <fieldset class="">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Attachements
+                                </label>
+                                <div class="col-sm-8">
+                                    <input type="file" class="file-input-ajax" multiple="multiple">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Description
+                                </label>
+                                <div class="col-sm-8">
+                                    <textarea rows="2" cols="2" class="form-control" placeholder=""></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Notification
+                                </label>
+                                <div class="col-sm-8">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="checkbox-inline">
+                                                    <input type="checkbox" class="styled" checked="checked"> SMS
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label class="checkbox-inline" style="font-size:12px;">
+                                                        <input #email type="checkbox" class="styled">App
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save & Notify</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- -->
+<div id="modal_theme_images" class="modal fade">
+    <div class="modal-dialog model-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h6 class="modal-title">Class Notes - Monday - Period 1 - Maths <span tyle="font-size:12px">Class 2 Section A - Staff Alex </span>
+                </h6>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" action="#">
+                    <fieldset class="">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Attachements
+                                </label>
+                                <div class="col-sm-8">
+                                    <!--  <input type="file" class="file-input-ajax" multiple="multiple"> -->
+                                    <div class="panel panel-default">
+                                        <div class="panel-body">
+                                            <div class="row">
+                                                <div class="col-lg-5">
+                                                    <div class="panel panel-flat timeline-content">
+                                                        <div class="panel-body">
+                                                            <a href="gallerytable.html"
+                                                               class="display-block content-group">
+                                                                <img src="../../assets/images/cover.jpg"
+                                                                     class="img-responsive content-group" alt="">
+                                                            </a>
+                                                        </div>
+                                                        <div class="panel-footer">
+                                                            <ul class="pull-right">
+                                                                <li><a href="#"><i
+                                                                        class="icon-download position-right"></i></a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-5">
+                                                    <div class="panel panel-flat timeline-content">
+                                                        <div class="panel-body">
+                                                            <a href="gallerytable.html"
+                                                               class="display-block content-group">
+                                                                <img src="../../assets/images/cover.jpg"
+                                                                     class="img-responsive content-group" alt="">
+                                                            </a>
+                                                        </div>
+                                                        <div class="panel-footer">
+                                                            <ul class="pull-right">
+                                                                <li><a href="#"><i
+                                                                        class="icon-download position-right"></i></a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--- -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Description
+                                </label>
+                                <div class="col-sm-8">
+                                    <textarea rows="4" cols="1" class="form-control" placeholder=""></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- bala code ends here-->
+<div id="modal_theme" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h6>Swap Classes for PE - <span style="font-size:12px">Friday 4.30pm to 5.30pm</span></h6>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" action="#">
+                    <fieldset class="">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Employee <span class="text-danger">*</span>
+                                </label>
+                                <div class="col-sm-8">
+                                    <select class="bootstrap-select" data-width="100%">
+                                        <option>--Select Staff--</option>
+                                        <option value="Cambodia">CCC</option>
+                                        <option value="Martic">AAA</option>
+                                        <option value="State">BBB</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Subject
+                                </label>
+                                <div class="col-sm-8">
+                                    <select class="bootstrap-select" data-width="100%">
+                                        <option>--Select Subject--</option>
+                                        <option value="Cambodia">English</option>
+                                        <option value="Martic">Tamil</option>
+                                        <option value="State">Maths</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Remarks
+                                </label>
+                                <div class="col-sm-8">
+                                    <textarea rows="1" cols="1" class="form-control" placeholder=""></textarea>
+                                </div>
+                            </div>
+                            5
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Notification
+                                </label>
+                                <div class="col-sm-8">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="checkbox-inline">
+                                                    <input type="checkbox" class="styled" checked="checked"> SMS
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="checkbox-inline">
+                                                    <input type="checkbox" class="styled" checked="checked"> EMAIL
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="checkbox-inline">
+                                                    <input type="checkbox" class="styled" checked="checked"> PUSH
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+

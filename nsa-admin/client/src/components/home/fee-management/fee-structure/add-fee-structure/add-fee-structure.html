@@ -1,0 +1,68 @@
+<div id="feeStructure" class="overlay-popup footer-popup" style="display: none;">
+    <!-- RIGHT PANEL STARTS -->
+    <div class="cd-panel">
+        <div class="cd-panel-header">
+            <!-- <div class="hidden-xs simple-field-hf"></div> -->
+            <div class="simple-field-hf">
+            </div>
+            <a (click)="closeOverlay($event)" class="cd-panel-close">Close</a>
+        </div>
+        <div class="cd-panel-container">
+            <div class="cd-panel-content" id="side-panel-container">
+                <form action="#" class="form-horizontal form-multiselector" [formGroup]="feeStructureForm">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Fee Name&nbsp;<span class="text-danger">*</span></label>
+                            <div class="col-md-9">
+                                <input type="text" formControlName="feeStructureName" class="form-control" required="required">
+                                <div control-messages class="validation-error-label" [control]="feeStructureForm.controls.feeStructureName"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Term&nbsp;<span class="text-danger">*</span></label>
+                            <div class="col-md-9">
+                                <div class="multi-select-full">
+                                <select #selectAll id="multiselect-term" class="form-control"></select>
+                                    </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Add Fee Types&nbsp;<span class="text-danger">*</span></label>
+                            <div class="col-md-9">
+                                <div class="multi-select-full">
+                                    <select #selectAll1 class="multiselect-type" multiple="multiple">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Status</label>
+                            <div class="col-md-9">
+                                <select #single name="select" id="select-status" class="form-control"></select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Description </label>
+                            <div class="col-md-9">
+                                <textarea rows="2" cols="5" formControlName="feeStructureDesc" class="form-control"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="overlay-footer">
+                    <div class="right-align overlay-footer-content-rt">
+                        <button type="button" class="btn btn-default" (click)="closeOverlay($event)">Close</button>
+                        <button type="submit" [disabled]="!feeStructureForm.valid" id="save" (click)="saveFeeStructure('save')"class="btn btn-primary">{{btnVal}}</button>
+                    </div>
+                </div>
+            </div>
+            <!-- cd-panel-container -->
+        </div>
+    </div>
+    <!-- right panel script -->
+</div>
+
+

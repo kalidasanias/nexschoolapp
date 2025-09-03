@@ -1,0 +1,25 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h6 class="panel-title"><span class="text-semibold text-uppercase"><i class="icon-tree7 position-left"></i>Designation </span><i class="icon-arrow-right15 text-pink-600"></i> <small>List of designation </small></h6>
+        <div class="heading-elements">
+            <input *ngIf="enable" type="button" value="Add Designation" data-size="50%" data-title="Add Designation" data-toggle="from-right" data-id="#addDesignation" class="btn btn-sm btn-primary" (click)="addDesignation($event)"/>
+            <input id="updateDesg" type="hidden" data-size="50%"  data-toggle="from-right" data-id="#addDesignation" (click)="updateDesignation($event)"/>
+        </div>
+    </div>
+
+    <div class="panel-body">
+        <input type="hidden" id="deleteButton" (click)="confirmDelete($event)" />
+        <input type="hidden" id="warningDesg" (click)="deleteDesignation()" />
+        <table class="table datatable-designation">
+            <thead>
+            <tr>
+                <th data-priority="1">Designation Name</th>
+                <th>Alias Name</th>
+                <th>Updated by</th>
+                <th data-priority="2">Action</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+<add-designation></add-designation>

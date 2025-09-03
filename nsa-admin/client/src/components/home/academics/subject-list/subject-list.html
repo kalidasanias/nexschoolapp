@@ -1,0 +1,28 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h6 class="panel-title"><span class="text-semibold text-uppercase"><i class="icon-tree6 position-left"></i>Subjects </span><i class="icon-arrow-right15 text-pink-600"></i> <small>List of Subjects </small></h6>
+        <div class="heading-elements">
+            <input *ngIf="enable" type="button" value="Aspects" data-size="75%" data-title="Subject Aspects" data-id="#aspectOverlay" class="btn btn-sm btn-primary" (click)="openOverlay($event)"/>
+            <input *ngIf="enable" type="button" value="Add Subject" data-size="50%" data-title="Add Subject" data-id="#schoolSubject" class="btn btn-sm btn-primary" (click)="schoolSubjectShow($event)"/>
+        </div>
+    </div>
+    <input hidden id="schoolSubjectWarning" (click)="requested_warning()" type="button" style="...">
+    <input hidden id="deleteButton" (click)="requested_delete($event)" type="button" style="display: none;">
+    <input hidden id="subjectEdit" (click)="editSubject($event)" data-size="50%" data-title="Edit Subject" data-id="#schoolSubject" type="button" style="display: none;">
+    <div class="panel-body">
+        <table class="table datatable-listsubjects">
+            <thead>
+            <tr>
+                <th data-priority="1">Subject Name</th>
+                <th>Subject Code </th>
+                <th>Aspects</th>
+                <th>Updated By</th>
+                <th>Status</th>
+                <th data-priority="2">Actions</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+<aspects></aspects>
+<school-subjects></school-subjects>

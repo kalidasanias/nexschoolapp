@@ -1,0 +1,26 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h6 class="panel-title"><span class="text-semibold text-uppercase"><i class="icon-clipboard position-left"></i>Written Exams Names </span><i class="icon-arrow-right15 text-pink-600"></i> <small>List of Written Exam Names</small></h6>
+        <div class="heading-elements">
+            <input *ngIf="enableAdd" type="button" value="Add Written Exam" data-size="50%" data-title="Add Written Exam" data-toggle="from-right" data-id="#add_exam" class="btn btn-sm btn-primary" (click)="addWrittenExam($event)"/>
+            <input id="updateExamType" type="hidden" data-size="50%" data-toggle="from-right" data-id="#add_exam" (click)="editWrittenExam($event)"/>
+
+        </div>
+    </div>
+    <div class="panel-body">
+        <input type="hidden" id="deleteButton" (click)="confirmDelete($event)" />
+        <input type="hidden" id="warningExamType" (click)="deleteExamType()" />
+        <table class="table datatable-exam-type">
+            <thead>
+            <tr>
+                <th data-priority="1">Exam Name</th>
+                <th>Exam Code </th>
+                <th>Updated Date</th>
+                <th>Updated By</th>
+                <th data-priority="2">Action</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+<add-exam></add-exam>

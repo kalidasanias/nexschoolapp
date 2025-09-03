@@ -1,0 +1,63 @@
+<div id="addFee" class="overlay-popup footer-popup" style="display: none;">
+    <!-- RIGHT PANEL STARTS -->
+    <div class="cd-panel">
+        <div class="cd-panel-header">
+            <!-- <div class="hidden-xs simple-field-hf"></div> -->
+            <div class="simple-field-hf">
+            </div>
+            <a (click)="closeOverlay($event)" class="cd-panel-close">Close</a>
+        </div>
+        <div class="cd-panel-container" id="hiflame-cart-popup">
+            <div class="cd-panel-content" id="side-panel-container">
+                <form class="form-horizontal" action="#" [formGroup]="feeTypeForm">
+                    <div class="modal-body">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Type Name<span class="text-danger">&nbsp;*</span>
+                                </label>
+                                <div class="col-sm-8">
+                                    <input type="text" id="feeName" formControlName="feeTypeName" class="form-control" required="required">
+                                    <div control-messages class="validation-error-label" [control]="feeTypeForm.controls.feeTypeName"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Description
+                                </label>
+                                <div class="col-sm-8">
+                                    <textarea rows="1" cols="5" formControlName="feeTypeDesc" class="form-control hide-scroll" placeholder=""></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Deposit</label>
+                                <div class="col-sm-8">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="feeTypeDeposit" formControlName="feeTypeDeposit" [value]="true" id="depositTrue" class="styled" >
+                                        Yes
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" checked="" name="feeTypeDeposit"  formControlName="feeTypeDeposit"  [value]="false" id="depositFalse" class="styled ">
+                                        No
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="overlay-footer">
+                        <div class="right-align overlay-footer-content-rt">
+                            <button type="button" class="btn btn-default" (click)="closeOverlay($event)">Close</button>
+                            <button type="submit" id="save" [disabled]="!feeTypeForm.valid" (click)="saveFeeType('save')" class="btn btn-primary">{{btnVal}}</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- cd-panel-container -->
+        </div>
+    </div>
+    <!-- right panel script -->
+</div>
+
+

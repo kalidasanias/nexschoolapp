@@ -1,0 +1,160 @@
+<div id="respondLeave" class="overlay-popup footer-popup" style="display: none;">
+    <!-- RIGHT PANEL STARTS -->
+    <div class="cd-panel">
+        <div class="cd-panel-header">
+            <!-- <div class="hidden-xs simple-field-hf"></div> -->
+            <div class="simple-field-hf">
+            </div>
+            <a (click)="closeOverlay($event)" class="cd-panel-close">Close</a>
+        </div>
+        <div class="cd-panel-container">
+            <div class="cd-panel-content" id="side-panel-container">
+                <form class="form-horizontal">
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-6">Leave Type</label>
+                                    <div class="col-md-6">
+                                        <input *ngIf="leaveDetails"  type="text"  class="form-control" value="{{leaveDetails.leaveTypeName}}" disabled>
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-6">Duration Requested</label>
+                                    <div class="col-md-6">
+                                        <input type="text" *ngIf="leaveDetails"  class="form-control" value="{{leaveDetails.fromDate}} - {{leaveDetails.toDate}}" disabled>
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-sm-6">Reason</label>
+                                    <div class="col-md-6">
+                                        <input type="text" *ngIf="leaveDetails"  class="form-control" value="{{leaveDetails.leaveReason}}" disabled>
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-6">Notification
+                                    </label>
+                                    <div class="col-sm-6">
+                                        <div class="row">
+                                            <div class="col-md-3 sms ">
+                                                <div class="form-group">
+                                                    <label class="checkbox-inline" style="font-size:12px;">
+                                                        <input  #sms type="checkbox" class="smsChecked">SMS
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 email hide">
+                                                <div class="form-group">
+                                                    <label class="checkbox-inline" style="font-size:12px;">
+                                                        <input #email type="checkbox" class="emailChecked">Email
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 push">
+                                                <div class="form-group">
+                                                    <label class="checkbox-inline" style="font-size:12px;">
+                                                        <input #push type="checkbox" class="pushChecked">App
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="panel panel-flat">
+                                    <form action="#" class="form-horizontal">
+                                        <div class="panel-default">
+                                            <div class="panel-heading">
+                                                <h6 class="panel-title"><span class=""><i class="icon-calendar52"></i> Remaining Leaves</span></h6>
+                                            </div>
+                                            <div class="panel-body">
+                                                <ng-container class="" *ngIf="remainLeavs != 0">
+                                                    <div class="form-group" *ngFor="let remLeave of remainLeavs">
+                                                        <div class="col-lg-6 col-xs-6">
+                                                            {{remLeave.leaveTypeName}}
+                                                        </div>
+                                                        <!-- <label class="col-lg-3 control-label">Name:</label> -->
+                                                        <div class="events col-xs-6">
+                                                            {{remLeave.remainingLeaves}} days
+                                                        </div>
+                                                    </div>
+                                                </ng-container>
+                                                <ng-container *ngIf="remainLeavs ==0" style="height: 170px;">
+                                                    <span class="text-center no-slider-content">
+                                                    <strong>No Data Found</strong></span>
+                                                </ng-container>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <!-- Basic layout-->
+                                    <!-- /basic layout -->
+                                    <!-- /basic layout -->
+                                </div>
+                            </div>
+                        </div>
+                        <legend class="text-semibold">
+                            <i class="icon-history position-left"></i>
+                            Leave History
+                        </legend>
+                        <table class="table datatable-respond-leaves">
+                            <thead>
+                            <tr>
+                                <th>Requested Date</th>
+                                <th>Duration</th>
+                                <th>Reason</th>
+                                <th>Approved On</th>
+                            </tr>
+                            </thead>
+                        </table>
+
+                    </div>
+
+                </form>
+            </div>
+            <div class="overlay-footer">
+                <div class="right-align overlay-footer-content-rt">
+                    <button type="button" class="btn btn-default" (click)="closeOverlay($event)">Close</button>
+                    <button type="button" class="btn btn-sm btn-danger btn-ladda btn-ladda-progress" id="deny" (click)="openModal()">Deny</button>
+                    <button type="submit" class="btn btn-success btn-ladda btn-ladda-progress" id="approved" (click)="approve('approved')" >Approve Request</button>
+                </div>
+            </div>
+            </div>
+            <!-- cd-panel-container -->
+        </div>
+    </div>
+
+<div id="denyReason" class="modal fade refuse">
+    <div class="modal-dialog modal-sm ">
+        <div class="modal-content">
+            <div class="modal-header bg-info">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h5 class="modal-title">Reason For Denial</h5>
+            </div>
+            <form action="#" class="form-horizontal" [formGroup]="denialForm">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="control-label col-md-4">Reason
+                        </label>
+                        <div class="col-md-8">
+                            <textarea rows="3" cols="3" class="form-control" formControlName="denialDesc" placeholder=""></textarea>
+                            <div control-messages class="validation-error-label" [control]="denialForm.controls.denialDesc"></div>
+                        </div>
+                    </div>
+                </div>
+                <hr/>
+                <div class="modal-footer" >
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" id="cancel" [disabled]="!denialForm.valid" class="btn btn-primary btn-ladda btn-ladda-progres" (click)="update('cancel')">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+    <!-- right panel script -->
+
+

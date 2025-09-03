@@ -1,0 +1,10 @@
+// Existing Employee Add to the Taxanomy use this call
+http://localhost:3333/rest/api/v1/nsa/employee/add/taxonomy
+
+//updating current academic_year to next academic Year call 
+http://localhost:3333/rest/api/v1/nsa/academics/changeAcademic/?academicYear=currentAcademicYear
+Body:
+{
+  "academicYear":  "UpdateAcademicYear"
+}
+

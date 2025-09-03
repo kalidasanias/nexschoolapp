@@ -1,0 +1,39 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h6 class="panel-title"><span class="text-semibold text-uppercase"><i class="fa fa-sitemap position-left"></i>Roles & Permissions </span><i class="icon-arrow-right15 text-pink-600"></i> <small>List of Roles </small></h6>
+        <div class="heading-elements">
+            <!--<button type="button" valclass="btn btn-sm btn-primary heading-btn" data-toggle="modal" data-target="#modal_full" (click)="addDepartment($event)">Add Department</button>-->
+            <input type="button" value="Add Role" data-size="60%" data-title="Add Role" data-toggle="from-right" data-id="#addRole" class="btn btn-sm btn-primary" (click)="addRole($event)"/>
+            <input id="roleButton" type="hidden" data-size="60%"  data-toggle="from-right" data-id="#addRole" (click)="updateRole($event)"/>
+            <input id="deleteButton" type="hidden" data-size="75%"  data-toggle="from-right" data-id="#addRole" (click)="requested_delete($event)"/>
+            <input id="roleWarning" type="hidden" data-size="75%"  data-toggle="from-right" data-id="#addRole" (click)="requested_warning($event)"/>
+        </div>
+    </div>
+    <div class="panel-body">
+        <table class="table datatable-align datatable-roles">
+            <thead>
+            <tr>
+                <th data-priority="1">Role Name</th>
+                <th>Role Desc</th>
+                <th>Updated By</th>
+                <th data-priority="2">Action</th>
+
+            </tr>
+            </thead>
+            <!--<tbody>
+            <tr *ngFor="let department of departments;let i = index; trackBy: trackByFn">
+                <td>{{i+1}}</td>
+                <td>{{department.dept_name}}</td>
+                <td>{{department.dept_alias}}</td>
+                <td>{{department.updated_username}}</td>
+                <td>
+                    <a class="icon-primary" data-size="75%" data-title="Edit Department" data-toggle="from-right" data-id="#addDepartment" (click)="updateDepartment($event, department.dept_id)"><i class="fa fa-pencil-square-o fa-lg"></i></a>
+                    <a class="icon-danger" (click)="deleteDepartment($event, department.dept_id)"><i class="fa fa-trash-o fa-lg"></i></a>
+                </td>
+            </tr>
+            <tr class="odd" [hidden]="hideNoDataInfo"><td valign="top" colspan="5" class="dataTables_empty">No data available</td></tr>
+            </tbody>-->
+        </table>
+    </div>
+</div>
+<add-role></add-role>

@@ -1,0 +1,8 @@
+{
+	"leaveTypeId" : "4d12dd30-c301-4b78-9575-bc355d64c9fa",
+	"fromDate" : "5 Oct",
+	"toDate" : " 6 Oct",
+	"leaveReason": "Unwell, Fever",
+	"status": "Pending",
+	"leaveTypeName": "Casual Leave"
+}

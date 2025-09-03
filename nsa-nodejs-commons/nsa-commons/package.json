@@ -1,0 +1,25 @@
+{
+  "name": "@nsa/nsa-commons",
+  "version": "1.3.30",
+  "description": "nsa common utils, constants and other common files",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "keywords": [
+    "nsa",
+    "commons",
+    "utils"
+  ],
+  "author": "nsa",
+  "license": "ISC",
+  "dependencies": {
+    "current-week-number": "^1.0.7",
+    "dates-between": "^1.0.2",
+    "express-validation": "^1.0.1",
+    "joi": "^10.2.2",
+    "moment": "^2.17.1",
+    "node-gcm": "^0.14.4",
+    "string-template": "^1.0.0"
+  }
+}

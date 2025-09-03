@@ -1,0 +1,25 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h6 class="panel-title"><span class="text-semibold text-uppercase"><i class="icon-list2 position-left"></i>Category</span> <i class="icon-arrow-right15 text-pink-600"></i> <small>List of categories</small></h6>
+        <div class="heading-elements">
+            <input *ngIf="enable" type="button" value="Add Category" data-size="50%" data-title="Add Category" data-toggle="from-right" data-id="#addEventTypes" class="btn btn-sm btn-primary" (click)="addEventTypes($event)"/>
+        </div>
+    </div>
+
+    <input hidden id="warningEventType" (click)="requested_warning()" type="button" style="display: none;">
+    <input hidden id="deleteButton" (click)="requested_delete($event)" type="button" style="display: none;">
+    <input hidden id="eventTypeEditButton" (click)="getEventType('addEventTypes',$event)" data-size="50%" data-id="#addEventTypes" type="button" style="display: none;">
+    <div class="panel-body">
+        <table class="table datatable-event-types datatable-align">
+            <thead>
+            <tr>
+                <th data-priority="1">Category Name</th>
+                <th>Description</th>
+                <th>Updated By</th>
+                <th data-priority="2">Action</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+<add-event-types></add-event-types>

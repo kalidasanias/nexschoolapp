@@ -1,0 +1,11 @@
+require('./../public/assets/js/core/libraries/bootstrap.min.js');
+require('./../public/assets/js/plugins/loaders/blockui.min.js');
+require('./../public/assets/js/plugins/notifications/jgrowl.min.js');
+require('./../public/assets/js/plugins/notifications/noty.min.js');
+require('./../public/assets/js/plugins/notifications/sweet_alert.min.js');
+require('./../public/assets/js/plugins/forms/styling/switchery.min.js');
+require('./../public/assets/js/plugins/trees/fancytree_all.min.js');
+require('./../public/assets/js/plugins/trees/fancytree_childcounter.js');
+require('./../node_modules/lodash/lodash.js');
+require('./../node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js');
+require('./../public/assets/js/admin/bootstrap-timepicker.js');

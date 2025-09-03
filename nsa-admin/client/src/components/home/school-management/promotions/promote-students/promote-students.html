@@ -1,0 +1,238 @@
+<div id="reportStudent" class="overlay-popup footer-popup" style="display: none;">
+    <input type="hidden" id="promoteList"/>
+    <input type="hidden" id="promoteStud"/>
+    <input type="hidden" id="promoteUpdateStud" (click)="sectionMap($event)"/>
+    <input type="hidden" id="updateSatus" />
+    <input type="hidden" id="promoteCreated" (click)="promotionsData($event)"/>
+    <!-- RIGHT PANEL STARTS -->
+    <div class="cd-panel">
+        <div class="cd-panel-header">
+            <div class="simple-field-hf">
+            </div>
+            <a (click)="closeOverlay($event)" class="cd-panel-close">Close</a>
+        </div>
+        <div class="cd-panel-container" id="hiflame-cart-popup">
+            <div class="cd-panel-content wizard-panel-content" id="side-panel-container">
+
+                <div class="modal-body">
+                    <div class="row form-horizontal selectClass">
+                        <div id="classes" class="col-md-3 margin-left20">
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Class <span class="text-danger">*</span>
+                                </label>
+                                <div class="col-sm-8">
+                                    <div class="row">
+                                        <select (click)="getSectionByClass($event)" #singleClass class="select-change" id="select-class" data-width="100%">
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="sections" class="col-md-3 select-section margin-left20 hide">
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Section <span class="text-danger">*</span>
+                                </label>
+                                <div class="col-sm-8">
+                                    <div class="row">
+                                        <div class="multi-select-full">
+                                            <select (click)="sectionChange($event)" multiple="multiple" #Section class="select-change" id="select-section" data-width="100%">
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 navbar-right txt-align-right submitClass">
+                            <div class="form-group">
+                                <input class="btn btn-default " id="cancel-back" value="Clear" (click)="resetForm()"   type="button">
+                                <input class="btn btn btn-primary ui-wizard-content margin-right10 ui-formwizard-button" (click)="getStudentData()" id="cancel-next" value="Search" type="button">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row hide promotionDiv">
+                            <div class="form-group">
+                                <label class="control-label col-md-1">Notification
+                                </label>
+                                <div class="col-md-8">
+                                    <div class="row margin-left7">
+                                        <div class="col-md-2 sms hide">
+                                            <div class="form-group">
+                                                <label class="checkbox-inline" style="font-size:12px;">
+                                                    <input  #sms type="checkbox" class="smsChecked">SMS
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 email hide">
+                                            <div class="form-group">
+                                                <label class="checkbox-inline" style="font-size:12px;">
+                                                    <input #email type="checkbox" class="emailChecked">Email
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 push hide">
+                                            <div class="form-group">
+                                                <label class="checkbox-inline" style="font-size:12px;">
+                                                    <input #push type="checkbox" class="pushChecked">App
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <form-wizard class="hide promotionDiv">
+                    <wizard-step [title]="'Section Mapping'"  [isValid]="checkObj" (onNext)="onSectionInfo($event)" >
+                        <form class="steps-basic form-validate form-horizontal" novalidate action="#">
+                            <div class="wizard-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <!-- Horizontal form -->
+                                        <div class="panel panel-flat">
+                                            <div class="panel-heading">
+                                                    <h5 class="panel-title">Student Details</h5>
+                                            </div>
+                                            <hr/>
+                                            <div class="modal-body">
+                                                <legend class="text-semibold">
+                                                    <i class="icon-paragraph-justify2"></i>
+                                                    Section Mapping
+                                                </legend>
+                                                <div class="panel-body">
+                                                    <div class="panel panel-flat table-responsive">
+                                                        <table class="table">
+                                                            <tr>
+                                                                <td class="col-md-4">
+                                                                    <span class=""> Sections In  {{className}}</span>
+                                                                </td>
+                                                                <td class="col-md-3">Promoted To</td>
+                                                                <td class="col-md-4"><span class=""> Sections In {{postClass ? postClass.class_name : ""}} </span></td>
+                                                            </tr>
+                                                        </table>
+                                                        <table class="table" id="promoteStudentTable">
+                                                            <input type="hidden" class="form-control curAcademicYear" style="width : 50%" placeholder="First Name"  value="{{cAcademicYear}}" disabled>
+                                                            <input type="hidden" class="form-control newAcademicYear" style="width : 50%" placeholder="First Name"  value="{{nAcademicYear}}" disabled>
+                                                            <tr *ngFor="let section of curSections; let i = index" >
+                                                                <ng-container *ngIf="section.promoted_section_name != null">
+                                                                    <td class="col-md-4">
+                                                                        <input type="text" class="form-control curSection"  placeholder="First Name"  value="{{section.section_name}}" disabled>
+                                                                        <input type="hidden" class="form-control curSectionId" style="width : 50%" placeholder="First Name"  value="{{section.section_id}}" disabled>
+                                                                    </td>
+                                                                    <td class="col-md-3"><b><span class="label section_status label-success">Promoted</span></b></td>
+                                                                    <td class="col-md-4"><input type="text" class="form-control curSection"  placeholder="First Name"  value="{{section.promoted_section_name}}" disabled></td>
+                                                                </ng-container>
+                                                                <ng-container *ngIf="section.promoted_section_name == null">
+                                                                    <td class="col-md-4">
+                                                                        <input type="text" class="form-control  curSection"  placeholder="First Name"  value="{{section.section_name}}" disabled>
+                                                                        <input type="hidden" class="form-control  curSectionId" style="width : 50%" placeholder="First Name"  value="{{section.section_id}}" disabled>
+                                                                    </td>
+                                                                    <td class="col-md-3"> <i class="fa fa-lg fa-arrows-h" style="left: 20px;"></i></td>
+                                                                    <td class="col-md-4"><div class="multi-select-full">
+                                                                        <select #PostSection class="select-change postSection" id="{{i}}"  data-width="100%">
+                                                                        </select>
+                                                                    </div></td>
+                                                                </ng-container>
+
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <!--<legend class="text-semibold subjects hide">
+                                                   <i class="icon-book3"></i>
+                                                   Subjects
+                                                   </legend>-->
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </wizard-step>
+                    <wizard-step [title]="'Student List'" (onPrev)="disable()" (onNext)="onStudentInfo($event)">
+                        <form class="steps-basic form-validate form-horizontal" novalidate  action="#">
+                            <div class="wizard-body">
+                                <legend class="text-semibold">
+                                    <i class="icon-paragraph-justify2"></i>
+                                    Select Students eligible for Promotion
+                                </legend>
+                                <table class="table datatable-promote-student-list">
+                                    <thead>
+                                    <tr>
+                                        <th class=""><input type="checkbox" id="promotions-select-all" checked/></th>
+                                        <th class="">Admission No</th>
+                                        <th class="">Student Name</th>
+                                        <th class="">Class Name</th>
+                                        <th class="">Section Name</th>
+                                    </tr>
+                                    </thead>
+                                </table>
+
+                            </div>
+                        </form>
+                    </wizard-step>
+                    <wizard-step [title]="'Promoted Students'" [btnVal]="'Promote'" (onComplete)="onSaveStudent($event, 'completeButton')">
+                        <form class="steps-basic form-validate form-horizontal" novalidate action="#">
+                            <div class="wizard-body">
+                                <legend class="text-semibold">
+                                    <i class="icon-paragraph-justify2"></i>
+                                    Promoted Student List  &nbsp;&nbsp;<a class="text-danger font-text" (click)="failedClick()" style="text-decoration: underline;"><b>Depromoted Count :</b> {{(failedUserCount) ? failedUserCount : 0}}</a><label class="text-success font-text"><b>Promoted Count : </b> {{(usersCount) ? usersCount : 0}}&nbsp;&nbsp; </label> &nbsp;&nbsp;
+                                </legend>
+                                <table class="table datatable-promote-final-list">
+                                    <thead>
+                                    <tr>
+                                        <th class="">Admission No</th>
+                                        <th class="">Student Name</th>
+                                        <th class="">Class Name</th>
+                                        <th class="">Section Name</th>
+                                    </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </form>
+                    </wizard-step>
+                </form-wizard>
+            </div>
+            <!-- cd-panel-container -->
+        </div>
+    </div>
+    <!-- right panel script -->
+</div>
+<div id="modal_subtitle" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-info">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                Depromoted Users
+            </div>
+            <div class="modal-body">
+                    <div class="row form-horizontal">
+                        <div class="col-md-12">
+                            <table id="failed-user-table" class="table">
+                                <thead>
+                                <tr>
+                                    <th width="50%">Admission No</th>
+                                    <th>Name</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <ng-container *ngIf="failedUsers">
+                                    <tr *ngFor="let faileduser of failedUsers">
+                                        <td class="fc-title">{{faileduser.user_code}}</td>
+                                        <td class="fc-title">{{faileduser.first_name}}</td>
+                                    </tr>
+                                </ng-container>
+                                </tbody>
+                            </table>
+                            <hr/>
+                        </div>
+                    </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default " data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+

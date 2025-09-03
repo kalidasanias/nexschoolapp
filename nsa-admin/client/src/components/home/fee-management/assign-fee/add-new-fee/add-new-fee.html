@@ -1,0 +1,251 @@
+<input hidden id="feeScholarWarning" (click)="requested_warning()" type="button" style="display: none;">
+<input hidden id="deleteChildButton" (click)="requested_delete1($event)" type="button" style="display: none;">
+<input hidden id="feeScholarEdit" (click)="editFeeAssignmentDetail('addStudent',$event)" type="button" style="display: none;">
+<div id="addNewFee" class="overlay-popup footer-popup" style="display: none;">
+    <!-- RIGHT PANEL STARTS -->
+    <div class="cd-panel">
+        <div class="cd-panel-header">
+            <!-- <div class="hidden-xs simple-field-hf"></div> -->
+            <div class="simple-field-hf">
+            </div>
+            <a (click)="closeOverlay($event)" class="cd-panel-close">Close</a>
+        </div>
+        <div class="cd-panel-container">
+            <div class="cd-panel-content" id="side-panel-container">
+                <form action="#" class="form-horizontal" [formGroup]="feeAssignmentForm">
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4">Fee Name&nbsp;<span class="text-danger">*</span></label>
+                                    <div class="col-md-8">
+                                        <select #single name="select" id="single-select" class="form-control select-change" (click)="getFeeTypesById()">
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4">Languages&nbsp;<span class="text-danger">*</span></label>
+                                    <div class="col-md-8 multi-select-full">
+                                        <select #selectAll class="select-languanges" multiple="multiple">
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Assignees&nbsp;<span class="text-danger">*</span></label>
+                            <div class="col-md-10">
+                                <p-tree  [value]="data" >
+                                    <template let-node  pTemplate type="default">
+                                        <input type="hidden">
+                                        <input type="checkbox" [(ngModel)]="node.selected" [ngModelOptions]="{standalone: true}" [indeterminate]="node.partialSelection" (ngModelChange)="nodeSelected(node)"><span style="margin-left: 6px">{{node.label}}</span>
+                                    </template>
+                                </p-tree>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2">Specify Amount&nbsp;<span class="text-danger">*</span></label>
+                            <div class="col-md-10">
+                                <div class="panel panel-flat table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <!--<th class="col-lg-1">S.No</th>-->
+                                            <th class="col-lg-3">Type Name</th>
+                                            <th class="col-lg-2">Amount</th>
+                                            <th class="col-lg-6">Percentage Refundable (%)</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody #line >
+                                        <tr  *ngFor="let feeType of feeScholarshipDetails">
+                                            <td class="hide">{{feeType.id}}</td>
+                                            <td>{{feeType.name}}</td>
+                                            <td *ngIf="feeType.amount != undefined">
+                                                <input type="text" [value]="feeType.amount" (keydown)="keydown()" (keypress)="keydown()" (keypress)="keyup($event)" min="0" class="form-control">
+                                            </td>
+                                            <td *ngIf="feeType.amount == undefined">
+                                                <input type="text" (focus)="keydown()" (keydown)="keydown()" (keypress)="keydown()" (keypress)="keyup($event)" min="0" class="form-control">
+                                            </td>
+                                            <td *ngIf="feeType.feeDeposit == true || feeType.percent > 0">
+                                                <div class="form-group has-feedback">
+                                                    <div class="col-lg-4">
+                                                        <input type="text" *ngIf="feeType.percent == undefined"  class="form-control">
+                                                        <input type="text" *ngIf="feeType.percent != undefined" [value]="feeType.percent" class="form-control">
+                                                        <div class="form-control-feedback">
+                                                            %
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td *ngIf="feeType.feeDeposit == false || feeType.percent == ''"></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4 ">Total Amount</label>
+                                    <div class="col-md-8">
+                                        <input #totalFeeAmount formControlName="totalFeeAmount" [ngModel]="totalAmount" [value]="totalAmount" type="number" class="form-control" disabled="disabled">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4">Due Date&nbsp;<span class="text-danger">*</span></label>
+                                    <div class="col-md-8">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="icon-calendar22"></i></span>
+                                            <input #dueDate formControlName="dueDate" type="text" class="form-control pickadate-disable-past" placeholder="Due Date&hellip;" (click)="updateDate($event)">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <legend>
+                            <div class="panel-title"><span class="text-semibold text-uppercase"><i class="icon-graduation2 position-left"></i> ADD SCHOLARSHIPS
+                                       </span>
+                            </div>
+                        </legend>
+                        <div class="panel-body">
+                            <table class="table datatable-scholarship-users">
+                                <thead >
+                                <tr >
+                                    <th>Student ID</th>
+                                    <th>Student Name</th>
+                                    <th>Class</th>
+                                    <th>Section</th>
+                                    <th>Scholarship</th>
+                                    <th>Discount</th>
+                                    <th>Total Amount</th>
+                                    <th class="text-center">Actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <!--<tr *ngFor="let scholar of scholarUsers">
+                                    <td>{{scholar.username}}</td>
+                                    <td>{{scholar.className}}</td>
+                                    <td>{{scholar.sectionName}}</td>
+                                    <td>{{scholar.netAmount}}</td>
+                                    <td>&nbsp;&nbsp;<a class="icon-primary" (click)><i class="fa fa-pencil-square-o fa-lg"></i></a>&nbsp;&nbsp;<a class="icon-danger"><i class="fa fa-trash-o fa-lg"></i></a>
+                                    </td>
+                                </tr>-->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="overlay-footer">
+                        <button class="btn btn-sm btn-primary" id="addScholar" disabled="disabled" data-toggle="modal"  (click)="showScholarship('addScholar')">Add Scholarship</button>
+                        <div class="right-align overlay-footer-content-rt">
+                            <button type="button" class="btn btn-default" (click)="closeOverlay($event)">Close</button>
+                            <button type="button" id="savefee" [disabled]="!feeAssignmentForm.valid" class="btn btn-primary btn-ladda btn-ladda-progres" (click)="save('savefee')"  data-spinner-size="20" data-style="expand-right">{{btnVal}}</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- cd-panel-container -->
+        </div>
+    </div>
+    <!-- right panel script -->
+</div>
+
+<div id="addStudent" class="modal fade refuse">
+    <div class="modal-dialog modal-lg controls">
+        <div class="modal-content">
+            <div class="modal-header bg-info">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h5 class="modal-title"> Add Scolarship/Wavier Details</h5>
+            </div>
+            <form action="#" class="form-horizontal" [formGroup]="feeDetailsForm">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="control-label col-sm-2">Fee Name</label>
+                        <div class="col-md-4">
+                            <input formControlName="feeName"  type="text" class="form-control" disabled="disabled">
+                        </div>
+                        <label class="control-label col-sm-2">Amount</label>
+                        <div class="col-md-4">
+                            <input formControlName="totalFeeAmount"  type="text" class="form-control" disabled="disabled">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2">Eligible Student</label>
+                        <div class="col-md-10 multi-select-full">
+                            <select #multiFilter class="filter" multiple="multiple"></select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2">Scholarship Name</label>
+                        <div class="col-md-10 multi-select-full">
+                            <select #multi class="scholar select-change" multiple="multiple" (click)="keydown()" (click)="getScholarshipByIds()"></select>
+                        </div>
+                        <!--<label class="control-label col-sm-2">Amount</label>
+                        <div class="col-md-3">
+                            <input type="text" class="form-control" disabled="disabled">
+                        </div>
+                        <div class="col-sm-1">
+                            <a class="icon-success margin-top10 add-more" (click)="add()" ><i class="fa fa-plus-circle fa-lg"></i></a>
+                        </div>
+                        <div class="add-class"></div>-->
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2">Fee Discount Name</label>
+                        <div class="col-md-4">
+                            <input formControlName="feeDiscountName" type="text" placeholder="Enter Discount name&hellip;" class="form-control">
+                        </div>
+                        <label class="control-label col-sm-2">Amount</label>
+                        <div class="col-md-4 ">
+                            <input formControlName="feeDiscountAmount" (keydown)="keydown()" (keypress)="keyup($event)" min="0" placeholder="Enter amount&hellip;" type="text" class="form-control">
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2">Wavier Information</label>
+                        <div class="col-md-10 ">
+                            <div class="panel panel-flat table-responsive">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>Scholarship Name</th>
+                                        <th> Amount</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr *ngFor="let scholar of selectedScholars">
+                                        <td>{{scholar.name}}</td>
+                                        <td>{{scholar.amount}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2">Net Amount</label>
+                        <div class="col-md-4">
+                            <input  value="{{netAmount}}" type="text" class="form-control" disabled="disabled">
+                        </div>
+                        <label class="control-label col-sm-2">Due Date</label>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="icon-calendar22"></i></span>
+                                    <input #dueDate1 formControlName="dueDate1" type="text" class="form-control pickadate" placeholder="End Date&hellip;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" id="saveFeeScholarship" (click)="saveFeeDetails('saveFeeScholarship')" class="btn btn-primary btn-ladda btn-ladda-progres" data-spinner-size="20" data-style="expand-right"></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

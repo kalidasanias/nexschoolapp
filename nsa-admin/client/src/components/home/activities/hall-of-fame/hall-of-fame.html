@@ -1,0 +1,30 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h6 class="panel-title"><span class="text-semibold text-uppercase"><i class="fa fa-crosshairs fa-lg position-left"></i>Hall of fame</span><i class="icon-arrow-right15 text-pink-600"></i> <small>List of Awards </small></h6>
+        <div class="heading-elements">
+            <input *ngIf="enable" type="button" value="Add Award" data-size="50%" data-title="Add Hall Of Fame" data-toggle="from-right" data-id="#addHallOfFame" class="btn btn-sm btn-primary" (click)="addHallOfFame($event)"/>
+        </div>
+    </div>
+    <input hidden id="HallOfFameWarning" (click)="requested_warning()" type="button" style="display: none;">
+    <input hidden id="deleteButton" (click)="requested_delete($event)" type="button" style="display: none;">
+    <input hidden id="EditHallOfFame" (click)="getEditHallOfFame($event)" data-size="50%" data-id="#addHallOfFame" type="button" style="display: none;">
+    <input hidden id="viewHallOfFame" (click)="viewHallOfFame($event)" data-size="85%" data-id="#HallofFameView" type="button" style="display: none;">
+    <input hidden id="publishHallOfFame" (click)="publishHallOfFame($event)" data-size="85%" data-id="#hallOfFamePublish" type="button" style="display: none;">
+    <div class="panel-body">
+        <table class="table datatable-hall-of-fame">
+            <thead>
+            <tr>
+                <th data-priority="1">Award Name</th>
+                <th>Date of Issue</th>
+                <th>No of Student</th>
+                <th>Status</th>
+                <th data-priority="3">Publish</th>
+                <th data-priority="2">Action</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+<add-hall-of-fame></add-hall-of-fame>
+<view-hall-of-fame></view-hall-of-fame>
+<publish-hall-of-fame></publish-hall-of-fame>

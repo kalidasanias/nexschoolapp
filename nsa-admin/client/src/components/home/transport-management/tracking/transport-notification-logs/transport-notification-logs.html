@@ -1,0 +1,113 @@
+<div id="transportnotificationlogs" class="overlay-popup footer-popup" style="display: none;">
+    <!-- RIGHT PANEL STARTS -->
+    <div class="cd-panel">
+        <div class="cd-panel-header">
+            <!-- <div class="hidden-xs simple-field-hf"></div> -->
+            <div class="simple-field-hf">
+            </div>
+            <a (click)="closeOverlay($event)" class="cd-panel-close">Close</a>
+        </div>
+        <input hidden id="checkStatus" (click)="getStatus($event)">
+
+        <div class="cd-panel-container" id="hiflame-cart-popup">
+            <div class="cd-panel-content" id="side-panel-container">
+                <form class="form-horizontal" action="#">
+                    <div class="row">
+                        <div class="row form-horizontal">
+                            <div class="col-md-4 margin-left40">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4">Vehicle Number
+                                    </label>
+
+                                    <div class="col-sm-8">
+                                        <div class="row">
+                                            <select #vehiclenumber id="bootstrap-vehiclename" class="select-change" (click)="getRoutesByVehicle()"
+                                                    data-width="100%">
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4  margin-left40" [hidden]="!isRoutes">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4">Route Name
+                                    </label>
+
+                                    <div class="col-sm-8">
+                                        <div class="row">
+                                            <select #routename id="bootstrap-routename" data-width="100%">
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row form-horizontal">
+                            <div class="col-md-10">
+                                <label class="control-label col-sm-2 label-nowrap txt-align-center">Filter By Due Date
+                                </label>
+
+                                <div class="col-sm-10">
+                                    <input id="getDataByDuration" class="form-control" type="hidden"
+                                           (click)="getDataByDuration($event)">
+                                    <label class="control-label margin-left5 hidden-xs">
+                                        <input type="radio" name="filter" value="today" checked (click)="duration($event)">&nbsp;Duration
+                                    </label>
+                                    <button [disabled]="!isDuration" #date type="button" class="margin-left30 hidden-xs btn btn-default attendance daterange-basic-disabledFuture">
+                                        <i class="icon-calendar22 position-left"></i>
+                                        <span></span>
+                                        <b class="caret"></b>
+                                    </button>
+                                    <label class="control-label margin-left40">
+                                        <input type="radio" name="filter" value="today" checked (click)="today($event)">
+                                        &nbsp;Today
+                                    </label>
+                                    <label class="control-label margin-left40">
+                                        <input type="radio" name="filter" value="week" (click)="week($event)">&nbsp;This Week
+                                    </label>
+                                    <label class="control-label margin-left40">
+                                        <input type="radio" name="filter" value="month" (click)="month($event)">&nbsp;This Month
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-2 navbar-right txt-align-center">
+                                <div class="form-group">
+                                    <input class="btn btn-default " id="cancel-back" value="Clear" (click)="resetForm()"
+                                           type="reset">
+                                    <input class="btn btn btn-primary ui-wizard-content margin-right10 ui-formwizard-button"
+                                           id="cancel-next" value="Search" (click)="save()" type="button">
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="margin-top1 margin-bottom1"/>
+                    </div>
+                </form>
+                <div class="modal-body" [hidden]="!logstable">
+                    <table class="table notification-logs">
+                        <thead>
+                        <tr>
+                            <th data-priority="1">Name</th>
+                            <th>Phone Number</th>
+                            <th width="20%">Date</th>
+                            <th>Message</th>
+                            <th data-priority="2">Status</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="overlay-footer">
+                    <div class="right-align overlay-footer-content-rt">
+                        <button type="button" id="testing" class="btn btn-default" (click)="closeOverlay($event)">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- cd-panel-container -->
+        </div>
+    </div>
+    <!-- right panel script -->
+</div>
+
+

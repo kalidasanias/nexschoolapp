@@ -1,0 +1,37 @@
+{
+  "sucess": true,
+  "data": [
+    {
+      "id": null,
+      "classId": "c4e6bff0-ea0d-11e6-8b3a-9d7cc28d7ccd",
+      "className" : "Class 1",
+      "ClassCode" : "1",
+      "sectionId": "1caf84e0-ea10-11e6-8b3a-9d7cc28d7ccd",
+      "sectionName" : "Section A",
+      "sectionCode" : "A",
+      "tenantId": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+      "schoolId": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+      "academic_year": "2016-2017",
+      "class_teacherId": "6493100S",
+      "updated_by": null,
+      "updated_username": null,
+      "updated_date": null
+    },
+    {
+      "id": null,
+      "classId": "c4e44ef0-ea0d-11e6-8b3a-9d7cc28d7ccd",
+      "className" : "Class 2",
+      "ClassCode" : "2",
+      "sectionId": "1caf84e0-ea10-11e6-8b3a-9d7cc28d7ccd",
+      "sectionName" : "Section A",
+      "sectionCode" : "A",
+      "tenantId": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+      "schoolId": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+      "academic_year": "2016-2017",
+      "class_teacherId": "6493100S",
+      "updated_by": null,
+      "updated_username": null,
+      "updated_date": null
+    }
+  ]
+}

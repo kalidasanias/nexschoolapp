@@ -1,0 +1,10 @@
+http://localhost:9200/users/_mapping/student
+
+{
+	"properties": {
+        "is_hostel": {
+          "type": "boolean"
+        }
+      } 
+}
+

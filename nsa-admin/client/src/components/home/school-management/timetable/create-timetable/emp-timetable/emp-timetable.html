@@ -1,0 +1,23 @@
+<div class="tab-pane">
+    <div class="panel-heading" style="bottom:25px;">
+        <h6 class="panel-title" style="bottom: -13px;"><span class="text-semibold"><i class="fa fa-bars"></i> List of Employees</span></h6>
+        <hr/> </div>
+    <input type="hidden" id="viewButton" data-size="70%" data-title="View Employee Timetable" data-id="#view-emp-timetable" class="btn btn-sm btn-primary" (click)="viewTimetable($event)"/>
+    <div class="form-group" style="bottom:45px;">
+        <table class="table employee-timetable">
+            <thead>
+            <tr>
+                <th data-priority="1">Employee Id</th>
+                <th data-hide="phone,tablet">Employee Name</th>
+                <th data-hide="phone,tablet">Short Name</th>
+                <th data-hide="phone,tablet">Employee Code</th>
+                <th data-priority="1">Total Periods<br><span style="color: grey;display: inline-block">(pre Week)</span></th>
+                <th data-priority="2">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</div>
+<view-emp-timetable></view-emp-timetable>

@@ -1,0 +1,96 @@
+<div class="row">
+    <div class="col-md-4">
+        <!-- Traffic sources -->
+        <div class="panel panel-flat">
+            <div class="panel-heading tab-panel-heading">
+                <div class="tabbable height-430">
+                    <ul class="nav nav-tabs nsa-nav-tabs nsa-blue  nav-tabs-highlight nav-justified">
+                        <li class="active"><a href="#notifications" data-toggle="tab" (click)="getDashboardEvents()"> Notifications</a></li>
+                        <li><a href="#upcommingEvents" data-toggle="tab" (click)="getUpcomingEvents()">Upcoming Events</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active scroll-panel no-horizontal-scroll" id="notifications">
+                            <div class="table-responsive">
+                                <table class="table text-nowrap">
+                                    <tbody>
+                                        <ng-container *ngIf="notifications">
+                                            <tr *ngFor="let notification of notifications">
+                                                <td>
+                                                    <div class="media-left media-middle">
+                                                        <time datetime="2014-09-20" class="ic">
+                                                            <strong>{{notification.updated_date | date: 'MMM'}}</strong>
+                                                            <span>{{notification.updated_date | date: 'dd'}}</span>
+                                                        </time>
+                                                    </div>
+                                                    <div class="media-left">
+                                                        <div class=""><a href="#" class="text-default text-semibold">{{notification.title  || notification.template_title}}</a></div>
+                                                        <div class="text-muted text-size-small">
+                                                            <span class="status-mark border-danger position-left"></span>
+                                                            {{notification.message}}
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </ng-container>
+                                        <!--<ng-container *ngIf="!notifications">
+                                            No Data Found
+                                        </ng-container>-->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tab-pane scroll-panel no-horizontal-scroll" id="upcommingEvents">
+                            <div class="table-responsive">
+                                <table class="table text-nowrap">
+                                    <tbody>
+                                        <ng-container *ngIf="upcomingEvents">
+                                            <tr *ngFor="let upcomingEvent of upcomingEvents">
+                                                <td>
+                                                    <div class="media-left media-middle">
+                                                        <time datetime="2014-09-20" class="ic">
+                                                            <strong>{{upcomingEvent.month}}</strong>
+                                                            <span>{{upcomingEvent.date}}</span>
+                                                        </time>
+                                                    </div>
+                                                    <div class="media-left">
+                                                        <div class=""><a href="#" class="text-default text-semibold">{{upcomingEvent.eventName}}</a></div>
+                                                        <div class="text-muted text-size-small">
+                                                            <span class="status-mark border-danger position-left"></span>
+                                                            {{upcomingEvent.eventDesc}}
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </ng-container>
+                                        <ng-container *ngIf="!upcomingEvents">
+                                            No Data Found
+                                        </ng-container>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <!-- Traffic sources -->
+        <input type="hidden" id="eventData" (click)="getWeekData($event)" value="">
+        <div class="panel panel-flat">
+            <div class="panel-heading tab-panel-heading">
+                <div class="tabbable ">
+                    <ul class="nav nav-tabs nsa-nav-tabs nsa-blue  nav-tabs-highlight nav-justified">
+                        <li class="active"><a href="#events" (click)="eventsData('events')" data-toggle="tab"> Events</a></li>
+                        <li><a href="#events" (click)="examData('exams')" data-toggle="tab">Exams</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active scroll-panel no-horizontal-scroll" id="events">
+                            <ext-calendar></ext-calendar>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

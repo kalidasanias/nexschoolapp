@@ -1,0 +1,24 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h6 class="panel-title"><span class="text-semibold text-uppercase"><i class="fa fa-money fa-lg position-left"></i>Fee Types </span><i class="icon-arrow-right15 text-pink-600"></i> <small>List of Fee Types </small></h6>
+        <div class="heading-elements">
+            <input *ngIf="enable" type="button" value="Add Fee Type" data-size="50%" data-title="Add Fee Type" data-toggle="from-right" data-id="#addFee" class="btn btn-sm btn-primary" (click)="addFee($event)"/>
+        </div>
+    </div>
+    <input hidden id="warningButton1" (click)="requested_warning()" type="button" style="display: none;">
+    <input hidden id="deleteButton" (click)="requested_delete($event)" type="button" style="display: none;">
+    <input hidden id="editButton1" (click)="getFeeType($event)" data-title="Edit Fee Type" data-size="50%" data-id="#addFee" type="button" style="display: none;">
+    <div class="panel-body">
+        <table class="table datatable-align datatable-fee-type">
+            <thead>
+            <tr>
+                <th data-priority="1" width="30%">Type Name</th>
+                <th>Updated By</th>
+                <th>Refundable Deposit</th>
+                <th data-priority="2">Action</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+<add-fee></add-fee>

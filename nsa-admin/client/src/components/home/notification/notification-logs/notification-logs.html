@@ -1,0 +1,40 @@
+<div id="notificationLog" class="overlay-popup footer-popup" style="display: none;">
+    <!-- RIGHT PANEL STARTS -->
+    <div class="cd-panel">
+        <div class="cd-panel-header">
+            <!-- <div class="hidden-xs simple-field-hf"></div> -->
+            <div class="simple-field-hf">
+            </div>
+            <a (click)="closeOverlay($event)" class="cd-panel-close">Close</a>
+        </div>
+        <input hidden id="checkStatus" (click)="getStatus($event)">
+        <div class="cd-panel-container" id="hiflame-cart-popup">
+            <div class="cd-panel-content" id="side-panel-container">
+                <div class="modal-body">
+                    <form class="form-horizontal" action="#">
+                        <table class="table datatable-align notification-logs">
+                            <thead>
+                            <tr>
+                                <th width="20%" data-priority="1">Name</th>
+                                <th width="15%">Phone Number</th>
+                                <th width="15%">Date</th>
+                                <th width="20%">Message</th>
+                                <th width="10%" data-priority="2">Status</th>
+                            </tr>
+                            </thead>
+                        </table>
+                    </form>
+                </div>
+                <div class="overlay-footer">
+                    <div class="right-align overlay-footer-content-rt">
+                        <button type="button" id="testing" class="btn btn-default" (click)="closeOverlay($event)">Close</button>
+                    </div>
+                </div>
+            </div>
+            <!-- cd-panel-container -->
+        </div>
+    </div>
+    <!-- right panel script -->
+</div>
+
+

@@ -1,0 +1,21 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h6 class="panel-title"><span class="text-semibold text-uppercase"><i class="fa fa-sitemap fa-lg position-left"></i>Classes </span><i class="icon-arrow-right15 text-pink-600"></i> <small>List of Classes </small></h6>
+    </div>
+    <input hidden id="deleteClass" (click)="updateClassStatus($event)" type="button" style="display: none;">
+    <input type="hidden" id="deleteButton" (click)="confirmDelete()" />
+    <input type="hidden" id="reload" (click)="reload()" />
+    <div class="panel-body">
+        <table class="table datatable-classes">
+            <thead>
+            <tr>
+                <!--<th>Course</th>-->
+                <th data-priority="1">Classes</th>
+                <th>Academic Year</th>
+                <th>Updated By</th>
+                <th data-priority="2">Status</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>

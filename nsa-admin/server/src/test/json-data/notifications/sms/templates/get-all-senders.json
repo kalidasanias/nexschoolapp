@@ -1,0 +1,16 @@
+{
+  "status":{
+    "code":201,
+    "message":"Template Updated Successfully"
+  },
+  "senders":[
+    {
+      "senderId":"1234",
+      "senderName":"NEXRISE"
+    },
+    {
+      "senderId":"1235",
+      "senderName":"NSA"
+    }
+  ]
+}

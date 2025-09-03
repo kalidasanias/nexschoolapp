@@ -1,0 +1,120 @@
+<div class="panel-heading">
+    <h6 class="panel-title"><span class="text-semibold text-uppercase"><i
+            class="icon-clipboard position-left"></i>Report Card Generation</span></h6>
+    <div class="heading-elements">
+        <input type="button" value="Progress Card Setting" data-size="60%" data-title="Progress Card Setting"
+               data-toggle="from-right" data-id="#generate-report-config" class="btn btn-sm btn-primary heading-btn"
+               (click)="genReportConfig($event)"/>
+
+    </div>
+</div>
+<hr/>
+<div class="panel-body panel-body-padding">
+    <form class="form-horizontal" action="#">
+        <div class="row form-horizontal">
+
+            <div class="col-md-3  margin-left40">
+                <div class="form-group">
+                    <label class="control-label col-sm-4">Class
+                    </label>
+                    <div class="col-sm-8">
+                        <div class="row">
+                            <select class="bootstrap-select" data-width="100%">
+                                <option value="">
+                                    Select Class
+                                </option>
+                                <option value="0">
+                                    Class 1
+                                </option>
+                                <option value="2">
+                                    Class 2
+                                </option>
+                                <option value="3">
+                                    Class 3
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 margin-left40">
+                <div class="form-group">
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">Section
+                        </label>
+                        <div class="col-sm-8">
+                            <div class="row">
+                                <select class="bootstrap-select" data-width="100%">
+                                    <!--template bindings={}-->
+                                    <option value="">
+                                        Select Section
+                                    </option>
+                                    <option value="0">
+                                        Section A
+                                    </option>
+                                    <option value="2">
+                                        Section B
+                                    </option>
+                                    <option value="3">
+                                        Section C
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-2 navbar-right txt-align-right">
+                <div class="form-group">
+                    <input class="btn btn-default " id="cancel-back" value="Clear"
+                           type="reset">
+                    <input class="btn btn btn-primary ui-wizard-content margin-right10 ui-formwizard-button"
+                           id="cancel-next" value="Search" type="submit">
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="panel-body">
+    <table class="table datatable-export">
+        <thead>
+        <tr>
+            <th>S.No</th>
+            <th>Class - Section</th>
+            <th>Assessment Name</th>
+            <th>Written Examination</th>
+            <th>Updated By</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>1</td>
+            <td>Class 1 - Section A</td>
+            <td>Periodic Assessment 1</td>
+            <td>Periodic Test 1</td>
+            <td>Admin - 19 Apr 2017</td>
+            <td>&nbsp;&nbsp;<a class="icon-primary"><i
+                    class="fa fa-pencil-square-o fa-lg"></i></a>
+                <a class="icon-danger"><i class="fa fa-trash-o fa-lg"></i></a>
+            </td>
+        </tr>
+
+        <tr>
+            <td>2</td>
+            <td>Class 2 - Section E</td>
+            <td>Periodic Assessment 2</td>
+            <td>Periodic Test 2</td>
+            <td>Admin - 19 Aug 2017</td>
+            <td>&nbsp;&nbsp;<a class="icon-primary"><i
+                    class="fa fa-pencil-square-o fa-lg"></i></a>
+                <a class="icon-danger"><i class="fa fa-trash-o fa-lg"></i></a>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+<generate-report-config></generate-report-config>

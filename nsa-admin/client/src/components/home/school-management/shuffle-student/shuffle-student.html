@@ -1,0 +1,25 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h6 class="panel-title"><span class="text-semibold text-uppercase"><i class="fa icon-collaboration fa-lg position-left"></i>Student Promotions</span><i class="icon-arrow-right15 text-pink-600"></i> <small>List of Applied Promotions </small></h6>
+        <div class="heading-elements">
+            <!--<button class="btn btn-sm btn-primary heading-btn" data-toggle="modal" data-target="#modal_theme_primary1"><i class="fa fa-upload position-left"></i>Import</button>-->
+            <!--<input type="button" value="Add Student" data-size="75%" data-title="Add Student" data-toggle="from-right" data-id="#addStudent" class="btn btn-sm btn-primary heading-btn" (click)="addStudent($event)"/>-->
+            <input type="hidden" id="Shuffle" value="Shuffle Students " data-size="75%" data-title="Shuffle Students - {{currentAcademicyear}}" data-toggle="from-right" data-id="#shuffle_students" class="btn btn-sm btn-primary heading-btn" (click)="shuffleStudents($event)"/>
+        </div>
+    </div>
+    <div class="panel-body">
+        <table class="table datatable-shuffle">
+            <thead>
+            <tr>
+                <th  width="10%" data-priority="1">Current Year</th>
+                <th width="20%" >Current Class</th>
+                <th width="20%" >Promoted Year</th>
+                <th width="20%" >Promoted Class</th>
+                <th width="20%" >Updated By</th>
+                <th width="20%" data-priority="2">Action</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+<add-shuffle-student></add-shuffle-student>

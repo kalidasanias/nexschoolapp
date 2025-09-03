@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+	<link href="https://s3-ap-southeast-1.amazonaws.com/hiflame14/ui/css/nxrise/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+	<link href="../../assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+	<link href="../../assets/css/core.css" rel="stylesheet" type="text/css">
+	<link href="../../assets/css/components.css" rel="stylesheet" type="text/css">
+	<link href="../../assets/css/colors.css" rel="stylesheet" type="text/css">
+	<link href="../../assets/css/admin.css" rel="stylesheet" type="text/css">
+	<!-- Core JS files -->
+	
+	<script type="text/javascript" src="../../assets/js/plugins/loaders/pace.min.js"></script>
+	<script type="text/javascript" src="../../assets/js/core/libraries/jquery.min.js"></script>
+	<script type="text/javascript" src="../../assets/js/core/libraries/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../../assets/js/plugins/loaders/blockui.min.js"></script>
+	<script type="text/javascript" src="../../assets/js/plugins/ui/nicescroll.min.js"></script>
+	<script type="text/javascript" src="../../assets/js/plugins/ui/drilldown.js"></script>
+	<!-- /core JS files -->
+
+	<!-- Theme JS files -->
+	<script type="text/javascript" src="../../assets/js/plugins/visualization/d3/d3.min.js"></script>
+	<script type="text/javascript" src="../../assets/js/plugins/visualization/d3/d3_tooltip.js"></script>
+	<script type="text/javascript" src="../../assets/js/plugins/forms/styling/switchery.min.js"></script>
+	<script type="text/javascript" src="../../assets/js/plugins/forms/styling/uniform.min.js"></script>
+	<script type="text/javascript" src="../../assets/js/plugins/forms/selects/bootstrap_multiselect.js"></script>
+	<script type="text/javascript" src="../../assets/js/plugins/ui/moment/moment.min.js"></script>
+	<script type="text/javascript" src="../../assets/js/plugins/pickers/daterangepicker.js"></script>
+
+	<script type="text/javascript" src="../../assets/js/core/app.js"></script>
+	<script type="text/javascript" src="../../assets/js/pages/dashboard.js"></script>
+	<!-- /theme JS files -->
+	<body>
+		<div class="navbar navbar-inverse">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="../../index.html">NSA ADMIN<!-- <img src="../../assets/images/logo_light.png" alt=""> --></a>
+
+				<ul class="nav navbar-nav pull-right visible-xs-block">
+					<li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-tree5"></i></a></li>
+				</ul>
+			</div>
+			<div class="navbar-collapse collapse" id="navbar-mobile">
+				<ul class="nav navbar-nav navbar-right">
+		            <li class="dropdown language-switch">
+		                <a class="dropdown-toggle" data-toggle="dropdown">
+		                    <i class="icon-phone-incoming position-left"></i>
+		                    <span class="text-uppercase">Contact Us</span>
+		                    <span class="caret"></span>
+		                </a>
+		                <ul class="dropdown-menu">
+		                    <li><a class="deutsch"><b>Technical Contact</b><br/> 9791038679 </a></li>
+		                </ul>
+		            </li>
+
+		            <li class="dropdown language-switch">
+		                <a href="#" class="text-uppercase"><i class="icon-switch2"></i> Logout</a>
+		            </li>
+		        </ul>
+			</div>
+		</div>
+		<!-- /main navbar -->
+		<!-- Second navbar -->
+		<div class="navbar navbar-default" id="navbar-second">
+			<ul class="nav navbar-nav no-border visible-xs-block">
+				<li><a class="text-center collapsed" data-toggle="collapse" data-target="#navbar-second-toggle"><i class="icon-menu7"></i></a></li>
+			</ul>
+			<div class="navbar-collapse collapse" id="navbar-second-toggle">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="../dashboard/dashboard.html"><i class="icon-display4 position-left"></i> Dashboard</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<i class="icon-strategy position-left"></i> Academics <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu width-200">
+							<li><a href="../academics/academic-year.html"><i class="icon-align-center-horizontal"></i> Academic Year</a></li>
+							<li><a href="../academics/course-management.html"><i class="icon-flip-vertical3"></i> Course Management</a></li>
+							<li><a href="../academics/classes.html"><i class="icon-align-center-horizontal"></i> Classes</a></li>
+							<li><a href="../academics/sections.html"><i class="icon-flip-vertical3"></i> Sections</a></li>
+							<li><a href="../academics/subjects.html"><i class="icon-flip-vertical3"></i> Subjects</a></li>
+						</ul>
+					</li>
+					<li class="dropdown mega-menu mega-menu-wide">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-puzzle4 position-left"></i> School Management <span class="caret"></span></a>
+						<div class="dropdown-menu dropdown-content">
+							<div class="dropdown-content-body">
+								<div class="row">
+									<div class="col-md-2">
+										<span class="menu-heading underlined">Homework</span>
+										<ul class="menu-list">
+											<li><a href="../homework/assignment-types.html"><i class="icon-align-center-horizontal"></i> Assignment types</a></li>
+											<li><a href="../homework/create-assignments.html"><i class="icon-align-center-horizontal"></i> Create Assignments</a></li>
+										</ul>
+										<span class="menu-heading underlined">Attendance</span>
+										<ul class="menu-list">
+											<li><a href="../attendance/attendance-information.html"><i class="icon-align-center-horizontal"></i> Attendance Information</a></li>
+											<li><a href="../attendance/attendance-history.html"><i class="icon-align-center-horizontal"></i> Attendance History</a></li>
+										</ul>
+									</div>
+									<div class="col-md-2">
+										<span class="menu-heading underlined">Exams & Progress reports</span>
+										<ul class="menu-list">
+											<li><a href="../examinations/exam-configuration.html"><i class="icon-align-center-horizontal"></i> Exam Configuration</a></li>
+											<li><a href="../examinations/create-examinations.html"><i class="icon-align-center-horizontal"></i> Create Examinations</a></li>
+											<li><a href="../examinations/marks-upload.html"><i class="icon-align-center-horizontal"></i> Marks Upload</a></li>
+											<li><a href="../examinations/promotion-list.html"><i class="icon-align-center-horizontal"></i> Promotion List</a></li>
+										</ul>
+									</div>
+									<div class="col-md-2">
+										<span class="menu-heading underlined">Holiday Calendar</span>
+										<ul class="menu-list">
+											<li><a href="../holiday-calendar/school-holidays.html"><i class="icon-align-center-horizontal"></i> School Holidays</a></li>
+											<li><a href="../holiday-calendar/exam-holidays.html"><i class="icon-align-center-horizontal"></i> Exam Holidays</a></li>
+											<li><a href="../holiday-calendar/national-holidays.html"><i class="icon-align-center-horizontal"></i> National Holidays</a></li>
+											<li><a href="../holiday-calendar/emergency-leave.html"><i class="icon-align-center-horizontal"></i> Emergency Leave</a></li>
+										</ul>
+									</div>
+									<div class="col-md-2">
+										<span class="menu-heading underlined">Leave Management</span>
+										<ul class="menu-list">
+											<li><a href="../leave-management/leave-configuration.html"><i class="icon-align-center-horizontal"></i> Leave Configuration</a></li>
+											<li><a href="../leave-management/leave-reporting.html"><i class="icon-align-center-horizontal"></i> Leave Reporting</a></li>
+											<li><a href="../leave-management/leave-assignments.html"><i class="icon-align-center-horizontal"></i> Leave Assignments</a></li>
+										</ul>
+									</div>
+									<div class="col-md-2">
+										<span class="menu-heading underlined">Fee Management </span>
+										<ul class="menu-list">
+											<li><a href="../fee-management/fee-category.html"><i class="icon-align-center-horizontal"></i> Fee Category</a></li>
+											<li><a href="../fee-management/fee-structure.html"><i class="icon-align-center-horizontal"></i> Fee Structure</a></li>
+											<li><a href="../fee-management/assign-fees.html"><i class="icon-align-center-horizontal"></i> Assign Fees</a></li>
+										</ul>
+									</div>
+									<div class="col-md-2">
+										<span class="menu-heading underlined">Timetable</span>
+										<ul class="menu-list">
+											<li><a href="../timetable/timetable-configuration.html"><i class="icon-align-center-horizontal"></i> Timetable Configuration</a></li>
+											<li><a href="../timetable/create-timetable.html"><i class="icon-align-center-horizontal"></i> Create Timetable</a></li>
+											<li><a href="../timetable/manage-timetable.html"><i class="icon-align-center-horizontal"></i> Manage Timetable</a></li>
+										</ul>
+									</div>
+									
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="dropdown mega-menu mega-menu-wide">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-puzzle4 position-left"></i> User Management <span class="caret"></span></a>
+						<div class="dropdown-menu dropdown-content">
+							<div class="dropdown-content-body">
+								<div class="row">
+									<div class="col-md-2">
+										<span class="menu-heading underlined">Employee Management </span>
+										<ul class="menu-list">
+											<li><a href="../employee-management/department.html"><i class="icon-align-center-horizontal"></i> Department </a></li>
+											<li><a href="../employee-management/designation.html"><i class="icon-align-center-horizontal"></i> Designation</a></li>
+											<li><a href="../employee-management/category.html"><i class="icon-align-center-horizontal"></i> category </a></li>
+											<li><a href="../employee-management/add-employees.html"><i class="icon-align-center-horizontal"></i> Add Employee </a></li>
+										</ul>
+									</div>
+									<div class="col-md-2">
+										<span class="menu-heading underlined">Student Management </span>
+										<ul class="menu-list">
+											<li><a href="../student-management/student-status.html"><i class="icon-align-center-horizontal"></i> Student status</a></li>
+											<li><a href="../student-management/add-students.html"><i class="icon-align-center-horizontal"></i> Add Students</a></li>
+										</ul>
+									</div>
+									<div class="col-md-2">
+										<span class="menu-heading underlined">Roles & Permissions </span>
+										<ul class="menu-list">
+											
+										</ul>
+									</div>
+									<div class="col-md-2">
+										<span class="menu-heading underlined">User Groups </span>
+										<ul class="menu-list">
+											
+										</ul>
+									</div>
+									<div class="col-md-2">
+										<span class="menu-heading underlined">Taxonomy </span>
+										<ul class="menu-list">
+											
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<i class="icon-strategy position-left"></i> Transport <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu width-200">
+							<li><a href="../transport-management/vehicle-details.html"><i class="icon-align-center-horizontal"></i> Vehicle Details</a></li>
+							<li><a href="../transport-management/route-details.html"><i class="icon-align-center-horizontal"></i> Route Details</a></li>
+							<li><a href="../transport-management/allocate-students.html"><i class="icon-align-center-horizontal"></i> Allocate Students</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<i class="icon-strategy position-left"></i> Activities <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu width-200">
+							<li class="dropdown-submenu">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-paragraph-justify3"></i> Event Management</a>
+								<ul class="dropdown-menu">
+									<li><a href="../event-management/event-types.html"><i class="icon-align-center-horizontal"></i> Event types</a></li>
+									<li><a href="../event-management/create-events.html"><i class="icon-align-center-horizontal"></i> Create Events</a></li>
+								</ul>
+							</li>
+							<li><a href="../event-management/notifications.html"><i class="icon-align-center-horizontal"></i> Notifications</a></li>
+							<li><a href="../event-management/journal-management.html"><i class="icon-flip-vertical3"></i> Journal Management</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<i class="icon-strategy position-left"></i> Reports & Analytics <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu width-200">
+							<li><a href="../reports&analytics/data-collection-reports.html"><i class="icon-align-center-horizontal"></i> Data Collection Reports</a></li>
+							<li><a href="../reports&analytics/performance-reports.html"><i class="icon-flip-vertical3"></i> Performance Reports</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<i class="icon-strategy position-left"></i> Asset Management <span class="caret"></span>
+						</a>
+
+						<ul class="dropdown-menu width-200">
+							<li><a href="../asset-management/files.html"><i class="icon-flip-vertical3"></i> Files</a></li>
+							<li><a href="../asset-management/documents.html"><i class="icon-flip-vertical3"></i> Documents</a></li>
+							<li><a href="../asset-management/gallery.html"><i class="icon-flip-vertical3"></i> Gallery</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- Page header -->
+		<div class="breadcrumb-line content-group-lg">
+			<ul class="breadcrumb breadcrumb-arrows">
+				<li><a href="#"><i class="icon-home2 position-left"></i> Stand</a></li>
+				<li><a href="#">Alone</a></li>
+				<li class="active">Component</li>
+			</ul>
+
+			<ul class="breadcrumb-elements">
+				<li><a href="#"><i class="icon-comment-discussion position-left"></i> Chats</a></li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<i class="icon-gear position-left"></i>
+						Actions
+						<span class="caret"></span>
+					</a>
+
+					<ul class="dropdown-menu dropdown-menu-right">
+						<li><a href="#"><i class="icon-inbox pull-right"></i> Action</a></li>
+						<li><a href="#"><i class="icon-googleplus5 pull-right"></i> Another action</a></li>
+						<li><a href="#"><i class="icon-grid-alt pull-right"></i> Something else</a></li>
+						<li class="divider"></li>
+						<li><a href="#"><i class="icon-spinner2 spinner pull-right"></i> One more line</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<!-- /page header -->
+	</body>
+</html>

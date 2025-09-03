@@ -1,0 +1,76 @@
+http://localhost:9200/calendar/_mapping/exams
+
+{  
+   "properties":{  
+      "exams":{  
+         "type":"object",
+         "properties":{  
+            "exam_schedule_id":{  
+               "type":"string",
+               "index":"not_analyzed"
+            },
+            "exam_name":{  
+               "type":"string",
+               "index":"not_analyzed"
+            },
+            "class_name":{  
+               "type":"string",
+               "index":"not_analyzed"
+            },
+            "sections":{  
+               "type":"object",
+               "properties":{  
+                  "section_id":{  
+                     "type":"string",
+                     "index":"not_analyzed"
+                  },
+                  "section_name":{  
+                     "type":"string",
+                     "index":"not_analyzed"
+                  }
+               }
+            },
+            "subject_details":{  
+               "type":"object",
+               "properties":{  
+                  "exam_date":{  
+                     "type":"date",
+                     "format":"dateOptionalTime",
+                     "index":"not_analyzed"
+                  },
+                  "exam_start_time":{  
+                     "type":"string",
+                     "index":"not_analyzed"
+                  },
+                  "exam_end_time":{  
+                     "type":"string",
+                     "index":"not_analyzed"
+                  },
+                  "subject_name":{  
+                     "type":"string",
+                     "index":"not_analyzed"
+                  },
+                  "subject_id":{  
+                     "type":"string",
+                     "index":"not_analyzed"
+                  }
+               }
+            }
+         }
+      }
+   }
+}
+
+http://localhost:9200/users/_mapping/student
+{
+   "properties": {
+      "name": { "type": "string", "index": "not_analyzed"}
+   }
+}
+
+http://localhost:9200/users/_mapping/employee
+{
+   "properties": {
+      "name": { "type": "string", "index": "not_analyzed"}
+   }
+}

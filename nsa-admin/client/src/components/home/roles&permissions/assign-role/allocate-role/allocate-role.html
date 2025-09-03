@@ -1,0 +1,122 @@
+<div id="allocateRole" class="overlay-popup footer-popup" style="display: none;">
+    <!-- RIGHT PANEL STARTS -->
+    <div class="cd-panel">
+        <div class="cd-panel-header">
+            <div class="simple-field-hf">
+            </div>
+            <a (click)="closeOverlay($event)" class="cd-panel-close">Close</a>
+        </div>
+        <div class="cd-panel-container" id="hiflame-cart-popup">
+            <div class="cd-panel-content" id="side-panel-container">
+                <form action="#" class="form-horizontal form-multiselector">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Role Types&nbsp;<span class="text-danger">*</span></label>
+                            <div class="col-md-9">
+                                <div class="multi-select-full">
+                                    <select #selectRole id="select-role" class="select-change" (click)="search()" data-width="100%">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading margin-bottom20">
+                                <h6 class="panel-title second-panel-title">
+                                    <span class="text-semibold text-uppercase">
+                                        <i class = "icon-menu7 position-left"></i>
+                                        Select Employees
+                                    </span>
+                                </h6>
+                            </div>
+
+                            <div class="panel-body">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-6 text-center text-semibold text-uppercase">Available Employees</div>
+                                        <div class="col-md-6 text-center text-semibold text-uppercase">Selected Employees </div>
+                                    </div>
+                                    <dual-list [source]="emp" [(destination)]="selectedEmp" (destinationChange)="true" [key]="key" [display]="display" [filter]="true" [format]="format"></dual-list>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!--<form novalidate class="form-horizontal form-multiselector" >
+                    <div class="modal-body">
+                        <div class="panel panel-default">
+                            <div class="panel-heading margin-bottom20">
+                                <h6 class="panel-title second-panel-title">
+                                    <span class="text-semibold text-uppercase">
+                                        <i class = "icon-menu7 position-left"></i>
+                                        Select Employees
+                                    </span>
+                                </h6>
+                            </div>
+
+                            <div class="panel-body">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-6 text-center text-semibold text-uppercase">Available Permissions</div>
+                                        <div class="col-md-6 text-center text-semibold text-uppercase">Selected Permissions </div>
+                                    </div>
+                                    <dual-list [source]="permissions" [(destination)]="selectedPermissions" (destinationChange)="true" [key]="key" [display]="display" [filter]="true" [format]="format"></dual-list>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Role Type</label>
+                            <div class="col-md-9">
+                                <select #selectRole class="select-role" multiple="multiple" ></select>
+                            </div>
+                        </div>
+                    </div>
+                </form>-->
+                <div class="overlay-footer">
+                    <div class="right-align overlay-footer-content-rt">
+                        <button type="button" class="btn btn-sm btn-default" (click)="closeOverlay()">Close</button>
+                        <button type="submit" class="btn btn-primary" id="save"  (click)="save('save')" >Assign</button>
+                        <!--<button type="submit" class="btn btn-primary" [disabled]="!designationForm.valid" id="save" (click)="saveDesignation('saveDesignation')" >{{buttonVal}}</button>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="editAssignRole" class="modal fade refuse">
+    <div class="modal-dialog modal-sm ">
+        <div class="modal-content">
+            <div class="modal-header bg-info">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h5 class="modal-title">Edit Roles</h5>
+            </div>
+            <form action="#" class="form-horizontal">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="control-label col-md-3">Choose Role Types&nbsp;<span class="text-danger">*</span></label>
+                        <div class="col-md-9">
+                            <div class="multi-select-full">
+                                <select #selectRoleypes class="select-role-types" multiple="multiple">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="form-group">
+                         <label class="control-label col-md-4">Description
+                         </label>
+                         <div class="col-md-8">
+                             <textarea rows="3" cols="3" class="form-control" formControlName="aspectDesc" placeholder=""></textarea>
+                         </div>
+                     </div>-->
+                </div>
+                <hr/>
+                <div class="modal-footer" >
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" id="saveRole" class="btn btn-primary btn-ladda btn-ladda-progres" (click)="update('saveRole')">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="panel-heading" style="bottom:25px;">
+    <h6 class="panel-title" style="bottom: -13px"><span class="text-semibold"><i class="fa fa-bars"></i> List of Received Notifications</span></h6>
+    <div class="heading-elements" style="top:32px;">
+        <input type="hidden" id="downloadAttach" class="btn btn-sm btn-primary" (click)="downloadNotes($event)"/>
+        <!--<input hidden id="deleteButton" (click)="requested_delete($event)" type="button" style="display: none;">-->
+    </div>
+    <hr/></div>
+<div class="panel-body" id="myNotification" style="bottom:65px;">
+    <table class="table datatable-my-notifications">
+        <thead>
+        <tr>
+            <th data-priority="1">Notification Name</th>
+            <th>Message</th>
+            <th>Attachments</th>
+            <th>Status</th>
+            <th>Updated By</th>
+        </tr>
+        </thead>
+    </table>
+    <attachment></attachment>
+</div>

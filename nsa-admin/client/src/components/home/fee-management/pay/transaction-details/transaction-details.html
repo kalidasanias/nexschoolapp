@@ -1,0 +1,56 @@
+<div id="cash-receipt" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-info">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h6 class="modal-title"><span>Receipts</span></h6>
+            </div>
+            <div class="modal-body no-margin-bottom">
+                <div class="well">
+                    <dl class="dl-horizontal nsa-dl-horizontal">
+                        <dt>Name : </dt>
+                        <dd>{{feeDetailsObj.firstName}}</dd>
+                        <dt>Class : </dt>
+                        <dd>{{feeDetailsObj.className + ' - ' + feeDetailsObj.sectionName}}</dd>
+                        <dt>Fee Name : </dt>
+                        <dd>{{feeDetailsObj.feeAssignmentName}}</dd>
+                        <dt>Net Amount : </dt>
+                        <dd class="text-bold">{{feeDetailsObj.netAmount}}</dd>
+                        <dt class="text-green">Amount Paid: </dt>
+                        <dd class="text-green text-bold">{{feeDetailsObj.paidAmount}}</dd>
+                        <dt class="text-danger" *ngIf="feeDetailsObj.netAmount - feeDetailsObj.paidAmount > 0">Pending Amount : </dt>
+                        <dd *ngIf="feeDetailsObj.netAmount - feeDetailsObj.paidAmount > 0" class="text-danger text-bold">{{feeDetailsObj.netAmount - feeDetailsObj.paidAmount}}</dd>
+                    </dl>
+                </div>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#Invoice Number</th>
+                                <th>Amount Paid</th>
+                                <th>Mode</th>
+                                <th>Date</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let obj of feeTansactionDetails; let index=index">
+                                <td>{{obj.tracking_id}}</td>
+                                <td>{{obj.amount}}</td>
+                                <td>{{obj.payment_gateway}}</td>
+                                <td>{{obj.txn_date | date: 'dd-MM-yyyy'}}</td>
+                                <td><a (click)="generateReceipt($event)"><i class="icon-file-pdf"><input type="hidden" [value]="obj.fee_trans_id"></i></a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <hr style="margin-top: 0px; margin-bottom: 2px;">
+            <div class="modal-footer" style="padding: 7px;">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<receipt [transaction]="transactions" [feeDetails]="feeDetailsObj"></receipt>
+

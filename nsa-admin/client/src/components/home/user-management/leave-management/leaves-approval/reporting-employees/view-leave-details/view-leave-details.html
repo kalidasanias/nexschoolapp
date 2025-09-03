@@ -1,0 +1,72 @@
+<div id="viewHistory" class="overlay-popup footer-popup" style="display: none;">
+    <!-- RIGHT PANEL STARTS -->
+    <div class="cd-panel">
+        <div class="cd-panel-header">
+            <!-- <div class="hidden-xs simple-field-hf"></div> -->
+            <div class="simple-field-hf">
+            </div>
+            <a (click)="closeOverlay($event)" class="cd-panel-close">Close</a>
+        </div>
+        <div class="cd-panel-container">
+            <div class="cd-panel-content" id="side-panel-container">
+                <form class="form-horizontal">
+                    <div class="modal-body">
+                        <legend class="text-semibold">
+                            <i class="icon-thumbs-up2 position-left"></i>
+                            Approved Leaves
+                        </legend>
+                        <table class="table datatable-respond-leaves">
+                            <thead>
+                            <tr>
+                                <th>Requested Date</th>
+                                <th>Duration</th>
+                                <th>Reason</th>
+                                <th>Approved On</th>
+                            </tr>
+                            </thead>
+                        </table>
+                        <div class="col-md-6">
+                            <div class="panel panel-flat">
+                                <form action="#" class="form-horizontal">
+                                    <div class="panel-default">
+                                        <div class="panel-heading">
+                                            <h6 class="panel-title"><span class=""><i class="icon-calendar52"></i> Remaining Leaves</span></h6>
+                                        </div>
+                                        <div class="panel-body">
+                                            <ng-container class="" *ngIf="remainLeavs != 0">
+                                                <div class="form-group" *ngFor="let remLeave of remainLeavs">
+                                                    <div class="col-lg-6 col-xs-6">
+                                                        {{remLeave.leaveTypeName}}
+                                                    </div>
+                                                    <!-- <label class="col-lg-3 control-label">Name:</label> -->
+                                                    <div class="events col-xs-6">
+                                                        {{remLeave.remainingLeaves}} days
+                                                    </div>
+                                                </div>
+                                            </ng-container>
+                                            <ng-container *ngIf="remainLeavs ==0" style="height: 170px;">
+                                                    <span class="text-center no-slider-content">
+                                                    <strong>No Data Found</strong></span>
+                                            </ng-container>
+                                        </div>
+                                    </div>
+                                </form>
+                                <!-- Basic layout-->
+                                <!-- /basic layout -->
+                                <!-- /basic layout -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="overlay-footer">
+                        <div class="right-align overlay-footer-content-rt">
+                            <button type="button" class="btn btn-default" (click)="closeOverlay($event)">Close</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <!-- cd-panel-container -->
+        </div>
+    </div>
+    <!-- right panel script -->
+</div>

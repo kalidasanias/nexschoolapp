@@ -1,0 +1,121 @@
+<div id="generate-timetable" class="overlay-popup footer-popup" style="display: none;">
+    <!-- RIGHT PANEL STARTS -->
+    <div class="cd-panel ">
+        <div class="cd-panel-header">
+            <div class="simple-field-hf"></div>
+            <a (click)="closeOverlay($event)" class="cd-panel-close">Close</a>
+        </div>
+        <input type="hidden" id="eventEditButton" (click)="editEventTimetable($event)">
+        <input type="hidden" id="eventAddButton" (click)="addEventTimetable($event)">
+        <input type="hidden" id="eventNewButton" (click)="newEventTimetable($event)">
+        <input type="hidden" id="deleteButton" (click)="deleteEventTimetable($event)">
+        <input type="hidden" id="eventWarningButton" (click)="showWarning($event)">
+        <input type="hidden" id="classWeekData" (click)="getWeekData($event)" value="">
+        <div class="cd-panel-container generate-timetable">
+            <div class="cd-panel-content" id="side-panel-container">
+                <form class="form-horizontal modal-body" action="#" >
+                    <div class="row form-horizontal" *ngIf="enable" [ngClass]="{'not-active': !enableData}">
+                            <div class="form-group" >
+                                <ng-container *ngIf="edit == false">
+                                    <label class="control-label col-sm-1">Class <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-sm-3">
+                                        <select id="select-class" class="select-change" (click)="getSectionByClass()" #singleClass data-width="100%">
+                                        </select>
+                                    </div>
+                                </ng-container>
+                                <ng-container *ngIf="sections && edit == false">
+                                    <label class="control-label col-sm-1">Section
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-md-2">
+                                        <select id="select-section" class="select-change" #sectionSelect data-width="100%" (click)="getSubjectBySection()" >
+                                        </select>
+                                    </div>
+                                </ng-container>
+                                <ng-container *ngIf="sections || edit == true">
+                                    <label class="control-label col-md-2">Class teacher
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-md-3">
+                                        <select id="select-employee" class="selectpicker" #classTeacher data-width="100%" data-live-search="true">
+                                        </select>
+                                    </div>
+                                    <div *ngIf="edit == false">
+                                        <br/><br/><br/>
+                                    </div>
+                                    <label class="control-label col-md-1">Notification
+                                    </label>
+                                    <div class="col-md-2 sms hide" align="center" >
+                                        <div class="form-group">
+                                            <label class="checkbox-inline" style="font-size:12px;">
+                                                <input  #sms type="checkbox" class="smsChecked">SMS
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 push hide">
+                                        <div class="form-group">
+                                            <label class="checkbox-inline" style="font-size:12px;">
+                                                <input #push type="checkbox" class="pushChecked">App
+                                            </label>
+                                        </div>
+                                    </div>
+                                </ng-container>
+                            </div>
+
+                            <hr>
+                    </div>
+                </form>
+                <div *ngIf="subjects || edit == true" class="calDiv">
+                    <form [formGroup]="timetableForm">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="examSchedule">
+                            <div class="row subjects">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th class="col-lg-2">Subject</th>
+                                            <th class="col-lg-3">Employee</th>
+                                            <th class="col-lg-2"># of Periods / Week</th>
+                                            <th class="col-lg-2 action-col">&nbsp;</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody formArrayName="periods">
+                                            <tr *ngFor="let subject of timetableForm.controls.periods.controls; let i = index" [formGroup]="subject">
+                                                <td>
+                                                    <select id="select-subject{{i}}" class="select-change select-subject" (click)="getSubjectsByEmployee($event, i)" data-width="100%">
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select id="subject-teacher{{i}}" class="select-change select-subject hide" (click)="getEmployee($event, i)" data-width="100%">
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="text" id='max_periods{{i}}' class="form-control" placeholder="5" formControlName="max_periods">
+                                                </td>
+                                                <td class="action-col">
+                                                    <button class="btn bg-danger btn-act-icon1 btn-act-sm1 button-rounded" type="button" *ngIf="i > 0" (click)="deleteSubject(i)"><i class="icon-minus2"></i></button>
+                                                    <button class="btn bg-success btn-act-icon1 btn-act-sm1 button-rounded" type="button" (click)="addSubject(i+1)"><i class="icon-plus22"></i></button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+                    <div class="overlay-footer">
+                    <div class="right-align overlay-footer-content-rt">
+                        <button class="btn btn-default btn-sm" (click)="closeOverlay($event)">Close</button>
+                        <button *ngIf="enable" class="btn btn-primary btn-sm noteClass" (click)="save($event)" [disabled]="isInValid"  id="saveBtn">Save & Notify</button>
+                    </div>
+                </div>
+            </div>
+            <!-- cd-panel-container -->
+        </div>
+    </div>
+    <!-- right panel script -->
+</div>

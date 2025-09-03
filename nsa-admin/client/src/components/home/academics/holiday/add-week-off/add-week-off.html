@@ -1,0 +1,62 @@
+<div id="addWeekOff" class="overlay-popup footer-popup" style="">
+    <!-- RIGHT PANEL STARTS -->
+    <div class="cd-panel">
+        <div class="cd-panel-header">
+            <!-- <div class="hidden-xs simple-field-hf"></div> -->
+            <div class="simple-field-hf">
+            </div>
+            <a (click)="closeOverlay($event)" class="cd-panel-close">Close</a>
+        </div>
+        <div class="cd-panel-container">
+            <div class="cd-panel-content" id="side-panel-container">
+                <form class="form-horizontal form-validate">
+                    <div class="modal-body">
+                        <fieldset class=" ">
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <label class="control-label col-sm-2">Saturday <span
+                                            class="text-danger">*</span></label>
+                                    <div #satSelect class="checkbox col-md-10">
+                                        <div  *ngFor="let week of weeks; let i=index">
+                                            <label *ngIf="week.id != 0" class="col-md-2">
+                                                <input type='checkbox' checked class="checkDay" id="sat{{i + 1}}" value="{{i + 1}}">week {{i + 1}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset class=" ">
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <label class="control-label col-sm-2">Sunday <span
+                                            class="text-danger">*</span></label>
+                                    <div #sunSelect class="checkbox col-md-10">
+                                        <div  *ngFor="let week of weeks; let i=index">
+                                            <label *ngIf="week.id != 0" class="col-md-2">
+                                                <input type='checkbox' checked class="checkDay" id="sun{{i + 1}}" value="{{i + 1}}">week {{i + 1}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="overlay-footer">
+                        <div class="right-align overlay-footer-content-rt">
+                            <button type="button" class="btn btn-sm btn-default" (click)="closeOverlay($event)">Close</button>
+                            <button type="button" *ngIf="buttonVal === 'Save'" id="saveWeekOff" (click)="save('saveWeekOff')" class="btn btn-primary btn-ladda btn-ladda-progres">{{buttonVal}}</button>
+                            <button type="button" *ngIf="buttonVal === 'Update'" id="saveWeekOff1" (click)="save('saveWeekOff1')" class="btn btn-primary btn-ladda btn-ladda-progres">{{buttonVal}}</button>
+                        </div>
+                    </div>
+                </form>
+                <div class="col-md-12">
+                    <div class="col-md-10">
+                        <div class=" alert alert-sm alert-styled-left alert-info alert-arrow-left alpha-primary alert-component">
+                            <label class="control-label col-md-offset-1 col-sm-offset-1">Please uncheck working week. Weeks that are checked are applicable as holidays</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- cd-panel-container -->
+    </div>
+</div>

@@ -1,0 +1,73 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h6 class="panel-title"><span class="text-semibold text-uppercase"><i class="icon-point-right position-left"></i>Leave Assignment </span><i class="icon-arrow-right15 text-pink-600"></i> <small>List of Assignes </small></h6>
+        <div class="heading-elements">
+            <input *ngIf="enable" type="button" value="Assign Leaves" data-size="85%" data-title="Assign Leaves" data-toggle="from-right" data-id="#assignLeave" class="btn btn-sm btn-primary" (click)="assignLeave($event)"/>
+            <!--<ul class="icons-list">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-sort-amount-desc position-left"></i> By Department <span class="caret"></span></a>
+                    <ul class="dropdown-menu ">
+                        <li><a href="#">Show all</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Maths</a></li>
+                        <li><a href="#">Tamil</a></li>
+                        <li><a href="#">English</a></li>
+                        <li><a href="#">Science</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="icons-list">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-sort-amount-desc position-left"></i> By Reporting Employee <span class="caret"></span></a>
+                    <ul class="dropdown-menu ">
+                        <li><a href="#">Show all</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Baskar</a></li>
+                        <li><a href="#">Lakshmi</a></li>
+                        <li><a href="#">Suguna</a></li>
+                        <li><a href="#">Vimal</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="icons-list">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-sort-amount-desc position-left"></i> By Leave Type <span class="caret"></span></a>
+                    <ul class="dropdown-menu ">
+                        <li><a href="#">Show all</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Emergency Leave</a></li>
+                        <li><a href="#">Casual Leave</a></li>
+                    </ul>
+                </li>
+            </ul>-->
+            <!--<a routerlink="./assign-leave" ng-reflect-router-link="./assign-leave"
+               ng-reflect-href="#/home/assign-leave" href="#/home/assign-leave" ><button  data-target="#modal_default" data-toggle="modal" type="button" class="btn btn-sm btn-primary heading-btn">Assign Leaves</button></a>
+-->        </div>
+    </div>
+
+    <div class="panel-body">
+        <input hidden id="deleteLeave" (click)="deleteLeaveAssign($event)" type="button" style="display: none;">
+        <input type="hidden" id="deleteButton" (click)="confirmDelete()" />
+        <input hidden id="editLeave" (click)="editLeaveAssign($event)" data-title="" data-size="75%" data-id="#edit-leave-overlay"  type="button" style="display: none;">
+
+        <!--<a routerlink="./assign-leave" ng-reflect-router-link="./assign-leave" id="editLeave"
+           ng-reflect-href="#/home/assign-leave" href="#/home/assign-leave" class="hide" ><button  data-target="#modal_default" data-toggle="modal" type="button" class="btn btn-sm btn-primary heading-btn">Assign Leaves</button></a>-->
+
+
+        <table class="table datatable-leave-assign">
+            <thead>
+            <tr>
+                <th data-priority="1">Employee Name</th>
+                <th>Reporting Manager</th>
+                <th>Department</th>
+                <th>Leave Type </th>
+                <th>No of leaves</th>
+                <th data-priority="2">Action</th>
+            </tr>
+            </thead>
+
+        </table>
+    </div>
+</div>
+<edit-leave></edit-leave>
+<assign-leave></assign-leave>

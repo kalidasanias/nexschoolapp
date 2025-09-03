@@ -1,0 +1,33 @@
+<div class="image-container">
+    <ul id="lightgallery" class="list-unstyled" *ngIf="albumDetailObjs">
+        <ng-container *ngFor ="let albumDetail of albumDetailObjs">
+            <ng-container *ngIf="albumDetail.file_type == 'image'">
+                <li class="item" attr.data-src="{{baseUrl + '/'+ albumDetail.file_url}}" attr.data-sub-html='<h4>{{albumDetail.file_name}}</h4>'>
+                    <a class="select-tic" [id]="[albumDetail.content_id]" attr.data-id="{{albumDetail.file_url}}">
+                        <ng-container *ngIf="albumDetail.metadata">
+                            <img class="view-light-image" src="{{baseUrl + '/'+ albumDetail.file_url}}" width="295" height="166" />
+                        </ng-container>
+                        <ng-container *ngIf="!albumDetail.metadata">
+                            <img class="view-light-image" src="{{baseUrl + '/'+ albumDetail.file_url}}" width="295" height="166" />
+                        </ng-container>
+                    </a>
+                </li>
+            </ng-container>
+            <ng-container *ngIf="albumDetail.file_type == 'video'">
+                <li class="item video" attr.data-src="{{'https://vimeo.com/' + albumDetail.file_url}}" attr.data-sub-html='<h4>{{albumDetail.file_name}}</h4>'>
+                    <a class="select-tic" [id]="[albumDetail.content_id]" attr.data-video="{{albumDetail.file_url}}">
+                        <img class="view-light-image" src="../../../../../../../public/assets/img/video-thumbnail.jpg" width="295" height="166">
+                    </a>
+                </li>
+            </ng-container>
+        </ng-container>
+    </ul>
+</div>
+<ng-container *ngIf="showWarning">
+    <div class="col-md-10">
+        <div class="col-md-offset-2 alert alert-warning no-border text-center">
+            <span class="text-semibold">No {{type || 'data'}} Found. </span>
+        </div>
+    </div>
+</ng-container>
+<br/>

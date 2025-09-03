@@ -1,0 +1,22 @@
+{
+  "name": "@nsa/nsa-notification",
+  "version": "1.0.23",
+  "description": "nsa notification utils",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "keywords": [
+    "nsa",
+    "commons",
+    "utils"
+  ],
+  "author": "nsa",
+  "license": "ISC",
+  "dependencies": {
+    "moment": "^2.17.1",
+    "node-gcm": "^0.14.4",
+    "lodash": "^4.16.4",
+    "emailjs": "^1.0.8"
+  }
+}

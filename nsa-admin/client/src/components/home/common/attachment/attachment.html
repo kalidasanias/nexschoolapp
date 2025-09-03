@@ -1,0 +1,33 @@
+<modal>
+    <modal-title>Attachments</modal-title>
+    <modal-body>
+
+        <input hidden id="attachmentWarning" (click)="requested_warning()" type="button" style="display: none;">
+        <input class="hide" type="text" id="confirmAttachment" (click)="deleteFile($event)" >
+        <div class="row form-horizontal">
+            <div class="col-md-12">
+                <table id="attachment-table" class="table">
+                    <thead>
+                    <tr>
+                        <th width="50%">Name</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <ng-container *ngIf="attachments">
+                        <tr *ngFor="let attachment of attachments">
+                            <td class="fc-title">{{attachment.name}}</td>
+                            <td nowrap *ngIf="url" class="deleteAtta">
+                                <input class="hide" type="text" value="{{attachment.id}}">
+                                <a class="icon-download4" href="{{url+ '/' + attachment.id}}"></a>&nbsp;
+                                <a class='icon-danger' *ngIf="deleteObj" id="deleteAttachment"><i class='fa fa-trash-o margin-7'></i></a>
+                            </td>
+                        </tr>
+                    </ng-container>
+                    </tbody>
+                </table>
+                <hr/>
+            </div>
+        </div>
+    </modal-body>
+</modal>

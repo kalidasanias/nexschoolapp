@@ -1,0 +1,47 @@
+ 
+[
+      {
+         "admissionNo":"12455324523",
+         "username":"100S634",
+         "userId":"123123e",
+         "name": "sam",
+         "status": "present",
+         "leaveApplied": false,
+         "remarks": "",
+         "date": "Mar 11 2017 1:27 PM"
+
+      },
+       {
+         "admissionNo":"12455",
+         "username":"100S635",
+         "userId":"123123",
+         "name": "sam",
+         "status": "absent",
+         "leaveApplied": true,
+         "remarks": "Going to Marriage of my sister",
+         "date": "Mar 11 2017 1:27 PM"
+
+      },
+      {
+         "admissionNo":"12455",
+         "username":"100S635",
+         "userId":"123123",
+         "name": "sam",
+         "status": "absent",
+         "leaveApplied": false,
+         "remarks": "",
+         "date": "Mar 11 2017 1:27 PM"
+
+      },
+      {
+         "admissionNo":"12455",
+         "username":"100S635",
+         "userId":"123123",
+         "name": "sam",
+         "status": "present",
+         "leaveApplied": false,
+         "remarks": "",
+         "date": "Mar 11 2017 1:27 PM"
+
+      }
+   ]

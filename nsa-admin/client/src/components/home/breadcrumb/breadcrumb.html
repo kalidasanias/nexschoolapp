@@ -1,0 +1,30 @@
+<!-- Page header -->
+<div class="breadcrumb-line content-group-lg">
+    <!--<ul class="breadcrumb">
+        <li *ngFor="let route of breadcrumbs" [ngClass]="{'last': route.terminal}">
+            <a href="" *ngIf="route.terminal" [routerLink]="[route.url]">{{ route.displayName }}</a>
+            &lt;!&ndash;<span *ngIf="route.terminal">{{ route.displayName }}</span>&ndash;&gt;
+        </li>
+    </ul>-->
+
+     <ul class="breadcrumb-elements">
+        <li><a on-mouseover="showHelpText()"><help-text></help-text></a></li>
+
+        <!--<li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="icon-gear position-left"></i>
+                Actions
+                <span class="caret"></span>
+            </a>
+
+            <ul class="dropdown-menu dropdown-menu-right">
+                <li><a href="#"><i class="icon-inbox pull-right"></i> Action</a></li>
+                <li><a href="#"><i class="icon-googleplus5 pull-right"></i> Another action</a></li>
+                <li><a href="#"><i class="icon-grid-alt pull-right"></i> Something else</a></li>
+                <li class="divider"></li>
+                <li><a href="#"><i class="icon-spinner2 spinner pull-right"></i> One more line</a></li>
+            </ul>
+        </li>-->
+    </ul>
+</div>
+<!-- /page header -->

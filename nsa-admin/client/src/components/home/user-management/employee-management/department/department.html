@@ -1,0 +1,39 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h6 class="panel-title"><span class="text-semibold text-uppercase"><i class="fa fa-sitemap position-left"></i>Departments </span><i class="icon-arrow-right15 text-pink-600"></i> <small>List of Departments </small></h6>
+        <div class="heading-elements">
+            <!--<button type="button" valclass="btn btn-sm btn-primary heading-btn" data-toggle="modal" data-target="#modal_full" (click)="addDepartment($event)">Add Department</button>-->
+            <input *ngIf="enable" type="button" value="Add Department" data-size="50%" data-title="Add Department" data-toggle="from-right" data-id="#addDepartment" class="btn btn-sm btn-primary" (click)="addDepartment($event)"/>
+            <input id="updateDepartment" type="hidden" data-size="50%"  data-toggle="from-right" data-id="#addDepartment" (click)="updateDepartment($event)"/>
+        </div>
+    </div>
+    <div class="panel-body">
+        <input type="hidden" id="deleteButton" (click)="confirmDelete($event)" />
+        <input type="hidden" id="warningDep" (click)="deleteDepartment()" />
+        <table class="table datatable-department">
+            <thead>
+            <tr>
+                <th data-priority="1">Department Name</th>
+                <th>Alias Name</th>
+                <th>Updated By</th>
+                <th data-priority="2">Action</th>
+
+            </tr>
+            </thead>
+            <!--<tbody>
+            <tr *ngFor="let department of departments;let i = index; trackBy: trackByFn">
+                <td>{{i+1}}</td>
+                <td>{{department.dept_name}}</td>
+                <td>{{department.dept_alias}}</td>
+                <td>{{department.updated_username}}</td>
+                <td>
+                    <a class="icon-primary" data-size="75%" data-title="Edit Department" data-toggle="from-right" data-id="#addDepartment" (click)="updateDepartment($event, department.dept_id)"><i class="fa fa-pencil-square-o fa-lg"></i></a>
+                    <a class="icon-danger" (click)="deleteDepartment($event, department.dept_id)"><i class="fa fa-trash-o fa-lg"></i></a>
+                </td>
+            </tr>
+            <tr class="odd" [hidden]="hideNoDataInfo"><td valign="top" colspan="5" class="dataTables_empty">No data available</td></tr>
+            </tbody>-->
+        </table>
+    </div>
+</div>
+<add-department></add-department>

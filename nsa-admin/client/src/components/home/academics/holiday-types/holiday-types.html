@@ -1,0 +1,25 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h6 class="panel-title"><span class="text-semibold text-uppercase"><i class="icon-book3 position-left"></i>Holiday Types </span><i class="icon-arrow-right15 text-pink-600"></i> <small>List of Holiday Types </small></h6>
+        <div class="heading-elements">
+            <input *ngIf="enable" type="button" value="Add Holiday Type" data-size="50%" data-title="Add Holiday Type" data-toggle="from-right" data-id="#addholidaytype" class="btn btn-sm btn-primary" (click)="addholidaytype($event)"/>
+        </div>
+    </div>
+    <input hidden id="holidayTypeWarning" (click)="requested_warning()" type="button" style="...">
+    <input hidden id="deleteButton" (click)="requested_delete($event)" type="button" style="display: none;">
+    <input hidden id="holidayTypeEdit" (click)="getholidayType($event)" data-size="50%" data-title="Edit Holiday Type" data-id="#addholidaytype" type="button" style="display: none;">
+
+    <div class="panel-body">
+        <table class="table datatable-align datatable-holidaytypes">
+            <thead>
+            <tr>
+                <th data-priority="1">Type Name</th>
+                <th>Description</th>
+                <th>Updated by</th>
+                <th data-priority="2">Action</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+<add-holiday-type></add-holiday-type>

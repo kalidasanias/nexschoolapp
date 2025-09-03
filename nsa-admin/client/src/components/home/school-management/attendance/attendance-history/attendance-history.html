@@ -1,0 +1,108 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h6 class="panel-title"><span class="text-semibold text-uppercase"><i class = "icon-rotate-ccw3 position-left"></i>Attendance History</span></h6>
+    </div>
+    <input hidden id="attendancesView" (click)="getStudentLeaveHistory($event)" data-title="View Leave Details" data-size="60%" data-id="#viewAttendance" type="button" style="display: none;">
+    <div class="panel-body panel-body-padding">
+            <div class="row form-horizontal">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">Class Name <span class="text-danger">*</span>
+                        </label>
+                        <div class="col-sm-8">
+                            <div class="row">
+                                <select  (click)="getSectionByClass()" class="select-change" #singleClass id="bootstrap-class" data-width="100%">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="sections" class="col-md-3  margin-left40 hide">
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">Section <span class="text-danger">*</span>
+                        </label>
+                        <div class="col-sm-8">
+                            <div class="row">
+                                <select #singleSection  id="bootstrap-section" data-width="100%">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 margin-left40">
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">Duration <span class="text-danger">*</span>
+                        </label>
+                        <div class="col-sm-8">
+                            <div class="row">
+                               <!-- <div class="input-group">
+                                    <span class="input-group-addon"><i class="icon-calendar22"></i></span>
+                                    <input type="text" class="form-control daterange-basic-1">
+                                </div>-->
+                                <button #date type="button" class="btn btn-default daterange-basic-disabledFuture">
+                                    <i class="icon-calendar22 position-left"></i>
+                                    <span></span>
+                                    <b class="caret"></b>
+                                </button>
+                                <!--<div class="input-group">
+                                    <span class="input-group-addon"><i class="icon-calendar3"></i></span>
+                                    <input #date type="text" name="first" [ngModel]="currentDate | date:'dd MMMM, yyyy'" class="form-control pickadate" placeholder="End Date&hellip;">
+                                </div>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-2 navbar-right txt-align-right">
+                    <div class="form-group">
+                        <input class="btn btn-default " id="cancel-back" value="Clear" (click)="resetForm()"  type="button">
+                        <input class="btn btn btn-primary ui-wizard-content margin-right10 ui-formwizard-button" (click)="getAttendanceHistoryData()" id="cancel-next" value="Search" type="submit">
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h6 class="panel-title second-panel-title"><span class="text-semibold text-uppercase"><i class = "icon-menu7 position-left"></i>Student Attendance Details&nbsp;&nbsp;&nbsp;&nbsp;{{startDate | date:'yyyy-MM-dd'}}  -  {{endDate | date:'yyyy-MM-dd'}} </span></h6>
+    </div>
+    <div class="page-header" id="overview">
+        <div class="page-header-content">
+            <div  class="page-title padding-bottom0 " >
+                <fieldset formgroupname="attendanceHistory" class="ng-untouched ng-pristine ng-valid"  *ngIf="(attendanceOverview | json) != '{}'">
+                    <div class="form-group">
+                        <label class="control-label col-md-2 margin-top5">Total No of working days  </label>
+                        <div class="col-md-2">
+                            <input type="text" class="form-control" readonly="readonly" value="{{attendanceOverview.attendanceHistoryOverview.workingDays}}"/>
+                        </div>
+                        <label class="control-label col-md-2 margin-top5 txt-align-center">Total No of Holidays  </label>
+                        <div class="col-md-2">
+                            <input type="text" class="form-control" readonly="readonly" value="{{attendanceOverview.attendanceHistoryOverview.leaveDays}}"/>
+                        </div>
+                        <div class="col-md-1"> </div>
+                        <label class="control-label col-md-1 bg-success text-highlight margin-top3 txt-align-center">{{attendanceOverview.attendanceHistoryOverview.avgPrecentPercent}} Present </label>
+                        <label class="control-label col-md-1 bg-danger text-highlight margin-left10 margin-top3 txt-align-center">{{attendanceOverview.attendanceHistoryOverview.avgAbsentPercent}} Absent </label>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+    <hr>
+
+    <table class="table datatable-attendance-history">
+        <thead>
+        <tr>
+            <th data-priority="1">Admn No. / Roll No.</th>
+            <th>Student Name</th>
+            <th>Class Name</th>
+            <th>Section Name</th>
+            <th>Days of Present</th>
+            <th>Days of Absence</th>
+            <th>Attendance %</th>
+            <th data-priority="2">Action </th>
+        </tr>
+        </thead>
+    </table>
+</div>
+<leave-record></leave-record>

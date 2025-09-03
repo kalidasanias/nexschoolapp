@@ -1,0 +1,34 @@
+[
+{
+	"appliedLeaveId" : "4d12dd30-c301-4b78-9575-bc355d64c9fa",
+	"fromDate" : "5 Oct",
+	"toDate" : " 6 Oct",
+	"leaveTypeName": "Casual Leaves",
+	"leaveReason": "Unwell, Fever",
+	"status": "Approved"
+},
+{
+	"appliedLeaveId" : "4d12dd30-c301-4b78-9575-bc355d64c9fa",
+	"fromDate" : "5 Oct",
+	"toDate" : "6 Oct",
+	"leaveTypeName": "Casual Leaves",
+	"leaveReason": "Not Accepted",
+	"status": "Denied"
+},
+{
+	"appliedLeaveId" : "4d12dd30-c301-4b78-9575-bc355d64c9fa",
+	"fromDate" : "5 Oct",
+	"toDate" : " 6 Oct",
+	"leaveTypeName": "Casual Leaves",
+	"leaveReason": "Unwell, Fever",
+	"status": "Pending"
+},
+{
+	"appliedLeaveId" : "4d12dd30-c301-4b78-9575-bc355d64c9fa",
+	"fromDate" : "5 Oct",
+	"toDate" : " 6 Oct",
+	"leaveTypeName": "Casual Leaves",
+	"leaveReason": "Unwell, Fever",
+	"status": "Cancelled"
+}
+]

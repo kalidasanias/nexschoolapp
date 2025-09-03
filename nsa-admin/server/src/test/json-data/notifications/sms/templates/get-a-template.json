@@ -1,0 +1,11 @@
+{
+   "status":{
+      "code":201,
+      "message":"Success"
+   },
+   "template":{
+      "templateId":"2133",
+      "templateName":"Holiday Notification",
+      "templateMessage":"Dear Parents, This is to inform you that coming Sunday 10 Jan 2017 will be a full day holiday"
+   }
+}

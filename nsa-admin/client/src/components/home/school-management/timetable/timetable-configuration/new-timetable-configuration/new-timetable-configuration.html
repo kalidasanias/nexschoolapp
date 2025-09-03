@@ -1,0 +1,149 @@
+<div id="new_timetable" class="overlay-popup footer-popup" style="display: none;">
+    <!-- RIGHT PANEL STARTS -->
+    <div class="cd-panel">
+        <div class="cd-panel-header">
+            <!-- <div class="hidden-xs simple-field-hf"></div> -->
+            <div class="simple-field-hf">
+            </div>
+            <a (click)="closeOverlay($event)" class="cd-panel-close">Close</a>
+        </div>
+        <div class="cd-panel-container" id="hiflame-cart-popup">
+            <div class="cd-panel-content" id="side-panel-container">
+                <form action="#" class="form-horizontal" [formGroup]="timeTableConfigForm">
+                    <div class="panel-body">
+                        <div class="row form-vertical">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Class <span
+                                            class="text-danger">*</span></label>
+                                    <div class="col-md-4 form-group multi-select-full">
+                                        <select #selectClass class="multiselect-select-all form-control"
+                                                id="bootstrap-class" multiple="multiple">
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-default panel-body-bottom-padding">
+                        <div class="panel-heading">
+                            <h6 class="panel-title second-panel-title"><span class="text-semibold text-uppercase"><i
+                                    class="icon-clipboard2 position-left"></i>Working Days</span></h6>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        <label class="control-label col-sm-2">Days <span
+                                                class="text-danger">*</span></label>
+                                        <div #daysSelect class="checkbox col-md-10">
+                                            <div *ngFor="let days of days">
+                                                <label *ngIf="days.id != 0" class="col-md-2">
+                                                    <input type='checkbox' class="checkDay" id="workDay{{days.id}}"
+                                                           value="{{days.id}}">{{days.name}}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-default panel-body-bottom-padding">
+                        <div class="panel-heading">
+                            <h6 class="panel-title second-panel-title"><span class="text-semibold text-uppercase"><i
+                                    class="fa fa-clock-o position-left"></i>Class timings</span></h6>
+                        </div>
+                        <div class="page-header page-header-content">
+                            <div class="page-title padding-bottom0">
+                                <fieldset class="ng-untouched ng-pristine ng-valid">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2">Regular School Hours <span
+                                                class="text-danger">*</span></label>
+
+                                        <div #pickerStartTime class="col-md-3">
+                                            <datetime [datepicker]="false"
+                                                      [timepicker]="{ showMeridian: true, minuteStep: 1}"
+                                                      [ngModelOptions]="{standalone: true}"
+                                                      [(ngModel)]="date1"></datetime>
+
+
+                                        </div>
+                                        <div #pickerEndTime class="col-md-3">
+                                            <datetime [datepicker]="false"
+                                                      [timepicker]="{ showMeridian: true, minuteStep: 1, placeholder: o, defaultTime: '09:00 AM'}"
+                                                      [ngModelOptions]="{standalone: true}"
+                                                      [(ngModel)]="date2"></datetime>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2">No.of Periods (including breaks) <span
+                                                class="text-danger">*</span></label>
+
+                                        <div class="col-md-3">
+                                            <select #singlePeriods (click)="generatePeriod()" id="bootstrap-periods"
+                                                    class="form-control bootstrap-select select-change">
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group hide" id="classHours">
+                                        <label class="control-label col-sm-2">Class Hours</label>
+                                        <div class="col-md-10 ">
+                                            <div class="panel panel-flat table-responsive">
+                                                <table class="table">
+                                                    <thead>
+                                                    <tr>
+                                                        <th class="text-center">Period</th>
+                                                        <th class="text-center"> Start Time</th>
+                                                        <th class="text-center"> End Time</th>
+                                                        <th class="text-center">Break Time</th>
+                                                    </tr>
+                                                    </thead>
+
+                                                    <tbody #line>
+                                                    <tr *ngFor="let row  of data; let i=index">
+                                                        <td class="text-center"><select #schoolPeriod id="{{i}}"
+                                                                                        class="form-control {{i}}"></select>
+                                                        </td>
+                                                        <td class="text-center" disabled="disabled">
+                                                            <datetime [datepicker]="false"
+                                                                      [timepicker]="{ showMeridian: true, minuteStep: 1 }"
+                                                                      [ngModelOptions]="{standalone: true}"
+                                                                      [(ngModel)]="date3[i]"></datetime>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <datetime id="date-{{i}}" [datepicker]="false"
+                                                                      [timepicker]="{ showMeridian: true, minuteStep: 1 }"
+                                                                      [ngModelOptions]="{standalone: true}"
+                                                                      [(ngModel)]="date4[i]"></datetime>
+                                                        </td>
+                                                        <td class="text-center"><input id="save-checked"
+                                                                                       type="checkbox"></td>
+
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="overlay-footer">
+                        <div class="right-align overlay-footer-content-rt">
+                            <button class="btn btn-default" type="button" (click)="closeOverlay($event)">Close
+                            </button>
+                            <button class="btn btn-primary btn-ladda btn-ladda-progres" id="saveConfig"
+                                    (click)="save('saveConfig')" type="submit">Save
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <br>
+                <br>
+            </div>
+            <!-- right panel script -->
+        </div>
+    </div>
+</div>

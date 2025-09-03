@@ -1,0 +1,84 @@
+
+http://localhost:9200/notifications/_mapping/notification_details
+{
+"_parent": {"type": "notification_master"},
+"properties": {
+"feature_id": {"type": "string", "index":"not_analyzed"},
+"object_id": {"type": "string", "index":"not_analyzed"}
+}
+}
+
+
+http://localhost:9200/users/student/_mapping
+
+{
+"properties": {
+  "last_name" : { "type" : "string", "index" : "not_analyzed"},
+  "middle_name" : { "type" : "string", "index" : "not_analyzed"},
+  "gender" : { "type" : "string", "index" : "not_analyzed"},
+  "date_of_birth" : { "type" : "string", "index" : "not_analyzed"},
+  "place_of_birth" : { "type" : "string", "index" : "not_analyzed"},
+  "nationality" : { "type" : "string", "index" : "not_analyzed"},
+  "community" : { "type" : "string", "index" : "not_analyzed"},
+  "mother_tongue" : { "type" : "string", "index" : "not_analyzed"},
+  "profile_picture" : { "type" : "string", "index" : "not_analyzed"},
+  "blood_group" : { "type" : "string", "index" : "not_analyzed"},
+  "height" : { "type" : "string", "index" : "not_analyzed"},
+  "weight" : { "type" : "string", "index" : "not_analyzed"},
+  "attachments" : { "type" : "string", "index" : "not_analyzed"},
+  "parent_info " : {
+      "type" : "object",
+      "properties" : {
+          "father_name" : { "type" : "string", "index" : "not_analyzed"},
+          "father_qualification" : { "type" : "string", "index" : "not_analyzed"},
+          "father_occupation" : { "type" : "string", "index" : "not_analyzed"},
+          "father_email" : { "type" : "string", "index" : "not_analyzed"},
+          "father_phone" : { "type" : "string", "index" : "not_analyzed"},
+          "father_income" : { "type" : "string", "index" : "not_analyzed"},
+          "mother_name" : { "type" : "string", "index" : "not_analyzed"},
+          "mother_qualification" : { "type" : "string", "index" : "not_analyzed"},
+          "mother_occupation" : { "type" : "string", "index" : "not_analyzed"},
+          "mother_email" : { "type" : "string", "index" : "not_analyzed"},
+          "mother_phone" : { "type" : "string", "index" : "not_analyzed"},
+          "mother_income" : { "type" : "string", "index" : "not_analyzed"}
+      }
+  },
+      "address_info " : {
+        "type" : "object",
+        "properties" : {
+            "street_address1" : { "type" : "string", "index" : "not_analyzed"},
+            "street_address2" : { "type" : "string", "index" : "not_analyzed"},
+            "city" : { "type" : "string", "index" : "not_analyzed"},
+            "state" : { "type" : "string", "index" : "not_analyzed"},
+            "pincode" : { "type" : "string", "index" : "not_analyzed"},
+            "country" : { "type" : "string", "index" : "not_analyzed"},
+            "present_street_address1" : { "type" : "string", "index" : "not_analyzed"},
+            "present_street_address2" : { "type" : "string", "index" : "not_analyzed"},
+            "present_city" : { "type" : "string", "index" : "not_analyzed"},
+            "present_state" : { "type" : "string", "index" : "not_analyzed"},
+            "present_pincode" : { "type" : "string", "index" : "not_analyzed"}
+        }
+      },
+      "additional_contact_info " : {
+      "type" : "object",
+          "properties" : {
+              "additional_contact1_name" : { "type" : "string", "index" : "not_analyzed"},
+              "additional_contact1_relation" : { "type" : "string", "index" : "not_analyzed"},
+              "additional_contact1_address" : { "type" : "string", "index" : "not_analyzed"},
+              "additional_contact1_phone" : { "type" : "string", "index" : "not_analyzed"},
+              "additional_contact2_name" : { "type" : "string", "index" : "not_analyzed"},
+              "additional_contact2_relation" : { "type" : "string", "index" : "not_analyzed"},
+              "additional_contact2_address" : { "type" : "string", "index" : "not_analyzed"},
+              "additional_contact2_phone" : { "type" : "string", "index" : "not_analyzed"}
+          }
+      },
+      "medical_info" : {
+        "type" : "object",
+        "properties" : {
+          "health" : {"type" : "string", "index" : "not_analyzed"},
+          "medical_data" : {"type" : "string", "index" : "not_analyzed"}
+        }
+      }
+  }
+
+}

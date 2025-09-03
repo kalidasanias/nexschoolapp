@@ -1,0 +1,29 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h6 class="panel-title"><span class="text-semibold text-uppercase"><i class="icon-bus position-left"></i>Routes </span><i class="icon-arrow-right15 text-pink-600"></i> <small>List of Routes </small></h6>
+        <div class="heading-elements">
+            <!--<button type="button" valclass="btn btn-sm btn-primary heading-btn" data-toggle="modal" data-target="#modal_full" (click)="addRoute($event)">Add Route</button>-->
+            <input *ngIf="enable" type="button" value="Add Route" data-size="80%" data-title="Add Route" data-toggle="from-right" data-id="#addRoute" class="btn btn-sm btn-primary" (click)="addRoute($event)"/>
+        </div>
+    </div>
+
+    <div class="panel-body">
+        <input type="hidden" id="deleteButton" (click)="confirmDelete($event)" />
+        <input hidden id="deleteWarning" (click)="deleteWarning($event)" type="button" style="display: none;">
+        <input hidden id="editRoute" (click)="updateRoute($event)" data-title="Edit Route" data-size="80%" data-id="#addRoute" type="button" style="display: none;">
+
+        <table class="table datatable-routes">
+            <thead>
+            <tr>
+                <th data-priority="1">Route Name</th>
+                <th>Driver Name</th>
+                <th>Vehicle</th>
+                <th>From</th>
+                <th>To</th>
+                <th data-priority="2">Action</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+<add-route></add-route>

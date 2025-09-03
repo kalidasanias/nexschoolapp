@@ -1,0 +1,43 @@
+{
+  "status":{
+    "code":200,
+    "message":"Success"
+  },
+  "assignment":{
+    "assignmentName":"English-Study",
+    "assignmentDesc":"Study the poem The Palm of life tomorrow you all will be having oral test",
+    "assignmentClass":[
+      {
+        "className":"5th Standart",
+        "classId":"2312312312312312",
+        "sections":[
+          {
+            "sectionName":"A",
+            "sectionId":"32423423423423"
+          },
+          {
+            "sectionName":"B",
+            "sectionId":"32423423423423"
+          }
+        ]
+      }
+    ],
+    "subject":"English",
+    "assignmentType":"Study",
+    "dueDate":"15-06-2017",
+    "dueTime":"01.00 PM",
+    "repeat":"None",
+    "attachment":[
+      {
+        "fileName":"English Assignment",
+        "filePath":""
+      },
+      {
+        "fileName":"English Assignment1",
+        "filePath":""
+      }
+    ],
+    "priority":"High",
+    "reminderToStudent":true
+  }
+}

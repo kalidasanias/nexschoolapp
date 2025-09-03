@@ -1,0 +1,31 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h6 class="panel-title"><span class="text-semibold text-uppercase"><i class="fa fa-graduation-cap fa-lg position-left"></i>Student Promotions</span><i class="icon-arrow-right15 text-pink-600"></i> <small>List of Applied Promotions </small></h6>
+        <div class="heading-elements">
+            <!--<button class="btn btn-sm btn-primary heading-btn" data-toggle="modal" data-target="#modal_theme_primary1"><i class="fa fa-upload position-left"></i>Import</button>-->
+            <!--<input type="button" value="Add Student" data-size="75%" data-title="Add Student" data-toggle="from-right" data-id="#addStudent" class="btn btn-sm btn-primary heading-btn" (click)="addStudent($event)"/>-->
+            <input *ngIf="enable" type="button" value="Promotions Report " data-size="75%" data-title="Promote Report" data-toggle="from-right" data-id="#report" class="btn btn-sm btn-primary heading-btn" (click)="reportData($event)"/>
+            <input *ngIf="enable" type="button" value="Promote Students " data-size="75%" data-title="Student Promotion" data-toggle="from-right" data-id="#reportStudent" class="btn btn-sm btn-primary heading-btn" (click)="reportStudent($event)"/>
+            <input hidden id="studentViewData" (click)="studentViewData($event)" data-title="Student List" data-size="75%" data-id="#viewStudents" type="button" style="display: none;">
+            <input hidden id="depromoteStudents" (click)="dePromoteStudnets($event)" data-title="Depromoted Students" data-size="75%" data-id="#DepromteStudents" type="button" style="display: none;">
+        </div>
+    </div>
+    <div class="panel-body">
+        <table class="table datatable-promotions">
+            <thead>
+            <tr>
+                <th  width="10%" data-priority="1">Current Year</th>
+                <th width="20%" >Current Class</th>
+                <th width="20%" >Promoted Year</th>
+                <th width="20%" >Promoted Class</th>
+                <th width="20%" >Updated By</th>
+                <th width="20%"  data-priority="2">Action</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+<promote-student></promote-student>
+<view-promoted-stud></view-promoted-stud>
+<depromoted-stud></depromoted-stud>
+<promote-student-report></promote-student-report>

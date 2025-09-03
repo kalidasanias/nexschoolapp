@@ -1,0 +1,108 @@
+{
+                  "timeTableConfigId":"c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+                  "classId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+                  "className": "Class 1",
+                  "schoolHours":"8AM-3PM",
+                  "noOfPeriods" : 5,
+                  "noOfBreaks" : 2,
+                  "period" : 
+                  [ {
+                     "periodId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+                     "periodName": "Period 1",
+                     "periodStartTime" : "09:00 AM",
+                     "periodEndTime" : "09:45 AM",
+                     "isBreak": "false"
+                     },
+                     {
+                     "periodId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+                     "periodName": "Period 2",
+                     "periodStartTime" : "09:45 AM",
+                     "periodEndTime" : "10:30 AM",
+                     "isBreak": "false"
+                     },
+                     {
+                     "periodId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+                     "periodName": "Period 3",
+                     "periodStartTime" : "10:45 AM",
+                     "periodEndTime" : "11:30 AM",
+                     "isBreak": "false"
+                     },
+                     {
+                     "periodId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+                     "periodName": "Period 4",
+                     "periodStartTime" : "11:30 AM",
+                     "periodEndTime" : "12:15 AM",
+                     "isBreak": "false"
+                     },
+                     {
+                     "periodId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+                     "periodName": "Period 5",
+                     "periodStartTime" : "09:00 AM",
+                     "periodEndTime" : "09:45 AM",
+                     "isBreak": "false"
+                     },
+                     {
+                     "periodId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+                     "periodName": "Period 6",
+                     "periodStartTime" : "09:00 AM",
+                     "periodEndTime" : "09:45 AM",
+                     "isBreak": "false"
+                     },
+                     {
+                     "periodId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+                     "periodName": "Period 7",
+                     "periodStartTime" : "09:00 AM",
+                     "periodEndTime" : "09:45 AM",
+                     "isBreak": "false"
+                     },
+                     {
+                     "periodId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+                     "periodName": "Period 8",
+                     "periodStartTime" : "09:00 AM",
+                     "periodEndTime" : "09:45 AM",
+                     "isBreak": "false"
+                     },
+                     {
+                     "periodId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+                     "periodName": "Mng Break",
+                     "periodStartTime" : "09:00 AM",
+                     "periodEndTime" : "09:45 AM",
+                     "isBreak": "true"
+                     },
+                     {
+                     "periodId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+                     "periodName": "Lunch Break",
+                     "periodStartTime" : "09:00 AM",
+                     "periodEndTime" : "09:45 AM",
+                     "isBreak": "true"
+                     }
+                  ],
+                  "days": [
+
+                     {
+                        "dayId": 1,
+                        "dayName": "Monday"
+                     },
+
+                     {
+                        "dayId": 2,
+                        "dayName": "Tuesday"
+                     },
+
+                     {
+                        "dayId": 3,
+                        "dayName": "Wednesday"
+                     },
+
+                     {
+                        "dayId": 4,
+                        "dayName": "Thursday"
+                     },
+
+                     {
+                        "dayId": 5,
+                        "dayName": "Friday"
+                     }
+
+                  ]
+               }

@@ -1,0 +1,245 @@
+<div id="addAssignment" class="overlay-popup footer-popup" style="display: none;">
+    <!-- RIGHT PANEL STARTS -->
+    <div class="cd-panel">
+        <div class="cd-panel-header">
+            <!-- <div class="hidden-xs simple-field-hf"></div> -->
+            <div class="simple-field-hf">
+            </div>
+            <a (click)="closeOverlay($event)" class="cd-panel-close" (click)="uploader.clearQueue()">Close</a>
+        </div>
+        <div class="cd-panel-container">
+            <input type="hidden" id="existingFiles" (click)="getExistingFiles($event)">
+            <div class="cd-panel-content" id="side-panel-container">
+                <form class="form-horizontal" [formGroup]="assignmentForm">
+                    <div class="panel-body">
+                        <div class="row ">
+                            <div class="form-group">
+                                <label class="control-label col-md-2">Assignees <span class="text-danger">*</span></label>
+                                <div class="col-md-10">
+                                    <p-tree  [value]="data" >
+                                        <template let-node  pTemplate type="default">
+                                            <input type="checkbox" [disabled]="node.disabled" [(ngModel)]="node.selected" [ngModelOptions]="{standalone: true}" [indeterminate]="node.partialSelection" (ngModelChange)="nodeSelected(node)"><span style="margin-left: 6px" [ngClass]="{'line-through': node.disabled}">{{node.label}}</span>
+                                        </template>
+                                    </p-tree>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row ">
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4">Homework Name <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" formControlName="assignmentName" class="form-control" id="email">
+                                        <div control-messages class="validation-error-label" [control]="assignmentForm.controls.assignmentName"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 ">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4">Type
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <select #single id="assignment-select" data-width="100%">
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row form-horizontal">
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4">Description
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <textarea rows="1" formControlName="assignmentDesc" rows="4" cols="3" class="form-control hide-scroll" placeholder=""></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 ">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4">Subject <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <div class="multi-select-full">
+                                            <select #singleSubject id="assignment-subject" multiple="multiple">
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4">Due Date <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="icon-calendar3"></i></span>
+                                            <input #dueDate name="dueDate" type="text" class="form-control pickadate-year-month-past" placeholder="End Date&hellip;" formControlName="dueDate">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row form-horizontal">
+                            <div class="col-md-6">
+
+                            </div>
+                            <!--<div class="col-md-6 ">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4">Priority
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div  class="form-group">
+                                                    <label class="radio-inline">
+                                                        <input  checked="checked" type="radio" name="priority" formControlName="priority" [value]="1" class="styled priorityHigh"> High
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input   type="radio" name="priority" formControlName="priority" [value]="2" class="styled priorityMed"> Medium
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input  type="radio" name="priority" formControlName="priority" [value]="3" class="styled priorityLow"> Low
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>-->
+                        </div>
+                        <div class="row form-horizontal">
+                            <div class="col-md-6 ">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4">Notify
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="radio-inline">
+                                                        <input  type="radio" checked="" name="notifiedTo" (click)="checkClass('true')" formControlName="notifiedTo" class="styled radio1" [value]="true"  >All
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input  type="radio" name="notifiedTo" (click)="checkClass('false')" formControlName="notifiedTo" class="styled radio2" [value]="false">Selected Students
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6" formGroupName="notify">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4">Notification
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <div class="row">
+                                            <div class="col-md-3 sms ">
+                                                <div class="form-group">
+                                                    <label class="checkbox-inline" style="font-size:12px;">
+                                                        <input  #sms type="checkbox" class="smsChecked">SMS
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 email hide">
+                                                <div class="form-group">
+                                                    <label class="checkbox-inline" style="font-size:12px;">
+                                                        <input #email type="checkbox" class="emailChecked">Email
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 push">
+                                                <div class="form-group">
+                                                    <label class="checkbox-inline" style="font-size:12px;">
+                                                        <input #push type="checkbox" class="pushChecked">App
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row form-horizontal studentClass hide">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4">Student Name
+                                    </label>
+                                    <div class="col-sm-8"><div class="multi-select-full">
+                                        <select #selectFilter class="assignment-users" multiple="multiple">
+                                        </select>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row form-horizontal">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Attachments</label>
+                                    <div class="col-sm-4">
+                                        <div class="uploader bg-info"><input type="file" accept=".xls,.xlsx,.jpg,.jpeg,.png,.txt,.doc,.docx,.xl,.pdf,.pptx,.gif,.html,.xml" class="file-styled" name="multiple" ng2FileSelect [uploader]="uploader" multiple><span class="filename" style="user-select: none;">Select File to Upload</span><span class="action" style="user-select: none;"><i class="icon-plus2"></i></span></div>
+                                        <span class="help-block">No.of Files Selected: {{ uploader?.queue?.length }}<ng-container *ngIf="assignment.attachments"><span class="text-pink-700">&nbsp;||&nbsp;</span><a id="viewAttachment" class="blink-text" (click)="viewAttachment()">view attachments</a></ng-container></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th width="30%">Name</th>
+                                        <th>Size</th>
+                                        <th width="15%">Progress</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr *ngFor="let item of uploader.queue">
+                                        <td class="fc-title">{{ item.file.name }}</td>
+                                        <td nowrap>{{ item.file.size/1024/1024 | number:'.2' }} MB</td>
+                                        <td>
+                                            <div class="progress progress-xxs" style="margin-bottom: 0;">
+                                                <div class="progress-bar progress-bar-success" role="progressbar" [ngStyle]="{ 'width': item.progress + '%' }"></div>
+                                            </div>
+                                        </td>
+                                        <td class="text-center">
+                                            <span *ngIf="item.isSuccess"><i class="glyphicon glyphicon-ok text-success"></i></span>
+                                            <span *ngIf="item.isError"><i class="glyphicon glyphicon-remove text-danger"></i></span>
+                                        </td>
+                                        <td>
+                                            <!--<a class="icon-upload4 text-success" (click)="item.upload()" [ngClass]="{'disabled': item.isReady || item.isUploading || item.isSuccess}"></a>-->
+                                            <a class="fa fa-trash-o fa-lg text-danger" (click)="item.remove()"></a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <hr/>
+                                <div>
+                                    <div class="content-group-sm">
+                                        <p class="text-semibold">Uploading Status</p>
+                                        <div class="progress progress-xxs">
+                                            <div class="progress-bar progress-bar-success"  [ngClass]="{'active progress-bar-striped': uploader.progress != 100}" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>
+                                        </div>
+                                        <span [ngClass]="{'text-success-800':uploader.progress > 0,'blink-text': uploader.progress == 100}">{{uploader.progress + '% Completed'}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="overlay-footer">
+                        <div class="right-align overlay-footer-content-rt">
+                            <button type="button" class="btn btn-default btn-sm" data-dismiss="modal" (click)="closeOverlay($event)">Close</button>
+                            <button type="submit" [disabled]="!assignmentForm.valid" id="Draft" (click)="saveAssignment('Draft')" class="btn btn-primary btn-ladda btn-ladda-progress" data-style="expand-right" data-spinner-size="20"><span class="ladda-label">Save as Draft</span></button>
+                            <button type="submit" [disabled]="!assignmentForm.valid" id="Sent" (click)="saveAssignment('Sent')" class="btn btn-primary btn-ladda btn-ladda-progress" data-style="expand-right" data-spinner-size="20"><span class="ladda-label">Publish</span></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- cd-panel-container -->
+        </div>
+    </div>
+    <!-- right panel script -->
+</div>

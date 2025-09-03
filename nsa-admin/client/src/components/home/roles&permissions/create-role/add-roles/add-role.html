@@ -1,0 +1,68 @@
+<div id="addRole" class="overlay-popup footer-popup" style="display: none;">
+    <!-- RIGHT PANEL STARTS -->
+    <div class="cd-panel">
+        <div class="cd-panel-header">
+            <div class="simple-field-hf">
+            </div>
+            <a (click)="closeOverlay($event)" class="cd-panel-close">Close</a>
+        </div>
+        <div class="cd-panel-container" id="hiflame-cart-popup">
+            <div class="cd-panel-content" id="side-panel-container">
+
+                <div class="modal-body">
+                    <form novalidate class="form-horizontal form-validate" [formGroup]="roleForm">
+
+                        <div class="form-group">
+                            <label class="control-label col-md-5">Role Name <span class="text-danger">*</span></label>
+                            <div class="col-md-7">
+                                <p-autoComplete field="name" [(ngModel)]="text" [suggestions]="results" (focusout)="search()" (onSelect)="search()" formControlName="roleName" (keydown)="changed()" (completeMethod)="searchRole($event)"></p-autoComplete>
+
+                               <!-- <input type="text" formControlName="roleName" class="form-control" (keydown)="changed()">-->
+                                <div control-messages class="validation-error-label" [control]="roleForm.controls.roleName"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-5">Role Desc</label>
+                            <div class="col-md-7">
+                                <input type="text" class="form-control" formControlName="roleDesc">
+                            </div>
+                        </div>
+                        <div class="form-group" [hidden]="sCheck">
+                            <div class="col-md-offset-10 txt-align-right">
+                                <button type="submit" class="btn btn-primary" [disabled]="!roleForm.valid" id="search" (click)="search()" >Search</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="panel panel-default" [hidden]="dualList" [ngClass]="{'not-active': !enableDate}">
+                        <div class="panel-heading margin-bottom20">
+                            <h6 class="panel-title second-panel-title">
+								<span class="text-semibold text-uppercase">
+									<i class = "icon-menu7 position-left"></i>
+									Select Permissions
+								</span>
+                            </h6>
+                        </div>
+
+                        <div class="panel-body">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-6 text-center text-semibold text-uppercase">Available Permissions</div>
+                                    <div class="col-md-6 text-center text-semibold text-uppercase">Selected Permissions </div>
+                                </div>
+                                <dual-list [source]="permissions" [(destination)]="selectedPermissions" (destinationChange)="true" [key]="key" [display]="display" [filter]="true" [format]="format"></dual-list>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="overlay-footer">
+                    <div class="right-align overlay-footer-content-rt">
+                        <button type="button" class="btn btn-sm btn-default" (click)="closeOverlay()">Close</button>
+                        <button type="submit" class="btn btn-primary" id="save" (click)="save('save')" >{{btnVal}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,200 @@
+<div id="new-timetable" class="overlay-popup footer-popup" style="display: none;">
+    <!-- RIGHT PANEL STARTS -->
+    <div class="cd-panel ">
+        <div class="cd-panel-header">
+            <div class="simple-field-hf"></div>
+            <a (click)="closeOverlay($event)" class="cd-panel-close">Close</a>
+        </div>
+        <input type="hidden" id="eventEditButton" (click)="editEventTimetable($event)">
+        <input type="hidden" id="eventAddButton" (click)="addEventTimetable($event)">
+        <input type="hidden" id="eventNewButton" (click)="newEventTimetable($event)">
+        <input type="hidden" id="deleteButton" (click)="deleteEventTimetable($event)">
+        <input type="hidden" id="eventWarningButton" (click)="showWarning($event)">
+        <input type="hidden" id="classWeekData" (click)="getWeekData($event)" value="">
+        <div class="cd-panel-container">
+            <div class="cd-panel-content" id="side-panel-container">
+                <form class="form-horizontal modal-body" action="#">
+                    <div class="row form-horizontal" *ngIf="enable" [ngClass]="{'not-active': !enableData}">
+                            <div class="form-group" >
+                                <ng-container *ngIf="edit == false">
+                                    <label class="control-label col-sm-1">Class <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-sm-3">
+                                        <select id="bootstrap-select" class="select-change" (click)="getSectionByClass()" #singleClass data-width="100%">
+                                        </select>
+                                    </div>
+                                </ng-container>
+                                <ng-container *ngIf="sections && edit == false">
+                                    <label class="control-label col-sm-1">Section
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-md-2">
+                                        <select id="section-select" class="select-change" #sectionSelect data-width="100%" (click)="getSubjectBySection()" >
+                                        </select>
+                                    </div>
+                                </ng-container>
+                                <ng-container *ngIf="sections || edit == true">
+                                    <label class="control-label col-md-2">Class teacher
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-md-3">
+                                        <select id="employee-select" class="selectpicker" #classTeacher data-width="100%" data-live-search="true">
+                                        </select>
+                                    </div>
+                                    <div *ngIf="edit == false">
+                                        <br/><br/><br/>
+                                    </div>
+                                    <label class="control-label col-md-1">Notification
+                                    </label>
+                                    <div class="col-md-2 sms hide" align="center" >
+                                        <div class="form-group">
+                                            <label class="checkbox-inline" style="font-size:12px;">
+                                                <input  #sms type="checkbox" class="smsChecked">SMS
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 push hide">
+                                        <div class="form-group">
+                                            <label class="checkbox-inline" style="font-size:12px;">
+                                                <input #push type="checkbox" class="pushChecked">App
+                                            </label>
+                                        </div>
+                                    </div>
+                                </ng-container>
+                            </div>
+                            <!--<div class="form-group" *ngIf="sections || edit == true">
+                                <label class="control-label col-md-1">Notification
+                                </label>
+                                <div class="col-md-5">
+                                    <div class="col-md-4">
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label class="checkbox-inline">
+                                                    <input #push type="checkbox" class="styled" checked="checked">App
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="checkbox-inline">
+                                                <input #sms type="checkbox" class="styled"> SMS
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>-->
+                            <hr>
+                    </div>
+                </form>
+                <div *ngIf="subjects || edit == true" class="calDiv">
+                    <ext-calendar></ext-calendar>
+                </div>
+                    <div class="overlay-footer">
+                    <div class="right-align overlay-footer-content-rt">
+                        <button class="btn btn-default btn-sm" (click)="closeOverlay($event)">Close</button>
+                        <button *ngIf="enable" class="btn btn-primary btn-sm noteClass" (click)="save($event)">Save & Notify</button>
+                    </div>
+                </div>
+            </div>
+            <!-- cd-panel-container -->
+        </div>
+    </div>
+    <!-- right panel script -->
+</div>
+<div id="newTimetable" class="modal fade ">
+    <div class="modal-dialog modal-sm" [ngClass]="{'modal-lg': isEditTimetable}">
+        <div class="modal-content">
+            <div class="modal-header bg-info">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h6 class="modal-title"><span>Set Timetable</span></h6>
+            </div>
+            <!--<div class="modal-header">
+                <small>Primary - Class 5 - Section A</small>
+            </div>-->
+            <div class="modal-body">
+                <input type="hidden" #slot id="slot">
+                <ng-container *ngIf="!isEditTimetable">
+                    <fieldset>
+                        <div class="form-group" >
+                            <label class="control-label col-md-3">Subject <span class="text-danger">*</span></label>
+                            <div class="form-group col-md-9">
+                                <select id="subject-select" class="select-change" (click)="getSubjectsByEmployee()" #subject data-width="100%">
+                                </select>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset class="margin-top5 hide" id="teacher">
+                        <div class="form-group">
+                            <label class="control-label col-md-3 margin-top5">Employee <span class="text-danger">*</span>
+                            </label>
+                            <div class="form-group col-md-9" style="margin-bottom: 7px">
+                                <select id="subject-teacher" #subjectTeacher data-width="100%">
+                                </select>
+                            </div>
+                        </div>
+                    </fieldset>
+                </ng-container>
+                <ng-container *ngIf="isEditTimetable">
+                    <div >
+                        <ng-container *ngFor="let subEmp of subEmpAssociation; let idx = index">
+                            <fieldset #subEmpDetails>
+                                <div class="form-group col-md-5">
+                                    <label class="control-label margin-top5 col-md-3">Subject <span class="text-danger">*</span></label>
+                                    <div class="form-group col-md-9">
+                                        <select [id]="['sub_' + idx]" attr.data-id="{{'emp_' + idx}}" data-name="id" class="select-change" (click)="getSubjectsByEmployeeForEdit($event)" data-width="100%">
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label class="control-label col-md-3 margin-top5">Employee <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="form-group col-md-9" style="margin-bottom: 7px">
+                                        <select [id]="['emp_' + idx]" data-width="100%" data-name="name">
+                                        </select>
+                                    </div>
+                                </div>
+                                <a id='delDep'class='margin-top5 icon-danger col-md-1' (click)="deleteSubject($event)"><i class='fa fa-trash-o fa-lg'></i></a>
+                            </fieldset>
+                            <!--<hr/>-->
+                        </ng-container>
+                    </div>
+                </ng-container>
+                <fieldset class="margin-top5 hide">
+                    <div class="form-group">
+                        <label class="control-label col-md-3 margin-top5">Start Time <span class="text-danger">*</span>
+                        </label>
+                        <div class="form-group col-md-9" style="margin-bottom: 7px">
+                            <input id="start" #startTime type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset #endTime class="margin-top5 hide">
+                    <div class="form-group">
+                        <label class="control-label col-md-3 margin-top5">End Time <span class="text-danger">*</span>
+                        </label>
+                        <div class="form-group col-md-9" style="margin-bottom: 7px">
+                            <input id="end" #endDate type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <hr>
+                        <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" id="addEvent" class="btn btn-primary btn-ladda btn-ladda-progres timetable-save" data-style="expand-right" data-spinner-size="20" (click)="saveTimetable($event, 'addEvent')">Save</button>
+                <button type="button" id="updateEvent" class="btn btn-primary btn-ladda btn-ladda-progres timetable-save" data-style="expand-right" data-spinner-size="20" (click)="updateTimetable($event, 'updateEvent')">Update</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="timetable-menu hide">
+    <div class="btn-group btn-group-animated fc-menu-style">
+        <div data-toggle="dropdown"><i class="icon-menu9 position-right"></i></div>
+        <ul class="dropdown-menu">
+            <li><a class="add-event"><i class="icon-plus3"></i> Add Subject</a><input class="event-obj" type="hidden"></li>
+            <li><a class="edit-event"><i class="icon-pencil"></i> Edit</a><input class="event-obj" type="hidden"></li>
+            <li><a class="delete-event"><i class="icon-trash"></i> Delete</a><input class="event-obj" type="hidden"></li>
+        </ul>
+    </div>
+</div>

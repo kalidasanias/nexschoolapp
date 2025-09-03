@@ -1,0 +1,30 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h6 class="panel-title"><span class="text-semibold text-uppercase"><i
+                class="fa fa-sitemap fa-lg position-left"></i>Sections </span><i
+                class="icon-arrow-right15 text-pink-600"></i>
+            <small>List of Sections</small>
+        </h6>
+        <div class="heading-elements">
+            <input *ngIf="enable" type="button" value="Add Section" data-size="50%" data-title="Add Section" data-toggle="from-right" data-id="#addSection" class="btn btn-sm btn-primary" (click)="addSection($event)"/>
+            <input hidden id="warningSection" (click)="request_delete_warning()" type="button" style="display: none;">
+            <input hidden id="deleteButton" (click)="request_delete($event)" type="button" style="display: none;">
+            <input hidden id="sectionEditButton" (click)="editSection($event)" data-title="Edit Section Details" data-size="50%" data-id="#addSection" type="button" style="display: none;">
+        </div>
+    </div>
+
+    <div class="panel-body">
+        <table class="table datatable-sectionList">
+            <thead>
+                <tr>
+                    <th data-priority="1">Section Name</th>
+                    <th>Section Code</th>
+					<th>Updated By</th>
+                    <th>Status</th>
+                    <th data-priority="2">Action</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+<add-section></add-section>

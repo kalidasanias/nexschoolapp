@@ -1,0 +1,106 @@
+<div id="addVehicle" class="overlay-popup footer-popup" style="display: none;">
+    <!-- RIGHT PANEL STARTS -->
+    <div class="cd-panel">
+        <div class="cd-panel-header">
+            <!-- <div class="hidden-xs simple-field-hf"></div> -->
+            <div class="simple-field-hf">
+            </div>
+            <a (click)="closeOverlay($event)" class="cd-panel-close">Close</a>
+        </div>
+        <div class="cd-panel-container">
+            <div class="cd-panel-content" id="side-panel-container">
+                <form class="form-horizontal form-validate" [formGroup]="vehicleForm">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">Registration Number&nbsp;<span class="text-danger">*</span></label>
+                            <div class="form-group col-lg-4">
+                                <input type="" id="regNo" class="form-control" placeholder="Registration Number" formControlName="reg_no">
+                                <div control-messages class="validation-error-label" [control]="vehicleForm.controls.reg_no"></div>
+                            </div>
+                            <label class="col-lg-2 control-label">Registration Date&nbsp;<span class="text-danger">*</span></label>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="icon-calendar22"></i></span>
+                                        <input #vehicle_reg_date type="text" class="form-control pickadate-year-month-future" placeholder="Select Date&hellip;" (click)="registrationDate($event)" formControlName="vehicle_reg_date">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">FC Date&nbsp;<span class="text-danger">*</span></label>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="icon-calendar22"></i></span>
+                                        <input #vehicle_fc_date type="text" class="form-control pickadate-year-month" (click)="fcDate($event)" placeholder="Select Date&hellip;" formControlName="vehicle_fc_date">
+                                    </div>
+                                </div>
+                            </div>
+                            <label class="col-lg-2 control-label">Hired ?</label>
+                            <div class="col-lg-4 control-label">
+                                <input type="checkbox" formControlName="is_hired">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">Vehicle Type<span class="text-danger">*</span></label>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <select #vehicle_type name="vehicle_type" id="vehicle_type" class="form-control select-change"  (click)="vehicleType($event)" formControlName="vehicle_type">
+                                    </select>
+                                </div>
+                            </div>
+                            <label class="col-lg-2 control-label">Seating Capacity &nbsp;<span class="text-danger">*</span></label>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Enter Seating Capacity" formControlName="seating_capacity" >
+                                    <div control-messages class="validation-error-label" [control]="vehicleForm.controls.seating_capacity"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">Vehicle Owner Name</label>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Enter Owner Name"  formControlName="vehicle_owner_name">
+                                </div>
+                            </div>
+                            <label class="col-lg-2 control-label">Owner Address</label>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Enter Owner Address" formControlName="vehicle_owner_address">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">Owner City</label>
+                            <div class="col-lg-4">
+                                <input type="text" class="form-control" placeholder="Enter Owner City" formControlName="vehicle_owner_city">
+                            </div>
+                            <label class="col-lg-2 control-label">Owner State</label>
+                            <div class="form-group col-md-4">
+                                <input type="text" class="form-control" placeholder="Enter Owner State" formControlName="vehicle_owner_state">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">Owner Phone</label>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" value="" placeholder="Enter Owner Phone" formControlName="vehicle_owner_phone">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="overlay-footer">
+                        <div class="right-align overlay-footer-content-rt">
+                            <button type="button" class="btn btn-default" (click)="closeOverlay($event)">Close</button>
+                            <button type="submit" [disabled]="!vehicleForm.valid" id="save" (click)="saveVehicle('saveVehicle')" class="btn btn-primary">{{buttonVal}}</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- cd-panel-container -->
+        </div>
+    </div>
+    <!-- right panel script -->
+</div>

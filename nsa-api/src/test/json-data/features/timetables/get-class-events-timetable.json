@@ -1,0 +1,26 @@
+{
+  "status":{
+    "code":200,
+    "message":"Success"
+  },
+  "events":[
+    {
+      "eventId":"2342342342",
+      "eventName":"Quiz Context",
+      "eventSchedule":"Sep 23 2017",
+      "eventLocation":"Adyar - Chennai"
+    },
+    {
+      "eventId":"5634534534",
+      "eventName":"Drawing Context",
+      "eventSchedule":"Oct 25 2017",
+      "eventLocation":"Chetpet - Chennai"
+    },
+    {
+      "eventId":"5675756756",
+      "eventName":"Speech Context",
+      "eventSchedule":"Nov 28 2017",
+      "eventLocation":"Avadi - Chennai"
+    }
+  ]
+}

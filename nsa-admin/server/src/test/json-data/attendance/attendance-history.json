@@ -1,0 +1,32 @@
+{
+   "status":{
+      "code":201,
+      "message":"Success"
+   },
+   "suggestions":[
+      {
+         "userName":"587200S",
+         "firstName":"Kumar",
+         "class_id":"ec3c41b2-f403-11e6-858f-57a174c743dc",
+         "class_name":"Class 10",
+         "section_id":"ec3c68c2-f403-11e6-858f-57a174c743dc",
+         "section_name":" Section B",
+         "totalNoOfWorkingDays":"90",
+         "noOfDaysPresent":"45",
+         "noOfDaysAbsent":"5",
+         "attendancePercentage":"78"
+      },
+      {
+         "userName":"587258S",
+         "firstName":"Sathish",
+         "class_id":"ec3c41b2-f403-11e6-858f-57a174c743dc",
+         "class_name":"Class 10",
+         "section_id":"ec3c68c2-f403-11e6-858f-57a174c743dc",
+         "section_name":" Section B",
+         "totalNoOfWorkingDays":"90",
+         "noOfDaysPresent":"20",
+         "noOfDaysAbsent":"10",
+         "attendancePercentage":"62"
+      }
+   ]
+}

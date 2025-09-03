@@ -1,0 +1,50 @@
+<div class="navbar navbar-default navbar-xs">
+    <ul class="nav navbar-nav no-border visible-xs-block">
+        <li><a class="text-center collapsed" data-toggle="collapse" data-target="#navbar-filter"><i class="icon-filter4"></i></a></li>
+    </ul>
+
+    <div class="navbar-collapse collapse" id="navbar-filter">
+        <p class="navbar-text"><a [routerLink]="['/home/gallery']" [queryParams]="{fi: featureId}"><i class="icon-arrow-left16"></i>
+           Back To Album
+        </a>&nbsp;&nbsp;|</p>
+        <p class="navbar-text">Album Name : <span class="text-primary label-text">{{name}}</span></p><p class="navbar-text">&nbsp;&nbsp;|</p>
+        <p class="navbar-text">Total Count : <span class="badge badge-primary">{{albumDetails.length}}</span></p>
+        <p class="navbar-text">Filter :</p>
+        <ul class="nav navbar-nav">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-sort-amount-desc position-left"></i> By Type <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li class="my-filter active"><a id="" (click)="filter($event)">Show all</a></li>
+                    <li class="divider"></li>
+                    <li class="my-filter"><a id="image" (click)="filter($event)"><i class="fa fa-picture-o" aria-hidden="true"></i>Photos</a></li>
+                    <li class="my-filter"><a id="video" (click)="filter($event)"><i class="fa fa-film" aria-hidden="true"></i>Videos</a></li>
+                    <!--<li class="my-filter"><a id="audio" (click)="filter($event)"><i class="fa fa-volume-up" aria-hidden="true"></i>Audios</a></li>-->
+                </ul>
+            </li>
+        </ul>
+        <div class="navbar-right">
+            <form class="navbar-form " action="#">
+                <div *ngIf="enable"class="margin-top6">
+                    <div class="form-group" id="seleted-images">
+                    </div>
+                    <div class="form-group" id="image-select">
+                        <input id="image-select-all" type="checkbox" class="control-primary">
+                    </div>
+                    <div class="form-group">
+                        <input hidden id="deleteButton" (click)="delete($event)" type="button" style="display: none;">
+                        <a id="delete-selected"class='icon-default' disabled='disabled' (click)="delete_request($event)"><i class='fa fa-trash-o fa-lg'></i><input type="hidden" id="seleted-values"></a>
+                    </div>
+                    <div class="form-group" *ngIf="albumDetails.length">
+                        <a class='icon-primary image-edit'><i class='fa fa-pencil-square-o fa-lg'></i></a>
+                    </div>
+                    <div class="form-group">
+                        <a id="add-more-media" class='icon-primary' data-size="50%" data-title="Add Media" data-toggle="from-right" data-id="#addMedia" (click)="AddMedia($event)"><i class='icon-plus3'></i></a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<input type="hidden" id="albumDetailsRefresh" class="btn btn-primary" value="Refresh" (click)="refreshAlbums()">
+<album-details [albumDetails]="albumDetails" [type]="type"></album-details>
+<add-media></add-media>

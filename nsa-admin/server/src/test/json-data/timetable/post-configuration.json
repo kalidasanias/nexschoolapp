@@ -1,0 +1,90 @@
+{
+  "classes": [{
+    "classId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+    "className": "Class 1"
+  }, {
+    "classId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7ccj",
+    "className": "Class 2"
+  },
+
+    {
+      "classId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7cck",
+      "className": "Class 3"
+    }
+  ],
+
+  "days": [{
+    "dayName": "Monday",
+    "dayId": "1"
+  }, {
+    "dayName": "Tuesday",
+    "dayId": 2
+  }, {
+    "dayName": "Wednesday",
+    "dayId": 3
+  }, {
+    "dayName": "Thursday",
+    "dayId": 4
+  }],
+
+  "schoolHours": {
+    "from": "09:00 AM",
+    "to": "04:30 PM"
+  },
+  "classHours": [{
+    "periodId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+    "periodHour": "09:00 AM - 09:45 AM",
+    "break": "false",
+    "periodName": "Period 1"
+  }, {
+    "periodId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7cci",
+    "periodHour": "09:45 AM - 10:30 AM",
+    "break": "false",
+    "periodName": "Period 2"
+  }, {
+    "periodId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7ccj",
+    "periodHour": "10:30 AM - 10:45",
+    "break": "true",
+    "periodName": "Mng Break"
+  }, {
+    "periodId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7cck",
+    "periodHour": "10:45 AM - 11:30 AM",
+    "break": "false",
+    "periodName": "Period 3"
+  }, {
+    "periodId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7ccl",
+    "periodHour": "11:30 AM - 12:15 PM",
+    "break": "false",
+    "periodName": "Period 4"
+  }, {
+    "periodId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7ccm",
+    "periodHour": "12:15 PM - 01:00 PM",
+    "break": "true",
+    "periodName": "Lunch Break"
+  }, {
+    "periodId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7ccn",
+    "periodHour": "01:00 PM - 01:45 PM",
+    "break": "false",
+    "periodName": "Period 5"
+  }, {
+    "periodId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7cco",
+    "periodHour": "01:45 PM - 02:30 PM",
+    "break": "false",
+    "periodName": "Period 6"
+  }, {
+    "periodId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7ccp",
+    "periodHour": "02:30 PM - 02:45 PM",
+    "break": "true",
+    "periodName": "Period 7"
+  }, {
+    "periodId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+    "periodHour": "02:45 PM - 03:30 PM",
+    "break": "false",
+    "periodName": "Period 8"
+  }
+
+  ]
+
+
+
+}

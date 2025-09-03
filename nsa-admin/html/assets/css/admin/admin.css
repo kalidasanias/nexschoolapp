@@ -1,0 +1,39 @@
+.margin-top5 {
+	margin-top: 5px;
+}
+
+.bordered_table_heading {
+	padding :15px 8px;
+}
+.btn-visibility {
+	visibility : hidden;
+}
+
+.padding-bottom0 {
+	padding-bottom : 0px;
+}
+
+.margin-bottom0 {
+	margin-bottom: 0px;
+}
+.margin-top10 {
+	margin-top: 10px;
+}
+.margin-left10 {
+	margin-left: 10px;
+}
+.hand_pointer {
+	cursor: pointer;
+}
+.align_right {
+	float: right;
+}
+.padding-top0 {
+	padding-top: 0px;
+}
+
+.modal-xl {
+	margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+}

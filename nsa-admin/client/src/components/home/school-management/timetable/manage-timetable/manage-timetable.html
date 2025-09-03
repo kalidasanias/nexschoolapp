@@ -1,0 +1,28 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h6 class="panel-title"><span class="text-semibold text-uppercase"><i class="icon-calendar position-left"></i>Special Timetable</span><i class="icon-arrow-right15 text-pink-600"></i> <small>List of Special Day timetable </small></h6>
+        <div class="heading-elements">
+            <input *ngIf="enable" type="button" value="Add Special Timetable" data-size="50%" data-title="Add Special Timetable" data-toggle="from-right" data-id="#addSpecialTimetable" class="btn btn-sm btn-primary" (click)="addConfig($event)"/>
+            <!--<button class="btn btn-sm btn-primary heading-btn" data-toggle="modal" (click)="addConfig('add_special_timetable')">Configuration</button>-->
+        </div>
+    </div>
+    <input hidden id="specDayWarning" (click)="requested_warning()" type="button" style="display: none;">
+    <input hidden id="deleteButton" (click)="requested_delete($event)" type="button" style="display: none;">
+    <input hidden id="specDayEdit" (click)="getSpecialDay($event)" data-title="Special Day Timetable" data-size="50%" data-id="#editSpecialTimetable" type="button" style="display: none;">
+    <div class="panel-body">
+        <table class="table datatable-special-day">
+            <thead>
+            <tr>
+                <th data-priority="1">Class</th>
+                <th>Section</th>
+                <th>Date</th>
+                <th>Timetable Followed</th>
+                <th>Update By</th>
+                <th data-priority="2">Action</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+<add-special-timetable></add-special-timetable>
+<edit-special-timetable></edit-special-timetable>

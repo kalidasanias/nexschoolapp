@@ -1,0 +1,53 @@
+http://localhost:9200/users/_mapping/parentInformation
+
+{"properties": {
+                 
+                  "id": { "type": "string"},
+                  "tenant_id": { "type": "string"},
+                  "user_name": { "type": "string", "analyzer": "keyword_lowercase", "fielddata": true},
+                  "parent_name": {"type": "string" , "analyzer": "keyword_lowercase", "fielddata": true},
+                  "childs": {
+                      "type": "object",
+                      "properties" : {
+                          "tenant_id": { "type": "string"},
+                          "school_id": { "type": "string"},
+                          "school_name": { "type": "string"},
+                          "member_user_name": {"type": "string"},
+                          "user_name":  {"type": "string","index" : "not_analyzed"},
+                          "first_name": {"type": "string", "index" : "not_analyzed"},
+                          "admission_no": {"type": "string", "index" : "not_analyzed"},
+                          "user_id": { "type":"string", "index" : "not_analyzed"},
+                          "class_id" : {"type" : "string", "index" : "not_analyzed"},
+                          "section_id" : {"type" : "string", "index" : "not_analyzed"},
+                          "class_name" : {"type" : "string", "analyzer": "keyword_lowercase"},
+                          "section_name" : {"type" : "string", "analyzer": "keyword_lowercase"},
+                          "active": {"type" : "boolean"}
+                      }
+                  },
+                  "created_date": {"type": "date", "format": "dateOptionalTime", "index": "not_analyzed"},
+                  "updated_date": {"type": "date", "format": "dateOptionalTime", "index": "not_analyzed"},
+                  "updated_by": {"type": "string","index":"not_analyzed"},
+                  "created_by": {"type": "string","index":"not_analyzed"}
+              }
+              
+              
+              }
+
+
+
+
+http://localhost:9200/notifications/_mapping/notification_master
+  {
+  "properties": {
+  "attachments": {"type":"nested", "properties":{"id":{"type":"string", "index":"not_analyzed"}, "name": {"type": "string","index": "not_analyzed"} } },
+  "media_type" : {"type": "string", "index":"not_analyzed"}
+  }
+  }
+
+http://localhost:9200/notifications/_mapping/notification_details
+{
+"_parent": {"type": "notification_master"},
+"properties": {
+"attachments": {"type":"nested", "properties":{"id":{"type":"string", "index":"not_analyzed"}, "name": {"type": "string","index": "not_analyzed"} } }
+}
+}

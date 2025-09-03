@@ -1,0 +1,69 @@
+<div id="viewStudents" class="overlay-popup footer-popup" style="display: none;">
+    <!-- RIGHT PANEL STARTS -->
+    <div class="cd-panel">
+        <div class="cd-panel-header">
+            <!-- <div class="hidden-xs simple-field-hf"></div> -->
+            <div class="simple-field-hf">
+            </div>
+            <a (click)="closeOverlay($event)" class="cd-panel-close">Close</a>
+        </div>
+        <div class="cd-panel-container">
+            <div class="cd-panel-content" id="side-panel-container">
+                <form class="form-horizontal">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label class="control-label col-sm-2">Current Academic Year</label>
+                            <div class="col-md-4">
+                                <input type="text"  class="form-control" value="{{academicYear}}" disabled>
+                            </div>
+                            <label class="control-label col-sm-2">Next Academic Year</label>
+                            <div class="col-md-4">
+                                <input type="text"  class="form-control" value="{{newAcademicYear}}" disabled>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2">Current Class</label>
+                            <div class="col-md-4">
+                                <input type="text"  class="form-control" value="{{currentClass}}" disabled>
+                            </div>
+                            <label class="control-label col-sm-2">Promoted Class</label>
+                            <div class="col-md-4">
+                                <input type="text"  class="form-control" value="{{promotedClass}}" disabled>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2"></label>
+                            <div class="col-md-4">
+                            </div>
+                            <label class="control-label col-sm-2">Promotes Sections</label>
+                            <div class="col-md-4">
+                                <input type="text"  class="form-control" value="{{secList}}" disabled>
+                            </div>
+                        </div>
+                        <legend class="text-semibold">
+                            <i class="icon-list position-left"></i>
+                            Students List
+                        </legend>
+                        <table class="table datatable-student-list">
+                            <thead>
+                            <tr>
+                                <th data-priority="1">Student Id</th>
+                                <th>Student Name</th>
+                                <th>Current Class & Section</th>
+                                <th>Promoted Class & Section</th>
+                            </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div class="overlay-footer">
+                        <div class="right-align overlay-footer-content-rt">
+                            <button type="button" class="btn btn-default" (click)="closeOverlay($event)">Close</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- cd-panel-container -->
+        </div>
+    </div>
+    <!-- right panel script -->
+</div>

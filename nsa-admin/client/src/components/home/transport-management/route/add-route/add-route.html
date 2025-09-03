@@ -1,0 +1,191 @@
+<div id="addRoute" class="overlay-popup footer-popup" style="display: none;">
+    <!-- RIGHT PANEL STARTS -->
+    <div class="cd-panel">
+        <div class="cd-panel-header">
+            <!-- <div class="hidden-xs simple-field-hf"></div> -->
+            <div class="simple-field-hf">
+            </div>
+            <a (click)="closeOverlay($event)" class="cd-panel-close">Close</a>
+        </div>
+        <div class="cd-panel-container" id="hiflame-cart-popup">
+            <div class="cd-panel-content" id="side-panel-container">
+                <input type="hidden" (click)="updateDriver($event)" id="hiddenDriver" />
+                <input type="hidden" (click)="updateVehicle($event)" id="hiddenVehicle" />
+                <input type="submit" class="hide" (click)="saveRoute($event)" id="hiddenRoute" />
+
+                <div class="modal-body">
+
+                    <form-wizard>
+                        <wizard-step [title]="'Basic'" [isValid]="basicInfo.valid" (onNext)="onBasicNext($event)">
+                            <form class="steps-basic form-validate form-horizontal routeWizardForm" novalidate [formGroup]="basicInfo" action="#">
+
+                                <input type="hidden" id="city" formControlName="city"/>
+                                <input type="hidden" id="googleMap" name="googleMap" formControlName="googleMap"/>
+
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label">Route Name&nbsp;<span class="text-danger">*</span></label>
+                                    <div class="form-group col-lg-4">
+                                        <input type="" class="form-control" placeholder="Route Name" name="route_name" formControlName="route_name">
+                                        <div control-messages class="validation-error-label" [control]="basicInfo.controls.route_name"></div>
+                                    </div>
+                                    <label class="col-lg-2 control-label">Route Description</label>
+                                    <div class="form-group col-lg-4">
+                                        <textarea ng-trim="false" [maxlength]="160" id="templateName" rows="3" cols="3"
+                                              class="form-control" (keydown)="keyDown()"
+                                              formControlName="route_desc"></textarea>
+                                        <span class="text-danger">Characters limit : 160</span>&nbsp; &nbsp; &nbsp; &nbsp;
+                                        <span> Characters Left : {{ charsLeft }}/160 </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label">Driver Name&nbsp;<span class="text-danger">*</span></label>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <select #driver name="driver_id" id="driver" class="form-control select-change select required"  (click)="updateDriver($event)" formControlName="driver_id">
+                                            </select>
+                                        </div>
+                                        <div control-messages class="validation-error-label" [control]="basicInfo.controls.driver_id"></div>
+                                    </div>
+                                    <label class="col-lg-2 control-label">Vehicle&nbsp;<span class="text-danger">*</span></label>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <select #vehicle name="reg_no" id="vehicle" class="form-control select-change select required"  (click)="updateVehicle($event)" formControlName="reg_no">
+                                            </select>
+                                        </div>
+                                        <div control-messages class="validation-error-label" [control]="basicInfo.controls.reg_no"></div>
+                                    </div>
+                                </div>
+                            </form>
+                        </wizard-step>
+
+                        <wizard-step [title]="'Route'" [isValid]="directionInfo.valid && directionInfoValid " (onNext)="onDirectionNext($event)">
+                            <form class="steps-basic form-validate form-horizontal routeWizardForm" novalidate [formGroup]="directionInfo" action="#">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <label class="col-sm-2 control-label text-right">Orgin&nbsp;<span class="text-danger">*</span></label>
+                                        <div class="form-group col-sm-4">
+                                            <input #orgin type="text" class="form-control" name="orgin" id="fromAddress" placeholder="Enter Start Point" formControlName="orgin" >
+                                            <div control-messages class="validation-error-label" [control]="directionInfo.controls.orgin"></div>
+                                            <input #fromLat type="hidden" class="form-control" name="from_lat" id="fromLat" value="" formControlName="from_lat">
+                                            <input #fromLng type="hidden" class="form-control" name="from_lng" id="fromLng" formControlName="from_lng">
+                                        </div>
+                                        <label class="col-sm-2 control-label text-right">Destination&nbsp;<span class="text-danger">*</span></label>
+                                        <div class="form-group col-sm-4">
+                                            <input #destination type="text" class="form-control" name="destination" id="toAddress" placeholder="Enter End Point" formControlName="destination" >
+                                            <div control-messages class="validation-error-label" [control]="directionInfo.controls.destination"></div>
+                                            <input #toLat type="hidden" class="form-control" name="to_lat" id="toLat" formControlName="to_lat">
+                                            <input #toLng type="hidden" class="form-control" name="to_lng" id="toLng" formControlName="to_lng">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th class="col-lg-5">Bus Stop&nbsp;<span class="text-danger">*</span></th>
+                                                <th class="col-lg-2">Latitude</th>
+                                                <th class="col-lg-2">Longitude</th>
+                                                <th class="col-lg-2">Radius</th>
+                                                <th class="col-lg-1 action-col">&nbsp;</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody formArrayName="stops">
+                                            <tr *ngFor="let waypoint of directionInfo.controls.stops.controls; let i = index" [formGroup]="waypoint">
+                                                <td>
+                                                    <input id="way{{i}}" class="form-control" name="way{{i}}" placeholder="Enter Stop Address" type="text" (change)="isEmpty($event, i)" formControlName="location">
+                                                    <input type="hidden" class="form-control" name="way_place{{i}}" id="way_place{{i}}" formControlName="place_id" >
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" name="lat_way{{i}}" id="lat_way{{i}}" (blur)="getStopAddress($event, i)" (change)= "isEmpty($event, i)" formControlName="lat">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" name="lng_way{{i}}" id="lng_way{{i}}" (blur)="getStopAddress($event, i)" (change)= "isEmpty($event, i)" formControlName="lng">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" name="radius{{i}}" id="radius{{i}}" value="1000" formControlName="radius" (change)="isEmpty($event, i)" >
+
+                                                </td>
+                                                <td class="action-col">
+                                                    <button class="btn bg-danger btn-act-icon1 btn-act-sm1 button-rounded" type="button" *ngIf="i > 0" (click)="deleteWaypoint(i)"><i class="icon-minus2"></i></button>
+                                                    <button class="btn bg-success btn-act-icon1 btn-act-sm1 button-rounded" type="button" (click)="addWaypoint(i)"><i class="icon-plus22"></i></button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </form>
+                        </wizard-step>
+
+                        <wizard-step [title]="'Map'" [iclass]="'icon-location3'" (onNext)="onLocationNext($event)">
+                            <!--<form class="steps-basic form-validate form-horizontal routeWizardForm" novalidate [formGroup]="locationInfo" action="#">
+                                <div id="floating-panel" class="panel-opened">
+                                    <div class="panel panel-flat panel-noborder" id="floating-panel-route">
+                                        <div class="panel-heading-map">
+                                            <span class="span-title-map floating-panel-heading">Draw Route</span>
+                                            <div class="heading-elements-map floating-panel-heading">
+                                                <ul class="icons-list">
+                                                    <li><a data-action="collapse" id="floating-collapse" class=""></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="panel-body route-panel-body" style="display: block;">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control required" name="radius" id="radius" placeholder="Enter Radius" formControlName="radius" value="1500">
+                                                <div control-messages class="validation-error-label" [control]="locationInfo.controls.radius"></div>
+                                            </div>
+                                            <div class="text-right">
+                                                <input type="button" class="btn btn-primary" id="route" [disabled]="isRouteValid()" name="hiddenRoute" (click)="plotMapRoute(null);" value="Route" >
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-flat panel-noborder hide" id="routeOptions">
+                                        <select name="route_summary" id="selectRoute" class="floating-panel-heading">
+                                        </select>
+                                    </div>
+                                    <div class="panel panel-flat panel-noborder hide" id="createStop">
+                                        <a (click)="createStop()"><i class="glyphicon glyphicon-pushpin"></i></a>
+                                    </div>
+                                </div>-->
+                                <div class="form-group">
+                                    <div id="right-panel"></div>
+                                    <div id="routeMap" class="map-wrapper"></div>
+                                </div>
+                            <!--</form>-->
+                        </wizard-step>
+
+                        <wizard-step [title]="'Care Taker'" [isValid]="conductorInfo.valid"  (onComplete)="saveRoute($event)">
+                            <form class="steps-basic form-validate form-horizontal routeWizardForm" novalidate [formGroup]="conductorInfo" action="#">
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label class="col-lg-2 control-label">Conductor Name</label>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Enter Conductor Name"  formControlName="conductor_name">
+                                            </div>
+                                        </div>
+                                        <label class="col-lg-2 control-label">Conductor Address</label>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Enter Conductor Address"  formControlName="conductor_address">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-2 control-label">Conductor Phone</label>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Enter Conductor Phone"  formControlName="conductor_phone">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </wizard-step>
+                    </form-wizard>
+                </div>
+            </div>
+            <!-- cd-panel-container -->
+        </div>
+    </div>
+    <!-- right panel script -->
+</div>

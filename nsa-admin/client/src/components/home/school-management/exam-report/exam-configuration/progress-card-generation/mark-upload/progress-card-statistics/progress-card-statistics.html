@@ -1,0 +1,248 @@
+<div id="statistics" class="overlay-popup footer-popup" style="display: none;">
+    <div class="cd-panel">
+        <div class="cd-panel-header">
+            <div class="simple-field-hf">
+            </div>
+            <a (click)="closeOverlay()" class="cd-panel-close">Close</a>
+        </div>
+        <div class="cd-panel-container">
+            <div class="cd-panel-content" id="side-panel-container">
+                <div class="tabbable">
+                    <ul class="nav nav-tabs nsa-nav-tabs nsa-blue  nav-tabs-highlight nav-justified">
+                        <li class="active"><a href="#overall" data-toggle="tab" id="examReport" (click)="overallReport()"> Overall Exam Report</a></li>
+                        <li><a href="#events" data-toggle="tab" (click)="subjectWiseReport()">Subject-wise Report</a></li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div class="tab-pane active no-horizontal-scroll" id="overall">
+                            <div class="col-md-6">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h5 class="panel-title">Overall Mark Distribution</h5>
+                                        <div class="heading-elements">
+                                            <ul class="icons-list">
+                                                <li id="overall-settings"><a (click)="showGradeDetails('overall-settings')" on-mouseover="showGradeDetails('overall-settings')"><i class="icon-question4"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="table-responsive">
+                                            <div class="chart has-fixed-height" id="overallReport"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="panel panel-default height-535">
+                                    <div class="panel-heading">
+                                        <h5 class="panel-title">Grade wise Performers</h5>
+                                        <div class="heading-elements">
+                                            <form class="heading-form" action="#">
+                                                <span class="heading-text" style="margin: 8px;">Choose Grade : </span>
+                                                <div class="form-group">
+                                                    <select #examSelect id="grade-select" class="select-change" (click)="onRangeChange($event.target.value)" data-width="100%">
+                                                    </select>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="max-height-400">
+                                        <table class="table table-fixed table-striped">
+                                            <thead>
+                                            <tr>
+                                                <th class="col-xs-6">Name</th>
+                                                <th class="col-xs-3">Marks</th>
+                                                <th class="col-xs-3">Grade Points</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <ng-container *ngIf="rankObjs.length">
+                                                <tr role="row" *ngFor="let obj of rankObjs; let i = index" [ngClass]="{'even': i%2 == 0, 'odd': i%2 == 1}">
+                                                    <td data-popup="tooltip" title="{{obj.first_name}}" data-placement="bottom" class="fc-title-400 col-xs-6">{{obj.first_name}}</td>
+                                                    <td class="col-xs-3">{{obj.total_marks_obtained + '/' + obj.total_max_marks}}</td>
+                                                    <td class="col-xs-3">{{obj.total_cgpa_value}}</td>
+                                                </tr>
+                                            </ng-container>
+                                            <ng-container *ngIf="!rankObjs.length">
+                                                <div class="alert no-border text-center">
+                                                    <span class="text-semibold">No Data Found. </span>
+                                                </div>
+                                            </ng-container>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <br/>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h5 class="panel-title">Grade Point Distribution</h5>
+
+                                    </div>
+                                    <br/>
+                                    <table class="table rank-details">
+                                        <thead>
+                                        <tr>
+                                            <th>Student ID</th>
+                                            <th>Name</th>
+                                            <th>Marks Obtained</th>
+                                            <th>Percentage</th>
+                                            <th>Grade</th>
+                                            <th>Grade Point</th>
+                                        </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane no-horizontal-scroll" id="events">
+                            <div class="col-md-12 col-md-offset-3 subjectSelect">
+                                <div class="form-group">
+                                    <label class="control-label col-md-1 margin-top10">Subject &nbsp;<span class="text-danger">*</span></label>
+                                    <div class="col-md-4">
+                                        <select #subjectSelect id="subject-select" class="select-change" (click)="onSubjectChange($event.target.value)" data-width="100%">
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <br/>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h5 class="panel-title">Overall Subject Performance</h5>
+                                        <div class="heading-elements">
+                                            <ul class="icons-list">
+                                                <li id="subject-settings"><a (click)="showGradeDetails('subject-settings')" on-mouseover="showGradeDetails('subject-settings')"><i class="icon-question4"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="panel-body">
+                                        <div class="table-responsive">
+                                            <div class="chart has-fixed-height" id="subjectWiseReport"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <br/>
+                                <div class="panel panel-default height-535">
+                                    <div class="panel-heading">
+                                        <h5 class="panel-title">Top Performers</h5>
+                                    </div>
+                                    <div class="max-height-400">
+                                        <table class="table table-fixed">
+                                            <thead>
+                                                <tr>
+                                                    <th class="col-xs-6">Name</th>
+                                                    <th class="col-xs-4">Marks</th>
+                                                    <th class="col-xs-2">Grade</th>
+                                                </tr>
+                                            </thead>
+                                            <ng-container *ngIf="topPerformers.length">
+                                                <tr *ngFor="let obj of topPerformers; let index = index">
+                                                    <ng-container *ngIf="index < 10">
+                                                        <td data-popup="tooltip" title="{{obj.first_name}}" data-placement="bottom" class="fc-title-400 col-xs-6">{{obj.first_name}}</td>
+                                                        <td class="col-xs-4">{{obj.sub_marks_obtained + '/' + obj.sub_max_marks}}</td>
+                                                        <td class="col-xs-2">{{obj.grade}}</td>
+                                                    </ng-container>
+                                                </tr>
+                                            </ng-container>
+                                        </table>
+                                        <ng-container *ngIf="!topPerformers.length">
+                                            <div class="alert no-border text-center">
+                                                <span class="text-semibold">No Data Found. </span>
+                                            </div>
+                                        </ng-container>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <br/>
+                                <div class="panel panel-default height-535">
+                                    <div class="panel-heading">
+                                        <h5 class="panel-title">Overall grade Report</h5>
+                                    </div>
+                                    <div class="table-responsive max-height-400">
+                                        <table class="table">
+                                            <ng-container *ngIf="gradeObj">
+                                                <!--<tr>
+                                                    <td>Overall pass percentage</td>
+                                                    <td>{{gradeObj.overallPassPercent || 0}}%</td>
+                                                </tr>-->
+                                                <!--<tr>
+                                                    <td>Average Grade</td>
+                                                    <td>{{gradeObj.avgGrade}}</td>
+                                                </tr>-->
+                                                <tr>
+                                                    <td>Average Mark</td>
+                                                    <td>{{gradeObj.avgMark}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Highest Score</td>
+                                                    <td>{{gradeObj.highestScore}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Lowest Score</td>
+                                                    <td>{{gradeObj.lowestScore}}</td>
+                                                </tr>
+                                                <!--<tr>
+                                                    <td>No. Passed</td>
+                                                    <td>{{gradeObj.passedStudent || 0}}</td>
+                                                </tr>-->
+                                            </ng-container>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <br/>
+                                <div class="panel panel-default height-535">
+                                    <div class="panel-heading">
+                                        <h5 class="panel-title">Grade wise distribution</h5>
+                                    </div>
+                                    <div class="tabbable grade-istribution">
+                                        <ul class="nav nav-tabs nav-tabs-highlight nav-justified" style="margin-bottom: 0px;">
+                                            <ng-container  *ngFor="let range of ranges; let index = index">
+                                                <li *ngIf="rangeValues[index] > 0" [ngClass]="{ 'active': index <= 0}"><a href="#bottom-justified-tab1" data-toggle="tab" (click)="gradeDistribution($event.target.dataset.value)" attr.data-value="{{range}}">{{range + '(' + rangeValues[index] + ')'}}</a></li>
+                                            </ng-container>
+                                        </ul>
+
+                                        <div class="tab-content">
+                                            <div class="tab-pane active" id="bottom-justified-tab1">
+                                                <div class="max-height-400">
+                                                    <table class="table table-fixed">
+                                                        <thead>
+                                                        <tr>
+                                                            <th class="col-xs-6">Name</th>
+                                                            <th class="col-xs-6">Marks</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        <ng-container *ngIf="gradeDistributionObjs.length">
+                                                            <tr *ngFor="let obj of gradeDistributionObjs">
+                                                                <td data-popup="tooltip" title="{{obj.first_name}}" data-placement="bottom" class="fc-title-400 col-xs-6">{{obj.first_name}}</td>
+                                                                <td class="col-xs-6">{{obj.sub_marks_obtained + '/' + obj.sub_max_marks}}</td>
+                                                            </tr>
+                                                        </ng-container>
+                                                        <ng-container *ngIf="!gradeDistributionObjs.length">
+                                                            <div class="alert no-border text-center">
+                                                                <span class="text-semibold">No Data Found. </span>
+                                                            </div>
+                                                        </ng-container>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

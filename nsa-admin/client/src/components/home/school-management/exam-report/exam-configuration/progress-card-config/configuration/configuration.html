@@ -1,0 +1,30 @@
+<hr/>
+
+<div class="panel-heading">
+    <h6 class="panel-title"><span class="text-semibold text-uppercase"><i
+            class="icon-clipboard position-left"></i>List of Report Card for the Classes</span></h6>
+    <div class="heading-elements">
+
+        <input type="button" value="Progress Card Setting" data-size="50%" data-title="Progress Card Setting"
+               data-toggle="from-right" data-id="#add_progress_card" class="btn btn-sm btn-primary heading-btn"
+               (click)="addProgressCard($event)"/>
+    </div>
+</div>
+<hr/>
+<div class="panel-body">
+    <table class="table datatable-export">
+        <thead>
+        <tr>
+            <th>S.No</th>
+            <th>Term</th>
+            <th>Assessment Name</th>
+            <th>Written Examination</th>
+            <th>Class</th>
+            <th>Updated By</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+
+    </table>
+</div>
+<add-configuration></add-configuration>

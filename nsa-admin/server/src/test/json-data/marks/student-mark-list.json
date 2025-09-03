@@ -1,0 +1,54 @@
+{
+  "success": true,
+  "data": [
+    {
+      "marklistDetailId": "8db1c22f-f8e1-48aa-a787-c76d212d2ed3",
+      "marklistId": "456ad4b5-bb43-4248-ab6c-bbdb9b2ea81e",
+      "tenantId": "8eb846a0-4549-11e7-9543-276f818a8422",
+      "schoolId": "69780629-759a-4a78-aa95-fa00a235d98b",
+      "academicYear": "2017-2018",
+      "examScheduleId": "0780e9f5-7c2c-4a70-98a9-d9ae84200778",
+      "writtenExamId": "bbb74aad-783f-4e07-9812-325c6264b9ea",
+      "writtenExamName": "weekly",
+      "classId": "c4e44ef0-ea0d-11e6-8b3a-9d7cc28d7ccd",
+      "className": "Class 1",
+      "sectionId": "1cad8910-ea10-11e6-8b3a-9d7cc28d7ccd",
+      "sectionName": null,
+      "userName": "9952990355",
+      "userCode": "karthik",
+      "firstName": "Karthik VishnuKumar",
+      "primaryPhone": "9952990355",
+      "subjectMarkDetails": [
+        {
+          "subject_id": "007f840c-b971-4d89-920f-cbc5da73c8d8",
+          "subject_name": "Zoology",
+          "marks_obtained": "20",
+          "max_marks": 50
+        },
+        {
+          "subject_id": "02a8f88c-0289-4aa1-83fb-4dfdd0ff3ef1",
+          "subject_name": "Biology",
+          "marks_obtained": "0",
+          "max_marks": 50
+        },
+        {
+          "subject_id": "f8ad6611-638a-4038-951a-60c57b71cb2f",
+          "subject_name": "Mathematics",
+          "marks_obtained": "0",
+          "max_marks": 100
+        }
+      ],
+      "totalMarks": 200,
+      "examDate": null,
+      "mediaName": null,
+      "updatedBy": "demoadmin",
+      "updatedDate": "Jul 18 2017 3:36 PM",
+      "updatedDateAndName": "null - Jul 18 2017 3:36 PM",
+      "createdBy": "demoadmin",
+      "createdDate": "2017-07-18T10:06:22.780Z",
+      "status": true,
+      "remarks": null,
+      "subjectTotal": 20
+    }
+  ]
+}

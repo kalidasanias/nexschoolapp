@@ -1,0 +1,12 @@
+require('./../public/assets/js/admin/admin.js');
+require('./../public/assets/js/gallery/jquery.flexslider-min.js');
+require('./../public/assets/js/gallery/jquery.row-grid.min.js');
+require('./../public/assets/js/jspdf.js');
+require('./../public/assets/js/html2canvas.js');
+require('./../public/assets/js/core/libraries/bootstrap-toggle.min.js');
+require('./../node_modules/bootstrap-timepicker/js/bootstrap-timepicker.js');
+require('./../public/assets/js/plugins/visualization/d3/d3.min.js');
+require('./../public/assets/js/plugins/visualization/d3/d3_tooltip.js');
+require('./../public/assets/js/plugins/forms/styling/uniform.min.js');
+require('./../public/assets/js/plugins/forms/selects/bootstrap_multiselect.js');
+require('./../public/assets/js/plugins/forms/selects/bootstrap_select.min.js');

@@ -1,0 +1,27 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h6 class="panel-title"><span class="text-semibold text-uppercase"><i class="icon-book3 position-left"></i>Holidays </span><i class="icon-arrow-right15 text-pink-600"></i> <small>List of School Holidays </small></h6>
+        <div class="heading-elements">
+            <input *ngIf="enable" type="button" value="Staff Week Off" data-size="50%" data-title="Staff Week Off" data-toggle="from-right" data-id="#addWeekOff" class="btn btn-sm btn-primary" (click)="addWeekOff($event)"/>
+            <input *ngIf="enable" type="button" value="Add Holidays" data-size="60%" data-title="Add Holidays" data-toggle="from-right" data-id="#addschoolholiday" class="btn btn-sm btn-primary" (click)="addschoolholiday($event)"/>
+        </div>
+    </div>
+    <input hidden id="schoolholidayTypeWarning" (click)="requested_warning()" type="button" style="...">
+    <input hidden id="deleteButton" (click)="requested_delete($event)" type="button" style="display: none;">
+    <input hidden id="schoolholidayTypeEdit" (click)="getschoolholidayType($event)" data-title="Edit Holidays" data-size="50%" data-id="#addschoolholiday" type="button" style="display: none;">
+    <div class="panel-body">
+        <table class="table datatable-schoolholidays">
+            <thead>
+            <tr>
+                <th data-priority="1">Holiday Type</th>
+                <th>Holiday Name</th>
+                <th>Date</th>
+                <th>Updated By</th>
+                <th data-priority="2">Action</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+   </div>
+<add-school-holidays></add-school-holidays>
+<add-week-off></add-week-off>

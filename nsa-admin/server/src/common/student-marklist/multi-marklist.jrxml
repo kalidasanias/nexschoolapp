@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="multi-marklist" pageWidth="595" pageHeight="1113" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="5" bottomMargin="0" uuid="3ac59891-3f9f-404b-b7ed-3d8edc530e5f">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="multi-marklist"/>
+	<queryString language="json">
+		<![CDATA[Info]]>
+	</queryString>
+	<field name="schoolName" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="schoolName"/>
+		<fieldDescription><![CDATA[schoolName]]></fieldDescription>
+	</field>
+	<field name="semester" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="semester"/>
+		<fieldDescription><![CDATA[semester]]></fieldDescription>
+	</field>
+	<field name="academicYear" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="academicYear"/>
+		<fieldDescription><![CDATA[academicYear]]></fieldDescription>
+	</field>
+	<field name="studentName" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="studentName"/>
+		<fieldDescription><![CDATA[studentName]]></fieldDescription>
+	</field>
+	<field name="fatherName" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="fatherName"/>
+		<fieldDescription><![CDATA[fatherName]]></fieldDescription>
+	</field>
+	<field name="class" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="class"/>
+		<fieldDescription><![CDATA[class]]></fieldDescription>
+	</field>
+	<field name="section" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="section"/>
+		<fieldDescription><![CDATA[section]]></fieldDescription>
+	</field>
+	<field name="remark" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="remark"/>
+		<fieldDescription><![CDATA[remark]]></fieldDescription>
+	</field>
+	<field name="classTeacher" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="classTeacher"/>
+		<fieldDescription><![CDATA[classTeacher]]></fieldDescription>
+	</field>
+	<field name="mother" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="mother"/>
+		<fieldDescription><![CDATA[mother]]></fieldDescription>
+	</field>
+	<field name="father" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="father"/>
+		<fieldDescription><![CDATA[father]]></fieldDescription>
+	</field>
+	<field name="principal" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="principal"/>
+		<fieldDescription><![CDATA[principal]]></fieldDescription>
+	</field>
+	<field name="studentPicture" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="studentPicture"/>
+		<fieldDescription><![CDATA[studentPicture]]></fieldDescription>
+	</field>
+	<field name="Marklist" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="Marklist"/>
+		<fieldDescription><![CDATA[Marklist]]></fieldDescription>
+	</field>
+	<field name="Attendance" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="Attendance"/>
+		<fieldDescription><![CDATA[Attendance]]></fieldDescription>
+	</field>
+	<field name="GradingSystem" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="GradingSystem"/>
+		<fieldDescription><![CDATA[GradingSystem]]></fieldDescription>
+	</field>
+	<group name="schoolName">
+		<groupExpression><![CDATA[$F{schoolName}]]></groupExpression>
+	</group>
+	<group name="semester">
+		<groupExpression><![CDATA[$F{semester}]]></groupExpression>
+	</group>
+	<group name="academicYear">
+		<groupExpression><![CDATA[$F{academicYear}]]></groupExpression>
+	</group>
+	<group name="studentName">
+		<groupExpression><![CDATA[$F{studentName}]]></groupExpression>
+	</group>
+	<group name="fatherName">
+		<groupExpression><![CDATA[$F{fatherName}]]></groupExpression>
+	</group>
+	<group name="class">
+		<groupExpression><![CDATA[$F{class}]]></groupExpression>
+	</group>
+	<group name="section">
+		<groupExpression><![CDATA[$F{section}]]></groupExpression>
+	</group>
+	<group name="remark">
+		<groupExpression><![CDATA[$F{remark}]]></groupExpression>
+	</group>
+	<group name="classTeacher">
+		<groupExpression><![CDATA[$F{classTeacher}]]></groupExpression>
+	</group>
+	<group name="mother">
+		<groupExpression><![CDATA[$F{mother}]]></groupExpression>
+	</group>
+	<group name="father">
+		<groupExpression><![CDATA[$F{father}]]></groupExpression>
+	</group>
+	<group name="principal">
+		<groupExpression><![CDATA[$F{principal}]]></groupExpression>
+	</group>
+	<group name="studentPicture">
+		<groupExpression><![CDATA[$F{studentPicture}]]></groupExpression>
+	</group>
+	<group name="Marklist">
+		<groupExpression><![CDATA[$F{Marklist}]]></groupExpression>
+	</group>
+	<group name="Attendance">
+		<groupExpression><![CDATA[$F{Attendance}]]></groupExpression>
+	</group>
+	<group name="GradingSystem">
+		<groupExpression><![CDATA[$F{GradingSystem}]]></groupExpression>
+	</group>
+	<detail>
+		<band height="1024" splitType="Stretch">
+			<subreport isUsingCache="false">
+				<reportElement x="0" y="11" width="595" height="1013" uuid="6c6e1350-fe05-4272-9066-a0165e798360"/>
+				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JsonDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("Info")]]></dataSourceExpression>
+				<subreportExpression><![CDATA["multi-marklist-subreport.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

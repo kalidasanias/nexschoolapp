@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.3.final using JasperReports Library version 6.4.3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="template_set" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="6181c2d3-8638-46f8-af41-feb484c117e3">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (5)"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<queryString language="JSON">
+		<![CDATA[classData]]>
+	</queryString>
+	<field name="className" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="className"/>
+		<fieldDescription><![CDATA[className]]></fieldDescription>
+	</field>
+	<field name="sectionName" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="sectionName"/>
+		<fieldDescription><![CDATA[sectionName]]></fieldDescription>
+	</field>
+	<field name="users" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="users"/>
+		<fieldDescription><![CDATA[users]]></fieldDescription>
+	</field>
+	<detail>
+		<band height="460" splitType="Stretch">
+			<subreport isUsingCache="false">
+				<reportElement x="14" y="42" width="576" height="388" uuid="6c6e1350-fe05-4272-9066-a0165e798360"/>
+				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JsonDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("classData")]]></dataSourceExpression>
+				<subreportExpression><![CDATA["class_subreport.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

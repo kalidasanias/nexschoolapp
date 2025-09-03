@@ -1,0 +1,31 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h6 class="panel-title"><span class="text-semibold text-uppercase"><i class="icon-tree7 position-left"></i>Section Allocation </span><i class="icon-arrow-right15 text-pink-600"></i> <small>List of Sections </small></h6>
+        <!--<div class="heading-elements">
+            <button type="button" class="btn btn-sm btn-primary heading-btn" data-toggle="modal" data-target="#modal">Associate Section</button>
+
+        </div>-->
+        <div class="heading-elements">
+            <input *ngIf="enable" type="button" value="Section Allocation" data-size="50%" data-title="Section Allocation" data-toggle="from-right" data-id="#associate-section" class="btn btn-sm btn-primary" (click)="associateSections($event)"/>
+            <input hidden id="warningSection" (click)="request_delete_warning()" type="button" style="display: none;">
+            <input hidden id="deleteButton" (click)="request_delete($event)" type="button" style="display: none;">
+            <input hidden id="sectionAllocationEditButton" (click)="editAssociateSection($event)"  data-size="50%" data-id="#associate-edit-section" type="button" style="display: none;">
+        </div>
+    </div>
+
+    <div class="panel-body">
+        <table class="table datatable-sectionAllocation">
+            <thead>
+            <tr>
+                <th data-priority="1">Academic Year</th>
+                <th>Class Name</th>
+                <th>Section Name</th>
+                <th>Student Intake</th>
+                <th data-priority="2">Action</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+<associate-section></associate-section>
+<associate-section-edit></associate-section-edit>

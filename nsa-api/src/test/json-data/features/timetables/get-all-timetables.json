@@ -1,0 +1,75 @@
+{
+  "status":{
+    "code":200,
+    "message":"Success"
+  },
+  "myClasses":[
+    {
+      "classId":"3424234234234",
+      "className":"12th A"
+    }
+  ],
+  "myTimetable":{
+    "timetableId":"23123123"
+  },
+  "classTimetable":{
+    "classes":[
+      {
+        "classId":"12312312312",
+        "className":"Class 1",
+        "sections":[
+          {
+            "sectionId":"324324234",
+            "sectionName":"A"
+          },
+          {
+            "sectionId":"564564564",
+            "sectionName":"B"
+          }
+        ]
+      },
+      {
+        "classId":"34242342323",
+        "className":"Class 2",
+        "sections":[
+          {
+            "sectionId":"324324234",
+            "sectionName":"A"
+          },
+          {
+            "sectionId":"564564564",
+            "sectionName":"B"
+          }
+        ]
+      },
+      {
+        "classId":"43545545454",
+        "className":"Class 3",
+        "sections":[
+          {
+            "sectionId":"324324234",
+            "sectionName":"A"
+          },
+          {
+            "sectionId":"564564564",
+            "sectionName":"B"
+          }
+        ]
+      }
+    ]
+  },
+  "teachers":[
+    {
+      "userId":"123123123",
+      "teacherName":"Shruthi"
+    },
+    {
+      "userId":"322423432",
+      "teacherName":"Divya"
+    },
+    {
+      "userId":"453453453",
+      "teacherName":"Geetha"
+    }
+  ]
+}

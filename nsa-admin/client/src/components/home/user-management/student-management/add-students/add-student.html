@@ -1,0 +1,873 @@
+<div id="addStudent" class="overlay-popup footer-popup" style="display: none;">
+    <!-- RIGHT PANEL STARTS -->
+    <div class="cd-panel">
+        <div class="cd-panel-header">
+            <div class="simple-field-hf">
+            </div>
+            <a (click)="closeOverlay($event)" (click)="uploader.clearQueue()" class="cd-panel-close">Close</a>
+        </div>
+        <div class="cd-panel-container" id="hiflame-cart-popup">
+            <div class="cd-panel-content wizard-panel-content" id="side-panel-container">
+                <form-wizard>
+                    <wizard-step [title]="'Student'" [isValid]="studentForm.valid" (onNext)="onStudentInfo($event)">
+                        <form class="steps-basic form-validate form-horizontal studentForm" novalidate [formGroup]="studentForm" action="#">
+                            <div class="wizard-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <!-- Horizontal form -->
+                                        <div class="panel panel-flat">
+                                            <div class="panel-heading">
+                                                <h5 class="panel-title">Student Details</h5>
+                                            </div>
+                                            <div class="panel-body">
+                                                <div class="table-responsive">
+                                                    <table class="table">
+                                                        <tr>
+                                                            <td>First Name&nbsp;<span class="text-danger">*</span></td>
+                                                            <td>
+                                                                <input type="" class="form-control" placeholder="First Name" formControlName="first_name">
+                                                                <div control-messages class="validation-error-label" [control]="studentForm.controls.first_name"></div>
+                                                            </td>
+                                                            <td>Middle name</td>
+                                                            <td><input type="" class="form-control" placeholder="Middle Name" formControlName="middle_name"></td>
+                                                            <td>Last name</td>
+                                                            <td><input type="" class="form-control" placeholder="Last Name" formControlName="last_name"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Short Name</td>
+                                                            <td><input type="text" class="form-control" placeholder="Short Name" formControlName="short_name"></td>
+                                                            <td>Stay</td>
+                                                            <td ><select #hostel name="select" id="select-hostel" class="form-control select-change" (click)="selectStay()"  formControlName="hostel">
+                                                            </select>
+                                                            </td>
+                                                            <td>Gender</td>
+                                                            <td><select #gender name="select" id="select-gender" class="form-control">
+                                                            </select>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Mother Tongue</td>
+                                                            <td><input type="text" class="form-control" placeholder="Mother Tongue" formControlName="mother_tongue"></td>
+                                                            <td>Community</td>
+                                                            <td><input type="text" class="form-control" placeholder="Community"  formControlName="community"></td>
+                                                            <td>Nationality</td>
+                                                            <td><input type="text" class="form-control" value="Indian" formControlName="nationality"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Date Of Birth</td>
+                                                            <td class="student_picker">
+                                                                <input #date_of_birth type="text" class="form-control pickadate-year-month-future" placeholder="Select Date&hellip;">
+                                                            </td>
+                                                            <td>Place of Birth</td>
+                                                            <td ><input type="" class="form-control" placeholder="Birth Place" formControlName="place_of_birth"></td>
+                                                            <td><span [hidden]="schoolBus">School Bus</span></td>
+                                                            <td class="medical"><input [hidden]="schoolBus"  type="checkbox" [checked]='transport_required' formControlName="transport_required"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Admission No&nbsp;<span class="text-danger">*</span></td>
+                                                            <td>
+                                                                <input type="text" class="form-control" value="" id="admissionNo" placeholder="Enter Admission No" formControlName="user_code">
+                                                                <div control-messages class="validation-error-label" [control]="studentForm.controls.user_code"></div>
+                                                            </td>
+                                                            <td>Admission Date</td>
+                                                            <td class="student_picker">
+                                                                <!--<span class="input-group-addon"><i class="icon-calendar22"></i></span>-->
+                                                                <input #date_of_joining type="text" class="form-control pickadate-year-month" placeholder="Select Date&hellip;">
+                                                            </td>
+                                                            <td [hidden]="password">Password</td>
+                                                            <td [hidden]="password">
+                                                                <input type="password" class="form-control" value="" id="password" placeholder="Enter password" formControlName="password">
+                                                                <!--<div control-messages class="validation-error-label" [control]="studentForm.controls.password"></div>-->
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </wizard-step>
+                    <wizard-step [title]="'Additional'" [isValid]="additionalForm.valid" (onNext)="onClassInfo($event)">
+                        <form class="steps-basic form-validate form-horizontal classForm" novalidate [formGroup]="additionalForm" action="#">
+                            <div class="wizard-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <!-- Horizontal form -->
+                                        <div class="panel panel-flat">
+                                            <div class="panel-heading">
+                                                <h5 class="panel-title">Class Details</h5>
+                                            </div>
+                                            <div class="panel-body">
+                                                <div class="table-responsive">
+                                                    <table class="table">
+                                                        <tr>
+                                                            <td>Class&nbsp;<span class="text-danger">*</span></td>
+                                                            <td style="width: 60%;"><select #class id="select-class" class="form-control select-change" (click)="classChange($event)">
+                                                            </select>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td [hidden]="sectiondropdown" >Section&nbsp;<span class="text-danger">*</span></td>
+                                                            <td [hidden]="sectiondropdown" style="width: 60%;">
+                                                                <select #section name="select" id="select-section" class="form-control" >
+                                                                </select>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>&nbsp;</td>
+                                                            <td>&nbsp;</td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <!-- Horizontal form -->
+                                        <div class="panel panel-flat">
+                                            <div class="panel-heading col-md-12">
+                                                <h5 class="panel-title col-sm-5">Language Details</h5>
+                                                <span class="col-sm-5" align="left" style="color: grey;margin-left:-40px;margin-top:3px;">[Languages to be learnt]</span>
+                                            </div>
+                                            <div class="panel-body">
+                                                <div class="table-responsive">
+                                                    <table class="table">
+                                                        <tr>
+                                                            <td>1st Language&nbsp;<span class="text-danger">*</span></td>
+                                                            <td  style="width: 60%;"><select #lang1 id="select-lang1" class="form-control">
+                                                            </select>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2nd Language&nbsp;<span class="text-danger">*</span></td>
+                                                            <td  style="width: 60%;"><select #lang2 id="select-lang2" class="form-control">
+                                                            </select>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>3rd Language&nbsp;<span class="text-danger">*</span></td>
+                                                            <td style="width: 60%;"><select #lang3 id="select-lang3" class="form-control">
+                                                            </select>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--<legend class="title-table">-->
+                                <!--<label class="col-lg-2 text-bold">Class Details</label>-->
+                                <!--</legend>-->
+                                <!--<div class="form-group">-->
+                                <!--<label class="col-lg-2 control-label text-right">Class&nbsp;<span class="text-danger">*</span></label>-->
+                                <!--<div class="col-lg-4">-->
+                                <!--<div class="form-group multi-select-full">-->
+                                <!--<select #class id="select-class" class="form-control select-change" (click)="classChange($event)">-->
+                                <!--</select>-->
+                                <!--</div>-->
+                                <!--</div>-->
+                                <!--<label class="col-lg-2 control-label text-right select-section hide">Section&nbsp;<span class="text-danger">*</span></label>-->
+                                <!--<div class="col-lg-4">-->
+                                <!--<div class="form-group select-section hide">-->
+                                <!--<select #section name="select" id="select-section" class="form-control" hide>-->
+                                <!--</select>-->
+                                <!--</div>-->
+                                <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="form-group">-->
+                                <!--<label class="col-md-2 control-label text-right">Language-I<span class="text-danger"> *</span></label>-->
+                                <!--<div class="form-group col-md-2">-->
+                                <!--<div class="form-group multi-select-full">-->
+                                <!--<select #lang1 id="select-lang1" class="form-control">-->
+                                <!--</select>-->
+                                <!--</div>-->
+                                <!--</div>-->
+                                <!--<label class="col-md-2 control-label text-right">Language-II<span class="text-danger"> *</span></label>-->
+                                <!--<div class="form-group col-md-2">-->
+                                <!--<div class="form-group multi-select-full">-->
+                                <!--<select #lang2 id="select-lang2" class="form-control">-->
+                                <!--</select>-->
+                                <!--</div>-->
+                                <!--</div>-->
+                                <!--<label class="col-md-2 control-label text-right">Language-III<span class="text-danger"> *</span></label>-->
+                                <!--<div class="form-group col-md-2">-->
+                                <!--<div class="form-group multi-select-full">-->
+                                <!--<select #lang3 id="select-lang3" class="form-control">-->
+                                <!--</select>-->
+                                <!--</div>-->
+                                <!--</div>-->
+                                <!--</div>-->
+                                <!--<legend class="title-table">-->
+                                <!--<label class="col-md-2 text-bold">Address</label>-->
+                                <!--</legend>-->
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <!-- Horizontal form -->
+                                        <div class="panel panel-flat">
+                                            <div class="panel-heading">
+                                                <h5 class="panel-title">Present Address</h5>
+                                            </div>
+                                            <div class="panel-body">
+                                                <div class="table-responsive ">
+                                                    <table class="table">
+                                                        <tr>
+                                                            <td>Street</td>
+                                                            <td><input type="" class="form-control" placeholder="Building" formControlName="present_street_address1"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Area</td>
+                                                            <td><input type="" class="form-control" placeholder="Street Address" formControlName="present_street_address2"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>City</td>
+                                                            <td><input type="" class="form-control" placeholder="City" formControlName="present_city"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>State</td>
+                                                            <td><input type="" class="form-control" placeholder="State" formControlName="present_state"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Pincode</td>
+                                                            <td><input type="" class="form-control" placeholder="Pincode" formControlName="present_pincode">
+                                                        </tr>
+                                                        <!--<tr>-->
+                                                        <!--<td>Country</td>-->
+                                                        <!--<td><input type="" class="form-control" placeholder="Country" formControlName="present_state"></td>-->
+                                                        <!--</tr>-->
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <!-- Horizontal form -->
+                                        <div class="panel panel-flat">
+                                            <div class="row student-panel-flat">
+                                                <div class="col-md-6">
+                                                    <h5 class="panel-title ">Permanent Address</h5>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input type="checkbox"
+                                                                   (click)="samePresent($event)">
+                                                            Same - Present Address
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="panel-body">
+                                                <div class="table-responsive">
+                                                    <table class="table">
+                                                        <tr>
+                                                            <td>Street</td>
+                                                            <td><input type="" class="form-control" placeholder="Building" formControlName="street_address1"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Area</td>
+                                                            <td><input type="" class="form-control" placeholder="Street Address" formControlName="street_address2"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>City</td>
+                                                            <td><input type="" class="form-control" placeholder="City" formControlName="city"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>State</td>
+                                                            <td><input type="" class="form-control" placeholder="State" formControlName="state"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Pincode</td>
+                                                            <td><input type="" class="form-control" placeholder="Pincode" formControlName="pincode">
+                                                        </tr>
+                                                        <!--<tr>-->
+                                                        <!--<td>Country</td>-->
+                                                        <!--<td><input type="" class="form-control" placeholder="Country" formControlName="present_state"></td>-->
+                                                        <!--</tr>-->
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--<div class="form-group" class="col-lg-6 >-->
+                                <!--<label class="col-md-2 control-label text-right">Present Address&nbsp;<span class="text-danger">*</span></label>-->
+                                <!--<div class="col-md-4">-->
+                                <!--<input type="" class="form-control" placeholder="Building" formControlName="present_street_address1">-->
+                                <!--</div>-->
+                                <!--<div class="col-md-3">-->
+                                <!--<input type="" class="form-control" placeholder="Street Address" formControlName="present_street_address2">-->
+                                <!--</div>-->
+                                <!--<div class="col-md-2">-->
+                                <!--<input type="" class="form-control" placeholder="City" formControlName="present_city">-->
+                                <!--</div>-->
+                                <!--<div class="col-md-2">-->
+                                <!--<input type="" class="form-control" placeholder="State" formControlName="present_state">-->
+                                <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="form-group">-->
+                                <!--<label class="col-lg-2 control-label text-right">Permanent Address</label>-->
+                                <!--<div class="col-md-10">-->
+                                <!--<div class="checkbox">-->
+                                <!--<label>-->
+                                <!--<input type="checkbox" [checked]='sameAs' (click)="samePresent($event)" formControlName="sameAs">-->
+                                <!--Same - Present Address-->
+                                <!--</label>-->
+                                <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="col-md-3">-->
+                                <!--<input type="" class="form-control" placeholder="Building" formControlName="street_address1">-->
+                                <!--</div>-->
+                                <!--<div class="col-md-3">-->
+                                <!--<input type="" class="form-control" placeholder="Street Address" formControlName="street_address2">-->
+                                <!--</div>-->
+                                <!--<div class="col-md-2">-->
+                                <!--<input type="" class="form-control" placeholder="City" formControlName="city">-->
+                                <!--</div>-->
+                                <!--<div class="col-md-2">-->
+                                <!--<input type="" class="form-control" placeholder="State" formControlName="state">-->
+                                <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="form-group">-->
+                                <!--<label class="col-lg-2 control-label text-right">Country</label>-->
+                                <!--<div class="col-md-3">-->
+                                <!--<input type="" class="form-control" placeholder="Country" formControlName="country">-->
+                                <!--</div>-->
+                                <!--</div>-->
+                                <!--<legend class="title-table">-->
+                                <!--<label class="col-lg-2 text-bold">Medical Details</label>-->
+                                <!--</legend>-->
+                                <!--<div class="form-group">-->
+                                <!--<label class="col-lg-2 control-label text-right">Blood Group</label>-->
+                                <!--<div class="col-md-2">-->
+                                <!--<input type="" class="form-control" placeholder="Blood Group" formControlName="blood_group">-->
+                                <!--</div>-->
+                                <!--<label class="col-lg-2 control-label text-right">Height</label>-->
+                                <!--<div class="col-md-2">-->
+                                <!--<input type="" class="form-control" placeholder="Height" formControlName="height">-->
+                                <!--</div>-->
+                                <!--<label class="col-lg-2 control-label text-right">Weight</label>-->
+                                <!--<div class="col-md-2">-->
+                                <!--<input type="" class="form-control" placeholder="Weight" formControlName="weight">-->
+                                <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="form-group">-->
+                                <!--<label class="col-lg-2 control-label text-right">Health Problem</label>-->
+                                <!--<div class="col-md-4 multi-select-full">-->
+                                <!--<select #health name="select" id="select-health" class="form-control" multiple="multiple">-->
+                                <!--</select>-->
+                                <!--</div>-->
+                                <!--<label class="col-lg-3 control-label text-right">Additional Medical Data</label>-->
+                                <!--<div class="col-md-3">-->
+                                <!--<textarea rows="2" cols="3" class="form-control" placeholder="Additional Medical Data" formControlName="medical_data"></textarea>-->
+                                <!--</div>-->
+                                <!--</div>-->
+                                <div class="row" >
+                                    <div class="col-md-12">
+                                        <!-- Horizontal form -->
+                                        <div class="panel panel-flat">
+                                            <div class="panel-heading">
+                                                <h5 class="panel-title">Medical Details</h5>
+                                            </div>
+                                            <div class="panel-body">
+                                                <div class="table-responsive">
+                                                    <table class="table">
+                                                        <tr>
+                                                            <td colspan="2">Blood Group</td>
+                                                            <td colspan="2"><input type="" class="form-control" placeholder="Blood Group" formControlName="blood_group"></td>
+                                                            <td colspan="2">Height<span style="color: grey;display:inline-block;">(in Cm.)</span></td>
+                                                            <td colspan="2"><input type="" class="form-control" placeholder="Height" formControlName="height"></td>
+                                                            <td colspan="2">Weight<span style="color: grey;display:inline-block;">(in Kg.)</span></td>
+                                                            <td colspan="2"><input type="" class="form-control" placeholder="Weight" formControlName="weight"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="2">Health Problem</td>
+                                                            <td colspan="4"  class="medical multi-select-full">
+                                                                <select #health name="select" id="select-health" class="form-control" multiple="multiple"></select>
+                                                            </td>
+                                                            <td colspan="2">Additional Medical Data</td>
+                                                            <td colspan="4"><textarea rows="2" cols="3" class="form-control" placeholder="Additional Medical Data" formControlName="medical_data"></textarea></td>
+                                                            <!--<td>Language-III</td>-->
+                                                            <!--<td><select #lang3 id="select-lang3" class="form-control">-->
+                                                            <!--</select></td>-->
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </wizard-step>
+                    <wizard-step [title]="'Parent'" [isValid]="parentForm.valid" (onNext)="onParentInfo($event)">
+                        <form class="steps-basic form-validate form-horizontal parentForm" novalidate [formGroup]="parentForm" action="#">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <!-- Horizontal form -->
+                                    <div class="panel panel-flat">
+                                        <div class="panel-heading">
+                                            <h5 class="panel-title">Father</h5>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="table-responsive ">
+                                                <table class="table">
+                                                    <tr>
+                                                        <td>Name&nbsp;<span class="text-danger">*</span></td>
+                                                        <td><input #isFatherName type="text" class="form-control" formControlName="father_name"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Qualification</td>
+                                                        <td><input #father_qualification type="text" class="form-control" formControlName="father_qualification"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Occupation</td>
+                                                        <td><input type="text" class="form-control" formControlName="father_occupation"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Income</td>
+                                                        <td><input type="text" class="form-control" formControlName="father_income"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Contact Number&nbsp;<span class="text-danger"style="position: relative;top: -5px;">#</span></td>
+                                                        <td>
+                                          <span class="input-group-addon">
+                                          <input #isFatherPrimary type="radio" name="primary_contact" formControlName="primary_contact" class="styled radio1" [value]="true">
+                                          </span>
+                                                            <input #father_phone type="text" id="father_contact" class="form-control" placeholder="Primary Contact - Check Radio" formControlName="father_phone">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Email</td>
+                                                        <td>
+                                          <span class="input-group-addon">
+                                          <input type="radio" name="primary_email" formControlName="primary_email" class="styled radio1" [value]="true">
+                                          </span>
+                                                            <input type="text" class="form-control" placeholder="Primary Email - Check Radio" formControlName="father_email">
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <!-- Horizontal form -->
+                                    <div class="panel panel-flat">
+                                        <div class="row student-panel-flat">
+                                            <div class="col-md-6">
+                                                <h5 class="panel-title ">Mother</h5>
+                                            </div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="table-responsive ">
+                                                <table class="table">
+                                                    <tr>
+                                                        <td>Name</td>
+                                                        <td> <input #isMotherName type="text" class="form-control" formControlName="mother_name"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Qualification</td>
+                                                        <td><input #mother_qualification type="text" class="form-control" formControlName="mother_qualification"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Occupation</td>
+                                                        <td><input type="text" class="form-control" formControlName="mother_occupation"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Income</td>
+                                                        <td><input type="text" class="form-control" formControlName="mother_income"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Contact Number&nbsp;<span class="text-danger" style="position: relative;top: -5px;">#</span></td>
+                                                        <td>
+                                          <span class="input-group-addon">
+                                          <input #isMotherPrimary type="radio" name="primary_contact" formControlName="primary_contact" class="styled radio1" [value]="false">
+                                          </span>
+                                                            <input  #mother_phone type="text" id="mother_contact" class="form-control" placeholder="Primary Contact - Check Radio" formControlName="mother_phone">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Email</td>
+                                                        <td>
+                                          <span class="input-group-addon">
+                                          <input type="radio" name="primary_email" formControlName="primary_email" class="styled radio1" [value]="false">
+                                          </span>
+                                                            <input type="text" class="form-control" placeholder="Primary Email - Check Radio" formControlName="mother_email">
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div align="left"><b><strong>#</strong> Information Mandatory for either Father or Mother</b></div>
+                            <!--<div class="wizard-body">-->
+                            <!--<legend class="title-table">-->
+                            <!--<label class="col-lg-2 control-label">&nbsp;</label>-->
+                            <!--<label class="col-lg-5 text-bold text-center">Father</label>-->
+                            <!--<label class="col-lg-5 text-bold text-center">Mother</label>-->
+                            <!--</legend>-->
+                            <!--<div class="form-group">-->
+                            <!--<label class="col-lg-2 control-label text-right">Name&nbsp;<span class="text-danger">*</span></label>-->
+                            <!--<div class="col-lg-5">-->
+                            <!--<div class="form-group text-center">-->
+                            <!--<input type="text" class="form-control" formControlName="father_name">-->
+                            <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="col-lg-5 text-center">-->
+                            <!--<div class="form-group">-->
+                            <!--<input type="text" class="form-control" formControlName="mother_name">-->
+                            <!--</div>-->
+                            <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="form-group">-->
+                            <!--<label class="col-lg-2 control-label text-right">Qualification&nbsp;<span class="text-danger">*</span></label>-->
+                            <!--<div class="col-lg-5">-->
+                            <!--<div class="form-group text-center">-->
+                            <!--<input type="text" class="form-control" formControlName="father_qualification">-->
+                            <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="col-lg-5 text-center">-->
+                            <!--<div class="form-group">-->
+                            <!--<input type="text" class="form-control" formControlName="mother_qualification">-->
+                            <!--</div>-->
+                            <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="form-group">-->
+                            <!--<label class="col-lg-2 control-label text-right">Occupation</label>-->
+                            <!--<div class="col-lg-5">-->
+                            <!--<div class="form-group text-center">-->
+                            <!--<input type="text" class="form-control" formControlName="father_occupation">-->
+                            <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="col-lg-5 text-center">-->
+                            <!--<div class="form-group">-->
+                            <!--<input type="text" class="form-control" formControlName="mother_occupation">-->
+                            <!--</div>-->
+                            <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="form-group">-->
+                            <!--<label class="col-lg-2 control-label text-right">Annual Income</label>-->
+                            <!--<div class="col-lg-5">-->
+                            <!--<div class="form-group text-center">-->
+                            <!--<input type="text" class="form-control" formControlName="father_income">-->
+                            <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="col-lg-5 text-center">-->
+                            <!--<div class="form-group">-->
+                            <!--<input type="text" class="form-control" formControlName="mother_income">-->
+                            <!--</div>-->
+                            <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="form-group">-->
+                            <!--<label class="col-lg-2 control-label text-right">Contact Number&nbsp;<span class="text-danger">*</span></label>-->
+                            <!--<div class="col-lg-5">-->
+                            <!--<div class="form-group text-center">-->
+                            <!--<div class="input-group">-->
+                            <!--<span class="input-group-addon">-->
+                            <!--<input type="radio" name="primary_contact" formControlName="primary_contact" class="styled radio1" [value]="true">-->
+                            <!--</span>-->
+                            <!--<input type="text" class="form-control" placeholder="Primary Contact - Check Radio" formControlName="father_phone">-->
+                            <!--</div>-->
+                            <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="col-lg-5 text-center">-->
+                            <!--<div class="form-group">-->
+                            <!--<div class="input-group">-->
+                            <!--<span class="input-group-addon">-->
+                            <!--<input type="radio" name="primary_contact" formControlName="primary_contact" class="styled radio1" [value]="false">-->
+                            <!--</span>-->
+                            <!--<input type="text" class="form-control" placeholder="Primary Contact - Check Radio" formControlName="mother_phone">-->
+                            <!--</div>-->
+                            <!--</div>-->
+                            <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="form-group">-->
+                            <!--<label class="col-lg-2 control-label text-right">EMail</label>-->
+                            <!--<div class="col-lg-5">-->
+                            <!--<div class="form-group text-center">-->
+                            <!--<div class="input-group">-->
+                            <!--<span class="input-group-addon">-->
+                            <!--<input type="radio" name="primary_email" formControlName="primary_email" class="styled radio1" [value]="true">-->
+                            <!--</span>-->
+                            <!--<input type="text" class="form-control" placeholder="Primary Email - Check Radio" formControlName="father_email">-->
+                            <!--</div>-->
+                            <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="col-lg-5 text-center">-->
+                            <!--<div class="form-group text-center">-->
+                            <!--<div class="input-group">-->
+                            <!--<span class="input-group-addon">-->
+                            <!--<input type="radio" name="primary_email" formControlName="primary_email" class="styled radio1" [value]="false">-->
+                            <!--</span>-->
+                            <!--<input type="text" class="form-control" placeholder="Primary Email - Check Radio" formControlName="mother_email">-->
+                            <!--</div>-->
+                            <!--</div>-->
+                            <!--</div>-->
+                            <!--</div>-->
+                            <!--</div>-->
+                        </form>
+                    </wizard-step>
+                    <wizard-step [title]="'Emergency'" [isValid]="emergencyForm.valid" (onNext)="onEmergencyContact($event)">
+                        <form class="steps-basic form-validate form-horizontal emergencyForm" novalidate [formGroup]="emergencyForm" action="#">
+                            <div class="wizard-body">
+                                <legend class="title-table">
+                                    <label class="col-lg-2 control-label">&nbsp;</label>
+                                    <label class="col-lg-5 text-bold text-center">Contact - 1</label>
+                                    <label class="col-lg-5 text-bold text-center">Contact - 2</label>
+                                </legend>
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label text-right">Parents&nbsp;<span class="text-danger">*</span></label>
+                                    <div class="col-lg-5">
+                                        <div class="form-group text-center">
+                                            <div class="checkbox-inline">
+                                                <label>
+                                                    <input type="checkbox" id="fatherAddress" (click)="sameFather($event)" name="sameAsFather" formControlName="sameAsFather">
+                                                    Father
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5 text-center">
+                                        <div class="checkbox-inline">
+                                            <label>
+                                                <input type="checkbox" id="motherAddress" (click)="sameMother($event)" name="sameAsMother" formControlName="sameAsMother">
+                                                Mother
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label text-right">Name&nbsp;<span class="text-danger">*</span></label>
+                                    <div class="col-lg-5">
+                                        <div class="form-group text-center">
+                                            <input type="text" class="form-control" formControlName="additional_contact1_name" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5 text-center">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" formControlName="additional_contact2_name">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label text-right">Relationship to Child</label>
+                                    <div class="col-lg-5">
+                                        <div class="form-group text-center">
+                                            <input type="text" class="form-control" formControlName="additional_contact1_relation" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5 text-center">
+                                        <div class="form-group text-center">
+                                            <input type="text" class="form-control"  formControlName="additional_contact2_relation">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label text-right">Address</label>
+                                    <div class="col-lg-5">
+                                        <div class="form-group">
+                                            <textarea type="text" rows="3" cols="3" class="form-control" formControlName="additional_contact1_address" ></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5 text-center">
+                                        <div class="form-group">
+                                            <textarea type="text" rows="3" cols="3" class="form-control"  formControlName="additional_contact2_address"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label text-right">Phone&nbsp;<span class="text-danger">*</span></label>
+                                    <div class="col-lg-5">
+                                        <div class="form-group text-center">
+                                            <input type="text" class="form-control" formControlName="additional_contact1_phone" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5 text-center">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control"  formControlName="additional_contact2_phone">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </wizard-step>
+                    <wizard-step [title]="'Attachments'" [isValid]="attachmentForm.valid" (onComplete)="onSaveStudent($event, 'completeButton')">
+                        <form class="steps-basic form-validate form-horizontal attachmentForm" novalidate [formGroup]="attachmentForm" action="#">
+                            <div class="wizard-body">
+                                <div class="row form-horizontal">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Profile Picture</label>
+                                            <div class="col-sm-4">
+                                                <!--<div class="uploader bg-info"><input type="file" class="file-styled" name="multiple" required (change)="fileChange(input)" ng2FileSelect [uploader]="profile" #input><span class="filename" style="user-select: none;">Select Profile Picture</span><span class="action" style="user-select: none;"><i class="icon-plus2"></i></span></div>-->
+
+                                                <div class="uploader bg-info"><input type="file" accept="image/jpeg,image/png" class="file-styled" name="multiple" ng2FileSelect  [uploader]="profile" ><span class="filename" style="user-select: none;">Select File to Upload</span><span class="action" style="user-select: none;"><i class="icon-plus2"></i></span></div>
+                                                <!--<input type="file" name="student_img" required (change)="fileChange(input)" #input />-->
+                                            </div>
+                                            <span class="help-block">
+                                                No.of Files Selected: {{ profile?.queue?.length }}
+                                                <!--<ng-container *ngIf="studentData.profile_picture"><span class="text-pink-700">&nbsp;||&nbsp;</span><a class="blink-text" (click)="viewAttachment()">view attachments</a></ng-container>-->
+                                             </span>
+                                            <div class="col-sm-6 profile_center">
+                                                <img alt="" id="profilePicture" class="image picture_profile" />
+                                            </div>
+                                        </div>
+                                        <!--<div class="col-md-12">
+                                            <table class="table">
+                                                <thead>
+                                                <tr>
+                                                    <th width="30%">Name</th>
+                                                    <th>Size</th>
+                                                    <th width="15%">Progress</th>
+                                                    <th>Status</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr *ngFor="let item of profile.queue">
+                                                    <td class="fc-title">{{ item.file.name }}</td>
+                                                    <td nowrap>{{ item.file.size/1024/1024 | number:'.2' }} MB</td>
+                                                    <td>
+                                                        <div class="progress progress-xxs" style="margin-bottom: 0;">
+                                                            <div class="progress-bar progress-bar-success" role="progressbar" [ngStyle]="{ 'width': item.progress + '%' }"></div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <span *ngIf="item.isSuccess"><i class="glyphicon glyphicon-ok text-success"></i></span>
+                                                        <span *ngIf="item.isError"><i class="glyphicon glyphicon-remove text-danger"></i></span>
+                                                    </td>
+                                                    <td>
+                                                        <a class="icon-upload4 text-success" (click)="item.upload()" [ngClass]="{'disabled': item.isReady || item.isUploading || item.isSuccess}"></a>&nbsp;
+                                                        <a class="fa fa-trash-o fa-lg text-danger" (click)="item.remove()"></a>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                            <hr/>
+                                            <div>
+                                                <div class="content-group-sm">
+                                                    <p class="text-semibold">Uploading Status</p>
+                                                    <div class="progress progress-xxs">
+                                                        <div class="progress-bar progress-bar-success"  [ngClass]="{'active progress-bar-striped': uploader.progress != 100}" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }">
+                                                        </div>
+                                                    </div>
+                                                    <span [ngClass]="{'text-success-800':uploader.progress > 0,'blink-text': uploader.progress == 100}">{{uploader.progress + '% Completed'}}</span>
+                                                </div>
+                                            </div>
+                                        </div>-->
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Attachments</label>
+                                            <div class="col-sm-4">
+                                                <div class="uploader bg-info"><input type="file" accept=".xls,.xlsx,.jpg,.jpeg,.png,.txt,.doc,.docx,.xl,.pdf,.pptx,.gif,.html,.xml" class="file-styled" name="multiple" ng2FileSelect [uploader]="uploader" multiple><span class="filename" style="user-select: none;">Select File to Upload</span><span class="action" style="user-select: none;"><i class="icon-plus2"></i></span></div>
+                                                     <span class="help-block">
+                                                        No.of Files Selected: {{ uploader?.queue?.length }}
+                                                        <ng-container *ngIf="studentData.attachments"><span class="text-pink-700">&nbsp;||&nbsp;</span><a id="viewAttachment" class="blink-text" (click)="viewAttachment()">view attachments</a></ng-container>
+                                                     </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <div class="col-md-12">
+                                        <table class="table">
+                                            <thead>
+                                            <tr>
+                                                <th width="30%">Name</th>
+                                                <th>Size</th>
+                                                <th width="15%">Progress</th>
+                                                <th>Status</th>
+                                                <th>Action</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr *ngFor="let item of profile.queue">
+                                                <td class="fc-title">{{ item.file.name }}</td>
+                                                <td nowrap>{{ item.file.size/1024/1024 | number:'.2' }} MB</td>
+                                                <td>
+                                                    <div class="progress progress-xxs" style="margin-bottom: 0;">
+                                                        <div class="progress-bar progress-bar-success" role="progressbar" [ngStyle]="{ 'width': item.progress + '%' }"></div>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <span *ngIf="item.isSuccess"><i class="glyphicon glyphicon-ok text-success"></i></span>
+                                                    <span *ngIf="item.isError"><i class="glyphicon glyphicon-remove text-danger"></i></span>
+                                                </td>
+                                                <td>
+                                                    <!--<a class="icon-upload4 text-success" (click)="item.upload()" [ngClass]="{'disabled': item.isReady || item.isUploading || item.isSuccess}"></a>&nbsp;-->
+                                                    <a class="fa fa-trash-o fa-lg text-danger" (click)="item.remove()"></a>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <hr/>
+                                        <div>
+                                            <div class="content-group-sm">
+                                                <p class="text-semibold">Uploading Status</p>
+                                                <div class="progress progress-xxs">
+                                                    <div class="progress-bar progress-bar-success"  [ngClass]="{'active progress-bar-striped': uploader.progress != 100}" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }">
+                                                    </div>
+                                                </div>
+                                                <span [ngClass]="{'text-success-800':uploader.progress > 0,'blink-text': uploader.progress == 100}">{{uploader.progress + '% Completed'}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                        <div class="col-md-12">
+                                            <table class="table">
+                                                <thead>
+                                                <tr>
+                                                    <th width="30%">Name</th>
+                                                    <th>Size</th>
+                                                    <th width="15%">Progress</th>
+                                                    <th>Status</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr *ngFor="let item of uploader.queue">
+                                                    <td class="fc-title">{{ item.file.name }}</td>
+                                                    <td nowrap>{{ item.file.size/1024/1024 | number:'.2' }} MB</td>
+                                                    <td>
+                                                        <div class="progress progress-xxs" style="margin-bottom: 0;">
+                                                            <div class="progress-bar progress-bar-success" role="progressbar" [ngStyle]="{ 'width': item.progress + '%' }"></div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <span *ngIf="item.isSuccess"><i class="glyphicon glyphicon-ok text-success"></i></span>
+                                                        <span *ngIf="item.isError"><i class="glyphicon glyphicon-remove text-danger"></i></span>
+                                                    </td>
+                                                    <td>
+                                                        <!--<a class="icon-upload4 text-success" (click)="item.upload()" [ngClass]="{'disabled': item.isReady || item.isUploading || item.isSuccess}"></a>&nbsp;-->
+                                                        <a class="fa fa-trash-o fa-lg text-danger" (click)="item.remove()"></a>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                            <hr/>
+                                            <div>
+                                                <div class="content-group-sm">
+                                                    <p class="text-semibold">Uploading Status</p>
+                                                    <div class="progress progress-xxs">
+                                                        <div class="progress-bar progress-bar-success"  [ngClass]="{'active progress-bar-striped': uploader.progress != 100}" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }">
+                                                        </div>
+                                                    </div>
+                                                    <span [ngClass]="{'text-success-800':uploader.progress > 0,'blink-text': uploader.progress == 100}">{{uploader.progress + '% Completed'}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                        </form>
+                    </wizard-step>
+                </form-wizard>
+            </div>
+            <!-- cd-panel-container -->
+        </div>
+    </div>
+    <!-- right panel script -->
+</div>
+<attachment></attachment>

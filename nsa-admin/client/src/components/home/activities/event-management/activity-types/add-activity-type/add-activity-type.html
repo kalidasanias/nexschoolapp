@@ -1,0 +1,49 @@
+<div id="addActivityType" class="overlay-popup footer-popup" style="display: none;">
+    <!-- RIGHT PANEL STARTS -->
+    <div class="cd-panel">
+        <div class="cd-panel-header">
+            <!-- <div class="hidden-xs simple-field-hf"></div> -->
+            <div class="simple-field-hf">
+            </div>
+            <a (click)="closeOverlay($event)" class="cd-panel-close">Close</a>
+        </div>
+        <div class="cd-panel-container">
+            <div class="cd-panel-content" id="side-panel-container">
+                <form class="form-horizontal" [formGroup]="activityTypeForm">
+                    <div class="modal-body">
+                        <fieldset class="">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4">Activity Type Name &nbsp;<span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="email" placeholder="" formControlName="activity_type_name">
+                                        <div control-messages class="validation-error-label" [control]="activityTypeForm.controls.activity_type_name"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4">Description
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <textarea rows="5" cols="5" class="form-control" placeholder="" formControlName="description"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="overlay-footer">
+                        <div class="right-align overlay-footer-content-rt">
+                            <button type="button" class="btn btn-default" (click)="closeOverlay($event)">Close</button>
+                            <button type="submit" [disabled]="!activityTypeForm.valid" (click)="saveActivityType('save')" id="save" class="btn btn-primary btn-ladda btn-ladda-progres">{{btnVal}}</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- cd-panel-container -->
+        </div>
+    </div>
+    <!-- right panel script -->
+</div>
+

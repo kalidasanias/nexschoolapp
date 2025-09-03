@@ -1,0 +1,28 @@
+{
+  "status":{
+    "code":201,
+    "message":"Success Message Here"
+  },
+  "notifications":[
+    {
+      "notificationId":"123",
+      "title":"Sports Meet",
+      "description":"Sports Meet",
+      "createdDate":"2016-12-23",
+      "status":"Sent",
+      "sentDate":"2016-12-23",
+      "totalSMSSent":"1000",
+      "sentBy":"Some User"
+    },
+    {
+      "notificationId":"1234",
+      "title":"Art Event",
+      "description":"Art Event",
+      "createdDate":"2016-12-26",
+      "status":"Draft",
+      "sentDate":"2016-12-26",
+      "totalSMSSent":"0",
+      "sentBy":""
+    }
+  ]
+}

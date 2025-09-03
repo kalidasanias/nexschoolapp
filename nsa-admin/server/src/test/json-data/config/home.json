@@ -1,0 +1,155 @@
+{
+  "status":{
+    "code":200,
+    "message":"Success Message Here"
+  },
+  "ads":[
+    {
+      "adId":"231231",
+      "adName":"Student Books",
+      "adDesc":"Student Books",
+      "adUrl":"",
+      "adType":"App"
+    },
+    {
+      "adId":"213222",
+      "adName":"Sport Bag",
+      "adDesc":"Sports Bag",
+      "adUrl":"",
+      "adType":"Website"
+    }
+  ],
+  "banners":[
+    {
+      "bannerId":"11111",
+      "bannerName":"Sports Event",
+      "bannerDesc":"Sports Event",
+      "bannerUrl":"",
+      "bannerType":"App"
+    },
+    {
+      "bannerId":"22222",
+      "bannerName":"Upcoming Event",
+      "bannerDesc":"Upcoming Event",
+      "bannerUrl":"",
+      "bannerType":"Website"
+    }
+  ],
+  "notifications":[
+    {
+      "featureId":"2323233",
+      "messages":[
+        {
+          "notificationId":"333333",
+          "message":"Robotics Seminar for class 5 and above"
+        },
+        {
+          "notificationId":"454545",
+          "message":"Robotics Seminar for class 5 and above"
+        }
+      ]
+    },
+    {
+      "featureId":"2323233",
+      "featureType":"Event",
+      "messages":[
+        {
+          "notificationId":"4444",
+          "message":"Swimming competition for class for classes above 5th"
+        }
+      ]
+    },
+    {
+      "featureId":"5556565",
+      "featureType":"Event",
+      "messages":[
+        {
+          "notificationId":"55555",
+          "message":"Aeroshow parade ground Chennai"
+        }
+      ]
+    },
+    {
+      "featureId":"67676767",
+      "featureType":"Event",
+      "messages":[
+        {
+          "notificationId":"66666",
+          "message":"Science Exhibition"
+        }
+      ]
+    },
+    {
+      "featureId":"676778787",
+      "featureType":"Event",
+      "messages":[
+        {
+          "notificationId":"77777",
+          "message":"Artwork Event"
+        }
+      ]
+    },
+    {
+      "featureId":"7878787",
+      "featureType":"Transport",
+      "messages":[
+        {
+          "notificationId":"8888",
+          "message":"Bus has arrived"
+        }
+      ]
+    },
+    {
+      "featureId":"8989898",
+      "featureType":"Notification",
+      "messages":[
+        {
+          "notificationId":"9999",
+          "message":"Exam dates announced for all classes"
+        }
+      ]
+    },
+    {
+      "featureId":"90909090",
+      "featureType":"Sports",
+      "messages":[
+        {
+          "notificationId":"090909",
+          "message":"Interschool sports competition for classes 10 - 12"
+        }
+      ]
+    }
+  ],
+  "galleries":[
+    {
+      "albumId":"1231",
+      "album":"Sports",
+      "imageUrl":"/images/16-17/sports/1.jpg",
+      "categoryId":"234324"
+    },
+    {
+      "albumId":"2222",
+      "album":"Events",
+      "imageUrl":"/images/16-17/events/2.jpg",
+      "categoryId":"3423434"
+    },
+    {
+      "albumId":"3333",
+      "album":"Anniversary",
+      "imageUrl":"/images/16-17/anniversary/3.jpg",
+      "categoryId":"34343"
+    },
+    {
+      "albumId":"4444",
+      "album":"Arts",
+      "imageUrl":"/images/16-17/arts/4.jpg",
+      "categoryId":"342342"
+    },
+    {
+      "albumId":"5555",
+      "album":"Karate",
+      "imageUrl":"/images/16-17/karate/5.jpg",
+      "categoryId":"5675675"
+    }
+  ]
+}

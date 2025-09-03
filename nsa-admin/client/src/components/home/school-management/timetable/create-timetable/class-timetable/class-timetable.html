@@ -1,0 +1,28 @@
+<div class="panel-heading" style="bottom:25px;">
+    <h6 class="panel-title" style="bottom: -13px"><span class="text-semibold"><i class="fa fa-bars"></i> List of Class Timetable</span></h6>
+    <div class="heading-elements" style="top:32px;">
+        <input *ngIf="enable" type="button" value="Generate Timetable" data-size="70%" data-title="Generate Timetable" data-id="#generate-timetable" class="btn btn-sm btn-primary" (click)="generateTimetable($event)"/>
+        <input *ngIf="enable" type="button" value="New Timetable" data-size="70%" data-title="New Timetable" data-id="#new-timetable" class="btn btn-sm btn-primary" (click)="newTimetable($event)"/>
+        <input type="hidden" id="editButton" data-size="70%" data-title="Edit Timetable" data-id="#new-timetable" class="btn btn-sm btn-primary" (click)="editTimetable($event)"/>
+        <input type="hidden" id="notesButton" data-size="70%" data-title="Notes Upload" data-id="#upload-files" class="btn btn-sm btn-primary" (click)="addNotes($event)"/>
+        <input hidden id="warningButton" (click)="requested_warning()" type="button" style="display: none;">
+        <!--<input hidden id="deleteButton" (click)="requested_delete($event)" type="button" style="display: none;">-->
+    </div>
+    <hr/></div>
+<div class="panel-body" style="bottom:65px;">
+    <table class="table class_timetable_datatable">
+        <thead>
+        <tr>
+            <th data-priority="1">Class</th>
+            <th>Section</th>
+            <th>School Hours</th>
+            <th>Updated by</th>
+            <th data-priority="2">Action</th>
+            <th data-priority="3">Notes</th>
+        </tr>
+        </thead>
+    </table>
+</div>
+<new-timetable></new-timetable>
+<upload-notes></upload-notes>
+<generate-timetable></generate-timetable>

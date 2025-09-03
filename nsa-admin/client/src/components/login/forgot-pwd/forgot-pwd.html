@@ -1,0 +1,76 @@
+<div class="page-container login-container">
+
+    <!-- Page content -->
+    <div class="page-content">
+
+        <!-- Main content -->
+        <div class="content-wrapper">
+
+            <!-- Content area -->
+            <div class="content">
+                <!-- Advanced login -->
+                <ng-container *ngIf="showResetForm">
+                    <form class="form-validate" [formGroup]="resetForm" (submit)="resetPassword()">
+                        <div class="panel panel-body login-form">
+                            <div class="text-center">
+                                <h5 class="content-group-lg">Reset Password <small class="display-block">Enter your credentials</small></h5>
+                            </div>
+
+                            <div class="form-group has-feedback has-feedback-left">
+                                <input class="form-control" placeholder="otp" formControlName="otp" id="otp" />
+                                <div control-messages class="validation-error-label" [control]="resetForm.controls.otp"></div>
+                                <div class="form-control-feedback">
+                                    <i class="icon-circle-code text-muted"></i>
+                                </div>
+                            </div>
+                            <div class="form-group has-feedback has-feedback-left">
+                                <input type="password" class="form-control" placeholder="New Password" formControlName="newPassword"/>
+                                <div control-messages class="validation-error-label" [control]="resetForm.controls.newPassword"></div>
+                                <div class="form-control-feedback">
+                                    <i class="icon-lock2 text-muted"></i>
+                                </div>
+                            </div>
+                            <div class="form-group has-feedback has-feedback-left">
+                                <input type="password" class="form-control" placeholder="Confirm New Password" formControlName="confirmNewPassword"/>
+                                <div control-messages class="validation-error-label" [control]="resetForm.controls.confirmNewPassword"></div>
+                                <div class="form-control-feedback">
+                                    <i class="icon-lock2 text-muted"></i>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" [disabled]="!resetForm.valid" class="btn bg-pink btn-block">Reset Password <i class="icon-arrow-right14 position-right"></i></button>
+                                <button type="submit" class="btn btn-default btn-block" (click)="backToLogin()"><i class=" icon-arrow-left13 position-left"></i>Back to Login</button>
+                            </div>
+                        </div>
+                    </form>
+                </ng-container>
+                <ng-container *ngIf="!showResetForm">
+                    <form class="form-validate" [formGroup]="userForm" (submit)="sendOTP()">
+                        <div class="panel panel-body login-form">
+                            <div class="text-center">
+                                <h5 class="content-group-lg">Reset Password <small class="display-block">We will send a One Time Password (OTP) on your mobile to reset your password.</small></h5>
+                            </div>
+
+                            <div class="form-group has-feedback has-feedback-left">
+                                <input class="form-control" placeholder="Username" formControlName="username" id="username" />
+                                <div control-messages class="validation-error-label" [control]="userForm.controls.username"></div>
+                                <div class="form-control-feedback">
+                                    <i class="icon-user text-muted"></i>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" [disabled]="!userForm.valid" class="btn bg-pink btn-block">Reset Password <i class="icon-arrow-right14 position-right"></i></button>
+                                <button type="submit" class="btn btn-default btn-block" (click)="backToLogin()"><i class=" icon-arrow-left13 position-left"></i>Back to Login</button>
+                            </div>
+                        </div>
+                    </form>
+                </ng-container>
+            </div>
+            <!-- /content area -->
+
+        </div>
+        <!-- /main content -->
+    </div>
+    <!-- /page content -->
+
+</div>

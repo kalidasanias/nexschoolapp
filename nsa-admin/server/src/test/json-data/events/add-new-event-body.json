@@ -1,0 +1,39 @@
+{
+	"eventName": "Orientation Program",
+	"eventTypeName": "attend",
+	"eventTypeId": "1b72ef9a-869e-4aac-a778-6c97724a0c4f",
+	"venue": [
+		{
+			"id": "2d6664bb-68d3-4bdd-b064-641e159220d0",
+			"name": "near psbb"
+		}
+		],
+	"date": "Mar 21 2017 - April 30, 2017",
+	"endTime": "01:30 PM",
+	"startTime": "12:30 AM",
+	"classes": [
+		{
+			"id": "6666",
+			"section": [111, 11, 1]
+		}
+	],
+	"students" : [
+		
+
+	],
+	"mapLocation":"addresss",
+	"desc": "desc",
+	"attachments": ["/url","/url"],
+	"isMandatory": true,
+	"notify": {
+		"sms": true,
+		"push": false,
+		"email": false
+	},
+	"notifyTo": {
+		"status": "sent",
+		"userType": ["Employee"]
+	},
+	"isRegistered": false
+
+}

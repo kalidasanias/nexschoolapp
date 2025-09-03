@@ -1,0 +1,26 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h6 class="panel-title"><span class="text-semibold text-uppercase"><i class="icon-graduation2 fa-lg position-left"></i>Fee Scholarship </span><i class="icon-arrow-right15 text-pink-600"></i> <small>List of Scholarships </small></h6>
+        <div class="heading-elements">
+            <input *ngIf="enable" type="button" value="Add Scholarship" data-size="50%" data-title="Add Scholarship" data-toggle="from-right" data-id="#addScholarship" class="btn btn-sm btn-primary" (click)="addScholarship($event)"/>
+            <input hidden id="warningfeeSccholar" (click)="requested_warning()" type="button" style="display: none;">
+            <input hidden id="deleteButton" (click)="requested_delete($event)" type="button" style="display: none;">
+            <input hidden id="feeScholarEditButton" (click)="getFeeScholarships($event)" data-title="Edit Fee Scholarship" data-size="50%" data-id="#addScholarship" type="button" style="display: none;">
+        </div>
+    </div>
+
+    <div class="panel-body">
+        <table class="table datatable-align datatable-scholarship">
+            <thead>
+            <tr>
+                <th data-priority="1" width="30%">Scholarship Name</th>
+                <th>Amount</th>
+                <th>Validity</th>
+                <th>Updated By</th>
+                <th data-priority="2">Action</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+<add-scholarship></add-scholarship>

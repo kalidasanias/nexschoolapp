@@ -1,0 +1,172 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h6 class="panel-title"><span class="text-semibold text-uppercase"><i class="icon-calendar position-left"></i>School Academic Year</span><i class="icon-arrow-right15 text-pink-600"></i> <small>List of Academic Year </small></h6>
+        <div class="heading-elements">
+            <!--<button class="btn btn-sm btn-primary heading-btn" data-toggle="modal" data-target="#modal_theme_primary">Add Year</button>-->
+
+        </div>
+    </div>
+
+    <div class="panel-body">
+        <table class="table datatable-academics">
+            <thead>
+            <tr>
+                <th data-priority="1">Academic Year</th>
+                <th>Number of Terms</th>
+                <th>Created Date</th>
+                <th data-priority="2">Duration</th>
+                <!--<th>Status</th>
+                <th>Updated By</th>-->
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+<!--
+<div id="modal_theme_primary" class="modal fade refuse">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h5 class="modal-title">Create New Academic Year </h5>
+            </div>
+
+            <div class="modal-body">
+                <form class="form-horizontal form-validate">
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">Academic Year</label>
+                        <div class="col-lg-10">
+                            <div class="form-group col-md-3">
+                                <input type="" class="form-control" value="AY 2017-18" disabled="disabled">
+                            </div>
+                            <div class="form-group col-md-5">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="icon-calendar22"></i></span><input class="form-control daterange-left" value="03/18/2013 - 03/23/2013" type="text">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">Term Name</label>
+                        <div class="col-lg-10">
+                            <div class="form-group col-md-3">
+                                <input type="" class="form-control" value="Term 1" disabled="disabled">
+                            </div>
+                            <div class="form-group col-md-5">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="icon-calendar22"></i></span><input class="form-control daterange-left" value="03/18/2013 - 03/23/2013" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <label class="col-lg-2 control-label"></label>
+                        <div class="col-lg-10">
+                            <div class="form-group col-md-3">
+                                <input type="" class="form-control" value="Term 2" disabled="disabled">
+                            </div>
+                            <div class="form-group col-md-5">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="icon-calendar22"></i></span><input class="form-control daterange-left" value="03/18/2013 - 03/23/2013" type="text">
+                                </div>
+                            </div>
+                        </div>
+
+                        <label class="col-lg-2 control-label text-semibold"></label>
+                        <div class="col-lg-10">
+                            <div class="form-group col-md-3">
+                                <input type="" class="form-control" value="Term 3" disabled="disabled">
+                            </div>
+                            <div class="form-group col-md-5">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="icon-calendar22"></i></span><input class="form-control daterange-left" value="03/18/2013 - 03/23/2013" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-2">
+                                <a class="icon-danger margin-top10"><i class="fa fa-minus-circle fa-lg"></i></a>
+                                <a class="icon-success margin-top10"><i class="fa fa-plus-circle fa-lg"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">Status</label>
+                        <div class="col-lg-10">
+                            <div class="col-md-5">
+                                <select class="bootstrap-select" data-width="100%">
+                                    &lt;!&ndash;template bindings={}&ndash;&gt;
+                                    <option value="0"> Active </option>
+                                    <option value="1"> Deactive </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="panel-body">
+                    <legend class="text-semibold">
+                        <i class="icon-graduation position-left"></i>
+                        Add Courses For This Year
+                    </legend>
+                    <div class="panel panel-default table-responsive">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>S.No</th>
+                                <th>Course Name</th>
+                                <th>Course Code</th>
+                                <th>Class Range</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Pre Primary</td>
+                                <td>PP</td>
+                                <td>LKG - UKG</td>
+                                <td><span class="label label-success">Active</span></td>
+                                <td>&nbsp;&nbsp;<a class="icon-danger sweet_warning"><i class="fa fa-trash-o fa-lg"></i></a>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>2</td>
+                                <td>Primary</td>
+                                <td>PS</td>
+                                <td>Class 1 - Class 4</td>
+                                <td><span class="label label-success">Active</span></td>
+                                <td>&nbsp;&nbsp;<a class="icon-danger sweet_warning"><i class="fa fa-trash-o fa-lg"></i></a>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Middle</td>
+                                <td>MS</td>
+                                <td>Class 5 - Class 7</td>
+                                <td><span class="label label-success">Active</span></td>
+                                <td>&nbsp;&nbsp;<a class="icon-danger sweet_warning"><i class="fa fa-trash-o fa-lg"></i></a>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>4</td>
+                                <td>High</td>
+                                <td>HS</td>
+                                <td>Class 8 - Class 10</td>
+                                <td><span class="label label-success">Active</span></td>
+                                <td>&nbsp;&nbsp;<a class="icon-danger sweet_warning"><i class="fa fa-trash-o fa-lg"></i></a>
+                                </td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary btn-ladda btn-ladda-progress" data-style="expand-right" data-spinner-size="20"><span class="ladda-label">Save</span></button>
+            </div>
+        </div>
+    </div>
+</div>-->

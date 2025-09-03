@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>NSA-create-assignment</title>
+
+   <!-- Global stylesheets -->
+   <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+   <link href="https://s3-ap-southeast-1.amazonaws.com/hiflame14/ui/css/nxrise/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+   <link href="https://s3-ap-southeast-1.amazonaws.com/hiflame14/ui/css/nxrise/css/icons/fontawesome/styles.min.css" rel="stylesheet" type="text/css">
+   <link href="../../assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+   <link href="../../assets/css/core.css" rel="stylesheet" type="text/css">
+   <link href="../../assets/css/components.css" rel="stylesheet" type="text/css">
+   <link href="../../assets/css/colors.css" rel="stylesheet" type="text/css">
+   <link href="../../assets/css/admin.css" rel="stylesheet" type="text/css">
+   <link href="../../assets/css/bootstrap-toggle.min.css" rel="stylesheet" type="text/css">
+   <!-- /global stylesheets -->
+
+   <!-- Core JS files -->
+   <script type="text/javascript" src="../../assets/js/plugins/loaders/pace.min.js"></script>
+   <script type="text/javascript" src="../../assets/js/core/libraries/jquery.min.js"></script>
+   <script type="text/javascript" src="../../assets/js/core/libraries/bootstrap.min.js"></script>
+   <script type="text/javascript" src="../../assets/js/plugins/loaders/blockui.min.js"></script>
+   <script type="text/javascript" src="../../assets/js/plugins/ui/nicescroll.min.js"></script>
+   <script type="text/javascript" src="../../assets/js/plugins/ui/drilldown.js"></script>
+   <script type="text/javascript" src="../../assets/js/core/libraries/bootstrap-toggle.min.js"></script>
+   <!-- /core JS files -->
+
+   <!-- plugins JS files -->
+   <script type="text/javascript" src="../../assets/js/plugins/visualization/d3/d3.min.js"></script>
+   <script type="text/javascript" src="../../assets/js/plugins/visualization/d3/d3_tooltip.js"></script>
+   <script type="text/javascript" src="../../assets/js/plugins/forms/styling/switchery.min.js"></script>
+   <script type="text/javascript" src="../../assets/js/plugins/forms/styling/uniform.min.js"></script>
+   <script type="text/javascript" src="../../assets/js/plugins/forms/selects/bootstrap_multiselect.js"></script>
+   <script type="text/javascript" src="../../assets/js/plugins/forms/selects/bootstrap_select.min.js"></script>
+   <script type="text/javascript" src="../../assets/js/plugins/ui/moment/moment.min.js"></script>
+
+   <script type="text/javascript" src="../../assets/js/plugins/pickers/daterangepicker.js"></script>
+    <script type="text/javascript" src="../../assets/js/plugins/pickers/anytime.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/plugins/pickers/pickadate/picker.js"></script>
+    <script type="text/javascript" src="../../assets/js/plugins/pickers/pickadate/picker.date.js"></script>
+    <script type="text/javascript" src="../../assets/js/plugins/pickers/pickadate/picker.time.js"></script> 
+
+    <script type="text/javascript" src="../../assets/js/plugins/tables/datatables/datatables.min.js"></script>
+   <script type="text/javascript" src="../../assets/js/plugins/tables/datatables/extensions/responsive.min.js"></script>
+   <script type="text/javascript" src="../../assets/js/core/libraries/jquery_ui/interactions.min.js"></script>
+   <script type="text/javascript" src="../../assets/js/plugins/forms/selects/select2.min.js"></script>
+
+   <script type="text/javascript" src="../../assets/js/plugins/tables/datatables/extensions/select.min.js"></script>
+   <script type="text/javascript" src="../../assets/js/plugins/tables/datatables/extensions/row_reorder.min.js"></script>
+   <script type="text/javascript" src="../../assets/js/plugins/tables/datatables/extensions/buttons.min.js"></script>
+   <script type="text/javascript" src="../../assets/js/plugins/tables/datatables/extensions/jszip/jszip.min.js"></script>
+   <script type="text/javascript" src="../../assets/js/plugins/tables/datatables/extensions/pdfmake/pdfmake.min.js"></script>
+   <script type="text/javascript" src="../../assets/js/plugins/tables/datatables/extensions/pdfmake/vfs_fonts.min.js"></script>
+   <!-- /plugins JS files -->
+
+   <!-- Theme JS files -->
+   <script type="text/javascript" src="../../assets/js/core/app.js"></script>
+   <script type="text/javascript" src="../../assets/js/pages/datatable.js"></script>
+   <script type="text/javascript" src="../../assets/js/pages/form_select2.js"></script>
+   <script type="text/javascript" src="../../assets/js/pages/picker_date.js"></script>
+   <script type="text/javascript" src="../../assets/js/pages/form_bootstrap_select.js"></script>
+   <script type="text/javascript" src="../../assets/js/pages/form_multiselect.js"></script>
+   <script type="text/javascript" src="../../assets/js/plugins/uploaders/fileinput.min.js"></script>
+   <script type="text/javascript" src="../../assets/js/pages/uploader_bootstrap.js"></script>
+   <!-- /theme JS files -->
+
+</head>
+
+<body class="navbar-top-md-md">
+
+   <!-- Fixed navbars wrapper -->
+   <div class="navbar-fixed-top">
+
+      <!-- Main navbar -->
+      <div class="navbar navbar-inverse">
+         <div class="navbar-header">
+            <a class="navbar-brand" href="../../index.html">NSA ADMIN<!-- <img src="../../assets/images/logo_light.png" alt=""> --></a>
+
+            <ul class="nav navbar-nav pull-right visible-xs-block">
+               <li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-menu3"></i></a></li>
+            </ul>
+         </div>
+         <div class="navbar-collapse collapse" id="navbar-mobile">
+            <ul class="nav navbar-nav navbar-right">
+                  <li class="dropdown language-switch">
+                      <a class="dropdown-toggle" data-toggle="dropdown">
+                          <i class="icon-phone-incoming position-left"></i>
+                          <span class="text-uppercase">Contact Us</span>
+                          <span class="caret"></span>
+                      </a>
+                      <ul class="dropdown-menu">
+                          <li><a class="deutsch"><b>Technical Contact</b><br/> 9791038679 </a></li>
+                      </ul>
+                  </li>
+
+                  <li class="dropdown language-switch">
+                      <a href="#" class="text-uppercase"><i class="icon-switch2"></i> Logout</a>
+                  </li>
+              </ul>
+         </div>
+      </div>
+      <!-- /main navbar -->
+
+
+      <!-- Second navbar -->
+      <div class="navbar navbar-default" id="navbar-second">
+         <ul class="nav navbar-nav no-border visible-xs-block">
+            <li><a class="text-center collapsed" data-toggle="collapse" data-target="#navbar-second-toggle"><i class="icon-menu7"></i></a></li>
+         </ul>
+
+         <div class="navbar-collapse collapse" id="navbar-second-toggle">
+            <ul class="nav navbar-nav">
+               <li class="active"><a href="../dashboard/dashboard.html"><i class="icon-home7 position-left"></i> Dashboard</a></li>
+               <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                     <i class="icon-books position-left"></i> Academics <span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu width-200">
+                     <li><a href="../academics/academic-year.html"><i class="icon-calendar52"></i> Academic Year</a></li>
+                     <li><a href="../academics/course-management.html"><i class="icon-graduation2"></i> Course Management</a></li>
+                     <li><a href="../academics/classes.html"><i class=" icon-tree6"></i> Classes</a></li>
+                     <li class="dropdown-submenu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-lan2"></i> Sections</a>
+                        <ul class="dropdown-menu">
+                           <li><a href="../academics/section-list.html"><i class="icon-list"></i> Section List</a></li>
+                           <li><a href="../academics/section-allocation.html"><i class="icon-tree5"></i> Section Allocation</a></li>
+                        </ul>
+                     </li>
+                     <li class="dropdown-submenu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-notebook"></i> Subjects</a>
+                        <ul class="dropdown-menu">
+                           <li><a href="../academics/subject-list.html"><i class="icon-list2"></i> Subject List</a></li>
+                           <li><a href="../academics/subject-allocation.html"><i class=" icon-book"></i> Subject Allocation</a></li>
+                        </ul>
+                     </li>
+                     <li class="dropdown-submenu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-calendar2"\></i> Holiday Calendar</a>
+                        <ul class="dropdown-menu">
+                           <li><a href="../holiday-calendar/holiday-types.html"><i class=" icon-spinner4"></i> Holiday Types</a></li>
+                           <li><a href="../holiday-calendar/holidays.html"><i class="icon-accessibility"></i> Holidays</a></li>
+                        </ul>
+                     </li>
+                  </ul>
+               </li>
+               <li class="dropdown mega-menu mega-menu-wide">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-users4 position-left"></i> User Management <span class="caret"></span></a>
+                  <div class="dropdown-menu dropdown-content">
+                     <div class="dropdown-content-body">
+                        <div class="row">
+                           <div class="col-md-2">
+                              <span class="menu-heading underlined">Employee Management </span>
+                              <ul class="menu-list">
+                                 <li><a href="../employee-management/department.html"><i class="icon-lan"></i> Department </a></li>
+                                 <li><a href="../employee-management/designation.html"><i class="icon-sort-amount-desc"></i> Designation</a></li>
+                                 <li><a href="../employee-management/category.html"><i class="icon-sort-alpha-asc"></i> Category </a></li>
+                                 <li><a href="../employee-management/add-employees.html"><i class="icon-users2"></i> Employees </a></li>
+                              </ul>
+                           </div>
+                           <div class="col-md-2">
+                              <span class="menu-heading underlined">Leave Management</span>
+                              <ul class="menu-list">
+                                 <li><a href="../leave-management/leave-types.html"><i class="icon-split"></i> Leave Types</a></li>
+                                 <li><a href="../leave-management/leave-assignments.html"><i class="icon-drag-right"></i> Leave Assignments</a></li>
+                              </ul>
+                           </div>
+                           <div class="col-md-2">
+                              <span class="menu-heading underlined">Student Management </span>
+                              <ul class="menu-list">
+                                 <li><a href="../student-management/student-status.html"><i class="icon-align-center-horizontal"></i> Student status</a></li>
+                                 <li><a href="../student-management/add-students.html"><i class="icon-man-woman"></i> Students</a></li>
+                              </ul>
+                           </div>
+                           <div class="col-md-2">
+                              <span class="menu-heading underlined">Roles & Permissions </span>
+                              <ul class="menu-list">
+                                 
+                              </ul>
+                           </div>
+                           <div class="col-md-2">
+                              <span class="menu-heading underlined">User Groups </span>
+                              <ul class="menu-list">
+                                 
+                              </ul>
+                           </div>
+                           <div class="col-md-2">
+                              <span class="menu-heading underlined">Taxonomy </span>
+                              <ul class="menu-list">
+                                 
+                              </ul>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </li>
+               <li class="dropdown mega-menu mega-menu-wide">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class=" icon-library2 position-left"></i>School Management <span class="caret"></span></a>
+                  <div class="dropdown-menu dropdown-content">
+                     <div class="dropdown-content-body">
+                        <div class="row">
+                           <div class="col-md-3">
+                              <span class="menu-heading underlined">Homework</span>
+                              <ul class="menu-list">
+                                 <li><a href="../homework/assignment-types.html"><i class="icon-pencil-ruler"></i> Assignment types</a></li>
+                                 <li><a href="../homework/create-assignments.html"><i class=" icon-reading"></i> Create Assignments</a></li>
+                              </ul>
+                              <span class="menu-heading underlined">Attendance</span>
+                              <ul class="menu-list">
+                                 <li><a href="../attendance/attendance-information.html"><i class=" icon-user-tie"></i> Attendance Information</a></li>
+                                 <li><a href="../attendance/attendance-history.html"><i class=" icon-history"></i> Attendance History</a></li>
+                              </ul>
+                           </div>
+                           <div class="col-md-3">
+                              <span class="menu-heading underlined">Exams & Progress reports</span>
+                              <ul class="menu-list">
+                                 <li><a href="#"><i class="icon-compose"></i> Exam Configuration</a>
+                                    <ul>
+                                       <li><a href="../examinations/grading-system.html"><i class="icon-sort-alpha-asc"></i>Grading System</a></li>
+                                       <li><a href="../examinations/exam-system.html"><i class="icon-color-sampler"></i>Exam System</a></li>
+                                    </ul>
+                                 </li>
+                                 <li><a href="../examinations/create-examinations.html"><i class="icon-paste3"></i> Create Examinations</a></li>
+                                 <li><a href="../examinations/portions.html"><i class="icon-file-zip2"></i> Portions</a></li>
+                                 <li><a href="../examinations/marks-upload.html"><i class=" icon-file-upload"></i> Marks Upload</a></li>
+                                 <li><a href="../examinations/promotion-list.html"><i class=" icon-vcard"></i> Promotion List</a></li>
+                              </ul>
+                           </div>
+                           <div class="col-md-3">
+                              <span class="menu-heading underlined">Fee Management</span>
+                              <ul class="menu-list">
+                                 <li><a href="#"><i class="icon-cash4"></i> Fee Configuration</a>
+                                    <ul>
+                                       <li><a href="../fee-management/fee-types.html"><i class="icon-menu2"></i>Fee Types</a></li>
+                                       <li><a href="../fee-management/fee-scholarship.html"><i class="icon-bookmarks"></i>Fee Scholarship</a></li>
+                                    </ul>
+                                 </li>
+                                 <li><a href="../fee-management/fee-structure.html"><i class="icon-font-size2"></i> Fee Structure</a></li>
+                                 <li><a href="../fee-management/assign-fees.html"><i class="icon-credit-card2"></i> Assign Fees</a></li>
+                              </ul>
+                           </div>
+                           <div class="col-md-3">
+                              <span class="menu-heading underlined">Timetable</span>
+                              <ul class="menu-list">
+                                 <li><a href="../timetable/timetable-configuration.html"><i class="icon-puzzle3"></i> Timetable Configuration</a></li>
+                                 <li><a href="../timetable/timetable.html"><i class="icon-menu2"></i> Create Timetable</a></li>
+                                 <li><a href="../timetable/manage-timetable.html"><i class=" icon-stack-text"></i> Manage Timetable</a></li>
+                              </ul>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </li>
+               <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                     <i class=" icon-brain position-left"></i> Activities <span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu width-200">
+                     <li class="dropdown-submenu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-trophy3"></i> Event Management</a>
+                        <ul class="dropdown-menu">
+                           <li><a href="../event-management/event-types.html"><i class=" icon-stars"></i> Event types</a></li>
+                           <li><a href="../event-management/create-events.html"><i class=" icon-medal"></i> Create Events</a></li>
+                           <li><a href="../event-management/event-venus.html"><i class=" icon-medal"></i> Event  Venues</a></li>
+                        </ul>
+                     </li>
+                     <li><a href="../event-management/notifications.html"><i class="icon-bell3"></i> Notifications</a></li>
+                     <li><a href="../event-management/journal-management.html"><i class="icon-file-presentation"></i> Journal Management</a></li>
+                     <li><a href="../event-management/communication.html"><i class="icon-bubbles3"></i> Communication</a></li>
+                  </ul>
+               </li>
+               <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                     <i class="icon-bus position-left"></i> Transport <span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu width-200">
+                     <li><a href="../transport-management/vehicle-details.html"><i class="icon-truck"></i> Vehicle Details</a></li>
+                     <li><a href="../transport-management/driver-details.html"><i class="icon-user-check"></i> Driver Details</a></li>
+                     <li><a href="../transport-management/route-details.html"><i class="icon-road"></i> Route Details</a></li>
+                     <li><a href="../transport-management/allocate-students.html"><i class="icon-user-plus"></i> Allocate Students</a></li>
+                  </ul>
+               </li>
+               <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                     <i class="icon-stats-growth position-left"></i> Reports & Analytics <span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu width-200">
+                     <li><a href="../reports&analytics/data-collection-reports.html"><i class="icon-align-center-horizontal"></i> Data Collection Reports</a></li>
+                     <li><a href="../reports&analytics/performance-reports.html"><i class="icon-flip-vertical3"></i> Performance Reports</a></li>
+                  </ul>
+               </li>
+               <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                     <i class=" icon-briefcase position-left"></i> Asset Management <span class="caret"></span>
+                  </a>
+
+                  <ul class="dropdown-menu width-200">
+                     <li><a href="../asset-management/files.html"><i class="icon-file-locked2"></i> Files</a></li>
+                     <li><a href="../asset-management/documents.html"><i class="icon-folder-open3"></i> Documents</a></li>
+                     <li><a href="../asset-management/gallery.html"><i class="icon-images3"></i> Gallery</a></li>
+                  </ul>
+               </li>
+            </ul>
+
+            <!-- <ul class="nav navbar-nav navbar-right">
+               <li><a href="#">Text link</a></li>
+
+               <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                     <i class="icon-cog3"></i>
+                     <span class="visible-xs-inline-block position-right">Dropdown</span>
+                     <span class="caret"></span>
+                  </a>
+
+                  <ul class="dropdown-menu dropdown-menu-right">
+                     <li><a href="#">Action</a></li>
+                     <li><a href="#">Another action</a></li>
+                     <li><a href="#">Something else here</a></li>
+                     <li class="divider"></li>
+                     <li><a href="#">One more separated line</a></li>
+                  </ul>
+               </li>
+            </ul> -->
+         </div>
+      </div>
+      <!-- /second navbar -->
+
+   </div>
+   <!-- /fixed navbars wrapper -->
+
+
+   <!-- Page header -->
+   <div class="breadcrumb-line content-group-lg">
+      <ul class="breadcrumb">
+         <li><a href="#"><i class="icon-home2 position-left"></i> Stand</a></li>
+         <li><a href="#">Alone</a></li>
+         <li class="active">Component</li>
+      </ul>
+
+      <!-- <ul class="breadcrumb-elements">
+         <li><a href="#"><i class="icon-comment-discussion position-left"></i> Chats</a></li>
+         <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+               <i class="icon-gear position-left"></i>
+               Actions
+               <span class="caret"></span>
+            </a>
+
+            <ul class="dropdown-menu dropdown-menu-right">
+               <li><a href="#"><i class="icon-inbox pull-right"></i> Action</a></li>
+               <li><a href="#"><i class="icon-googleplus5 pull-right"></i> Another action</a></li>
+               <li><a href="#"><i class="icon-grid-alt pull-right"></i> Something else</a></li>
+               <li class="divider"></li>
+               <li><a href="#"><i class="icon-spinner2 spinner pull-right"></i> One more line</a></li>
+            </ul>
+         </li>
+      </ul> -->
+   </div>
+   <!-- /page header -->
+
+
+   <!-- Page container -->
+   <div class="page-container">
+
+      <!-- Page content -->
+      <div class="page-content">
+
+         <!-- Main content -->
+         <div class="content-wrapper">
+            <div class="panel panel-default">
+                  <div class="panel-heading">
+                     <h6 class="panel-title">
+                        <span class="text-semibold text-uppercase"><i class="icon-file-text2 position-left"></i>Assignements </span><!-- <i class="icon-arrow-right15 text-pink-600"></i> <small>List of Grades </small> -->
+                     </h6>
+                     <div class="heading-elements">
+                        <button type="button" class="btn btn-default btn-sm btn-primary text-right" data-toggle="modal" data-target="#modal_large">Add Assignement</i>
+                        </button>
+                     </div>
+                  </div>
+                  <div class="panel-body">
+                     <form class="form-horizontal" action="#">
+                        <div class="row form-horizontal">
+                           <div class="col-md-2 margin-left40">
+                              <div class="form-group">
+                                 <label class="control-label col-sm-4">Class
+                                 </label>
+                                 <div class="col-sm-8">
+                                    <div class="row">
+                                       <select class="bootstrap-select" data-width="100%">
+                                          <option value="None">-- Select Class --</option>
+                                          <option value="Class 1">Class 1</option>
+                                          <option value="Class 2">Class 2</option>
+                                          <option value="Class 3">Class 3</option>
+                                          <option value="Class 4">Class 4</option>
+                                          <option value="Class 5">Class 5</option>
+                                       </select>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="col-md-2  margin-left40">
+                              <div class="form-group">
+                                 <label class="control-label col-sm-4">Section
+                                 </label>
+                                 <div class="col-sm-8">
+                                    <div class="row">
+                                       <select class="bootstrap-select" data-width="100%">
+                                          <option value="sub1">-- Select Section --</option>
+                                          <option value="sub2">Section A</option>
+                                          <option value="sub2">Section B</option>
+                                          <option value="sub3">Section C</option>
+                                          <option value="sub4">Section D</option>
+                                          <option value="sub5">Secion E</option>
+                                          <option value="sub6">Section F</option>
+                                       </select>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="col-md-2 margin-left40">
+                              <div class="form-group">
+                                 <label class="control-label col-sm-4">Subject
+                                 </label>
+                                 <div class="col-sm-8">
+                                    <div class="row">
+                                       <select class="bootstrap-select" data-width="100%">
+                                          <option value="term1">-- Select subject --</option>
+                                          <option value="term2">Maths</option>
+                                          <option value="term2">Sceince</option>
+                                          <option value="term3">Social</option>
+                                       </select>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="col-md-2 margin-left40">
+                              <div class="form-group">
+                                 <label class="control-label col-sm-4">Employee
+                                 </label>
+                                 <div class="col-sm-8">
+                                    <div class="row">
+                                       <select class="bootstrap-select" data-width="100%">
+                                          <option value="sub1">-- Select Employee --</option>
+                                          <option value="sub2">George David</option>
+                                          <option value="sub2">Lidy Sandy</option>
+                                       </select>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="col-md-2 navbar-right txt-align-right">
+                              <div class="form-group">
+                                 <input class="btn btn-default " id="cancel-back" value="Clear"  type="reset">
+                                 <input class="btn btn btn-primary ui-wizard-content margin-right10 ui-formwizard-button" id="cancel-next" value="Submit" type="submit">            
+                              </div>
+                           </div>
+                        </div>
+                     </form>
+                  </div>
+               </div>
+            <div class="panel panel-default">
+               <div class="panel-heading">
+              <h6 class="panel-title">
+                        <span class="text-semibold"><i class="icon-file-text2 position-left"></i>List of Assignement</span><!-- <i class="icon-arrow-right15 text-pink-600"></i> <small>List of Grades </small> -->
+                     </h6>
+                  
+               </div>
+               
+               <div class="panel-body">
+                  <table class="table datatable-export">
+                  <thead>
+                        <tr>
+                           <th>No</th>
+                           <th>Assignement Name</th>
+                           <th>Course</th>
+                           <th>Class</th>
+                           <th>Section</th>
+                           <th>Subject</th>
+                           <th>Due Date</th>
+                           <th>Created By</th>
+                           <th>Action</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>1</td>
+                           <td>Arithimetic Study</td>
+                           <td>Secondary</td>
+                           <td>Class 11</td>
+                           <td>Section A</td>
+                           <td>Maths</td>
+                           
+                           <td>Jan 17 2017 2:45 PM</td>
+                           <td>Alan</td>
+                           <td>&nbsp;&nbsp;<a class="icon-primary"><i class="fa fa-pencil-square-o fa-lg"></i></a>
+                            <a class="icon-primary"><i class="fa fa fa-download fa-lg"></i></a>
+                            <a class="icon-danger"><i class="fa fa-trash-o fa-lg"></i></a>
+                                    </td>
+                           
+                        </tr>
+                        <tr>
+                           <td>2</td>
+                           <td>Find Salt</td>
+                           <td>Secondary</td>
+                           <td>Class 12</td>
+                           <td>Section A</td>
+                           <td>Chemistry</td>
+                           
+                           <td>Jan 17 2017 2:45 PM</td>
+                           <td>Alan</td>
+                           <td>&nbsp;&nbsp;<a class="icon-primary"><i class="fa fa-pencil-square-o fa-lg"></i></a>
+                            <a class="icon-primary"><i class="fa fa fa-download fa-lg"></i></a>
+                            <a class="icon-danger"><i class="fa fa-trash-o fa-lg"></i></a>
+                                    </td>
+                        </tr>
+                        <tr>
+                           <td>3</td>
+                           <td>2nd Law</td>
+                           <td>CBSE</td>
+                           <td>Class 10</td>
+                           <td>Section C</td>
+                           <td>Science</td>
+                           
+                           <td>Jan 17 2017 2:45 PM</td>
+                           <td>Alan</td>
+                           <td>&nbsp;&nbsp;<a class="icon-primary"><i class="fa fa-pencil-square-o fa-lg"></i></a>
+                            <a class="icon-primary"><i class="fa fa fa-download fa-lg"></i></a>
+                            <a class="icon-danger"><i class="fa fa-trash-o fa-lg"></i></a>
+                                    </td>
+                        </tr>
+                     </tbody>
+               </table>
+               </div>
+            </div>
+            
+         </div>
+         <!-- /main content -->
+      </div>
+      <!-- /page content -->
+
+      <!-- Footer -->
+      <div class="navbar navbar-default navbar-sm navbar-fixed-bottom">
+         <ul class="nav navbar-nav no-border visible-xs-block">
+            <li><a class="text-center collapsed" data-toggle="collapse" data-target="#navbar-footer"><i class="icon-circle-up2"></i></a></li>
+         </ul>
+
+         <div class="navbar-collapse collapse" id="navbar-footer">
+            <div class="navbar-text">
+               &copy; 2017. <a href="#">Nexrise Technologies Pvt Ltd</a>
+            </div>
+
+            <div class="navbar-right">
+               <ul class="nav navbar-nav">
+                  <li><a href="#">Help center</a></li>
+                  <li><a href="#">Policy</a></li>
+                  <li><a href="#" class="text-semibold">Upgrade your account</a></li>
+                  <li class="dropdown">
+                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="icon-cog3"></i>
+                        <span class="visible-xs-inline-block position-right">Settings</span>
+                        <span class="caret"></span>
+                     </a>
+
+                     <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="#"><i class="icon-dribbble3"></i> Dribbble</a></li>
+                        <li><a href="#"><i class="icon-pinterest2"></i> Pinterest</a></li>
+                        <li><a href="#"><i class="icon-github"></i> Github</a></li>
+                        <li><a href="#"><i class="icon-stackoverflow"></i> Stack Overflow</a></li>
+                     </ul>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <!-- /footer -->
+   </div>
+   <!-- /page container -->
+
+   <div id="modal_large" class="modal fade">
+         <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+               <div class="modal-header bg-primary">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h5 class="modal-title"> Create New Assignement <span style="font-size:12px">Created on 25th Sep 2016 - Term 1</span></h5>
+                  
+               </div>
+               <div class="modal-body">
+                  <form class="form-horizontal" action="#">
+                     <div class="">
+                        <fieldset class="panel-body">
+                           <div class="row ">
+                              
+                              <div class="col-md-6">
+                                 <div class="form-group">
+                                    <label class="control-label col-sm-4">Class <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-sm-8">
+                                       <div class="multi-select-full">
+                                          <select class="multiselect-select-all-filtering" multiple="multiple">
+                                             <option value="Cambodia">Class 10</option>
+                                             <option value="Martic">Class 11</option>
+                                             <option value="State">Class 12</option>
+                                          </select>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-md-6 ">
+                                 <div class="form-group">
+                                    <label class="control-label col-sm-4">Section
+                                    </label>
+                                    <div class="col-sm-8">
+                                   <div class="multi-select-full">
+                                          <select class="multiselect-select-all-filtering" multiple="multiple">
+                                          <option value="Cambodia">Section A</option>
+                                          <option value="Martic">Section B</option>
+                                          <option value="State">Section C</option>
+                                       </select>
+                                    </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="row ">
+                              
+                              <div class="col-md-6">
+                                 <div class="form-group">
+                                    <label class="control-label col-sm-4">Assignement Name<span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-sm-8">
+                                       <input type="email" class="form-control" id="email">
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-md-6 ">
+                                 <div class="form-group">
+                                    <label class="control-label col-sm-4">Type
+                                    </label>
+                                    <div class="col-sm-8">
+                                       <select class="bootstrap-select" data-width="100%">
+                                          <option>Select Type</option>
+                                       </select>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="row form-horizontal">
+                              
+                              <div class="col-md-6">
+                                 <div class="form-group">
+                                    <label class="control-label col-sm-4">Description
+                                    </label>
+                                    <div class="col-sm-8">
+                                       <textarea rows="1" cols="1" class="form-control" placeholder=""></textarea>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-md-6 ">
+                                 <div class="form-group">
+                                    <label class="control-label col-sm-4">Subject <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-sm-8">
+                                       <select class="bootstrap-select" data-width="100%">
+                                          <option value="sub1">-- Select Subject --</option>
+                                          <option value="sub2">English</option>
+                                          <option value="sub2">French</option>
+                                          <option value="sub3">Tamil</option>
+                                          <option value="sub4">Hindi</option>
+                                          <option value="sub5">Science</option>
+                                          <option value="sub6">Social Science</option>
+                                       </select>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="row form-horizontal">
+                              
+                              <div class="col-md-6">
+                                 <div class="form-group">
+                                    <label class="control-label col-sm-4">Due Date
+                                    </label>
+                                    <div class="col-sm-8">
+                                       <div class="input-group">
+                                          <span class="input-group-addon"><i class="icon-calendar5"></i></span>
+                                          <input type="text" class="form-control pickadate" placeholder="">
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-md-6 ">
+                                 <div class="form-group">
+                                    <label class="control-label col-sm-4">Due Time
+                                    </label>
+                                    <div class="col-sm-8">
+                                       <div class="input-group">
+                                          <span class="input-group-addon"><i class="icon-alarm"></i></span>
+                                          <input type="text" class="form-control pickatime" placeholder="">
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="row form-horizontal">
+                              
+                              <div class="col-md-6">
+                                 <div class="form-group">
+                                    <label class="control-label col-sm-4">Repeat Every
+                                    </label>
+                                    <div class="col-sm-8">
+                                       <select class="bootstrap-select" data-width="100%">
+                                          <option>Select Section</option>
+                                          <option value="Cambodia">Daily</option>
+                                          <option value="Martic">Weekly</option>
+                                          <option value="State">Weenend</option>
+                                       </select>
+                                    </div>
+                                 </div>
+                              </div>
+
+
+                              <div class="col-md-6 ">
+                                 <div class="form-group">
+                                    <label class="control-label col-sm-4">Priority
+                                    </label>
+                                    <div class="col-sm-8">
+                                       <div class="row">
+                                          <div class="col-md-4">
+                                             <div class="form-group">
+                                                <label class="radio-inline">
+                                                <input type="radio" name="radio-inline-left" class="styled" checked="checked"> High
+                                                </label>
+                                             </div>
+                                          </div>
+                                          <div class="col-md-4">
+                                             <div class="form-group">
+                                                <label class="radio-inline">
+                                                <input type="radio" name="radio-inline-left" class="styled" checked=""> Medium
+                                                </label>
+                                             </div>
+                                          </div>
+                                          <div class="col-md-4">
+                                             <div class="form-group">
+                                                <label class="radio-inline">
+                                                <input type="radio" name="radio-inline-left" class="styled" checked=""> Low
+                                                </label>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              
+                           </div>
+                           <div class="row form-horizontal">
+                              <div class="col-md-6 ">
+                                 <div class="form-group">
+                                    <label class="control-label col-sm-4">Notify To
+                                    </label>
+                                    <div class="col-sm-8">
+                                       <div class="row">
+                                          <div class="col-md-4">
+                                             <div class="form-group">
+                                                <label class="radio-inline">
+                                                <input type="radio" name="radio-inline-left" class="styled" checked="checked">All
+                                                </label>
+                                             </div>
+                                          </div>
+                                          <div class="col-md-8">
+                                             <div class="form-group">
+                                                <label class="radio-inline">
+                                                <input type="radio" name="radio-inline-left" class="styled" checked="checked">Selected Students
+                                                </label>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              
+                           </div>
+                           <div class="row form-horizontal">
+                              <div class="col-md-6">
+                                 <div class="form-group">
+                                    <label class="control-label col-sm-4">Student Name
+                                    </label>
+                                    <div class="col-sm-6"><div class="multi-select-full">
+                           <select class="multiselect-select-all-filtering" multiple="multiple">
+                                          <option value="AZ" selected="selected">Pragadu</option>
+                                          <option value="CO">Chinna</option>
+                                          <option value="ID">Cyril</option>
+                                          <option value="WY">Fiona</option>
+                                          <option value="AL">Kiran</option>
+                                          <option value="IA">Senthil</option>
+                                          <option value="KS">Vino</option>
+                                          <option value="KY">kamla</option>
+                                       </select>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              
+                           </div>
+                           <!-- <div class="row form-horizontal">
+                              <div class="col-md-6 ">
+                                  <div class="form-group">
+                              
+                                      <div class="col-sm-8">
+                                          <label class="checkbox-inline">
+                                              <input type="checkbox" value="">Notify All Students
+                                          </label>
+                              
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col-md-6">
+                                  <div class="form-group">
+                                      <label class="checkbox-inline">
+                                          <input type="checkbox" value="">Notify Only Selected Students
+                                      </label>
+                                  </div>
+                              </div>
+                              </div>
+                              -->
+                          <!--  <div class="row form-horizontal">
+                              <div class="col-md-12">
+                                 <div class="form-group">
+                                    <label class="col-sm-2 control-label">Student Name</label>
+                                    <div class="col-sm-12">
+                                       <select multiple="multiple" class="select-fixed-multiple">
+                                          <option value="AZ" selected="selected">Pragadu</option>
+                                          <option value="CO">Chinna</option>
+                                          <option value="ID">Cyril</option>
+                                          <option value="WY">Fiona</option>
+                                          <option value="AL">Kiran</option>
+                                          <option value="IA">Senthil</option>
+                                          <option value="KS">Vino</option>
+                                          <option value="KY">kamla</option>
+                                       </select>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div> -->
+                           <div class="row form-horizontal">
+                              <div class="col-md-12">
+                                 <div class="form-group">
+                                    <label class="col-sm-2 control-label">Attachements</label>
+                                    <div class="col-sm-10">
+                                       <input type="file" class="file-input" multiple="multiple">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                            <hr/>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save</button>
+                            </div>
+                            </fieldset>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+</body>
+</html>

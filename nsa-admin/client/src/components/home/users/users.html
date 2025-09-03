@@ -1,0 +1,143 @@
+<!-- Page container -->
+<div class="page-container">
+
+    <!-- Page content -->
+    <div class="page-content">
+
+        <!-- Main content -->
+        <div class="content-wrapper">
+            <!-- Generated column content -->
+            <div class="panel panel-flat">
+                <div class="panel-heading">
+                    <h6 class="panel-title">Message List</h6>
+                    <div class="heading-elements">
+                        <button type="button" (click)="resetForm()" class="btn btn-primary heading-btn" data-toggle="modal" data-target="#modal_theme_primary">Create New Notification</button>
+                    </div>
+                    <a class="heading-elements-toggle"><i class="icon-menu"></i></a>
+                    <input hidden id="warningButton" (click)="requested_warning()" type="button" style="display: none;">
+                    <input hidden id="deleteButton" (click)="requested_delete($event)" type="button" style="display: none;">
+                    <input hidden id="editButton" (click)="getNotificationById($event.target.value)" type="button" style="display: none;">
+                    <!--<input hidden id="viewButton"  (click)="getNotifcationLogsById($event.target.value)" type="button" style="display: none;">-->
+                </div>
+
+                <table class="table datatable-nested">
+                    <thead>
+                    <tr>
+                        <th>Notification Name</th>
+                        <th>Total Count</th>
+                        <th>Status</th>
+                        <th>Updated Date</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+            <!-- /generated column content -->
+        </div>
+
+    </div>
+
+</div>
+<!-- Primary modal -->
+
+<div id="modal_theme_primary" class="modal fade">
+    <div class="modal-dialog modal-lg">
+            <form class="form-horizontal form-validate" [formGroup]="templateForm">
+            <div class="modal-content">
+                <div class="modal-header bg-info">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h6 class="modal-title">Send Notification</h6>
+                </div>
+                <div class="modal-body">
+                    <div class="collapse in">
+                        <div *ngFor="let p of media" class="alert alert-info-new alert-info alert-styled-left alert-arrow-left alert-component" style="padding: 0px !important;">
+                            <label class="control-label col-md-offset-1 col-sm-offset-1">Tolal SMS : </label><label class="text-danger">{{p.available_limit}}</label>
+                            <label class="control-label col-md-offset-2 col-sm-offset-2">Used : </label><label class="text-danger">{{p.used_count}}</label>
+                            <label class="control-label col-md-offset-3 col-sm-offset-3">Available : </label><label class="text-danger">{{p.available_limit - p.used_count}}</label>
+                        </div>
+                        <fieldset formGroupName="sms">
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Notification Name <span class="text-danger">*</span></label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" [ngModel]="title" required="required" placeholder="Enter Title" formControlName="title">
+                                </div>
+                            </div>
+                        </fieldset>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Mobile Number </label>
+                            <div class="col-md-9">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="icon-mobile2"></i></span>
+                                    <input type="text" class="form-control"  placeholder="Mobile Number" formControlName="phoneNo" >
+                                    <input type="hidden" class="form-control"  placeholder="Mobile Number" formControlName="notificationId" >
+                                </div>
+                                <label class="text-danger">Note : Messsage for individuals. Use "comma(,)"  for multiple mobile numbers  </label>
+                            </div>
+                        </div>
+                        <fieldset formGroupName="notifyTo">
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Message For</label>
+                                <div class="col-md-9">
+                                    <select name="select" class="form-control" formControlName="roleId">
+                                        <option *ngFor="let p of prototypes" [value]="p.id" selected="p==={{myDefault}}">
+                                            {{ p.name }}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset formGroupName="sms">
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Template </label>
+                                <div class="col-md-9">
+                                    <select (change)="getTemplateById($event.target.value)" name="select" class="form-control" formControlName="templateId" >
+                                        <option *ngFor="let selectedType of selectedTypes" [value]="selectedType.templateId" selected="selectedType==={{myDefault}}">{{selectedType.templateName}}</option>
+                                        <option [value]="template.template_id"  *ngFor="let template of templates">{{template.template_title}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Message <span class="text-danger">*</span></label>
+                                <div class="col-md-9" *ngFor="let template1 of template">
+                                    <!-- Basic layout-->
+                                    <textarea id="templateName" ng-trim="false" [maxlength]="900" formControlName="templateName" rows="5" cols="5" class="form-control" (keypress)="changed()" [ngModel]="template1.template_message" required="required"[value]="template1.template_message" ></textarea><br/>
+                                    <input hidden type="text" formControlName="templateTitle" [ngModel]="template1.template_title" [value]="template1.template_title">
+                                    <span>{{currentText}} Characters</span> <span formControlname="count">({{count}} SMS) </span> |  <span> Characters Left : {{ charsLeft }}/900 </span><br/>
+                                    <label class="text-danger">Note : Replace * with valid data</label>
+
+                                    <!--<div class="panel panel-flat">
+                                        <div class="panel-body">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">Title: <span class="text-danger">*</span></label>
+                                                <div class="col-md-9">
+                                                    <input type="text" class="form-control" [ngModel]="title" required="required" placeholder="Enter Title" formControlName="title">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">Descritpion: <span class="text-danger">*</span></label>
+                                                <div class="col-md-9" *ngFor="let template1 of template">
+                                                    <textarea id="templateName" ng-trim="false" [maxlength]="900" formControlName="templateName" rows="5" cols="5" class="form-control" (keypress)="changed()" [ngModel]="template1.template_message" required="required"[value]="template1.template_message" ></textarea><br/>
+                                                    <input hidden type="text" formControlName="templateTitle" [ngModel]="template1.template_title" [value]="template1.template_title">
+                                                    <span>{{currentText}} Characters</span> <span formControlname="count">({{count}} SMS) </span> |  <span> Characters Left : {{ charsLeft }}/900 </span>
+                                                    <label style="-webkit-animation: blink .95s linear infinite;-moz-animation: blink .95s linear infinite;-ms-animation: blink .95s linear infinite;-o-animation: blink .95s linear infinite; animation: blink .95s linear infinite;font-size: 12px; color:red;">Note : Replace * with Valid data</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>-->
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" id="Draft" (click)="saveNotification('Draft')" class="btn btn-primary btn-ladda btn-ladda-progress" data-style="expand-right" data-spinner-size="20"><span class="ladda-label">Save as Draft</span></button>
+                    <button type="submit" id="Sent" (click)="saveNotification('Sent')" class="btn btn-primary btn-ladda btn-ladda-progress" data-style="expand-right" data-spinner-size="20"><span class="ladda-label">Send</span></button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- /primary modal -->
+

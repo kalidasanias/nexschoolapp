@@ -1,0 +1,21 @@
+<div class="image-container">
+    <ul id="lightgallery" class="list-unstyled" *ngIf="images">
+        <ng-container *ngFor ="let image of images">
+                <li class="item" attr.data-src="{{baseUrl + '/'+ image.id}}" attr.data-sub-html='<h4>{{image.name}}</h4>'>
+                    <a class="select-tic" [id]="[image.name]" attr.data-id="{{image.id}}">
+                        <ng-container>
+                            <img class="view-light-image" src="{{baseUrl + '/'+ image.id}}" width="295" height="166" />
+                        </ng-container>
+                    </a>
+                </li>
+        </ng-container>
+    </ul>
+</div>
+<ng-container *ngIf="showWarning">
+    <div class="col-md-10">
+        <div class="col-md-offset-2 alert alert-warning no-border text-center">
+            <span class="text-semibold">No {{type || 'data'}} Found. </span>
+        </div>
+    </div>
+</ng-container>
+<br/>

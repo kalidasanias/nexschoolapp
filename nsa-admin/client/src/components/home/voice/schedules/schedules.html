@@ -1,0 +1,53 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h6 class="panel-title"><span class="text-semibold"><i class="fa fa-bars"></i> List of Voice Messages</span>
+        </h6>
+        <input id="getDataByDuration" type="hidden" (click)="getDataByDuration($event)">
+        <div class="filer-section filter-label-left filter-label-top">
+            Time Period
+            <label class="margin-left10 radio-inline hidden-xs">
+                <input type="radio" name="filter" value="today" checked (click)="duration($event)">Duration
+            </label>
+            <button [disabled]="!isDuration" #date type="button" class="margin-left10 hidden-xs btn btn-default attendance daterange-basic-disabledFuture">
+                <i class="icon-calendar22 position-left"></i>
+                <span></span>
+                <b class="caret"></b>
+            </button>
+
+            <label class="margin-left10 radio-inline">
+                <input type="radio" name="filter" value="today" checked (click)="today($event)"> Today
+            </label>
+            <label class="margin-left10 radio-inline">
+                <input type="radio" name="filter" value="week" (click)="week($event)"> This Week
+            </label>
+            <label class="margin-left10 radio-inline">
+                <input type="radio" name="filter" value="month" (click)="month($event)"> This Month
+            </label>
+
+        </div>
+        <div class="heading-elements">
+            <!--<button type="button" valclass="btn btn-sm btn-primary heading-btn" data-toggle="modal" data-target="#modal_full" (click)="addDriver($event)">Add Driver</button>-->
+            <input *ngIf="enable" type="button" value="Create New Voice Message" data-size="75%" data-title="New Voice Message" data-toggle="from-right" data-id="#scheduleVoice" class="btn btn-sm btn-primary" (click)="scheduleVoice($event)"/>
+        </div>
+    </div>
+
+    <div class="panel-body">
+                <input type="hidden" id="deleteButton" (click)="confirmDelete($event)" type="button" style="display: none;" />
+                <input hidden id="warningButton" (click)="deleteWarning($event)" type="button" style="display: none;">
+                <input hidden id="editDriver" (click)="updateDriver($event)" data-title="Edit Driver" data-size="75%" data-id="#scheduleVoice" type="button" style="display: none;">
+        <table class="table datatable-voice">
+            <thead>
+            <tr>
+                <th data-priority="1">Message Name</th>
+                <th data-priority="3">Date of Call</th>
+                <th>Total Count</th>
+                <th>Status</th>
+                <th>Updated By</th>
+                <th data-priority="2">Action</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+<schedule-voice></schedule-voice>

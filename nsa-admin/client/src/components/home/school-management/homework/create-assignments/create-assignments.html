@@ -1,0 +1,130 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h6 class="panel-title">
+            <span class="text-semibold text-uppercase"><i class="icon-file-text2 position-left"></i>Homework </span> <i class="icon-arrow-right15 text-pink-600"></i> <small>List of Homework </small>
+        </h6>
+        <div class="heading-elements">
+            <input *ngIf="enable" type="button" value="Add Homework" data-size="75%" data-title="Add Homework" data-toggle="from-right" data-id="#addAssignment" class="btn btn-sm btn-primary" (click)="addNewAssignment($event)"/>
+        </div>
+    </div>
+    <input hidden id="assignmentsWarning" (click)="requested_warning()" type="button" style="display: none;">
+    <input hidden id="notificationLogs" (click)="getNotificationLog($event)" data-size="75%" data-title="Notification Logs" data-id="#notificationLog" type="button" style="display: none;">
+    <input hidden id="deleteButton" (click)="requested_delete($event)" type="button" style="display: none;">
+    <input hidden id="assignmentsEdit" (click)="getAssignment($event, 'edit')" data-size="75%" data-id="#addAssignment" type="button" style="display: none;">
+    <input hidden id="assignmentsCloneFee" (click)="getAssignment($event, 'clone')" data-size="75%" data-id="#addAssignment" type="button" style="display: none;">
+    <input hidden id="assignmentsView" (click)="getAssignmentDetailById($event)" data-size="75%" data-id="#viewAssignment" type="button" style="display: none;">
+    <div class="panel-body">
+        <form class="form-horizontal" action="#">
+            <div class="row form-horizontal">
+                <div class="col-md-2 margin-left40">
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">Class <span class="text-danger">*</span>
+                        </label>
+                        <div class="col-sm-8">
+                            <div class="row">
+                                <select  (click)="getSectionByClass()" #singleClass id="bootstrap-class" class="select-change" data-width="100%">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="sections" class="col-md-2  margin-left40 hide">
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">Section
+                        </label>
+                        <div class="col-sm-8">
+                            <div class="row">
+                                <select #singleSection  id="bootstrap-section" data-width="100%">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 margin-left40">
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">Subject
+                        </label>
+                        <div class="col-sm-8">
+                            <div class="row">
+                                <select #singleSubject id="bootstrap-subject" data-width="100%">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="col-md-2 margin-left40">
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">Employee
+                        </label>
+                        <div class="col-sm-8">
+                            <div class="row">
+                                <select class="bootstrap-select" data-width="100%">
+                                    <option value="sub1">&#45;&#45; Select Employee &#45;&#45;</option>
+                                    <option value="sub2">George David</option>
+                                    <option value="sub2">Lidy Sandy</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>-->
+            </div>
+
+
+            <div class="row form-horizontal">
+                <div class="col-md-10">
+                        <label class="control-label col-sm-2 label-nowrap txt-align-center">Filter By Due Date
+                        </label>
+                        <div class="col-sm-10">
+                            <input id="getDataByDuration" class="form-control" type="hidden" (click)="getDataByDuration($event)">
+                            <label class="control-label margin-left5 hidden-xs">
+                                <input type="radio" name="filter" value="today" checked (click)="duration($event)"> Duration
+                            </label>
+                            <button [disabled]="!isDuration" #date type="button" class="margin-left30 hidden-xs btn btn-default attendance daterange-basic-all">
+                                <i class="icon-calendar22 position-left"></i>
+                                <span></span>
+                                <b class="caret"></b>
+                            </button>
+                            <label class="control-label margin-left40">
+                                <input type="radio" name="filter" value="today" checked (click)="today($event)"> Today
+                            </label>
+                            <label class="control-label margin-left40">
+                                <input type="radio" name="filter" value="week" (click)="week($event)"> This Week
+                            </label>
+                            <label class="control-label margin-left40">
+                                <input type="radio" name="filter" value="month" (click)="month($event)"> This Month
+                            </label>
+                        </div>
+                </div>
+                <div class="col-md-2 navbar-right txt-align-right">
+                    <div class="form-group">
+                        <input class="btn btn-default " id="cancel-back" value="Clear" (click)="resetForm()" type="reset">
+                        <input class="btn btn btn-primary ui-wizard-content margin-right10 ui-formwizard-button" id="cancel-next" value="Search" (click)="save()" type="button">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <table class="table datatable-align datatable-assignment-export">
+            <thead>
+            <tr>
+                <th data-priority="1">Homework Name</th>
+                <th >Subject</th>
+                <th>Due Date</th>
+                <th>Updated By</th>
+                <th>Updated Date</th>
+                <th>Status</th>
+                <th data-priority="3">Logs</th>
+                <th data-priority="2">Action</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+<add-assignment></add-assignment>
+<view-assignment></view-assignment>
+<attachment></attachment>
+<notification-logs></notification-logs>
+

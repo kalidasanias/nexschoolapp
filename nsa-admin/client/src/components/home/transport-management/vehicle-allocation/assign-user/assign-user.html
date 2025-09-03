@@ -1,0 +1,85 @@
+<div id="assignUser" class="overlay-popup footer-popup" style="display: none;">
+	<!-- RIGHT PANEL STARTS -->
+	<div class="cd-panel">
+		<div class="cd-panel-header">
+			<div class="simple-field-hf">
+			</div>
+			<a (click)="closeOverlay($event)" class="cd-panel-close">Close</a>
+		</div>
+		<div class="cd-panel-container" id="hiflame-cart-popup">
+			<div class="cd-panel-content" id="side-panel-container">
+
+				<div class="modal-body">
+					<form novalidate class="form-horizontal form-validate">
+
+						<div class="form-group">
+							<label class="col-md-2 control-label text-right">Route <span class="text-danger">*</span>
+							</label>
+							<div class="col-md-3">
+								<select #selectRoute class="select-change" (click)="getRouteDetails($event)"  id="select-route" data-width="100%" [disabled]="moveDisable">
+								</select>
+								<span class="help-block routeShow hide">Reg No :{{ selectedRoute.reg_no }}</span>
+							</div>
+							<label class="control-label col-md-2 text-right hide routeShow">Stop <span class="text-danger">*</span>
+							</label>
+							<div class="col-md-3 hide routeShow">
+								<select #selectStop class="select-change" (click)="getStopUsers($event)" id="select-stop" data-width="100%" [disabled]="moveDisable">
+								</select>
+								<span class="help-block routeShow hide">Notify Distance: {{selecteStop.radius ? selecteStop.radius/1000 + 'KM': ''}}</span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-2 control-label text-right">Class <span class="text-danger">*</span>
+							</label>
+							<div class="col-md-3">
+								<select #singleClass (click)="getSectionByClass($event)" class="select-change" id="select-class" data-width="100%">
+								</select>
+							</div>
+							<label class="control-label col-md-2 text-right select-section hide">Section <span class="text-danger">*</span>
+							</label>
+							<div class="col-md-3 select-section hide">
+								<select #singleSection id="select-section" class="select-change" (click)="getSection($event)" data-width="100%">
+								</select>
+							</div>
+							<div class="col-md-offset-10 txt-align-right">
+								<input class="btn btn btn-default ui-wizard-content ui-formwizard-button" (click)="resetInputs()" value="Reset" type="Reset">
+								<button type="submit" class="btn btn-primary" id="search" [disabled]="searchDisable && moveDisable" (click)="search()" >Search</button>
+							</div>
+						</div>
+					</form>
+
+					<div class="panel panel-default">
+						<div class="panel-heading margin-bottom20">
+							<h6 class="panel-title second-panel-title">
+								<span class="text-semibold text-uppercase">
+									<i class = "icon-menu7 position-left"></i>
+									Select Students {{ alreadySelectedUsers.length > 0 ? ' - ' + (vehicle.seating_capacity - alreadySelectedUsers.length) + " / " : vehicle.seating_capacity === '' ? '' : ' - '}} {{ vehicle.seating_capacity != '' ? vehicle.seating_capacity : '' }}
+								</span>
+							</h6>
+							<input type="hidden" id="seating-capacity" value="{{ vehicle.seating_capacity }}" />
+						</div>
+
+						<div class="panel-body">
+							<div class="col-md-12">
+								<div class="row">
+									<div class="col-md-6 text-center text-semibold text-uppercase">Available Students</div>
+									<div class="col-md-6 text-center text-semibold text-uppercase">Selected Students {{selectedUsers.length > 0 ? '-'+ selectedUsers.length: '0'}}</div>
+								</div>
+								<dual-list [source]="users" [(destination)]="selectedUsers" (destinationChange)="movingUsers()" [key]="key" [display]="display" [filter]="true" [format]="format"></dual-list>
+							</div>
+						</div>
+						
+					</div>
+
+				</div>
+				<div class="overlay-footer">
+					<div class="right-align overlay-footer-content-rt">
+						<button type="button" class="btn btn-sm btn-default" (click)="closeOverlay()">Close</button>
+						<button type="submit" class="btn btn-primary" id="save" [disabled]="assignDisable" (click)="assignUser()" >Assign</button>
+						<!--<button type="submit" class="btn btn-primary" [disabled]="!designationForm.valid" id="save" (click)="saveDesignation('saveDesignation')" >{{buttonVal}}</button>-->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

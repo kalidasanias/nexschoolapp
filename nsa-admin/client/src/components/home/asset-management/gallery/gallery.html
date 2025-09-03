@@ -1,0 +1,43 @@
+<div class="navbar navbar-default navbar-xs ">
+    <ul class="nav navbar-nav no-border visible-xs-block">
+        <li><a class="text-center collapsed" data-toggle="collapse" data-target="#navbar-filter"><i class="icon-filter4"></i></a></li>
+    </ul>
+
+    <div class="navbar-collapse collapse" id="navbar-filter">
+        <p class="navbar-text">Filter:</p>
+        <ul class="nav navbar-nav">
+            <li class="parent-filter dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-sort-time-asc position-left"></i> By date <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li class="my-filter active"><a id="desc" (click)="sortFilter($event)">Newest first</a></li>
+                    <li class="my-filter"><a id="asc" (click)="sortFilter($event)">Oldest first</a></li>
+                </ul>
+            </li>
+
+            <li class="parent-filter dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-sort-amount-desc position-left"></i> By Category <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li class="my-filter"><a id='' (click)="categoryFilter($event)">Show all</a></li>
+                    <li class="divider"></li>
+                    <ng-container *ngIf="categories">
+                        <ng-container *ngFor="let category of categories">
+                            <li class="my-filter"><a [id]="[category.event_type_name]" (click)="categoryFilter($event)">{{category.event_type_name}}</a></li>
+                        </ng-container>
+                    </ng-container>
+                </ul>
+            </li>
+        </ul>
+
+        <div class="navbar-right">
+            <form class="navbar-form navbar-left" action="#">
+                <div class="form-group">
+                    <input  *ngIf="enable" type="button" data-size="50%" data-title="Add New Gallery" value="Add Gallery" data-toggle="from-right" data-id="#addNewGallery" class="btn btn-sm btn-primary heading-btn" (click)="addNewGallery($event)"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<input type="hidden" id="albumRefresh" class="btn btn-primary" value="Refresh" (click)="refreshAlbums()">
+<!-- Timeline -->
+<album [albums]="albums"></album>
+<add-new-gallery></add-new-gallery>

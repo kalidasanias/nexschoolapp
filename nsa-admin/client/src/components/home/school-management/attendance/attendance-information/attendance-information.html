@@ -1,0 +1,63 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h6 class="panel-title">Time Period</h6>
+        <input id="getDataByDuration" type="hidden" (click)="getDataByDuration($event)">
+        <div class="filer-section">
+            <label class="margin-left40 radio-inline hidden-xs">
+                <input type="radio" name="filter" value="today" checked (click)="duration($event)">Duration
+            </label>
+            <button [disabled]="!isDuration" #date type="button" class="margin-left30 hidden-xs btn btn-default attendance daterange-basic-disabledFuture">
+                <i class="icon-calendar22 position-left"></i>
+                <span></span>
+                <b class="caret"></b>
+            </button>
+
+            <label class="margin-left40 radio-inline">
+                <input type="radio" name="filter" value="today" checked (click)="today($event)"> Today
+            </label>
+            <label class="margin-left40 radio-inline">
+                <input type="radio" name="filter" value="week" (click)="week($event)"> This Week
+            </label>
+            <label class="margin-left40 radio-inline">
+                <input type="radio" name="filter" value="month" (click)="month($event)"> This Month
+            </label>
+
+        </div>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h6 class="panel-title"><span class="text-semibold text-uppercase"><i class="fa fa-users position-left"></i>Attendance Information </span></h6>
+        <div class="heading-elements">
+            <input *ngIf="enable" type="button" value="Record Attendance" data-size="75%" data-title="Record Attendance" data-toggle="from-right" data-id="#record_attendance" class="btn btn-sm btn-primary" (click)="recordAttendance($event)"/>
+        </div>
+    </div>
+    <input hidden id="attendnceEdit" (click)="getAttendanceById($event)" data-size="75%" data-id="#edit_attendance" type="button" style="display: none;">
+    <input hidden id="notificationLogs" (click)="getNotificationLog($event)" data-size="75%" data-title="Notification Logs" data-id="#notificationLog" type="button" style="display: none;">
+    <div class="panel-body">
+        <table class="table datatable-attendance-export">
+            <thead>
+            <tr>
+                <th class="text-center" data-priority="1">Class</th>
+                <th class="text-center">Section</th>
+                <th class="text-center">Total Strength</th>
+                <th class="text-center">No.Present</th>
+                <th class="text-center">No.Absent</th>
+                <th class="text-center">Present%</th>
+                <th class="text-center">Recorderd By</th>
+                <th class="text-center">Attendance Date</th>
+                <th class="text-center">Updated By</th>
+                <th class="text-center" data-priority="3">Logs</th>
+                <th class="text-center" data-priority="2">Action</th>
+            </tr>
+            </thead>
+        </table>
+
+    </div>
+</div>
+
+<record-attendance></record-attendance>
+<edit-attendance></edit-attendance>
+<notification-logs></notification-logs>
+
+

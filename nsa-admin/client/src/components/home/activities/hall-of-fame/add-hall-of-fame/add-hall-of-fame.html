@@ -1,0 +1,81 @@
+<div id="addHallOfFame" class="overlay-popup footer-popup" style="display: none;">
+    <!-- RIGHT PANEL STARTS -->
+    <div class="cd-panel">
+        <div class="cd-panel-header">
+            <!-- <div class="hidden-xs simple-field-hf"></div> -->
+            <div class="simple-field-hf">
+            </div>
+            <a (click)="closeOverlay($event)" class="cd-panel-close">Close</a>
+        </div>
+        <div class="cd-panel-container">
+            <div class="cd-panel-content" id="side-panel-container">
+                <form action="#" class="form-horizontal" [formGroup]="hallOfFameForm">
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="control-label col-sm-4 txt-align-left">Award Name&nbsp;<span
+                                        class="text-danger">*</span></label>
+
+                                <div class="col-md-7">
+                                    <select #awardName id="awards-List" data-width="100%">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="control-label col-sm-4 txt-align-left">Date of Issue&nbsp;<span
+                                        class="text-danger">*</span></label>
+
+                                <div class="col-md-7">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="icon-calendar22"></i></span>
+                                        <input #dateOfIssue type="text" class="form-control pickadate"
+                                               placeholder="Select Date&hellip;" formControlName="dateOfIssue">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="control-label col-sm-4 txt-align-left">Search Students&nbsp;<span
+                                        class="text-danger">*</span>
+                                </label>
+
+                                <div class="col-sm-7">
+                                    <p-autoComplete field="suggestStudent" placeholder="Search Students"
+                                                    [(ngModel)]="texts" styleclass="wid100" formControlName="students"
+                                                    [suggestions]="results" (completeMethod)="search($event)"
+                                                    [multiple]="true"></p-autoComplete>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="control-label col-md-4 txt-align-left">Category</label>
+
+                                <div class="col-md-7">
+                                    <textarea ng-trim="false" [maxlength]="160" id="templateName" rows="3" cols="3"
+                                              class="form-control" (keydown)="keyDown()"
+                                              formControlName="desc"></textarea>
+                                    <span class="text-danger">Characters limit : 160</span><br/>
+                                    <span> Characters Left : {{ charsLeft }}/160 </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="overlay-footer">
+                        <div class="right-align overlay-footer-content-rt">
+                            <button type="button" class="btn btn-default" (click)="closeOverlay($event)">Close</button>
+                            <button type="submit" [disabled]="!hallOfFameForm.valid" id="save" (click)="saveHallOfFame('save')" class="btn btn-primary btn-ladda btn-ladda-progres" data-style="expand-right" data-spinner-size="20">
+                                <span class="ladda-label">{{btnVal}}</span></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- cd-panel-container -->
+        </div>
+    </div>
+    <!-- right panel script -->
+</div>

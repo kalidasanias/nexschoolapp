@@ -1,0 +1,79 @@
+<div id="print-progress-card" class="overlay-popup footer-popup" style="display: none;">
+    <div class="cd-panel">
+        <div class="cd-panel-header">
+            <div class="simple-field-hf">
+            </div>
+            <a (click)="closeOverlay()" class="cd-panel-close">Close</a>
+        </div>
+        <div class="cd-panel-container">
+            <div class="cd-panel-content" id="side-panel-container">
+                <div class="panel panel-default" [hidden]="edit">
+                    <div class="filter-panel-body">
+                        <form class="form-horizontal">
+                            <div class="form-group col-md-3">
+                                <label class="control-label col-md-3">Class <span class="text-danger">*</span>
+                                </label>
+                                <div class="col-md-8">
+                                    <div class="row">
+                                        <select #classSelect id="class-name-select" class="select-change" (click)="getSectionByClass()" data-width="100%">
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-3" [hidden]="!classId">
+                                <label class="control-label col-md-3">Section <span class="text-danger">*</span>
+                                </label>
+                                <div class="col-md-8">
+                                    <div class="row">
+                                        <select #sectionSelect id="section-name-select" data-width="100%" class="select-change" (click)="getExamsByClassAndSections()">
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-3" [hidden]="!classId || !sectionId">
+                                <label class="control-label col-md-3">Exam <span class="text-danger">*</span>
+                                </label>
+                                <div class="col-md-8">
+                                    <div class="row">
+                                        <select #examSelect id="exam-name-select" class="select-change" (click)="getTermByExam()" data-width="100%">
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-3" [hidden]="!classId || !sectionId || !examId">
+                                <label class="control-label col-md-3">Term <span class="text-danger">*</span>
+                                </label>
+                                <div class="col-md-8">
+                                    <div class="row">
+                                        <select #termSelect id="term-name-select" class="select-change" (click)="getUsersByClassAndSection()" data-width="100%">
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!--<input type="hidden" id="upload-mark" (click)="uploadMark($event)">-->
+                <div class="modal-body" [hidden]="!classId || !sectionId || !examId || !termId">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h5 class="panel-title">Print Progress Card </h5>
+                        </div>
+
+                        <div class="panel-body">
+                            <table id="example" class="table display mark-print" width="100%"></table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr/>
+            <div class="overlay-footer">
+                <div class="right-align overlay-footer-content-rt">
+                    <button type="button" (click)="closeOverlay()" class="btn btn-default">Close</button>
+                    <button [disabled]="!termId"  type="button" id="generateReport1" class="btn btn-primary btn-ladda btn-ladda-progress" (click)="printProgressCard($event)"  >Generate Progress Card<!--<i class="fa fa-print fa-lg" style="top: 4px;margin: 1px;"></i>--></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

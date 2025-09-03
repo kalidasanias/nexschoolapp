@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-md-offset-4 col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h2 class="text-center">Change Password</h2>
+                <form [formGroup]="changePasswordForm">
+                    <div class="form-group" [ngClass]="{'has-error':!changePasswordForm.controls['oldPassword'].valid && changePasswordForm.controls['oldPassword'].touched}">
+                        <label>Old Password <span class="text-danger">*</span></label>
+                        <input  type="password" formControlName="oldPassword" placeholder="Old Password" name="oldPassword" required="required" class="form-control">
+                        <div control-messages class="validation-error-label" [control]="changePasswordForm.controls.oldPassword"></div>
+                    </div>
+                    <div class="form-group">
+                        <label >New Password <span class="text-danger">*</span></label>
+                        <input  type="password" formControlName="newPassword" placeholder="New Password" name="newPassword" required="required" class="form-control">
+                        <div control-messages class="validation-error-label" [control]="changePasswordForm.controls.newPassword"></div>
+                    </div>
+                    <div class="form-group">
+                        <label>Confirm New Password <span class="text-danger">*</span></label>
+                        <input  type="password" formControlName="confirmNewPassword" placeholder="Confirm New Password" name="confirmNewPassword" required="required" class="form-control">
+                        <div control-messages class="validation-error-label" [control]="changePasswordForm.controls.confirmNewPassword"></div>
+                    </div>
+                    <div class="form-group text-center">
+                        <button type="submit" class="btn btn-primary" [disabled]="!changePasswordForm.valid" (click)="changePassword(changePasswordForm.value)">Change Password</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h6 class="panel-title"><span class="text-semibold text-uppercase"><i class="icon-coins position-left"></i>ASSIGN FEES</span><i class="icon-arrow-right15 text-pink-600"></i><small>List of Assigned Fees </small></h6>
+        <div class="heading-elements">
+            <input *ngIf="enable" type="button" value="Add Fee" data-size="75%" data-title="Add Fee" data-toggle="from-right" data-id="#addNewFee" class="btn btn-sm btn-primary" (click)="addNewFee($event)"/>
+        </div>
+    </div>
+    <input hidden id="feeWarning" (click)="requested_warning()" type="button" style="display: none;">
+    <input hidden id="deleteButton" (click)="requested_delete($event)" type="button" style="display: none;">
+    <input hidden id="feeEdit" (click)="getFeeAssignment('edit','addNewFee',$event)" data-size="85%" data-id="#addNewFee" type="button" style="display: none;">
+    <input hidden id="clone" (click)="getFeeAssignment('clone','addNewFee',$event)" data-size="95%" data-id="#addNewFee" type="button" style="display: none;">
+    <input hidden id="publishDetails" (click)="publishFee($event)" data-size="95%" data-id="#publish1" type="button" style="display: none;">
+    <input hidden id="feeView" (click)="feeDetails($event)" data-size="95%" data-id="#feeDetails" type="button" style="display: none;">
+    <div class="panel-body">
+        <table class="table datatable-fee-export">
+            <thead>
+            <tr>
+                <th data-priority="1">Created Date</th>
+                <th>Fee Name</th>
+                <th>Net Amount</th>
+                <th>Due date</th>
+                <th>Updated By</th>
+                <th>Status</th>
+                <th data-priority="2">Action</th>
+                <th>Clone Fee </th>
+                <th data-priority="3">Publish Fee</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+<add-new-fee></add-new-fee>
+<fee-details></fee-details>
+<publish></publish>

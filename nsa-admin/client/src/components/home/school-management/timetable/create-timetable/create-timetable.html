@@ -1,0 +1,21 @@
+<div class="panel panel-flat">
+    <div class="panel-heading">
+        <h6 class="panel-title text-semibold text-uppercase"><i class="icon-menu2"></i>&nbsp;Timetable</h6>
+    </div>
+    <div class="panel-body ">
+        <div class="tabbable ">
+            <ul class="nav nav-tabs nsa-nav-tabs nsa-blue  nav-tabs-highlight nav-justified">
+                <li class="active"><a href="#class-timetable" data-toggle="tab"> Class Timetable</a></li>
+                <li><a href="#emp-timetable" (click)="employeeList()" data-toggle="tab">Employee Timetable</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="class-timetable">
+                    <class-timetable></class-timetable>
+                </div>
+                <div class="tab-pane" id="emp-timetable">
+                    <emp-timetable></emp-timetable>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

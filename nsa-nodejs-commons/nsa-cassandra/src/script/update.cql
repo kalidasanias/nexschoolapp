@@ -1,0 +1,907 @@
+use nsa;
+
+
+DROP TABLE IF EXISTS nsa.school_role_type;
+CREATE TABLE nsa.school_role_type(
+tenant_id timeuuid,
+school_id uuid,
+id uuid,
+name text,
+description text,
+updated_by text,
+updated_username text,
+updated_date timestamp,
+created_by text,
+created_date timestamp,
+created_firstname text,
+default_value boolean,
+is_enable boolean,
+status boolean,
+PRIMARY KEY ((tenant_id, school_id), id)
+);
+CREATE CUSTOM INDEX name_prefix ON school_role_type (name) USING 'org.apache.cassandra.index.sasi.SASIIndex'WITH OPTIONS = {'mode': 'CONTAINS', 'analyzer_class': 'org.apache.cassandra.index.sasi.analyzer.NonTokenizingAnalyzer', 'case_sensitive': 'false'};
+
+DROP TABLE IF EXISTS nsa.permissions;
+CREATE TABLE nsa.permissions(
+id uuid PRIMARY KEY,
+feature_id uuid,
+name text,
+description text,
+);
+CREATE INDEX on nsa.permissions(feature_id);
+
+DROP TABLE IF EXISTS nsa.school_role_permissions;
+CREATE TABLE nsa.school_role_permissions(
+id uuid,
+tenant_id timeuuid,
+school_id uuid,
+role_id uuid,
+role_name text,
+permission_id map<uuid, text>,
+updated_by text,
+updated_date timestamp,
+updated_username text,
+created_by text,
+created_date timestamp,
+created_firstname text,
+PRIMARY KEY ((tenant_id, school_id), role_id)
+);
+
+alter table school_vehicle_details add active boolean;
+alter table school_vehicle_route_details drop radius ;
+alter table school_vehicle_stop_details add place_id text;
+alter table school_vehicle_stop_details add reg_no text;
+alter table school_vehicle_stop_details add radius int;
+
+alter table nsa.school_assignment_type add created_date timestamp;
+alter table nsa.school_assignment_type add created_by text;
+alter table nsa.school_assignment_type add created_firstname text;
+
+alter table nsa.school_assignment add created_date timestamp;
+alter table nsa.school_assignment add created_by text;
+alter table nsa.school_assignment add created_firstname text;
+
+alter table nsa.school_assignment_details add created_date timestamp;
+alter table nsa.school_assignment_details add created_by text;
+alter table nsa.school_assignment_details add created_firstname text;
+
+alter table nsa.school_notifications add created_date timestamp;
+alter table nsa.school_notifications add created_by text;
+alter table nsa.school_notifications add created_firstname text;
+
+alter table nsa.school_media_usage_log add created_date timestamp;
+alter table nsa.school_media_usage_log add created_by text;
+alter table nsa.school_media_usage_log add created_firstname text;
+
+alter table nsa.school_fee_type add created_date timestamp;
+alter table nsa.school_fee_type add created_by text;
+alter table nsa.school_fee_type add created_firstname text;
+
+alter table nsa.school_scholarship_type add created_date timestamp;
+alter table nsa.school_scholarship_type add created_by text;
+alter table nsa.school_scholarship_type add created_firstname text;
+
+alter table nsa.school_fee_structure add created_date timestamp;
+alter table nsa.school_fee_structure add created_by text;
+alter table nsa.school_fee_structure add created_firstname text;
+
+alter table nsa.school_fee_assignment add created_date timestamp;
+alter table nsa.school_fee_assignment add created_by text;
+alter table nsa.school_fee_assignment add created_firstname text;
+
+alter table nsa.school_fee_assignment_details add created_date timestamp;
+alter table nsa.school_fee_assignment_details add created_by text;
+alter table nsa.school_fee_assignment_details add created_firstname text;
+
+alter table nsa.school_class_details add created_date timestamp;
+alter table nsa.school_class_details add created_by text;
+alter table nsa.school_class_details add created_firstname text;
+
+alter table nsa.school_sections add created_date timestamp;
+alter table nsa.school_sections add created_by text;
+alter table nsa.school_sections add created_firstname text;
+
+alter table nsa.school_aspects add created_date timestamp;
+alter table nsa.school_aspects add created_by text;
+alter table nsa.school_aspects add created_firstname text;
+
+alter table nsa.school_subjects add created_date timestamp;
+alter table nsa.school_subjects add created_by text;
+alter table nsa.school_subjects add created_firstname text;
+
+alter table nsa.school_department add created_date timestamp;
+alter table nsa.school_department add created_by text;
+alter table nsa.school_department add created_firstname text;
+
+alter table nsa.school_designation add created_date timestamp;
+alter table nsa.school_designation add created_by text;
+alter table nsa.school_designation add created_firstname text;
+
+alter table nsa.school_leave_type add created_date timestamp;
+alter table nsa.school_leave_type add created_by text;
+alter table nsa.school_leave_type add created_firstname text;
+
+alter table nsa.school_attendance add created_date timestamp;
+alter table nsa.school_attendance add created_by text;
+alter table nsa.school_attendance add created_firstname text;
+
+alter table nsa.school_attendance_details add created_date timestamp;
+alter table nsa.school_attendance_details add created_by text;
+alter table nsa.school_attendance_details add created_firstname text;
+
+alter table nsa.school_leave_history_details add created_date timestamp;
+alter table nsa.school_leave_history_details add created_by text;
+alter table nsa.school_leave_history_details add created_firstname text;
+
+alter table nsa.school_timetable_configuration add created_date timestamp;
+alter table nsa.school_timetable_configuration add created_by text;
+alter table nsa.school_timetable_configuration add created_firstname text;
+
+alter table nsa.school_timetable add created_date timestamp;
+alter table nsa.school_timetable add created_by text;
+alter table nsa.school_timetable add created_firstname text;
+
+alter table nsa.swap_timetable add created_date timestamp;
+alter table nsa.swap_timetable add created_by text;
+alter table nsa.swap_timetable add created_firstname text;
+
+alter table nsa.class_timetable add created_date timestamp;
+alter table nsa.class_timetable add created_by text;
+alter table nsa.class_timetable add created_firstname text;
+
+
+alter table nsa.calendar_data add created_by text;
+alter table nsa.calendar_data add created_firstname text;
+
+alter table nsa.school_leave_assign_details add created_date timestamp;
+alter table nsa.school_leave_assign_details add created_by text;
+alter table nsa.school_leave_assign_details add created_firstname text;
+
+alter table nsa.school_holiday_types add created_date timestamp;
+alter table nsa.school_holiday_types add created_by text;
+alter table nsa.school_holiday_types add created_firstname text;
+
+alter table nsa.school_holidays add created_date timestamp;
+alter table nsa.school_holidays add created_by text;
+alter table nsa.school_holidays add created_firstname text;
+
+alter table nsa.school_vehicle_details add created_date timestamp;
+alter table nsa.school_vehicle_details add created_by text;
+alter table nsa.school_vehicle_details add created_firstname text;
+
+alter table nsa.school_driver_details add created_date timestamp;
+alter table nsa.school_driver_details add created_by text;
+alter table nsa.school_driver_details add created_firstname text;
+
+alter table nsa.school_vehicle_route_details add created_date timestamp;
+alter table nsa.school_vehicle_route_details add created_by text;
+alter table nsa.school_vehicle_route_details add created_firstname text;
+
+alter table nsa.school_vehicle_user_allocation add created_date timestamp;
+alter table nsa.school_vehicle_user_allocation add created_by text;
+alter table nsa.school_vehicle_user_allocation add created_firstname text;
+
+alter table nsa.school_event_type add created_date timestamp;
+alter table nsa.school_event_type add created_by text;
+alter table nsa.school_event_type add created_firstname text;
+
+alter table nsa.school_venue_type add created_date timestamp;
+alter table nsa.school_venue_type add created_by text;
+alter table nsa.school_venue_type add created_firstname text;
+
+alter table nsa.school_events add created_date timestamp;
+alter table nsa.school_events add created_by text;
+alter table nsa.school_events add created_firstname text;
+
+alter table nsa.school_events_details add created_date timestamp;
+alter table nsa.school_events_details add created_by text;
+alter table nsa.school_events_details add created_firstname text;
+
+alter table nsa.school_emp_leave_master add created_date timestamp;
+alter table nsa.school_emp_leave_master add created_by text;
+alter table nsa.school_emp_leave_master add created_firstname text;
+
+alter table nsa.school_emp_reporting_manager add created_date timestamp;
+alter table nsa.school_emp_reporting_manager add created_by text;
+alter table nsa.school_emp_reporting_manager add created_firstname text;
+
+alter table nsa.school_emp_leave_applied_details add created_by text;
+alter table nsa.school_emp_leave_applied_details add created_firstname text;
+
+alter table nsa.school_emp_leave_applied_logs add created_date timestamp;
+alter table nsa.school_emp_leave_applied_logs add created_by text;
+alter table nsa.school_emp_leave_applied_logs add created_firstname text;
+
+alter table nsa.school_emp_leave_history_details add created_date timestamp;
+alter table nsa.school_emp_leave_history_details add created_by text;
+alter table nsa.school_emp_leave_history_details add created_firstname text;
+
+alter table nsa.school_week_off_details add created_date timestamp;
+alter table nsa.school_week_off_details add created_by text;
+alter table nsa.school_week_off_details add created_firstname text;
+
+alter table nsa.school_class_section_details add updated_date timestamp;
+alter table nsa.school_class_section_details add updated_by text;
+alter table nsa.school_class_section_details add updated_firstname text;
+alter table nsa.school_class_section_details add created_date timestamp;
+alter table nsa.school_class_section_details add created_by text;
+alter table nsa.school_class_section_details add created_firstname text;
+
+alter table nsa.school_class_subjects add updated_date timestamp;
+alter table nsa.school_class_subjects add updated_by text;
+alter table nsa.school_class_subjects add updated_firstname text;
+alter table nsa.school_class_subjects add created_date timestamp;
+alter table nsa.school_class_subjects add created_by text;
+alter table nsa.school_class_subjects add created_firstname text;
+
+alter table nsa.school_class_details add class_code text;
+
+
+use nsa;
+
+alter table school_feature add notify_hostelers boolean;
+
+alter table school_attendance_details add is_hostel boolean;
+
+
+DROP TABLE IF EXISTS nsa.album;
+CREATE TABLE nsa.album (
+  tenant_id timeuuid,
+  school_id uuid,
+  academic_year text,
+  album_id uuid,
+  category list<text>,
+  name varchar,
+  description varchar,
+  preview_thumbnails map<text,text>,
+  viewed_by int,
+  no_of_files_contains int,
+  shared_to set<text>,
+  created_by text,
+  created_date timestamp,
+  updated_by text,
+  updated_date timestamp,
+  PRIMARY KEY (album_id, tenant_id, school_id, academic_year, created_date)
+) WITH CLUSTERING ORDER BY (tenant_id ASC, school_id ASC, academic_year ASC, created_date DESC);
+
+CREATE INDEX category_idx ON nsa.album(category);
+
+DROP TABLE IF EXISTS nsa.album_content_details;
+
+DROP TYPE IF EXISTS nsa.album_content_metadata;
+CREATE TYPE nsa.album_content_metadata (
+   height int,
+   width int,
+   file_size float
+);
+
+
+CREATE TABLE nsa.album_content_details (
+   content_id uuid,
+   album_id uuid,
+   file_type text,
+   file_url varchar,
+   metadata frozen<album_content_metadata>,
+   tags set<varchar>,
+   created_by text,
+   created_date timestamp,
+   shared_to set<text>,
+   PRIMARY KEY (content_id, created_date)
+) WITH CLUSTERING ORDER BY (created_date DESC);
+
+
+DROP TABLE IF EXISTS nsa.album_latest_contents;
+CREATE TABLE nsa.album_latest_contents (
+   date text,
+   tenant_id timeuuid,
+   school_id uuid,
+   academic_year text,
+   created_by text,
+   created_date timestamp,
+   content_id uuid,
+   name text,
+   file_type text,
+   file_url text,
+   shared_to set<text>,
+   PRIMARY KEY (date, created_date, content_id)
+) WITH CLUSTERING ORDER BY (created_date DESC, content_id ASC);
+
+// Index for tag keywords
+DROP TABLE IF EXISTS nsa.album_contents_by_tag;
+CREATE TABLE nsa.album_contents_by_tag (
+   tag text,
+   content_id uuid,
+   tenant_id timeuuid,
+   school_id uuid,
+   academic_year text,
+   created_by text,
+   created_date timestamp,
+   name text,
+   file_type text,
+   file_url text,  
+   tagged_date timestamp,
+   shared_to set<text>,
+   PRIMARY KEY (tag, content_id)
+);
+
+alter table nsa.school_events add activity_type_id uuid;
+alter table nsa.school_events add activity_type_name text;
+alter table nsa.school_events_details add activity_type_id uuid;
+alter table nsa.school_events_details add activity_type_name text;
+
+DROP TABLE IF EXISTS nsa.school_activity_type;
+CREATE TABLE nsa.school_activity_type (
+activity_type_id uuid,
+activity_type_name text,
+description text,
+tenant_id timeuuid,
+school_id uuid,
+updated_date timestamp,
+updated_by text,
+updated_username text,
+created_date timestamp,
+created_by text,
+created_firstname text,
+PRIMARY KEY((tenant_id, school_id), activity_type_id)
+);
+
+
+//release0.6
+use nsa;
+
+alter table nsa.school_details add logo text;
+
+DROP TABLE IF EXISTS nsa.school_written_exam_type;
+CREATE TABLE nsa.school_written_exam_type (
+tenant_id timeuuid,
+school_id uuid,
+academic_year text,
+written_exam_id uuid,
+written_exam_name text,
+written_exam_code text,
+written_desription text,
+updated_date timestamp,
+updated_by text,
+updated_username text,
+status boolean,
+created_date timestamp,
+created_by text,
+created_firstname text,
+PRIMARY KEY (written_exam_id, tenant_id, school_id, academic_year)
+);
+
+DROP TABLE IF EXISTS nsa.school_exam_schedule;
+DROP TYPE IF EXISTS nsa.school_subject_schedule;
+CREATE TYPE nsa.school_subject_schedule (
+subject_id uuid,
+subject_name text,
+mark int,
+exam_start_time timestamp,
+exam_end_time timestamp,
+);
+
+CREATE TABLE nsa.school_exam_schedule (
+exam_schedule_id uuid,
+tenant_id timeuuid,
+school_id uuid,
+academic_year text,
+written_exam_id uuid,
+written_exam_name text,
+class_id uuid,
+class_name text,
+sections map<text, text>,
+schedule set<frozen<school_subject_schedule>>,
+total_marks int,
+media_name set<text>,
+updated_by text,
+updated_date timestamp,
+updated_username text,
+created_date timestamp,
+created_by text,
+created_firstname text,
+status boolean,
+PRIMARY KEY (exam_schedule_id, tenant_id, school_id, academic_year)
+);
+
+ALTER TABLE nsa.school_media_usage_log ADD sms_response text;
+ALTER TABLE nsa.school_notifications ADD feature_id uuid;
+ALTER TABLE nsa.school_notifications ADD object_id uuid;
+ALTER TABLE nsa.school_notifications ADD sms_raw_response text;
+
+
+//release0.7
+//For Marks List Feature
+
+CREATE INDEX ON nsa.school_exam_schedule(written_exam_id);
+
+DROP TABLE IF EXISTS nsa.school_mark_list;
+CREATE TABLE nsa.school_mark_list(
+mark_list_id uuid,
+tenant_id timeuuid,
+school_id uuid,
+academic_year text,
+exam_schedule_id uuid,
+written_exam_id uuid,
+written_exam_name text,
+class_id uuid,
+class_name text,
+section_id uuid,
+section_name text,
+subjects map<uuid, text>,
+media_name set<text>,
+updated_by text,
+updated_firstname text,
+updated_date timestamp,
+created_by text,
+created_firstname text,
+created_date timestamp,
+status boolean,
+PRIMARY KEY(mark_list_id, tenant_id, school_id, academic_year));
+CREATE INDEX ON nsa.school_mark_list(exam_schedule_id);
+
+DROP TABLE IF EXISTS nsa.school_mark_list_details;
+DROP TYPE IF EXISTS nsa.user_subject_mark_details;
+CREATE TYPE nsa.user_subject_mark_details(
+subject_id uuid,
+subject_name text,
+marks_obtained text,
+max_marks int,
+);
+
+CREATE TABLE nsa.school_mark_list_details (
+mark_list_detail_id uuid,
+mark_list_id uuid,
+tenant_id timeuuid,
+school_id uuid,
+academic_year text,
+exam_schedule_id uuid,
+written_exam_id uuid,
+written_exam_name text,
+class_id uuid,
+class_name text,
+section_id uuid,
+section_name text,
+user_name text,
+user_code text,
+first_name text,
+primary_phone text,
+subject_mark_details set<frozen<user_subject_mark_details>>,
+total_marks float,
+examination_date timestamp,
+media_name set<text>,
+updated_by text,
+updated_firstname text,
+updated_date timestamp,
+created_by text,
+created_firstname text,
+created_date timestamp,
+status boolean,
+remarks text,
+PRIMARY KEY(mark_list_detail_id, tenant_id, school_id, academic_year));
+CREATE INDEX ON nsa.school_mark_list_details(mark_list_id);
+CREATE INDEX ON nsa.school_mark_list_details(class_id);
+CREATE INDEX ON nsa.school_mark_list_details(section_id);
+CREATE INDEX ON nsa.school_mark_list_details(exam_schedule_id);
+
+ALTER TABLE nsa.school_details ADD (about_us text, contact_us text, latitude double, longitude double);
+
+
+
+//release0.8
+
+
+ALTER TABLE nsa.calendar_data DROP exams;
+ALTER TABLE nsa.calendar_data ADD exam_details map<uuid,frozen<exams_type>>;
+
+//existing alter the type
+ALTER TYPE exams_type RENAME exams_name TO written_exam_name;
+ALTER TYPE exams_type ADD exam_schedule_id uuid;
+ALTER TYPE exams_type RENAME subject_name TO class_name;
+ALTER TYPE exams_type ADD sections text;
+ALTER TYPE exams_type ADD subject_details text;
+
+DROP TABLE IF EXISTS nsa.school_exam_portions;
+CREATE TABLE nsa.school_exam_portions (
+id uuid,
+tenant_id timeuuid,
+school_id uuid,
+academic_year text,
+exam_schedule_id uuid,
+attachments frozen<attachment_type>,
+portion_details text,
+media_name set<text>,
+created_date timestamp,
+created_by text,
+created_firstname text,
+updated_date timestamp,
+updated_by text,
+updated_username text,
+PRIMARY KEY(id, exam_schedule_id));
+
+DROP TABLE IF EXISTS nsa.school_feedback_details;
+CREATE TABLE nsa.school_feedback_details (
+feedback_id uuid,
+tenant_id timeuuid,
+school_id uuid,
+feedback_desc text,
+updated_date timestamp,
+updated_by text,
+updated_username text,
+class_id uuid,
+class_name text,
+first_name text,
+section_id uuid,
+section_name text,
+PRIMARY KEY (feedback_id, tenant_id, school_id)
+);
+
+DROP TABLE IF EXISTS nsa.album;
+CREATE TABLE nsa.album (
+  tenant_id timeuuid,
+  school_id uuid,
+  academic_year text,
+  album_id uuid,
+  category list<text>,
+  category_objs text,
+  name varchar,
+  description varchar,
+  preview_thumbnails map<text,text>,
+  viewed_count int,
+  viewed_by set<text>,
+  no_of_files_contains int,
+  shared_to set<text>,
+  created_by text,
+  created_date timestamp,
+  updated_by text,
+  updated_date timestamp,
+  PRIMARY KEY (album_id, tenant_id, school_id, academic_year)
+) WITH CLUSTERING ORDER BY (tenant_id ASC, school_id ASC, academic_year ASC);
+
+CREATE INDEX category_idx ON nsa.album(category);
+
+DROP TABLE IF EXISTS nsa.album_content_details;
+CREATE TABLE nsa.album_content_details (
+   content_id uuid,
+   tenant_id timeuuid,
+   school_id uuid,
+   academic_year text,
+   album_id uuid,
+   file_type text,
+   file_url text,
+   file_name text,
+   mimetype text,
+   metadata frozen<album_content_metadata>,
+   tags set<varchar>,
+   created_by text,
+   created_date timestamp,
+   shared_to set<text>,
+   PRIMARY KEY (content_id, tenant_id, school_id, academic_year)
+);
+
+ALTER TABLE nsa.school_exam_schedule ADD count int;
+
+//release 0.8.1
+
+ALTER TABLE nsa.employee_classification ADD taxanomy_departments list<text>;
+
+//release 0.9
+
+ALTER TABLE nsa.school_media_usage_log ADD deactivated boolean;
+
+ALTER TABLE nsa.school_assignment ADD subjects map<uuid, text>;
+ALTER TABLE nsa.school_assignment_details ADD subjects map<uuid, text>;
+
+ALTER TABLE nsa.employee_classification ADD taxanomy_departments list<text>;
+
+ALTER TABLE nsa.school_timetable ADD sub_emp_association map<uuid, text>;
+ALTER TABLE nsa.swap_timetable ADD sub_emp_association map<uuid, text>;
+
+ALTER TABLE nsa.school_details ADD app_link text;
+ALTER TABLE nsa.school_details ADD password text;
+
+
+//release 1.0
+
+DROP TABLE IF EXISTS nsa.school_grading_system;
+CREATE TABLE nsa.school_grading_system (
+id uuid,
+grade_id uuid,
+tenant_id timeuuid,
+school_id uuid,
+description text,
+grade_name text,
+start_range float,
+end_range float,
+cgpa_value float,
+color text,
+PRIMARY KEY (id, tenant_id, school_id)
+);
+CREATE INDEX on nsa.school_grading_system(grade_id);
+
+ALTER TYPE nsa.user_subject_mark_details ADD grade_id uuid;
+ALTER TYPE nsa.user_subject_mark_details ADD grade_name text;
+ALTER TYPE nsa.user_subject_mark_details ADD cgpa_value float;
+
+ALTER TABLE nsa.school_mark_list ADD total_max_marks float;
+
+ALTER TABLE nsa.school_mark_list_details ADD total_grade_id uuid;
+ALTER TABLE nsa.school_mark_list_details ADD total_grade_name text;
+ALTER TABLE nsa.school_mark_list_details ADD total_max_marks float;
+ALTER TABLE nsa.school_mark_list_details ADD total_cgpa_value float;
+
+
+DROP TABLE IF EXISTS nsa.school_voice_notifications;
+CREATE TABLE nsa.school_voice_notifications (
+notification_id uuid,
+tenant_id timeuuid,
+school_id uuid,
+academic_year text,
+audio_id int,
+campaign_name text,
+retry_condition list<text>,
+retry_times int,
+retry_interval int,
+notified_mobile_numbers list<text>,
+notified_categories text,
+count int,
+schedule_date timestamp,
+notification_type text,
+priority int,
+status text,
+object_id uuid,
+feature_id uuid,
+updated_date timestamp,
+updated_by text,
+updated_username text,
+created_by text,
+created_date timestamp,
+created_firstname text,
+PRIMARY KEY (notification_id, tenant_id, school_id, academic_year))
+;
+
+DROP TABLE IF EXISTS nsa.school_audios;
+CREATE TABLE IF NOT EXISTS nsa.school_audios (
+   id uuid,
+   tenant_id timeuuid,
+   school_id uuid,
+   academic_year text,
+   audio_id text,
+   name text,
+   status text,
+   download_link text,
+   updated_date timestamp,
+   updated_by text,
+   updated_username text,
+   created_by text,
+   created_date timestamp,
+   created_firstname text,
+   PRIMARY KEY (id, tenant_id, school_id, academic_year)
+);
+
+
+//release1.1
+
+DROP TABLE IF EXISTS nsa.award;
+create table nsa.award(
+id uuid PRIMARY KEY,
+name text,
+description text
+);
+
+DROP TABLE IF EXISTS nsa.school_award;
+create table nsa.school_award(
+id uuid,
+tenant_id timeuuid,
+school_id uuid,
+award_id uuid,
+award_name text,
+academic_year text,
+status boolean,
+description text,
+PRIMARY KEY ((tenant_id, school_id), id)
+);
+
+DROP TABLE IF EXISTS nsa.school_hall_of_fame;
+CREATE TABLE nsa.school_hall_of_fame (
+id uuid,
+tenant_id timeuuid,
+school_id uuid,
+academic_year text,
+award_name text,
+award_id uuid,
+notified_students text,
+date_of_issue date,
+description text,
+status boolean,
+media_name list<text>,
+number_of_students int,
+updated_date timestamp,
+updated_by text,
+updated_firstname text,
+created_by text,
+created_date timestamp,
+created_firstname text,
+PRIMARY KEY (id, tenant_id, school_id, academic_year));
+
+DROP TABLE IF EXISTS nsa.school_hall_of_fame_details;
+CREATE TABLE nsa.school_hall_of_fame_details (
+hall_of_fame_id uuid,
+hall_of_fame_details_id uuid,
+tenant_id timeuuid,
+school_id uuid,
+academic_year text,
+award_name text,
+award_id uuid,
+user_name text,
+first_name text,
+class_id uuid,
+class_name text,
+section_id uuid,
+section_name text,
+media_name list<text>,
+date_of_issue date,
+description text,
+status boolean,
+updated_date timestamp,
+updated_by text,
+updated_firstname text,
+created_by text,
+created_date timestamp,
+created_firstname text,
+PRIMARY KEY (hall_of_fame_details_id, tenant_id, school_id, academic_year));
+CREATE INDEX ON nsa.school_hall_of_fame_details (user_name);
+
+ALTER TABLE nsa.school_fee_assignment_details ADD paid_amount decimal;
+ALTER TABLE nsa.school_fee_assignment_details ADD is_partial boolean;
+
+
+DROP TABLE nsa.fee_transaction_details ;
+CREATE TABLE nsa.fee_transaction_details (
+fee_trans_id uuid,
+fee_id uuid,
+user_name text,
+amount decimal,
+card_holder_name text,
+card_name text,
+failure_msg text,
+payment_gateway text,
+payment_mode text,
+raw_response text,
+sub_merchant_id text,
+success_msg text,
+tracking_id text,
+txn_date timestamp,
+txn_status text,
+PRIMARY KEY (fee_id, user_name, fee_trans_id)
+);
+CREATE INDEX ON nsa.fee_transaction_details (sub_merchant_id);
+
+ALTER TABLE nsa.school_notifications ADD notified_students text;
+ALTER TABLE nsa.school_events DROP notified_students;
+ALTER TABLE nsa.school_events ADD notified_students text;
+ALTER TABLE nsa.school_notifications ADD user_types list<text>;
+ALTER TABLE nsa.school_details add image_url map<text, text>;
+
+ALTER TABLE nsa.school_media_usage_log add attachments map<text, text>;
+
+ALTER TABLE nsa.school_notifications add attachments map<text, text>;
+ALTER TABLE nsa.school_notifications add media_status text;
+
+//parent-login
+
+DROP TABLE IF EXISTS nsa.school_members;
+CREATE TABLE nsa.school_members (
+id uuid,
+user_name text,
+first_name text,
+user_type text,
+created_date timestamp,
+updated_date timestamp,
+password text,
+PRIMARY KEY(id));
+
+
+DROP TABLE IF EXISTS nsa.school_members_xref;
+CREATE TABLE nsa.school_members_xref (
+id uuid,
+member_id uuid,
+member_user_name text,
+user_name text,
+user_id uuid,
+first_name text,
+tenant_id timeuuid,
+school_id uuid,
+school_name text,
+PRIMARY KEY(member_id, member_user_name, user_id));
+
+
+//release1.2
+
+
+alter table school_mark_list add uploaded_marklist text;
+
+DROP TABLE IF EXISTS nsa.school_vehicle_details;
+CREATE TABLE nsa.school_vehicle_details (
+    tenant_id timeuuid,
+    school_id uuid,
+    reg_no text,
+    active boolean,
+    created_by text,
+    created_date timestamp,
+    created_firstname text,
+    is_hired boolean,
+    seating_capacity int,
+    updated_by text,
+    updated_date timestamp,
+    updated_username text,
+    vehicle_fc_date timestamp,
+    vehicle_owner_address text,
+    vehicle_owner_city text,
+    vehicle_owner_name text,
+    vehicle_owner_phone text,
+    vehicle_owner_state text,
+    vehicle_reg_date timestamp,
+    vehicle_type text,
+    PRIMARY KEY (tenant_id, school_id, reg_no));
+
+
+//release1.3
+
+
+ALTER TABLE nsa.school_members_xref ADD father_name text;
+ALTER TABLE nsa.school_members_xref ADD updated_date timestamp;
+ALTER TABLE nsa.school_members_xref ADD updated_by text;
+ALTER TABLE nsa.school_members_xref ADD updated_first_name text;
+ALTER TABLE nsa.school_members_xref ADD created_date timestamp;
+ALTER TABLE nsa.school_members_xref ADD created_by text;
+
+alter table school_mark_list add uploaded_marklist text;
+
+alter table nsa.school_details add image_url map<text, text>;
+
+alter table nsa.school_media_usage_log add attachments map<text, text>;
+
+alter table nsa.school_notifications add attachments map<text, text>;
+alter table nsa.school_notifications add media_status text;
+
+ALTER TABLE nsa.school_members ADD tenant_id timeuuid;
+
+
+//release1.3.2
+
+
+DROP TABLE IF EXISTS nsa.school_parent_logins;
+CREATE TABLE nsa.school_parent_logins(
+id uuid,
+user_name text,
+tenant_id timeuuid,
+PRIMARY KEY (tenant_id, user_name)
+);
+
+
+//release1.4
+
+
+use nsa;
+
+alter table school_audios add is_mobile_recording boolean;
+alter table school_voice_notifications add is_app_notification boolean;
+alter table school_voice_notifications add audio_uuid uuid;
+alter table school_voice_notifications add download_link text;
+alter table school_voice_notifications add notified_students text;
+
+
+//For IOS Start
+ALTER TABLE nsa.school_assignment_details ADD deactivated boolean;
+ALTER TABLE nsa.school_assignment_details ADD is_read boolean;
+
+ALTER TABLE nsa.school_media_usage_log ADD is_read boolean;
+
+ALTER TABLE nsa.school_feature ADD screen text;
+
+ALTER TABLE nsa.school_feedback_details ADD feature_name text;
+ALTER TABLE nsa.school_feedback_details ADD feature_id uuid;
+
+ALTER TABLE nsa.school_details ADD raw_aboutus text;
+
+

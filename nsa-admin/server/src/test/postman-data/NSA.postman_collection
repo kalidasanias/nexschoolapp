@@ -1,0 +1,2835 @@
+{
+	"variables": [],
+	"info": {
+		"name": "NSA",
+		"_postman_id": "da1a5270-a76f-f9b4-5e71-d5104d798cb5",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Assignment",
+			"description": "",
+			"item": [
+				{
+					"name": "SaveFeeAssignment",
+					"request": {
+						"url": "http://localhost:3333/api/v1/nsa/fee/assignment",
+						"method": "POST",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "academic_year",
+								"value": "2017-2018",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "demo",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"totalFeeAmount\": \"153.22\",\r\n    \"netAmount\": \"201\",\r\n    \"dueDate\" : \"15 February, 2017\",\r\n    \"feeTypes\" : [\r\n    {\r\n        \"id\" : \"09147fbc-a56d-416e-bc5c-c3ff6bf138f0\",\r\n        \"name\" : \"Special\",\r\n        \"amount\" : \"2000\",\r\n        \"percent\" : \"20\"\r\n    },\r\n    { \r\n        \"id\" : \"09147fbc-a56d-416e-bc5c-c3ff6bf138f0\",\r\n        \"name\" : \"Special\",\r\n        \"amount\" : \"2000\",\r\n        \"percent\" : \"\"\r\n        \r\n    }],\r\n    \"classes\": [{\r\n        \"id\" : \"09147fbc-a56d-416e-bc5c-c3ff6bf138f0\",\r\n        \"name\" : \"Class 1\"\r\n    }],\r\n    \"languages\": [{\r\n        \"id\" : \"09147fbc-a56d-416e-bc5c-c3ff6bf138f0\",\r\n        \"name\" : \"Tamil\"\r\n    }],\r\n    \"mediaType\": [{\r\n         \"id\" : \"09147fbc-a56d-416e-bc5c-c3ff6bf138f0\",\r\n         \"name\" : \"sms\"\r\n    }],\r\n    \"feeAssignmentName\" :\"test\"\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllFeeAssignments",
+					"request": {
+						"url": "http://localhost:3333/rest/api/v1/nsa/fee/assignments",
+						"method": "GET",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							},
+							{
+								"key": "academic_year",
+								"value": "2017-2018",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "GetFeeAssignment",
+					"request": {
+						"url": "http://localhost:3333/api/v1/nsa/fee/assignment/c4647b51-5a52-42fc-94cd-e3e159f9fe55",
+						"method": "GET",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							},
+							{
+								"key": "academic_year",
+								"value": "2017-2018",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteFeeAssignment",
+					"request": {
+						"url": "http://localhost:3333/api/v1/nsa/fee/assignment/772adb3a-7702-44ae-94da-89df0c499814",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							},
+							{
+								"key": "academic_year",
+								"value": "2017-2018",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "demo",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateFeeAssignment",
+					"request": {
+						"url": "http://localhost:3333/api/v1/nsa/fee/assignment/772adb3a-7702-44ae-94da-89df0c499814",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "academic_year",
+								"value": "2017-2018",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "demo",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"createdDate\" : \"2017-02-08T00:00:00.000000\",\n\t\"totalFeeAmount\": \"153.22\",\n    \"refundablePercentage\": {\n    \t\"09147fbc-a56d-416e-bc5c-c3ff6bf138f0\" : 20\n    \t},\n    \"netAmount\": \"201\",\n    \"dueDate\" : \"2017-01-29\",\n    \"applicableClasses\": {\n    \t\"09147fbc-a56d-416e-bc5c-c3ff6bf138f0\" : \"Class 1\"\n    },\n    \"applicableFeeTypes\": {\n    \t\"09147fbc-a56d-416e-bc5c-c3ff6bf138f0\" : \"Special\"\n    },\n \t\"feeTypesAmount\": {\n    \t\"09147fbc-a56d-416e-bc5c-c3ff6bf138f0\" : \"2000\"\n    },\n    \"applicableLangauges\": {\n    \t\"09147fbc-a56d-416e-bc5c-c3ff6bf138f0\" : \"Hindi\"\n    },\n    \"mediaType\": {\n    \t\"09147fbc-a56d-416e-bc5c-c3ff6bf138f0\" : \"sms\"\n    },\n    \"feeAssignmentName\" :\"test\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "saveAssignFee",
+					"request": {
+						"url": "http://localhost:3333/rest/api/v1/nsa/fee/assign",
+						"method": "POST",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "academic_year",
+								"value": "2017-2018",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "demo",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"totalFeeAmount\": \"153.22\",\r\n    \"netAmount\": \"201\",\r\n    \"dueDate\" : \"2017-01-29\",\r\n    \"paidDate\" : \"2017-01-30\",\r\n    \"feeTypes\" : [\r\n    {\r\n        \"id\" : \"09147fbc-a56d-416e-bc5c-c3ff6bf138f0\",\r\n        \"name\" : \"Special\",\r\n        \"amount\" : \"2000\",\r\n        \"percent\" : \"20\"\r\n    },\r\n    { \r\n        \"id\" : \"09147fbc-a56d-416e-bc5c-c3ff6bf138f0\",\r\n        \"name\" : \"Special\",\r\n        \"amount\" : \"2000\",\r\n        \"percent\" : \"\"\r\n        \r\n    }],\r\n    \"classes\": [{\r\n        \"id\" : \"c4e44ef0-ea0d-11e6-8b3a-9d7cc28d7ccd\",\r\n        \"name\" : \"Class 1\"\r\n    }],\r\n    \"languages\": [{\r\n        \"id\" : \"18c33cd5-653c-49c8-93ad-45529eaccc09\",\r\n        \"name\" : \"Tamil\"\r\n    }],\r\n    \"mediaType\": [{\r\n         \"id\" : \"09147fbc-a56d-416e-bc5c-c3ff6bf138f0\",\r\n         \"name\" : \"sms\"\r\n    }],\r\n    \"feeAssignmentName\" :\"test\",\r\n    \"feeAssignmentId\" : \"09147fbc-a56d-416e-bc5c-c3ff6bf138f0\",\r\n    \"feeDiscountAmount\" : \"2000\",\r\n    \"status\" : \"true\",\r\n    \"termId\" : \"09147fbc-a56d-416e-bc5c-c3ff6bf138f0\",\r\n    \"termName\" : \"term 1\"\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "updateAssignedFee",
+					"request": {
+						"url": "http://localhost:3333/rest/api/v1/nsa/fee/assign/details",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "academic_year",
+								"value": "2017-2018",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "demo",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"createdDate\" : \"2017-02-13T05:46:58.2020\",\r\n    \"totalFeeAmount\": \"153.22\",\r\n    \"netAmount\": \"201\",\r\n    \"dueDate\" : \"2017-01-29\",\r\n    \"paidDate\" : \"2017-01-30\",\r\n    \"feeTypes\" : [\r\n    {\r\n        \"id\" : \"09147fbc-a56d-416e-bc5c-c3ff6bf138f0\",\r\n        \"name\" : \"Special\",\r\n        \"amount\" : \"2000\",\r\n        \"percent\" : \"20\"\r\n    },\r\n    { \r\n        \"id\" : \"09147fbc-a56d-416e-bc5c-c3ff6bf138f0\",\r\n        \"name\" : \"Special\",\r\n        \"amount\" : \"2000\",\r\n        \"percent\" : \"\"\r\n        \r\n    }],\r\n    \"classes\": [{\r\n        \"id\" : \"c4e44ef0-ea0d-11e6-8b3a-9d7cc28d7ccd\",\r\n        \"name\" : \"Class 1\"\r\n    }],\r\n    \"languages\": [{\r\n        \"id\" : \"18c33cd5-653c-49c8-93ad-45529eaccc09\",\r\n        \"name\" : \"Tamil\"\r\n    }],\r\n    \"mediaType\": [{\r\n         \"id\" : \"09147fbc-a56d-416e-bc5c-c3ff6bf138f0\",\r\n         \"name\" : \"sms\"\r\n    }],\r\n    \"feeAssignmentName\" :\"test\",\r\n    \"feeAssignmentDetail\" : [{\"feeAssignmentDetailId\": \"b22dc1d9-f7fb-4cdf-9709-d8bd298ebcae\", \"createdDate\": \"2017-02-27T11:54:30.8520\",\r\n    \t\"academicYear\": \"2016-2017\"\r\n    }],\r\n    \"scholarShip\": [{\"id\":\"09147fbc-a56d-416e-bc5c-c3ff6bf138f0\" , \"name\": \"sports\", \"amount\": \"1000\"}],\r\n    \r\n    \"feeDiscountName\": \"ttd\",\r\n    \"feeDiscountAmount\": \"1000\",\r\n    \"status\": false\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "assigned users",
+					"request": {
+						"url": "http://localhost:3333/api/v1/nsa/fee/assign/users",
+						"method": "GET",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "demo",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "publishAssignFee",
+					"request": {
+						"url": "http://localhost:3333/rest/api/v1/nsa/fee/assign/0236a3da-54dc-40ca-98b9-251a2e857044",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "academic_year",
+								"value": "2017-2018",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "demo",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"totalFeeAmount\": \"150\",\r\n    \"netAmount\": \"250\",\r\n    \"dueDate\" : \"2017-01-29\",\r\n    \"paidDate\" : \"2017-01-30\",\r\n    \"feeTypes\" : [\r\n    {\r\n        \"id\" : \"09147fbc-a56d-416e-bc5c-c3ff6bf138f0\",\r\n        \"name\" : \"Sports\",\r\n        \"amount\" : \"2000\",\r\n        \"percent\" : \"0\"\r\n    }],\r\n    \"classes\": [{\r\n        \"id\" : \"c4e44ef0-ea0d-11e6-8b3a-9d7cc28d7ccd\",\r\n        \"name\" : \"Class 1\"\r\n    }],\r\n    \"languages\": [{\r\n        \"id\" : \"18c33cd5-653c-49c8-93ad-45529eaccc09\",\r\n        \"name\" : \"Tamil\"\r\n    }],\r\n    \"mediaType\": [{\r\n         \"id\" : \"09147fbc-a56d-416e-bc5c-c3ff6bf138f0\",\r\n         \"name\" : \"sms\"\r\n    }],\r\n    \"feeAssignmentName\" :\"Kiran\",\r\n    \"feeAssignmentId\" : \"09147fbc-a56d-416e-bc5c-c3ff6bf138f0\",\r\n    \"feeDiscountAmount\" : \"2000\",\r\n    \"status\" : \"false\",\r\n    \"termId\" : \"09147fbc-a56d-416e-bc5c-c3ff6bf138f0\",\r\n    \"termName\" : \"term 1\",\r\n    \"assignedCategories\": \"\"\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Assignment Details",
+			"description": "",
+			"item": [
+				{
+					"name": "saveFeeAssignmentDetails",
+					"request": {
+						"url": "http://localhost:3333/api/v1/nsa/fee/assignments/detail",
+						"method": "POST",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							},
+							{
+								"key": "academic_year",
+								"value": "2017-2018",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"feeAssignmentId\": \"c4647b51-5a52-42fc-94cd-e3e159f9fe55\",\n    \"feeAssignmentName\": \"test\",\n    \"username\":  \"dff\",\n    \"termId\": \"c4647b51-5a52-42fc-94cd-e3e159f9fe56\",\n    \"termName\":  \"Term 1\",\n    \"classId\": \"c4647b51-5a52-42fc-94cd-e3e159f9fe57\",\n    \"className\": \"Class 1\",\n    \"sectionId\": \"c4647b51-5a52-42fc-94cd-e3e159f9fe58\",\n    \"sectionName\": \"Section A\",\n    \"applicableFeeTypes\": {\n        \"09147fbc-a56d-416e-bc5c-c3ff6bf138f0\": \"Sports\"\n      },\n      \"feeTypesAmount\": {\n        \"09147fbc-a56d-416e-bc5c-c3ff6bf138f0\": \"2000\"\n      },\n    \"refundablePercentage\": { \"09147fbc-a56d-416e-bc5c-c3ff6bf138f0\" : 0.01},\n    \"netAmount\": \"2000\",\n    \"scholarshipName\": {\"09147fbc-a56d-416e-bc5c-c3ff6bf138f0\" : \"sports\"},\n    \"scholarshipAmount\": {\"09147fbc-a56d-416e-bc5c-c3ff6bf138f0\" : \"1000\"},\n    \"feeDiscountName\": \"ttd\",\n    \"feeDiscountAmount\": \"1000\",\n     \"dueDate\" : \"2017-01-29\",\n    \"status\": true,\n    \"paidDate\": \"2017-01-29\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllAssignmentDetails",
+					"request": {
+						"url": "http://localhost:3333/rest/api/v1/nsa/fee/assignments/details/",
+						"method": "GET",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							},
+							{
+								"key": "academic_year",
+								"value": "2017-2018",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "GetAssignmentDetails",
+					"request": {
+						"url": "http://localhost:3333/api/v1/nsa/fee/assignments/detail/eea3fa41-9208-48cf-8056-1360ff61422f",
+						"method": "GET",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							},
+							{
+								"key": "academic_year",
+								"value": "2017-2018",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "updateFeeAssignmentDetails",
+					"request": {
+						"url": "http://localhost:3333/api/v1/nsa/fee/assignments/detail/eea3fa41-9208-48cf-8056-1360ff61422f",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							},
+							{
+								"key": "academic_year",
+								"value": "2017-2018",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n\t\"createdDate\" : \"2017-02-08T12:14:38.332Z\",\n\t\"feeAssignmentId\": \"c4647b51-5a52-42fc-94cd-e3e159f9fe55\",\n    \"feeAssignmentName\": \"test\",\n    \"username\":  \"dff\",\n    \"termId\": \"c4647b51-5a52-42fc-94cd-e3e159f9fe56\",\n    \"termName\":  \"Term 1\",\n    \"classId\": \"c4647b51-5a52-42fc-94cd-e3e159f9fe57\",\n    \"className\": \"Class 1\",\n    \"sectionId\": \"c4647b51-5a52-42fc-94cd-e3e159f9fe58\",\n    \"sectionName\": \"Section A\",\n    \"applicableFeeTypes\": {\n        \"09147fbc-a56d-416e-bc5c-c3ff6bf138f0\": \"Sports\"\n      },\n      \"feeTypesAmount\": {\n        \"09147fbc-a56d-416e-bc5c-c3ff6bf138f0\": \"2000\"\n      },\n    \"refundablePercentage\": { \"09147fbc-a56d-416e-bc5c-c3ff6bf138f0\" : 20},\n    \"netAmount\": \"2000\",\n    \"scholarshipName\": {\"09147fbc-a56d-416e-bc5c-c3ff6bf138f0\" : \"sports\"},\n    \"scholarshipAmount\": {\"09147fbc-a56d-416e-bc5c-c3ff6bf138f0\" : \"1000\"},\n    \"feeDiscountName\": \"ttd\",\n    \"feeDiscountAmount\": \"1000\",\n     \"dueDate\" : \"2017-01-29\",\n    \"status\": true,\n    \"paidDate\": \"2017-01-29\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "deleteFeeAssignmentDetails",
+					"request": {
+						"url": "http://localhost:3333/api/v1/nsa/fee/assignments/detail/eea3fa41-9208-48cf-8056-1360ff61422f",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							},
+							{
+								"key": "academic_year",
+								"value": "2017-2018",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n\t\"createdDate\" : \"\",\n\t\"feeAssignmentId\": \"c4647b51-5a52-42fc-94cd-e3e159f9fe55\",\n    \"feeAssignmentName\": \"test\",\n    \"username\":  \"dff\",\n    \"termId\": \"c4647b51-5a52-42fc-94cd-e3e159f9fe56\",\n    \"termName\":  \"Term 1\",\n    \"classId\": \"c4647b51-5a52-42fc-94cd-e3e159f9fe57\",\n    \"className\": \"Class 1\",\n    \"sectionId\": \"c4647b51-5a52-42fc-94cd-e3e159f9fe58\",\n    \"sectionName\": \"Section A\",\n    \"applicableFeeTypes\": {\n        \"09147fbc-a56d-416e-bc5c-c3ff6bf138f0\": \"Sports\"\n      },\n      \"feeTypesAmount\": {\n        \"09147fbc-a56d-416e-bc5c-c3ff6bf138f0\": \"2000\"\n      },\n    \"refundablePercentage\": { \"09147fbc-a56d-416e-bc5c-c3ff6bf138f0\" : 0.01},\n    \"netAmount\": \"2000\",\n    \"scholarshipName\": {\"09147fbc-a56d-416e-bc5c-c3ff6bf138f0\" : \"sports\"},\n    \"scholarshipAmount\": {\"09147fbc-a56d-416e-bc5c-c3ff6bf138f0\" : \"1000\"},\n    \"feeDiscountName\": \"ttd\",\n    \"feeDiscountAmount\": \"1000\",\n     \"dueDate\" : \"2017-01-29\",\n    \"status\": true,\n    \"paidDate\": \"2017-01-29\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Assignments",
+			"description": "",
+			"item": [
+				{
+					"name": "GetAllAssignments",
+					"request": {
+						"url": "http://localhost:3333/rest/api/v1/nsa/assignment",
+						"method": "GET",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "GetAssignment",
+					"request": {
+						"url": "http://localhost:3333/rest/api/v1/nsa/assignment/c49b62bd-de29-4870-8e26-d903aea1aafc",
+						"method": "GET",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "SaveAssignment",
+					"request": {
+						"url": "http://localhost:3333/rest/api/v1/nsa/assignment",
+						"method": "POST",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "demo",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"assignmentName\" : \"class work\",\n\t\"assignmentTypeId\" : \"b22dc1d9-f7fb-4cdf-9709-d8bd298ebcae\",\n\t\"assignmentTypeName\": \"hw\",\n\t\"assignmentDesc\": \"do classwork tomorrow\",\n\t\"notifiedCategories\": \"\",\n\t\"subjectId\": \"18c33cd5-653c-49c8-93ad-45529eaccc09\",\n\t\"subjectName\": \"Hindi\",\n\t\"dueDate\": \"2017-02-27T11:54:30.8310\",\n\t\"repeatOptionId\": \"49866640-cd24-4650-adca-1546ae9af96e\",\n\t\"repeatOption\": \"once\",\n\t\"priority\": \"2\",\n\t\"notifyTo\": \"All\",\n\t\"attachment\": [],\n\t\"status\": \"false\",\n\t\"users\": [{\n\t\t\"userName\": \"Kiranmai\",\n\t\t\"classes\" : [{\n\t\t\t\"class_id\": \"c4e44ef0-ea0d-11e6-8b3a-9d7cc28d7ccd\",\n\t\t\t\"class_name\": \"Class 1\",\n\t\t\t\"section_id\": \"1cad8910-ea10-11e6-8b3a-9d7cc28d7ccd\",\n\t\t\t\"section_name\": \"Section A\"\n\t\t}]\t\n\t}, {\n\t\t\"userName\": \"kiran\",\n\t\t\"classes\" : [{\n\t\t\t\"class_id\": \"c4e33d80-ea0d-11e6-8b3a-9d7cc28d7ccd\",\n\t\t\t\"class_name\": \"U.K.G\",\n\t\t\t\"section_id\": \"1caf84e0-ea10-11e6-8b3a-9d7cc28d7ccd\",\n\t\t\t\"section_name\": \"Section B\"\n\t\t}]\n\t}],\n\t\"notify\" : {\n      \"sms\": true,\n      \"email\" : true,\n      \"pushNotification\" : false\n    }\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateAssignment",
+					"request": {
+						"url": "http://localhost:3333/rest/api/v1/nsa/assignment/7b341267-df27-4d1e-b03a-a1e429e0bdc3",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "demo",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"assignmentName\" : \"class work\",\n\t\"assignmentTypeId\" : \"b22dc1d9-f7fb-4cdf-9709-d8bd298ebcae\",\n\t\"assignmentTypeName\": \"hw\",\n\t\"assignmentDesc\": \"do classwork tomorrow\",\n\t\"notifiedCategories\": \"\",\n\t\"subjectId\": \"49866640-cd24-4650-adca-1546ae9af96e\",\n\t\"subjectName\": \"English\",\n\t\"dueDate\": \"2017-02-27T11:54:30.8310\",\n\t\"repeatOptionId\": \"49866640-cd24-4650-adca-1546ae9af96e\",\n\t\"repeatOption\": \"once\",\n\t\"priority\": \"2\",\n\t\"notifyTo\": \"All\",\n\t\"attachment\": [],\n\t\"status\": \"false\",\n\t\"users\": [{\n\t\t\"userName\": \"Kiranmai\",\n\t\t\"classes\" : {\n\t\t\t\"class_id\": \"49866640-cd24-4650-adca-1546ae9af96e\",\n\t\t\t\"class_name\": \"class1\",\n\t\t\t\"section_id\": \"49866640-cd24-4650-adca-1546ae9af96e\",\n\t\t\t\"section_name\": \"Section A\"\n\t\t}\t\n\t}, {\n\t\t\"userName\": \"kiran\",\n\t\t\"classes\" : {\n\t\t\t\"class_id\": \"49866640-cd24-4650-adca-1546ae9af96e\",\n\t\t\t\"class_name\": \"class2\",\n\t\t\t\"section_id\": \"49866640-cd24-4650-adca-1546ae9af96e\",\n\t\t\t\"section_name\": \"Section B\"\n\t\t}\n\t}]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteAssignment",
+					"request": {
+						"url": "http://localhost:3333/rest/api/v1/nsa/assignment/c49b62bd-de29-4870-8e26-d903aea1aafc",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "demo",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n      \"name\":\"Home work\",\n      \"desc\":\"Science Project\",\n      \"createdDate\" : \"2017-03-03T13:52:04.0300\",\n      \"status\" : \"false\"\n   }"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateAssignmentDetailsStatus",
+					"request": {
+						"url": "http://localhost:3333/rest/api/v1/nsa/assignment/details/status/ce83ec13-1fba-4c3e-b1ed-3295d393f873",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "demo",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"submitted\" : \"true\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "GetAssignmentsDetails",
+					"request": {
+						"url": "http://localhost:3333/rest/api/v1/nsa/assignment/details",
+						"method": "POST",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"classId\" : \"c4e33d80-ea0d-11e6-8b3a-9d7cc28d7ccd\",\n\t\"sectionId\" : \"\",\n\t\"subjectId\" : \"18c33cd5-653c-49c8-93ad-45529eaccc09\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "getAssignmentAssignedUsers",
+					"request": {
+						"url": "http://localhost:3333/rest/api/v1/nsa/assignment/user/kiran2",
+						"method": "GET",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"classId\" : \"c4e33d80-ea0d-11e6-8b3a-9d7cc28d7ccd\",\n\t\"sectionId\" : \"\",\n\t\"subjectId\" : \"18c33cd5-653c-49c8-93ad-45529eaccc09\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "getDetailsByAssignmentId",
+					"request": {
+						"url": "http://localhost:3333/rest/api/v1/nsa/assignment/details/a5e6bd83-6e44-45f2-bf0e-5c4350e72125",
+						"method": "GET",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"classId\" : \"c4e33d80-ea0d-11e6-8b3a-9d7cc28d7ccd\",\n\t\"sectionId\" : \"\",\n\t\"subjectId\" : \"18c33cd5-653c-49c8-93ad-45529eaccc09\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Assignments Types",
+			"description": "",
+			"item": [
+				{
+					"name": "GetAllAssignmentTypes",
+					"request": {
+						"url": "http://localhost:3333/rest/api/v1/nsa/assignment/types",
+						"method": "GET",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "GetAssignmentType",
+					"request": {
+						"url": "http://localhost:3333/rest/api/v1/nsa/assignment/type/c49b62bd-de29-4870-8e26-d903aea1aafc",
+						"method": "GET",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "SaveAssignmentType",
+					"request": {
+						"url": "http://localhost:3333/rest/api/v1/nsa/assignment/type",
+						"method": "POST",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "demo",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n      \"name\":\"Home work\",\n      \"desc\":\"Maths problems\"\n   }"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateAssignmentType",
+					"request": {
+						"url": "http://localhost:3333/rest/api/v1/nsa/assignment/type/c49b62bd-de29-4870-8e26-d903aea1aafc",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "demo",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n      \"name\":\"Home work\",\n      \"desc\":\"Science Project\",\n      \"createdDate\" : \"2017-03-03T13:52:04.0300\",\n      \"status\" : \"false\"\n   }"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteAssignmentType",
+					"request": {
+						"url": "http://localhost:3333/rest/api/v1/nsa/assignment/type/c49b62bd-de29-4870-8e26-d903aea1aafc",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "demo",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n      \"name\":\"Home work\",\n      \"desc\":\"Science Project\",\n      \"createdDate\" : \"2017-03-03T13:52:04.0300\",\n      \"status\" : \"false\"\n   }"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Audit Logs",
+			"description": "",
+			"item": [
+				{
+					"name": "GetLogs",
+					"request": {
+						"url": "http://localhost:3333/rest/api/v1/nsa/auditLog/b7f79190-e2bc-4118-92ea-982a785ba660",
+						"method": "GET",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "saveLogs",
+					"request": {
+						"url": "http://localhost:3333/rest/api/v1/nsa/auditLog",
+						"method": "POST",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"classId\" : \"c4e33d80-ea0d-11e6-8b3a-9d7cc28d7ccd\",\n\t\"sectionId\" : \"\",\n\t\"subjectId\" : \"18c33cd5-653c-49c8-93ad-45529eaccc09\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comments",
+			"description": "",
+			"item": [
+				{
+					"name": "getAssignmentComments",
+					"request": {
+						"url": " http://localhost:3333/rest/api/v1/nsa/assignment/user/comments/a5e6bd83-6e44-45f2-bf0e-5c4350e72125",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"classes\" : \n\t\t[\n\t\t\t{\n\t\t\t\"classId\" : \"c4e44ef0-ea0d-11e6-8b3a-9d7cc28d7ccd\",\n\t\t\t\"sectionId\" : [\"1d1105d0-ea10-11e6-8b3a-9d7cc28d7ccd\"]\n\t\t   }\n\t\t],\n\t\t\"notifyTo\" : {\n\t\t\t\"userType\" : [\"Student\"]\n\t\t}\n}\n\t\t"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "saveUserComments",
+					"request": {
+						"url": " http://localhost:3333/rest/api/v1/nsa/assignment/user/comment",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"featureId\" : \"a5e6bd83-6e44-45f2-bf0e-5c4350e72125\",\n\t\"featureDetailId\" : \"3815930e-f110-4db1-ad7d-bef3a447bbd3\",\n\t\"admissionNo\" : \"100E1\",\n\t\"userName\" : \"Teacher\",\n\t\"message\" : \"Wt?\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "getUserComments",
+					"request": {
+						"url": " http://localhost:3333/rest/api/v1/nsa/assignment/user/comments/3815930e-f110-4db1-ad7d-bef3a447bbd3",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"classes\" : \n\t\t[\n\t\t\t{\n\t\t\t\"classId\" : \"c4e44ef0-ea0d-11e6-8b3a-9d7cc28d7ccd\",\n\t\t\t\"sectionId\" : [\"1d1105d0-ea10-11e6-8b3a-9d7cc28d7ccd\"]\n\t\t   }\n\t\t],\n\t\t\"notifyTo\" : {\n\t\t\t\"userType\" : [\"Student\"]\n\t\t}\n}\n\t\t"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CreateJSON",
+			"description": "",
+			"item": [
+				{
+					"name": "createjson",
+					"request": {
+						"url": " http://localhost:3333/rest/api/v1/nsa/user/create/json",
+						"method": "GET",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ES",
+			"description": "",
+			"item": [
+				{
+					"name": "getUsersBYLanguages",
+					"request": {
+						"url": " http://localhost:3333/api/v1/nsa/es/users/languages",
+						"method": "POST",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"classes\" : [\n\t\t{\n\t\t\t\"class_id\" : [\"c4e44ef0-ea0d-11e6-8b3a-9d7cc28d7ccd\"]\n\t\t}],\n\t\t\"languages\" : [\n\t\t\t{\n\t\t\t\t\"language_id\" : [\"a094e470-d175-11e6-a2c8-c95cdbee5e46\"]\n\t\t\t}]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "getUsers",
+					"request": {
+						"url": " http://localhost:9200/nsa/_search",
+						"method": "GET",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"query\": { \"match\": { \"tenant_id\": \"5085fce0-d7f0-11e6-acdf-73c63acb96df\" } }\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "classsecs",
+					"request": {
+						"url": " http://localhost:3333/rest/api/v1/nsa/es/users/class/secs",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"classes\" : \n\t\t[\n\t\t\t{\n\t\t\t\"classId\" : \"c4e44ef0-ea0d-11e6-8b3a-9d7cc28d7ccd\",\n\t\t\t\"sectionId\" : [\"1d1105d0-ea10-11e6-8b3a-9d7cc28d7ccd\"]\n\t\t   }\n\t\t]\n}\n\t\t"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "usersbyType",
+					"request": {
+						"url": " http://localhost:3333/rest/api/v1/nsa/es/users",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"notifyTo\":  {\n\t\"userType\": [\"Student\"]\n}\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "usersbyclass",
+					"request": {
+						"url": " http://localhost:3333/rest/api/v1/nsa/es/users/class",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n    {\n    \"classId\" : \"c4e44ef0-ea0d-11e6-8b3a-9d7cc28d7ccd\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "usersbyclasssec",
+					"request": {
+						"url": " http://localhost:3333/rest/api/v1/nsa/es/users/class/sec",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n    {\n    \"classId\" : \"c4e44ef0-ea0d-11e6-8b3a-9d7cc28d7ccd\",\n    \"sectionId\" : \"1d1105d0-ea10-11e6-8b3a-9d7cc28d7ccd\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "categories",
+					"request": {
+						"url": " http://localhost:3333/rest/api/v1/nsa/es/users/categories",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"classes\" : \n\t\t[\n\t\t\t{\n\t\t\t\"classId\" : \"c4e44ef0-ea0d-11e6-8b3a-9d7cc28d7ccd\",\n\t\t\t\"sectionId\" : [\"1d1105d0-ea10-11e6-8b3a-9d7cc28d7ccd\"]\n\t\t   }\n\t\t],\n\t\t\"notifyTo\" : {\n\t\t\t\"userType\" : [\"Student\"]\n\t\t}\n}\n\t\t"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "getIndex",
+					"request": {
+						"url": " http://localhost:3333/rest/api/v1/nsa/es",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"classes\" : \n\t\t[\n\t\t\t{\n\t\t\t\"classId\" : \"c4e44ef0-ea0d-11e6-8b3a-9d7cc28d7ccd\",\n\t\t\t\"sectionId\" : [\"1d1105d0-ea10-11e6-8b3a-9d7cc28d7ccd\"]\n\t\t   }\n\t\t],\n\t\t\"notifyTo\" : {\n\t\t\t\"userType\" : [\"Student\"]\n\t\t}\n}\n\t\t"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Features",
+			"description": "",
+			"item": [
+				{
+					"name": "GetAllActiveSchoolFeatures",
+					"request": {
+						"url": "http://localhost:3333/api/v1/nsa/feature/active",
+						"method": "GET",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Fee",
+			"description": "",
+			"item": [
+				{
+					"name": "GetAllFeeTypes",
+					"request": {
+						"url": "http://localhost:3333/rest/api/v1/nsa/fee/types",
+						"method": "GET",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "GetFeeType",
+					"request": {
+						"url": "http://localhost:3333/rest/api/v1/nsa/fee/type/c454b8cc-6d58-4bbb-8916-f96ddc161b15",
+						"method": "GET",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "SaveFeeType",
+					"request": {
+						"url": "http://localhost:3333/rest/api/v1/nsa/fee/type/0368a147-dd0a-43b7-a2ca-31b32b30237d",
+						"method": "POST",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "demo",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n      \"feeTypeName\":\"Sports Fee\",\n      \"feeTypeDesc\":\"Sports fee is collected for to join the student in School\",\n      \"feeTypeDeposit\":false\n   }"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateFeeType",
+					"request": {
+						"url": "http://localhost:3333/rest/api/v1/nsa/fee/type/c454b8cc-6d58-4bbb-8916-f96ddc161b15",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "demo",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n      \"feeTypeName\":\"Sports Fee\",\n      \"feeTypeDesc\":\"Sports fee is collected for to join the student in School\",\n      \"feeTypeDeposit\":true,\n      \"createdDate\": \"2017-02-28T14:17:28.5490\"\n   }"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteFeeType",
+					"request": {
+						"url": "http://localhost:3333/rest/api/v1/nsa/fee/type/c454b8cc-6d58-4bbb-8916-f96ddc161b15",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "demo",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n      \n      \"createdDate\" : \"2017-02-28T14:17:28.5490\"\n      \n   }"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Languages",
+			"description": "",
+			"item": [
+				{
+					"name": "GetAllLanguages",
+					"request": {
+						"url": "http://localhost:3333/api/v1/nsa/languages",
+						"method": "GET",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Scheduler",
+			"description": "",
+			"item": [
+				{
+					"name": "GetRepeatOptions",
+					"request": {
+						"url": "http://localhost:3333/rest/api/v1/nsa/scheduler/options",
+						"method": "GET",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Scholarship",
+			"description": "",
+			"item": [
+				{
+					"name": "GetAllFeeScholarships",
+					"request": {
+						"url": "http://localhost:3333/rest/api/v1/nsa/fee/scholarships",
+						"method": "GET",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							},
+							{
+								"key": "user_name",
+								"value": "demo",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "GetFeeScholrship",
+					"request": {
+						"url": "http://localhost:3333/rest/api/v1/nsa/fee/scholarship/74954212-bfd4-4d9a-8907-5a9224f17343",
+						"method": "GET",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "SaveFeeScholarship",
+					"request": {
+						"url": "http://localhost:3333/rest/api/v1/nsa/fee/scholarship",
+						"method": "POST",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "demo",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"scholarshipName\" : \"Minister's Scholarship \", \n\t\"scholarshipDesc\" : \"Minister's Scholarship\",\n\t\"status\" : true,\n\t\"validUpto\" : \"2017-01-29\",\n\t\"amount\" : \"1234.67\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateFeeScholrship",
+					"request": {
+						"url": "http://localhost:3333/rest/api/v1/nsa/fee/scholarship/f7cede5d-e780-4d06-b81e-5dc5171ba0fe",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "demo",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"scholarshipName\" : \"Minister's Scholarship \", \n\t\"scholarshipDesc\" : \"Minister's Scholarship\",\n\t\"status\" : false,\n\t\"validUpto\" : \"2017-01-29\",\n\t\"amount\" : 2000,\n\t\"createdDate\" : \"2017-02-28T14:25:13.303Z\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteFeeScholrship",
+					"request": {
+						"url": "http://localhost:3333/rest/api/v1/nsa/fee/scholarship/74954212-bfd4-4d9a-8907-5a9224f17343",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "demo",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"scholarshipName\" : \"Talent's Scholarship \", \n\t\"scholarshipDesc\" : \"Talent's Scholarship\",\n\t\"status\" : true,\n\t\"validUpto\" : \"2017-01-29\",\n\t\"amount\" : 2000,\n\t\"createdDate\" : \"2017-02-28T14:25:28.045Z\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "GetScholarshipUsers",
+					"request": {
+						"url": "http://localhost:3333/rest/api/v1/nsa/fee/scholarships/users/0236a3da-54dc-40ca-98b9-251a2e857044",
+						"method": "GET",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Structure",
+			"description": "",
+			"item": [
+				{
+					"name": "GetAllFeeStructure",
+					"request": {
+						"url": "http://localhost:3333/rest/api/v1/nsa/fee/structures",
+						"method": "GET",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "GetFeeStructure",
+					"request": {
+						"url": "http://localhost:3333/api/v1/nsa/fee/structure/5c1a9977-d503-48f7-b3ba-79996b18470c",
+						"method": "GET",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "SaveFeeStructure",
+					"request": {
+						"url": "http://localhost:3333/rest/api/v1/nsa/fee/structure",
+						"method": "POST",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							},
+							{
+								"key": "academic_year",
+								"value": "2017-2018",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"feeTypes\": {\n        \"id\" : \"09147fbc-a56d-416e-bc5c-c3ff6bf138f0\",\n    \t\"name\" : \"Sports\"\n    },\n \t\"terms\": {\n\t \t\"id\" : \"09147fbc-a56d-416e-bc5c-c3ff6bf138f0\",\n\t    \"name\" : \"Term 1\"\n    },\n    \"createdBy\": \"admin\",\n    \"feeStructureDesc\" : \"test\",\n    \"feeStructureName\" :\"test\",\n    \"status\": true\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateFeeStructure",
+					"request": {
+						"url": "http://localhost:3333/api/v1/nsa/fee/structure/eafa8cb7-0d9b-4620-8a6f-4163c3cde308",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							},
+							{
+								"key": "academic_year",
+								"value": "2017-2018",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "demo",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"feeTypes\": {\n        \"id\" : \"09147fbc-a56d-416e-bc5c-c3ff6bf138f0\"\n    \t\"name\" : \"Sports\"\n    },\n \t\"terms\": {\n\t \t\"id\" : \"09147fbc-a56d-416e-bc5c-c3ff6bf138f0\"\n\t    \"name\" : \"Term 1\"\n    },\n    \"createdBy\": \"admin\",\n    \"feeStructureDesc\" : \"test\",\n    \"feeStructureName\" :\"test\",\n    \"status\": true\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteFeeStructure",
+					"request": {
+						"url": "http://localhost:3333/api/v1/nsa/fee/structure/1b3f5e96-aa89-4d3f-b0bc-e4120373d51d",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							},
+							{
+								"key": "academic_year",
+								"value": "2017-2018",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "demo",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"applicableFeeTypes\": {\n    \t\"09147fbc-a56d-416e-bc5c-c3ff6bf138f0\" : \"Special\"\n    },\n \t\"applicableTerms\": {\n    \t\"09147fbc-a56d-416e-bc5c-c3ff6bf138f0\" : \"Term 3\"\n    },\n    \"feeStructureDesc\" : \"test\",\n    \"feeStructureName\" :\"test\",\n    \"status\": true,\n    \"createdDate\" : \"2017-02-07\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Subject",
+			"description": "",
+			"item": [
+				{
+					"name": "GetAllSchoolSubjects",
+					"request": {
+						"url": "http://localhost:3333/rest/api/v1/nsa/subject",
+						"method": "GET",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Terms",
+			"description": "",
+			"item": [
+				{
+					"name": "GetAllSchoolTerms",
+					"request": {
+						"url": "http://localhost:3333/api/v1/nsa/terms",
+						"method": "GET",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							},
+							{
+								"key": "academic_year",
+								"value": "2017-2018",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"description": "",
+			"item": [
+				{
+					"name": "getUserContactDetails",
+					"request": {
+						"url": " http://localhost:3333/api/v1/nsa/user/contact/details",
+						"method": "GET",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "demo",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"classes\" : [\n\t\t{\n\t\t\t\"class_id\" : \"c4e44ef0-ea0d-11e6-8b3a-9d7cc28d7ccd\"\n\t\t}],\n\t\t\"languages\" : [\n\t\t\t{\n\t\t\t\t\"language_id\" : \"a094e470-d175-11e6-a2c8-c95cdbee5e46\"\n\t\t\t}]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "updateUserContactDetails",
+					"request": {
+						"url": " http://localhost:3333/api/v1/nsa/user/contact/details",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "tenant_id",
+								"value": "5085fce0-d7f0-11e6-acdf-73c63acb96df",
+								"description": ""
+							},
+							{
+								"key": "school_id",
+								"value": "1384fb73-e616-4ea5-b9fc-bec62b66f4e6",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "user_id",
+								"value": "demo",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userId\" : \"7a16c2a0-f33f-11e6-a6d9-c37b62a225d0\",\n\t\"emailAddress\" : \"kiranmai@intelllishine.com\",\n\t\"primaryPhone\" : \"8248611448\",\n\t\"firstName\" : \"kiranmai\",\n\t\"lastName\" : \"A\",\n\t\"addressStreet1\" : \"kk nagar\",\n\t\"addressStreet2\" : \"nagar\",\n\t\"city\" : \"chennai\",\n\t\"state\" : \"TN\",\n\t\"country\" : \"india\",\n\t\"pincode\" : \"600078\",\n\t\"fatherEmail\" : \"kiranmai@intelllishine.com\",\n\t\"motherEmail\" : \"\",\n\t\"secondaryPhone\" : \"\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Management",
+			"description": "",
+			"item": [
+				{
+					"name": "departments_get_all",
+					"request": {
+						"url": "localhost:3333/rest/api/v1/nsa/department",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "session_id",
+								"value": "{{session_id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"department\" : { \"dept_id\" : \"e5dd044a-54b0-4dc8-a46a-11a22f845a92\", \"dept_name\" : \"Secondary Maths\", \"dept_alias\" : \"Bussiness Maths\", \"updated_by\": \"5835100S\" }}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "departments_save",
+					"request": {
+						"url": "localhost:3333/rest/api/v1/nsa/department",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "session_id",
+								"value": "{{session_id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"dept_name\" : \"Science\", \"dept_alias\" : \"Elementary Science\" }"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "departments_get",
+					"request": {
+						"url": "localhost:3333/rest/api/v1/nsa/department/b049af78-386b-40f5-96e3-3e0da1ba37ae",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "session_id",
+								"value": "{{session_id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"department\" : { \"dept_id\" : \"e5dd044a-54b0-4dc8-a46a-11a22f845a92\", \"dept_name\" : \"Secondary Maths\", \"dept_alias\" : \"Bussiness Maths\", \"updated_by\": \"5835100S\" }}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "department_update",
+					"request": {
+						"url": "localhost:3333/rest/api/v1/nsa/department/f0b916b8-3609-4b5a-8074-00b9e31ed9d0",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "session_id",
+								"value": "{{session_id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \"dept_name\" : \"Tamil\", \"dept_alias\" : \"Elementary Tamil\" }"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "department_delete",
+					"request": {
+						"url": "localhost:3333/rest/api/v1/nsa/department/f63309e9-656c-486e-a5eb-779dc20dc923",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "session_id",
+								"value": "{{session_id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "designation_get_all",
+					"request": {
+						"url": "localhost:3333/rest/api/v1/nsa/designation",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "session_id",
+								"value": "{{session_id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"department\" : { \"dept_id\" : \"e5dd044a-54b0-4dc8-a46a-11a22f845a92\", \"dept_name\" : \"Secondary Maths\", \"dept_alias\" : \"Bussiness Maths\", \"updated_by\": \"5835100S\" }}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "designation_save",
+					"request": {
+						"url": "localhost:3333/rest/api/v1/nsa/designation",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "session_id",
+								"value": "{{session_id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"desg_name\" : \"Principal\", \"desg_alias\" : \"PP\", \"updated_by\": \"5835100S\" }"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "designation_get",
+					"request": {
+						"url": "localhost:3333/rest/api/v1/nsa/designation/f9e2e7f9-b9bf-4820-a981-78e5aea0d351",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "session_id",
+								"value": "{{session_id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"department\" : { \"dept_id\" : \"e5dd044a-54b0-4dc8-a46a-11a22f845a92\", \"dept_name\" : \"Secondary Maths\", \"dept_alias\" : \"Bussiness Maths\", \"updated_by\": \"5835100S\" }}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "designation_update",
+					"request": {
+						"url": "localhost:3333/rest/api/v1/nsa/designation/f9e2e7f9-b9bf-4820-a981-78e5aea0d351",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "session_id",
+								"value": "{{session_id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"desg_name\" : \"Asst Head Master\", \"desg_alias\" : \"AHM\", \"updated_by\": \"5835100S\" }"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "designation_delete",
+					"request": {
+						"url": "localhost:3333/rest/api/v1/nsa/designation/f88c7fc2-f3c8-4474-92be-7dd25a87d192",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "session_id",
+								"value": "{{session_id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "validatesession",
+					"request": {
+						"url": "localhost:3333/rest/api/v1/nsa/auth/validatesession",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "session_id",
+								"value": "{{session_id}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

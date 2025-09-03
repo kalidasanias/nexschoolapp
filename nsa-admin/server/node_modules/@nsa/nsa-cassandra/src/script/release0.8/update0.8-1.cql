@@ -1,0 +1,1 @@
+ALTER TABLE nsa.employee_classification ADD taxanomy_departments list<text>;

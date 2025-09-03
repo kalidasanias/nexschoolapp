@@ -1,0 +1,25 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h6 class="panel-title"><span class="text-semibold text-uppercase"><i class="icon-book3 position-left"></i>Subject Allocation </span><i class="icon-arrow-right15 text-pink-600"></i> <small>List of subjects </small></h6>
+        <div class="heading-elements">
+            <input *ngIf="enable" type="button" value="Subjects Allocation" data-size="50%" data-title="Subjects Allocation" data-toggle="from-right" data-id="#subjectAllocation" class="btn btn-sm btn-primary" (click)="associateSubject($event)"/>
+            <input hidden id="warningsubjectAllocation" (click)="requested_warning()" type="button" style="display: none;">
+            <input hidden id="deleteButton" (click)="requested_delete($event)" type="button" style="display: none;">
+        </div>
+    </div>
+    <div class="panel-body">
+        <table class="table datatable-allocation-export">
+            <thead>
+            <tr>
+                <th data-priority="1">Academic year</th>
+                <th>Class Name</th>
+                <th>Section Name</th>
+                <th>Subject Name</th>
+                <th>Subject Type</th>
+                <th data-priority="2">Action</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+<associate-subjects></associate-subjects>

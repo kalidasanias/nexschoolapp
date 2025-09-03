@@ -1,0 +1,213 @@
+<div id="add_schedule_exam" class="overlay-popup footer-popup" style="display: none;">
+    <div class="cd-panel">
+        <div class="cd-panel-header">
+            <div class="simple-field-hf">
+            </div>
+            <a (click)="closeOverlay()" class="cd-panel-close">Close</a>
+        </div>
+        <div class="cd-panel-container">
+            <input type="hidden" id="existingFiles" (click)="getExistingFiles($event)">
+            <div class="cd-panel-content" id="side-panel-container">
+                <form action="#" class="form-horizontal" [formGroup]="examForm">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label class="control-label col-md-1 label-nowrap">Exam Name&nbsp;<span class="text-danger">*</span>
+                            </label>
+                            <div class="col-md-3 text-right">
+                                <select (click)="getExamType($event)" class="select-change" id="select-exam" data-width="95%">
+                                </select>
+                            </div>
+                            <label class="col-md-1 control-label text-right">Class <span class="text-danger">*</span>
+                            </label>
+                            <div class="col-md-3">
+                                <select (click)="getSectionByClass($event)" class="select-change" id="select-class" data-width="100%">
+                                </select>
+                            </div>
+                            <label class="control-label col-md-1 select-section hide text-right">Section <span class="text-danger">*</span>
+                            </label>
+                            <div class="col-md-3 select-section hide">
+                                <div class="multi-select-full">
+                                    <select multiple="multiple" (click)="getSection($event)" class="select-change" id="select-section" [disabled]="inputType === 'clone'"  data-width="100%">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" [hidden]="notifications">
+                            <div class="col-md-12" formGroupName="notify">
+                                <div class="form-group">
+                                    <label class="control-label col-md-1">Notification
+                                    </label>
+                                    <div class="col-md-8">
+                                        <div class="row margin-left7">
+                                            <div class="col-md-2 sms hide">
+                                                <div class="form-group">
+                                                    <label class="checkbox-inline" style="font-size:12px;">
+                                                        <input  #sms type="checkbox" class="smsChecked">SMS
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 email hide">
+                                                <div class="form-group">
+                                                    <label class="checkbox-inline" style="font-size:12px;">
+                                                        <input #email type="checkbox" class="emailChecked">Email
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 push hide">
+                                                <div class="form-group">
+                                                    <label class="checkbox-inline" style="font-size:12px;">
+                                                        <input #push type="checkbox" class="pushChecked">App
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tabbable">
+                            <ul class="nav nav-tabs nsa-nav-tabs nsa-blue  nav-tabs-highlight nav-justified">
+                                <li class="active"><a href="#examSchedule" id="scheduleTab" data-toggle="tab" (click)="tabChange('Schedule')"> Schedule</a></li>
+                                <li><a href="#portions" data-toggle="tab"  (click)="tabChange('Portions')">Portions</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="examSchedule">
+                                    <div class="row subjects">
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                <tr>
+                                                    <th class="col-lg-2">Subject</th>
+                                                    <th class="col-lg-3">Date</th>
+                                                    <th class="col-lg-2">Start Time</th>
+                                                    <th class="col-lg-2">End Time</th>
+                                                    <th class="col-lg-2">Max. Marks</th>
+                                                    <th class="col-lg-2 action-col">&nbsp;</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody formArrayName="schedule">
+                                                <tr *ngFor="let subject of examForm.controls.schedule.controls; let i = index" [formGroup]="subject">
+                                                    <td>
+                                                        <select id="select-subject{{i}}" class="select-change select-subject" (click)="getSubject($event, i)" data-width="100%">
+                                                        </select>
+                                                    </td>
+                                                    <td>
+                                                        <div class="form-group top-10" >
+                                                            <div class="input-group">
+                                                                <span class="input-group-addon"><i class="icon-calendar22"></i></span>
+                                                                <input type="text" id='exam_date{{i}}' class="form-control" placeholder="Select Date&hellip;" [ngModelOptions]="{standalone: true}" onchange="dateChange(event);" (click)="getExamDate($event, i)" [(ngModel)]="date[i]">
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <datetime [datepicker]="false" [timepicker]="{ showMeridian: true, minuteStep: 5, placeholder: o}"  [ngModelOptions]="{standalone: true}" (ngModelChange)="getStartTime($event, i)" [(ngModel)]="startTime[i]"></datetime>
+                                                    </td>
+                                                    <td>
+                                                        <datetime [datepicker]="false" [timepicker]="{ showMeridian: true, minuteStep: 5, placeholder: o}"  [ngModelOptions]="{standalone: true}" (ngModelChange)="getEndTime($event, i)" [(ngModel)]="endTime[i]"></datetime>
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" id='exam_mark{{i}}' class="form-control" placeholder="100" formControlName="mark">
+                                                    </td>
+                                                    <td class="action-col">
+                                                        <button class="btn bg-danger btn-act-icon1 btn-act-sm1 button-rounded" type="button" *ngIf="i > 0" (click)="deleteSubject(i)"><i class="icon-minus2"></i></button>
+                                                        <button class="btn bg-success btn-act-icon1 btn-act-sm1 button-rounded" type="button" (click)="addSubject(i+1)"><i class="icon-plus22"></i></button>
+                                                    </td>
+                                                </tr>
+                                                <tr class="odd" [hidden]="hideNoSubjects"><td align="center" colspan="6" class="dataTables_empty">No data available in table</td></tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="portions">
+                                    <div class="panel-heading">
+                                        <h6 class="panel-title" style="bottom: -13px"><span class="text-semibold"><i class="fa fa-cloud-upload fa-lg"></i> Upload Portions All Subjects</span></h6>
+                                        <hr/>
+                                    </div>
+                                    <div class="panel-body" formGroupName="portions">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-sm-3"><strong>Portion Details</strong><br>
+                                                    <span style="color: grey">(Syllabus for this examination)</span>
+                                                </label>
+                                                <div class="col-sm-6">
+                                                    <textarea #portionDes rows="4" id="description" cols="5" class="form-control hide-scroll" formControlName="portion_details"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row form-horizontal">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Attachments</label>
+                                                    <div class="col-sm-4">
+                                                        <div class="uploader bg-info"><input type="file" accept=".xls,.xlsx,.jpg,.jpeg,.png,.txt,.doc,.docx,.xl,.pdf,.pptx,.gif" class="file-styled" name="multiple" ng2FileSelect [uploader]="uploader" multiple><span class="filename" style="user-select: none;">Select File to Upload</span><span class="action" style="user-select: none;"><i class="icon-plus2"></i></span></div>
+                                                        <span class="help-block">No.of Files Selected: {{ uploader?.queue?.length }}<ng-container *ngIf="portionData.attachments"><span class="text-pink-700">&nbsp;||&nbsp;</span><a id="viewAttachment" class="blink-text" (click)="viewAttachment()">view attachments</a></ng-container></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <table class="table">
+                                                    <thead>
+                                                    <tr>
+                                                        <th width="30%">Name</th>
+                                                        <th>Size</th>
+                                                        <th width="15%">Progress</th>
+                                                        <th>Status</th>
+                                                        <th>Actions</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr *ngFor="let item of uploader.queue">
+                                                        <td class="fc-title">{{ item.file.name }}</td>
+                                                        <td nowrap>{{ item.file.size/1024/1024 | number:'.2' }} MB</td>
+                                                        <td>
+                                                            <div class="progress progress-xxs" style="margin-bottom: 0;">
+                                                                <div class="progress-bar progress-bar-success" role="progressbar" [ngStyle]="{ 'width': item.progress + '%' }"></div>
+                                                            </div>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <span *ngIf="item.isSuccess"><i class="glyphicon glyphicon-ok text-success"></i></span>
+                                                            <span *ngIf="item.isError"><i class="glyphicon glyphicon-remove text-danger"></i></span>
+                                                        </td>
+                                                        <td>
+                                                            <!--<a class="icon-upload4 text-success" (click)="item.upload()" [ngClass]="{'disabled': item.isReady || item.isUploading || item.isSuccess}"></a>-->
+                                                            <a class="fa fa-trash-o fa-lg text-danger" (click)="item.remove()"></a>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                                <hr/>
+                                                <div>
+                                                    <div class="content-group-sm">
+                                                        <p class="text-semibold">Uploading Status</p>
+                                                        <div class="progress progress-xxs">
+                                                            <div class="progress-bar progress-bar-success"  [ngClass]="{'active progress-bar-striped': uploader.progress != 100}" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>
+                                                        </div>
+                                                        <span [ngClass]="{'text-success-800':uploader.progress > 0,'blink-text': uploader.progress == 100}">{{uploader.progress + '% Completed'}}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--<legend class="text-semibold subjects hide">
+                           <i class="icon-book3"></i>
+                           Subjects
+                           </legend>-->
+                    </div>
+                </form>
+            </div>
+            <div class="overlay-footer">
+                <div class="right-align overlay-footer-content-rt">
+                    <button type="button" class="btn btn-default" (click)="closeOverlay()" data-dismiss="modal">Close</button>
+                    <button type="button" id="saveasdraft" class="btn btn-primary btn-ladda btn-ladda-progres" [disabled]="!portionTab && (!examForm.valid || !examForm.controls.schedule.valid || saveDisable)" (click)="draft()">Save As Draft</button>
+                    <button type="button" id="publish"  class="btn btn-primary btn-ladda btn-ladda-progres" [disabled]="!portionTab && (!examForm.valid || !examForm.controls.schedule.valid || saveDisable)" (click)="publish()">Publish</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<attachment></attachment>
+

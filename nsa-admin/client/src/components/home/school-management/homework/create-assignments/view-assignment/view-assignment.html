@@ -1,0 +1,67 @@
+<div id="viewAssignment" class="overlay-popup footer-popup" style="display: none;">
+    <!-- RIGHT PANEL STARTS -->
+    <div class="cd-panel">
+        <div class="cd-panel-header">
+            <!-- <div class="hidden-xs simple-field-hf"></div> -->
+            <div class="simple-field-hf">
+            </div>
+            <a (click)="closeOverlay($event)" class="cd-panel-close">Close</a>
+        </div>
+        <div class="cd-panel-container">
+            <div class="cd-panel-content" id="side-panel-container"><br>
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label class="control-label col-sm-4 txt-align-center" style="margin-top:7px;">Homework Name
+                            </label>
+                            <div class="col-sm-8">
+                                <input type="text" data-popup="tooltip" title="{{assignmentsDetails.assignmentName}}" data-placement="bottom" id="assignmentName" class="form-control fc-title-400" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" style="margin-top:7px;">Description</label>
+                            <div class="col-sm-8">
+                                <textarea rows="3" cols="3" id="Description" class="form-control" style="margin-top:-10px" readonly></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="control-label col-sm-4 txt-align-center" style="margin-top:7px;">Attachments
+                                </label>
+                                <div class="col-sm-8">
+                                    <span class="help-block">No.of Files: {{assignmentsDetails.attachments ? assignmentsDetails.attachments.length : 0 }}<ng-container *ngIf="assignmentsDetails.attachments"><span class="text-pink-700">&nbsp;||&nbsp;</span><a id="viewAttachment" class="blink-text" (click)="viewAttachment()">view attachments</a></ng-container></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <table class="table datatable-assignment-view">
+                        <thead>
+                        <tr>
+                            <th>Student name</th>
+                            <th>Class</th>
+                            <th>Section</th>
+                            <th>Subject Name</th>
+                            <th>Due Date</th>
+                            <th data-priority="1">Status</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="overlay-footer">
+                    <div class="right-align overlay-footer-content-rt">
+                        <button type="button" class="btn btn-default btn-sm" (click)="closeOverlay($event)">Close</button>
+                    </div>
+                </div>
+            </div>
+            <!-- cd-panel-container -->
+        </div>
+    </div>
+    <!-- right panel script -->
+</div>

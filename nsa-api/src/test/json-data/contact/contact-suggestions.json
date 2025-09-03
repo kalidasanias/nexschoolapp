@@ -1,0 +1,18 @@
+{
+   "status":{
+      "code":201,
+      "message":"Success"
+   },
+   "suggestions":[
+      {
+         "phoneNumber":"12455324523",
+         "contactName":"Sam",
+         "userId":"123123"
+      },
+      {
+         "phoneNumber":"4353453",
+         "contactName":"John",
+         "userId":"23423424"
+      }
+   ]
+}

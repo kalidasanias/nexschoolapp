@@ -1,0 +1,139 @@
+{
+  "status":{
+    "code":200,
+    "message":"Success"
+  },
+  "totalStudents":50,
+  "completedStudents":[
+    {
+      "section":"A",
+      "students":[
+        {
+          "admissionNo":"795",
+          "name":"Ragavan",
+          "studentId":"1231212312",
+          "messages":[
+            "Hello Madam",
+            "I have a doubt"
+          ]
+        },
+        {
+          "admissionNo":"657",
+          "name":"Vinoth",
+          "studentId":"2342342342",
+          "messages":[
+            "Madam",
+            "I have a doubt"
+          ]
+        }
+      ]
+    },
+    {
+      "section":"B",
+      "students":[
+        {
+          "admissionNo":"645",
+          "name":"Deepak",
+          "studentId":"34343",
+          "messages":[
+            {
+              "message":"Hello Madam",
+              "time":"15-05-2017 10:20 AM"
+            },
+            {
+              "message":"I have a doubt",
+              "time":"15-05-2017 10:30 AM"
+            }
+          ]
+        },
+        {
+          "admissionNo":"970",
+          "name":"Ram",
+          "studentId":"123123",
+          "messages":[
+            {
+              "message":"Hello Madam",
+              "time":"15-05-2017 10:20 AM"
+            },
+            {
+              "message":"I have a doubt",
+              "time":"15-05-2017 10:30 AM"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "notCompletedStudents":[
+    {
+      "section":"A",
+      "students":[
+        {
+          "admissionNo":"795",
+          "name":"Ragavan",
+          "studentId":"1231212312",
+          "messages":[
+            {
+              "message":"Hello Madam",
+              "time":"15-05-2017 10:20 AM"
+            },
+            {
+              "message":"I have a doubt",
+              "time":"15-05-2017 10:30 AM"
+            }
+          ]
+        },
+        {
+          "admissionNo":"657",
+          "name":"Vinoth",
+          "studentId":"2342342342",
+          "messages":[
+            {
+              "message":"Hello Madam",
+              "time":"15-05-2017 10:20 AM"
+            },
+            {
+              "message":"I have a doubt",
+              "time":"15-05-2017 10:30 AM"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section":"B",
+      "students":[
+        {
+          "admissionNo":"645",
+          "name":"Deepak",
+          "studentId":"34343",
+          "messages":[
+            {
+              "message":"Hello Madam",
+              "time":"15-05-2017 10:20 AM"
+            },
+            {
+              "message":"I have a doubt",
+              "time":"15-05-2017 10:30 AM"
+            }
+          ]
+        },
+        {
+          "admissionNo":"970",
+          "name":"Ram",
+          "studentId":"123123",
+          "messages":[
+            {
+              "message":"Hello Madam",
+              "time":"15-05-2017 10:20 AM"
+            },
+            {
+              "message":"I have a doubt",
+              "time":"15-05-2017 10:30 AM"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

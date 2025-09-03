@@ -1,0 +1,131 @@
+<div id="publish1" class="overlay-popup footer-popup" style="display: none;">
+    <!-- RIGHT PANEL STARTS -->
+    <div class="cd-panel">
+        <div class="cd-panel-header">
+            <!-- <div class="hidden-xs simple-field-hf"></div> -->
+            <div class="simple-field-hf">
+            </div>
+            <a (click)="closeOverlay($event)" class="cd-panel-close">Close</a>
+        </div>
+        <div class="cd-panel-container">
+            <div class="cd-panel-content" id="side-panel-container">
+                <form class="form-horizontal" [formGroup]="feeAssignmentForm">
+                    <div class="modal-body">
+                        <legend class="text-semibold">
+                            <div class="text-center">
+                                <span class="title"><h3>Fee Name- {{feeTypesDetails.feeAssignmentName}}</h3></span><br/>
+                            </div>
+                        </legend>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2">Assignees</label>
+                            <div class="col-md-4">
+                                <input type="text"  class="form-control" value="{{assignees}}" disabled>
+                            </div>
+                            <label class="control-label col-sm-2" style="text-align: center;">Last Date</label>
+                            <div class="col-md-4">
+                                <input type="text"  value="{{dueDate}}" class="form-control" disabled>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2">Amount Details</label>
+                            <div class="col-md-10">
+                                <div class="panel panel-flat table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th class="col-lg-1">S.No</th>
+                                            <th>Fee Type</th>
+                                            <th>Amount</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr *ngFor="let feeType of feeTypes;  let i=index">
+                                            <td>{{i + 1}}</td>
+                                            <td>{{feeType.name}}</td>
+                                            <td>{{feeType.amount}}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2">Total Amount</label>
+                            <div class="col-md-4">
+                                <input type="text"  class="form-control" value="{{totalFeeAmount}}" disabled>
+                            </div>
+                            <label class="control-label col-sm-2">Refundable Amount</label>
+                            <div class="col-md-4">
+                                <input type="text"  class="form-control" value="{{refundAmount}}" disabled>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Notifications
+                            </label>
+                            <div class="col-md-4" formGroupName="notify">
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <div class="row">
+                                            <div class="col-md-3 sms hide">
+                                                <div class="form-group">
+                                                    <label class="checkbox-inline" style="font-size:12px;">
+                                                        <input  #sms type="checkbox" class="smsChecked">SMS
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 email hide">
+                                                <div class="form-group">
+                                                    <label class="checkbox-inline" style="font-size:12px;">
+                                                        <input #email type="checkbox" class="emailChecked">Email
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 push hide">
+                                                <div class="form-group">
+                                                    <label class="checkbox-inline" style="font-size:12px;">
+                                                        <input #push type="checkbox" class="pushChecked">App
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                        </div>
+                        <legend class="text-semibold">
+                            <i class="icon-list position-left"></i>
+                            Assigned Students List
+                        </legend>
+                        <table class="table datatable-fee-details">
+                            <thead>
+                            <tr>
+                                <th data-priority="1">Student Name</th>
+                                <th>Class</th>
+                                <th>Section</th>
+                                <th>Scholarship</th>
+                                <th>Discount</th>
+                                <th>Net.Amt</th>
+                                <th>Paid.Amt</th>
+                                <th>Status</th>
+                                <th align="center" data-priority="3">Cash Payment</th>
+                                <th data-priority="2">Print</th>
+                            </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div class="overlay-footer">
+                        <div class="right-align overlay-footer-content-rt">
+                            <button type="button" class="btn btn-default" (click)="closeOverlay($event)">Close</button>
+                            <button type="submit" id="publishDetails" (click)="saveFeeDetails('publishDetails')"  class="btn btn-primary">Publish</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- cd-panel-container -->
+        </div>
+    </div>
+    <!-- right panel script -->
+</div>

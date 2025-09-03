@@ -1,0 +1,106 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h6 class="panel-title"><span class="text-semibold text-uppercase"><i class="icon-sort-numeric-asc position-left"></i>Staff Category </span><i class="icon-arrow-right15 text-pink-600"></i> <small>List of categories </small></h6>
+        <div class="heading-elements">
+            <button type="button" class="btn btn-sm btn-primary heading-btn" data-toggle="modal" data-target="#modal_full">Add Category</button>
+        </div>
+    </div>
+
+    <div class="panel-body">
+        <table class="table datatable-export">
+            <thead>
+            <tr>
+                <th>No</th>
+                <th>Category Name</th>
+                <th>Alias Name</th>
+                <th>Updated By</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1</td>
+                <td>Mathematics</td>
+                <td>SS-M</td>
+                <td>Default-13th Aug,2016</td>
+                <td>
+                    <a class="icon-primary" data-toggle="modal" data-target="#modal_full"><i class="fa fa-pencil-square-o fa-lg"></i></a>
+                    <a class="icon-danger"><i class="fa fa-trash-o fa-lg"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Information Technology</td>
+                <td>IT</td>
+                <td>Default-13th Aug,2016</td>
+                <td>
+                    <a class="icon-primary" data-toggle="modal" data-target="#modal_full"><i class="fa fa-pencil-square-o fa-lg"></i></a>
+                    <a class="icon-danger"><i class="fa fa-trash-o fa-lg"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Human Resource</td>
+                <td>HR</td>
+                <td>Default-13th Aug,2016</td>
+                <td>
+                    <a class="icon-primary" data-toggle="modal" data-target="#modal_full"><i class="fa fa-pencil-square-o fa-lg"></i></a>
+                    <a class="icon-danger"><i class="fa fa-trash-o fa-lg"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Admin</td>
+                <td>AD</td>
+                <td>Default-13th Aug,2016</td>
+                <td>
+                    <a class="icon-primary" data-toggle="modal" data-target="#modal_full"><i class="fa fa-pencil-square-o fa-lg"></i></a>
+                    <a class="icon-danger"><i class="fa fa-trash-o fa-lg"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Reception</td>
+                <td>Front Desk</td>
+                <td>Default-13th Aug,2016</td>
+                <td>
+                    <a class="icon-primary" data-toggle="modal" data-target="#modal_full"><i class="fa fa-pencil-square-o fa-lg"></i></a>
+                    <a class="icon-danger"><i class="fa fa-trash-o fa-lg"></i></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Assign new fee form full view modal -->
+<div id="modal_full" class="modal fade refuse">
+    <div class="modal-dialog modal-sm ">
+        <div class="modal-content">
+            <div class="modal-header bg-info">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h5 class="modal-title">Add Category</h5>
+            </div>
+            <div class="modal-body">
+                <form action="#" class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label col-md-4">Category Name <span class="text-danger">*</span></label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-4">Alias Name</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer" >
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary"style="padding-right:15px;">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

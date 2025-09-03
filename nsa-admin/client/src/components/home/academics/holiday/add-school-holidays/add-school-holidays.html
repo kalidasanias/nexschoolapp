@@ -1,0 +1,96 @@
+<div id="addschoolholiday" class="overlay-popup footer-popup" style="">
+    <!-- RIGHT PANEL STARTS -->
+    <div class="cd-panel">
+        <div class="cd-panel-header">
+            <!-- <div class="hidden-xs simple-field-hf"></div> -->
+            <div class="simple-field-hf">
+            </div>
+            <a (click)="closeOverlay($event)" class="cd-panel-close">Close</a>
+        </div>
+        <div class="cd-panel-container">
+            <div class="cd-panel-content" id="side-panel-container">
+                <form class="form-horizontal form-validate" [formGroup]="schoolholidayForm">
+                    <div class="modal-body">
+                        <fieldset class=" ">
+                            <div class="form-group">
+                                <label class="control-label col-md-4 margin-top">Holiday Name <span class="text-danger">*</span> </label>
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" formControlName="holidayName" required="required">
+                                        <div control-messages class="validation-error-label" [control]="schoolholidayForm.controls.holidayName">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset class=" ">
+                            <div class="form-group">
+                                <label class="control-label col-md-4">Holiday Type <span class="text-danger">*</span> </label>
+                                <div class="col-md-8">
+                                    <div class="multi-select-full">
+                                    <select #single id="select-schoolholiday" class="form-control">
+                                    </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset class=" ">
+                            <div class="form-group">
+                                <label class="control-label col-md-4 margin-top5">Date<span class="text-danger">&nbsp;*</span> </label>
+                                <div class="col-md-8">
+                                    <div class=" input-group">
+                                        <span class="input-group-addon "><i class="icon-calendar22"></i></span>
+                                        <input type="text" #fullDate formControlName="fullDate" class="form-control daterange-basic"  placeholder="Start Date End Date&hellip;">
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset class="">
+                            <div class="form-group" formGroupName="notify">
+                                <label class="control-label col-md-4">Notifications
+                                </label>
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <div class="row">
+                                                <div class="col-md-3 sms hide" >
+                                                    <div class="form-group">
+                                                        <label class="checkbox-inline" style="font-size:12px;">
+                                                            <input  #sms type="checkbox" class="smsChecked">SMS
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3 email hide">
+                                                    <div class="form-group">
+                                                        <label class="checkbox-inline" style="font-size:12px;">
+                                                            <input #email type="checkbox" class="emailChecked">Email
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3 push hide">
+                                                    <div class="form-group">
+                                                        <label class="checkbox-inline" style="font-size:12px;">
+                                                            <input #push type="checkbox" class="pushChecked">App
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="overlay-footer">
+                        <div class="right-align overlay-footer-content-rt">
+                            <button type="button" class="btn btn-sm btn-default" (click)="closeOverlay($event)">Close</button>
+                            <button type="submit" [disabled]="!schoolholidayForm.valid" id="saveSchoolHoliday" (click)="saveSchoolHoliday('saveSchoolHoliday')" class="btn btn-primary btn-ladda btn-ladda-progres" data-style="expand-right" data-spinner-size="20">
+                                <span class="ladda-label">{{buttonVal}}</span></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- cd-panel-container -->
+    </div>
+</div>

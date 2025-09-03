@@ -1,0 +1,253 @@
+<input type="hidden" class="form-control scurAcademicYear" style="width : 50%" placeholder="First Name"  value="{{cAcademicYear}}" disabled>
+<input type="hidden" class="form-control snewAcademicYear" style="width : 50%" placeholder="First Name"  value="{{nAcademicYear}}" disabled>
+<input type="hidden" id="updateSatus" />
+<!--
+<div id="shuffle_students" class="overlay-popup footer-popup" style="display: none;">
+    <input hidden id="shuffleList" type="button" style="display: none;">
+    &lt;!&ndash; RIGHT PANEL STARTS &ndash;&gt;
+    <div class="cd-panel">
+        <div class="cd-panel-header">
+            &lt;!&ndash; <div class="hidden-xs simple-field-hf"></div> &ndash;&gt;
+            <div class="simple-field-hf">
+            </div>
+            <a (click)="closeOverlay($event)" class="cd-panel-close">Close</a>
+        </div>
+        <div class="cd-panel-container">
+            <div class="cd-panel-content" id="side-panel-container">
+                <form class="form-horizontal">
+                    <div class="modal-body">
+                        <div class="row form-horizontal">
+                            <div class="col-md-3 margin-left20">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4">Class <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <div class="row">
+                                            <select (click)="getSectionByClass()" class="select-change" #singleClass id="attendance-class" data-width="100%">
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="sections" class="col-md-3 margin-left20 hide">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4">Section <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <div class="row">
+                                            <div class="multi-select-full">
+                                                <select  multiple="multiple" (click)="sectionChange()" #singleSection class="select-change" id="shuffle-section" data-width="100%">
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2 navbar-right txt-align-right">
+                                <div class="form-group">
+                                    <input class="btn btn-default " id="cancel-back" value="Clear" (click)="resetForm()"   type="button">
+                                    <input class="btn btn btn-primary ui-wizard-content margin-right10 ui-formwizard-button" (click)="getAttendanceData()" id="cancel-next" value="Search" type="button">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="studnet-data hide">
+                            <hr/>
+                            <div id="allsections" class="col-md-3 margin-left20">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4">Move To <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <div class="row">
+                                            <select  #selecSection class="select-change" id="shuffle-all-section" data-width="100%">
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br/>
+                            <br/><br/>
+
+                            <legend class="text-semibold">
+                                <i class="icon-paragraph-justify2"></i>
+                                Select Students To Shuffle
+                            </legend>
+                            <table class="table datatable-shuffle-student-list">
+                                <thead>
+                                <tr>
+                                    <th class=""><input type="checkbox" id="shuffle-select-all"/></th>
+                                    <th class="">User ID</th>
+                                    <th class="">Student Name</th>
+                                    <th class="">Class Name</th>
+                                    <th class="">Section Name</th>
+                                </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+
+
+                    <div class="overlay-footer">
+                        <div class="right-align overlay-footer-content-rt">
+                            <button type="button" class="btn btn-default" (click)="closeOverlay($event)">Close</button>
+                            <input hidden id="shuffleStud" (click)="save('shuffleListData', $event)" type="button" style="display: none;">
+                            <button type="button" id="shuffleListData" (click)="saveData()" disabled="disabled" class="btn btn-primary btn-ladda btn-ladda-progress"style="padding-right:15px;">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            &lt;!&ndash; cd-panel-container &ndash;&gt;
+        </div>
+    </div>
+    &lt;!&ndash; right panel script &ndash;&gt;
+</div>
+-->
+
+<div id="shuffle_students" class="overlay-popup footer-popup" style="display: none;">
+    <input hidden id="shuffleList" type="button" style="display: none;">
+    <input hidden id="shuffleStud" (click)="renderSelected($event)" type="button" style="display: none;">
+    <!-- RIGHT PANEL STARTS -->
+    <div class="cd-panel">
+        <div class="cd-panel-header">
+            <div class="simple-field-hf">
+            </div>
+            <a (click)="closeOverlay($event)" class="cd-panel-close">Close</a>
+        </div>
+        <div class="cd-panel-container" id="hiflame-cart-popup">
+            <div class="cd-panel-content wizard-panel-content" id="side-panel-container">
+                <form class="form-horizontal">
+                    <div class="modal-body">
+                        <div class="row form-horizontal">
+                            <!--<div id="classes" class="col-md-3 margin-left20">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4">Class <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <div class="row">
+                                            <select (click)="getSectionByClass()" class="select-change" #singleClass id="attendance-class" data-width="100%">
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>-->
+                            <div id="sections" class="col-md-3 sectionsList margin-left20 hide">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4">Section <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <div class="row">
+                                            <div class="multi-select-full">
+                                                <select  multiple="multiple" (click)="sectionChange()" #singleSection class="select-change" id="shuffle-section" data-width="100%">
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="allsections" class="col-md-3 margin-left20 studnet-data">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4">Move To <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-sm-8">
+                                        <div class="row">
+                                            <select  #selecSection class="select-change" id="shuffle-all-section" data-width="100%">
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2 navbar-right txt-align-right submitClass">
+                                <div class="form-group">
+                                    <input class="btn btn-default " id="cancel-back" value="Clear" (click)="resetForm()"   type="button">
+                                    <input class="btn btn btn-primary ui-wizard-content margin-right10 ui-formwizard-button" (click)="getAttendanceData()" id="cancel-next" value="Search" type="button">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row hide promotionDiv">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-1">Notification
+                                    </label>
+                                    <div class="col-md-8">
+                                        <div class="row margin-left7">
+                                            <div class="col-md-2 sms hide">
+                                                <div class="form-group">
+                                                    <label class="checkbox-inline" style="font-size:12px;">
+                                                        <input  #sms type="checkbox" class="smsChecked">SMS
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 email hide">
+                                                <div class="form-group">
+                                                    <label class="checkbox-inline" style="font-size:12px;">
+                                                        <input #email type="checkbox" class="emailChecked">Email
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 push hide">
+                                                <div class="form-group">
+                                                    <label class="checkbox-inline" style="font-size:12px;">
+                                                        <input #push type="checkbox" class="pushChecked">App
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <form-wizard class="hide promotionDiv">
+                        <wizard-step [title]="'Student List'"  (onNext)="onSelection($event)">
+                            <form class="steps-basic form-validate form-horizontal" novalidate  action="#">
+                                <div class="wizard-body">
+                                    <legend class="text-semibold">
+                                        <i class="icon-paragraph-justify2"></i>
+                                        Select Students To Shuffle
+                                    </legend>
+                                    <table class="table datatable-shuffle-student-list">
+                                        <thead>
+                                        <tr>
+                                            <th class=""><input type="checkbox" id="shuffle-select-all"/></th>
+                                            <th class="">Admission No</th>
+                                            <th class="">Student Name</th>
+                                            <th class="">Class Name</th>
+                                            <th class="">Section Name</th>
+                                        </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </form>
+                        </wizard-step>
+                        <wizard-step [title]="'Shuffled Students'" [btnVal]="'Shuffle'" (onPrev)="disable()" (onComplete)="save('shuffleListData')">
+                            <form class="steps-basic form-validate form-horizontal" novalidate action="#">
+
+                                <div class="wizard-body">
+                                    <legend class="text-semibold">
+                                        <i class="icon-paragraph-justify2"></i>
+                                        Student List
+                                    </legend>
+                                    <table class="table datatable-promote-final-list">
+                                        <thead>
+                                        <tr>
+                                            <th class="">Admission No</th>
+                                            <th class="">Student Name</th>
+                                            <th class="">Class Name</th>
+                                            <th class="">Section Name</th>
+                                        </tr>
+                                        </thead>
+                                    </table>
+
+                                </div>
+
+                            </form>
+                        </wizard-step>
+                    </form-wizard>
+                </form>
+            </div>
+            <!-- cd-panel-container -->
+        </div>
+    </div>
+    <!-- right panel script -->
+</div>
+<attachment></attachment>

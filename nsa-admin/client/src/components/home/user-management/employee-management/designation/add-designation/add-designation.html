@@ -1,0 +1,39 @@
+<div id="addDesignation" class="overlay-popup footer-popup" style="">
+    <!-- RIGHT PANEL STARTS -->
+    <div class="cd-panel">
+        <div class="cd-panel-header">
+            <!-- <div class="hidden-xs simple-field-hf"></div> -->
+            <div class="simple-field-hf">
+            </div>
+            <a (click)="closeOModal()" class="cd-panel-close">Close</a>
+        </div>
+        <div class="cd-panel-container">
+            <div class="cd-panel-content" id="side-panel-container">
+                <form action="#" class="form-horizontal" [formGroup]="designationForm">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label class="control-label col-md-5">Designation Name <span class="text-danger">*</span></label>
+                            <div class="col-md-7">
+                                <input type="text" class="form-control" formControlName="desg_name">
+                                <div control-messages class="validation-error-label" [control]="designationForm.controls.desg_name"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-5">Alias Name</label>
+                            <div class="col-md-7">
+                                <input type="text" class="form-control" formControlName="desg_alias">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="overlay-footer">
+                    <div class="right-align overlay-footer-content-rt">
+                        <button type="button" class="btn btn-sm btn-default" (click)="closeOModal()">Close</button>
+                        <button type="submit" class="btn btn-primary" [disabled]="!designationForm.valid" id="save" (click)="saveDesignation('saveDesignation')" >{{buttonVal}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- cd-panel-container -->
+    </div>
+</div>

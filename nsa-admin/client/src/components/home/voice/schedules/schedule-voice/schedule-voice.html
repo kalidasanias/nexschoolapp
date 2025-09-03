@@ -1,0 +1,102 @@
+<div id="scheduleVoice" class="overlay-popup footer-popup" style="display: none;">
+    <!-- RIGHT PANEL STARTS -->
+    <div class="cd-panel">
+        <div class="cd-panel-header">
+            <!-- <div class="hidden-xs simple-field-hf"></div> -->
+            <div class="simple-field-hf">
+            </div>
+            <a (click)="closeOverlay($event)" class="cd-panel-close">Close</a>
+        </div>
+        <input type="hidden" id="sendVoice" (click)="getNotification($event)" />
+        <div class="cd-panel-container">
+            <div class="cd-panel-content" id="side-panel-container">
+                <form class="form-horizontal form-validate" [formGroup]="templateForm" >
+                    <div class="modal-body" [ngClass]="{'not-active': !enableData}">
+                        <div class="collapse in">
+                            <div *ngFor="let p of media" class="alert alert-info-new alert-info alert-styled-left alert-arrow-left alert-component" style="padding: 0px !important;">
+                                <label class="control-label col-md-offset-1 col-sm-offset-1">Total SMS : </label><label class="text-danger">{{p.available_limit}}</label>
+                                <label class="control-label col-md-offset-2 col-sm-offset-2">Used : </label><label class="text-danger">{{p.used_count}}</label>
+                                <label class="control-label col-md-offset-3 col-sm-offset-3">Available : </label><label class="text-danger">{{p.available_limit - p.used_count}}</label>
+                            </div>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">Voice Message Name <span class="text-danger">*</span></label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" required="required" placeholder="Enter Title" formControlName="name">
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <div class="form-group" >
+                                <label class="control-label col-md-3">Mobile Number </label>
+                                <div class="col-md-9">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="icon-mobile2"></i></span>
+                                        <input type="text" class="form-control"  placeholder="Mobile Number" formControlName="phoneNo" >
+                                        <input type="hidden" class="form-control"  placeholder="Mobile Number" formControlName="notificationId" >
+                                    </div>
+                                    <label class="text-danger">Note :  Send messages for multiple mobile numbers by separating them with comma(,)</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Message For </label>
+                                <div class="col-md-9">
+                                    <p-tree  [value]="data" >
+                                        <template let-node  pTemplate type="default">
+                                            <input type="hidden" formControlName="classes">
+                                            <input type="checkbox" [(ngModel)]="node.selected" [ngModelOptions]="{standalone: true}" [indeterminate]="node.partialSelection" (ngModelChange)="nodeSelected(node)"><span style="margin-left: 6px">{{node.label}}</span>
+                                        </template>
+                                    </p-tree>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Audio File  <span class="text-danger">*</span></label>
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <select #audio name="audio_id" id="audios" class="form-control select-change select required" formControlName="audio_id">
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Schedule Date  <span class="text-danger">*</span></label>
+                                <div class="col-md-3 text-center">
+                                    <div class="radio-inline">
+                                        <label> <input type="radio" name="options" id="now" value="now" (click)="show='now'" [checked]="!show || show === 'now'">Now</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 text-center">
+                                    <div class="radio-inline">
+                                        <label> <input type="radio" name="options" id="pick" value="pick" (click)="show='pick'" [checked]="show === 'pick'">Pick Date & Time</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                </div>
+                            </div>
+                            <div class="form-group" [hidden]="!show || show === 'now'">
+                                <label class="control-label col-md-3"></label>
+                                <div class="col-md-5">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="icon-calendar22"></i></span>
+                                        <input id="pickupDate" type="text" class="form-control" placeholder="Select Date&hellip;" onchange="dateChange(event);" (click)="updateDate($event)" [ngModelOptions]="{standalone: true}" [(ngModel)]="scheduleDate">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <datetime [datepicker]="false" [timepicker]="{ showMeridian: true, minuteStep: 5, placeholder: o}"  [ngModelOptions]="{standalone: true}" (ngModelChange)="getScheduleTime($event)" [(ngModel)]="scheduleTime"></datetime>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="overlay-footer">
+                        <div class="right-align overlay-footer-content-rt">
+                            <button type="button" class="btn btn-sm btn-default" (click)="closeOverlay($event)">Close</button>
+                            <button *ngIf="enable" type="submit" id="Draft" (click)="saveNotification('Draft')" class="btn btn-primary btn-ladda btn-ladda-progress Draft" data-style="expand-right" data-spinner-size="20"><span class="ladda-label">Save as Draft</span></button>
+                            <button *ngIf="enable" type="submit" id="Sent" (click)="saveNotification('Sent')" class="btn btn-primary btn-ladda btn-ladda-progress Sent" data-style="expand-right" data-spinner-size="20"><span class="ladda-label">Send</span></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <!-- right panel script -->
+</div>

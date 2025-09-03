@@ -1,0 +1,87 @@
+<div id="assignLeave" class="overlay-popup footer-popup" style="display: none;">
+	<!-- RIGHT PANEL STARTS -->
+	<div class="cd-panel">
+		<div class="cd-panel-header">
+			<!-- <div class="hidden-xs simple-field-hf"></div> -->
+			<div class="simple-field-hf">
+			</div>
+			<a (click)="closeOverlay($event)" class="cd-panel-close">Close</a>
+		</div>
+		<div class="cd-panel-container">
+			<div class="cd-panel-content" id="side-panel-container">
+				<form style="padding-left:10px;" class="form-horizontal">
+					<div class="modal-body">
+						<div class="row form-horizontal">
+							<div class="col-md-3">
+								<div class="form-group">
+									<label class="control-label col-sm-5">Department <span class="text-danger">*</span>
+									</label>
+									<div class="col-sm-7">
+										<div class="row">
+											<select  class="select-change" (click)="getEmployeeByDept()" #department id="select-dept" data-width="100%">
+											</select>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div id="rm" class="col-md-3 margin-left10 hide">
+								<div class="form-group">
+									<label class="control-label col-sm-4 padding-top0">Reporting Manager  <span class="text-danger">*</span>
+									</label>
+									<div class="col-sm-8">
+										<div class="row">
+											<select #reportingManager id="reporting-manager" data-live-search="true" data-width="100%">
+											</select>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div id="emp" class="col-md-3 hide">
+								<div class="form-group">
+									<label class="control-label col-sm-5 txt-align-right">Employee <span class="text-danger">*</span>
+									</label>
+									<div class="col-sm-7">
+										<div class="multi-select-full">
+											<select #employee class="form-control select-change multiselect-select-all" (click)="employeeSelection()" id="bootstrap-class" multiple="multiple">
+											</select>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-2 navbar-right txt-align-right">
+								<div class="form-group">
+									<input class="btn btn btn-default ui-wizard-content ui-formwizard-button" value="Reset" (click)="resetForm()" type="Reset">
+									<input class="btn btn btn-primary ui-wizard-content margin-right10 ui-formwizard-button" (click)="getLeaveTypes()" id="cancel-next" value="Search" type="button">
+								</div>
+							</div>
+						</div>
+
+						<legend class="text-semibold">
+							<i class="icon-paragraph-justify2"></i>
+							Select Leave types
+						</legend>
+						<table class="table datatable-leaves">
+							<thead>
+							<tr>
+								<th><input type="checkbox" id="example-select-all"/></th>
+								<th>Leave Name</th>
+								<th>Leave Desc</th>
+								<th>No of Leaves</th>
+							</tr>
+							</thead>
+						</table>
+					</div>
+					<div class="overlay-footer">
+						<div class="right-align overlay-footer-content-rt">
+							<button type="button" class="btn btn-default" (click)="closeOverlay($event)">Close</button>
+							<input type="hidden" class="btn btn-primary"   id="leaveAssign" (click)="assignLeave($event, 'saveLeave')" />
+							<button type="button" class="btn btn-primary btn-ladda btn-ladda-progress" id="saveLeave" >Assign</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<!-- cd-panel-container -->
+		</div>
+	</div>
+	<!-- right panel script -->
+</div>

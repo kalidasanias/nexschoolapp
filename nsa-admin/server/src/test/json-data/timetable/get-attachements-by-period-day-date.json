@@ -1,0 +1,23 @@
+{
+	"classId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7ccr",
+	"className": "Class 1",
+	"sectionId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7cce",
+	"sectionName": "Section A",
+	"periodId" : "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+	"periodName": "Period 4",
+	"periodStartTime" : "09:00 AM",
+	"periodEndTime" : "09:45 AM",
+	"isBreak": "false",
+	"subjectId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+	"subjectName": "English",
+	"subjectCode": "Eng",
+	"employeeId" : "100S12",
+	"employeeName": "Deepak",
+	"employeeCode" : "S.D",
+	"day_date": "Mar 28, 2017",
+	"dayId": 1,
+	"notes" : {
+		"attachments" : ["/hiflame", "/hiflame", "/hiflame"],
+		"desc" : "adgesg"
+	}
+}

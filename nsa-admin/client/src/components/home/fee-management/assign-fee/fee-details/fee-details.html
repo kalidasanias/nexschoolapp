@@ -1,0 +1,162 @@
+<div id="feeDetails" class="overlay-popup footer-popup" style="display: none;">
+    <!-- RIGHT PANEL STARTS -->
+    <div class="cd-panel">
+        <div class="cd-panel-header">
+            <!-- <div class="hidden-xs simple-field-hf"></div> -->
+            <div class="simple-field-hf">
+            </div>
+            <a (click)="closeOverlay($event)" class="cd-panel-close">Close</a>
+        </div>
+        <div class="cd-panel-container">
+            <div class="cd-panel-content" id="side-panel-container">
+                <div class="modal-body">
+                    <legend class="text-semibold">
+                        <div class="text-center">
+                            <span class="title"><h3>Fee Name- {{feeTypesDetails.feeAssignmentName}}</h3></span><br/>
+                        </div>
+                    </legend>
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label class="control-label col-sm-2">Assignees</label>
+                            <div class="col-md-4">
+                                <input type="text"  data-popup="tooltip" title="{{assignees}}" data-placement="bottom" class="form-control fc-title-400" value="{{assignees}}" disabled>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2">Amount Details</label>
+                            <div class="col-md-10">
+                                <div class="panel panel-flat table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th class="col-lg-1">S.No</th>
+                                            <th>Fee Type</th>
+                                            <th>Amount</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr *ngFor="let feeType of feeTypes;let i=index ">
+                                            <td>{{i + 1}}</td>
+                                            <td>{{feeType.name}}</td>
+                                            <td>{{feeType.amount}}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2">Total Amount</label>
+                            <div class="col-md-4">
+                                <input type="text"  class="form-control" *ngIf="totalFeeAmount" value={{totalFeeAmount}} disabled>
+                            </div>
+                            <label class="control-label col-sm-2">Refundable Amount</label>
+                            <div class="col-md-4">
+                                <input type="text"  class="form-control" value="{{refundAmount}}" disabled>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2">Last Date</label>
+                            <div class="col-md-4">
+                                <input type="text"  class="form-control" *ngIf="dueDate" value={{dueDate}} disabled>
+                            </div>
+                        </div>
+                    </form>
+                    <legend class="text-semibold">
+                        <i class="icon-list position-left"></i>
+                        Assigned Students List
+                    </legend>
+                    <table class="table datatable-fee-details">
+                        <input hidden id="payByCashWarning" (click)="requested_warning($event)" type="button" style="display: none;">
+                        <input hidden id="requestDownload" (click)="getTransactionDetails($event)" type="button">
+                        <input hidden id="checkRole" (click)="checkRole($event)" type="button">
+                        <thead>
+                        <tr>
+                            <th data-priority="1">Student Name</th>
+                            <th>Class</th>
+                            <th>Section</th>
+                            <th>Scholarship</th>
+                            <th>Discount</th>
+                            <th>Net.Amt</th>
+                            <th>Paid.Amt</th>
+                            <th>Status</th>
+                            <th align="center" data-priority="3">Cash Payment</th>
+                            <th data-priority="2">Print</th>
+                        </tr>
+                        </thead>
+
+                    </table>
+                </div>
+                <div class="overlay-footer">
+                    <div class="right-align overlay-footer-content-rt">
+                        <button type="button" class="btn btn-default" (click)="closeOverlay($event)">Close</button>
+                    </div>
+                </div>
+            </div>
+            <!-- cd-panel-container -->
+        </div>
+    </div>
+    <!-- right panel script -->
+</div>
+<div id="cash-payment" class="modal fade">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header bg-info">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h6 class="modal-title"><span>Cash Payment</span></h6>
+            </div>
+            <div class="modal-body no-margin-bottom">
+                <form novalidate class="form-horizontal form-validate" [formGroup]="paymentForm">
+                    <div class="well">
+                        <dl class="dl-horizontal nsa-dl-horizontal">
+                            <dt>Name : </dt>
+                            <dd>{{feeDetailsObj.firstName}}</dd>
+                            <dt>Class : </dt>
+                            <dd>{{feeDetailsObj.className + ' - ' + feeDetailsObj.sectionName}}</dd>
+                            <dt>Fee Name : </dt>
+                            <dd>{{feeDetailsObj.feeAssignmentName}}</dd>
+                            <dt>Net Amount : </dt>
+                            <dd class="text-bold">{{feeDetailsObj.netAmount}}</dd>
+                            <dt class="text-green">Amount Paid: </dt>
+                            <dd class="text-green text-bold">{{feeDetailsObj.paidAmount}}</dd>
+                            <dt class="text-danger">Pending Amount : </dt>
+                            <dd class="text-danger text-bold">{{amountPayable}}</dd>
+                        </dl>
+                    </div>
+
+                    <fieldset class="margin-top10">
+                        <div class="form-group col-md-6" >
+                            <label class="margin-left40 radio-inline">
+                                <input type="radio" name="filter" value="today" [checked]="!isPartial" (click)="full()"> Full&nbsp;Payment
+                            </label>
+                        </div>
+                        <div class="form-group col-md-6" >
+                            <label class="margin-left40 radio-inline">
+                                <input type="radio" name="filter" value="week" (click)="partial()"> Partial&nbsp;Payment
+                            </label>
+                        </div>
+                    </fieldset>
+                    <fieldset class="margin-top10">
+                        <div class="form-group">
+                            <label class="control-label col-md-5">Amount Collected <span class="text-danger">*</span>
+                            </label>
+                            <div class="form-group col-md-7" *ngIf="!isPartial">
+                                <input disabled type="text" required="required" class="form-control" [value]="amountPayable">
+                            </div>
+                            <div class="form-group col-md-7" *ngIf="isPartial">
+                                <input type="text" class="form-control" formControlName="amount">
+                                <div control-messages class="validation-error-label" [control]="paymentForm.controls.amount"></div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <hr style="margin-top: 0px; margin-bottom: 2px;">
+            <div class="modal-footer" style="padding: 7px;">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" [disabled]="!paymentForm.valid && isPartial" id="confirmSubmit" class="btn btn-primary btn-ladda btn-ladda-spinner" data-size="xs" data-style="zoom-out" data-spinner-size="20" (click)="payByCash($event)"><span class="ladda-label">Collected<input type="hidden" id="payByCashObj"></span></button>
+            </div>
+        </div>
+    </div>
+</div>
+<transaction-details [feeDetailsObj]="feeDetailsObj" [feeTansactionDetails]="feeTansactionDetails"></transaction-details>

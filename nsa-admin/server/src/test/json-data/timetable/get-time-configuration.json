@@ -1,0 +1,32 @@
+{
+   "status": {
+      "code": 201,
+      "message": "Success"
+   },
+   "data": [
+      {
+         "classId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+         "className": "Class 1",
+         "schoolHours": "8AM-3PM",
+         "noOfHours": 5,
+         "noOfBreaks": 2
+
+      },
+      {
+         "classId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+         "className": "Class 1",
+         "schoolHours": "8AM-3PM",
+         "noOfHours": 5,
+         "noOfBreaks": 2
+
+      },
+      {
+         "classId": "c6445420-ea0d-11e6-8b3a-9d7cc28d7cch",
+         "className": "Class 1",
+         "schoolHours": "8AM-3PM",
+         "noOfHours": 5,
+         "noOfBreaks": 2
+
+      }
+   ]
+}

@@ -1,0 +1,90 @@
+<div id="addDriver" class="overlay-popup footer-popup" style="display: none;">
+    <!-- RIGHT PANEL STARTS -->
+    <div class="cd-panel">
+        <div class="cd-panel-header">
+            <!-- <div class="hidden-xs simple-field-hf"></div> -->
+            <div class="simple-field-hf">
+            </div>
+            <a (click)="closeOverlay($event)" class="cd-panel-close">Close</a>
+        </div>
+        <div class="cd-panel-container">
+            <div class="cd-panel-content" id="side-panel-container">
+                <form class="form-horizontal form-validate" novalidate [formGroup]="driverForm">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">Driver Name&nbsp;<span class="text-danger">*</span></label>
+                            <div class="form-group col-lg-4">
+                                <input type="" class="form-control" placeholder="Driver Name" formControlName="driver_name">
+                                <div control-messages class="validation-error-label" [control]="driverForm.controls.driver_name"></div>
+                            </div>
+                            <label class="col-lg-2 control-label">Driver Address</label>
+                            <div class="form-group col-lg-4">
+                                <input type="" class="form-control" placeholder="Driver Address" formControlName="driver_address">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">Driver City</label>
+                            <div class="form-group col-lg-4">
+                                <input type="" class="form-control" placeholder="Driver City" formControlName="driver_city">
+                            </div>
+                            <label class="col-lg-2 control-label">Driver State</label>
+                            <div class="form-group col-lg-4">
+                                <input type="" class="form-control" placeholder="Driver State" formControlName="driver_state">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">Driver Phone&nbsp;<span class="text-danger">*</span></label>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Driver Phone" formControlName="driver_phone" >
+                                    <div control-messages class="validation-error-label" [control]="driverForm.controls.driver_phone"></div>
+                                </div>
+                            </div>
+                            <label class="col-lg-2 control-label">Driver Employment</label>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <select #driver_type name="driver_type" id="driver_type" class="form-control" formControlName="driver_type">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">Driving License No&nbsp;<span class="text-danger">*</span></label>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Enter Driving License No"  formControlName="driver_dl_number">
+                                </div>
+                            </div>
+                            <label class="col-lg-2 control-label">License Vehicle Type&nbsp;<span class="text-danger">*</span></label>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <select #driver_dl_type name="driver_dl_type" id="driver_dl_type" class="form-control select-change" (click)="updateDl($event)" formControlName="driver_dl_type">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">License Valid UpTo&nbsp;<span class="text-danger">*</span></label>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="icon-calendar22"></i></span>
+                                        <input #driver_dl_validity type="text" class="form-control pickadate-year-month" placeholder="Select Date&hellip;" (click)="updateDate($event)" formControlName="driver_dl_validity">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="overlay-footer">
+                        <div class="right-align overlay-footer-content-rt">
+                            <button type="button" class="btn btn-default" (click)="closeOverlay($event)">Close</button>
+                            <button type="submit" [disabled]="!driverForm.valid" id="save" (click)="saveDriver('saveDriver')" class="btn btn-primary">{{buttonVal}}</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- cd-panel-container -->
+        </div>
+    </div>
+    <!-- right panel script -->
+</div>

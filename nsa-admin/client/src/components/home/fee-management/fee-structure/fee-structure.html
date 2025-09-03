@@ -1,0 +1,27 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h6 class="panel-title"><span class="text-semibold text-uppercase"><i class="fa fa-sitemap fa-lg position-left"></i>FEE STRUCTURE </span><i class="icon-arrow-right15 text-pink-600"></i> <small>List of Fee Structure </small> </h6>
+        <div class="heading-elements">
+            <input *ngIf="enable" type="button" value="Create Fee Structure" data-size="60%" data-title="Create Fee Structure" data-toggle="from-right" data-id="#feeStructure" class="btn btn-sm btn-primary" (click)="addFeeStructure($event)"/>
+        </div>
+    </div>
+    <input hidden id="structureWarning" (click)="requested_warning()" type="button" style="display: none;">
+    <input hidden id="deleteButton" (click)="requested_delete($event)" type="button" style="display: none;">
+    <input hidden id="structureEdit" (click)="getFeeStructureType($event)" data-title="Edit Fee Structure" data-size="60%" data-id="#feeStructure" type="button" style="display: none;">
+    <div class="panel-body">
+        <table class="table datatable-align datatable-structure-export">
+            <thead>
+            <tr>
+                <!--<th class="col-lg-1">Term</th>-->
+                <th data-priority="1">Fee Name</th>
+                <th>Description</th>
+                <th>Updated by</th>
+                <th>Updated date</th>
+                <th>Status</th>
+                <th data-priority="2">Actions</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+<add-fee-structure></add-fee-structure>

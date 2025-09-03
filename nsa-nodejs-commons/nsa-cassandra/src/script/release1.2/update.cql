@@ -1,0 +1,1 @@
+alter table school_mark_list add uploaded_marklist text;

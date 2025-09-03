@@ -1,0 +1,163 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h6 class="panel-title"><span class="text-semibold text-uppercase"><i class="icon-users4 position-left"></i>Parent Information</span><i class="icon-arrow-right15 text-pink-600"></i> <small>List of Parents </small></h6>
+        <div class="heading-elements">
+        </div>
+    </div>
+    <input hidden id="editParentInfo" (click)="getParentInfo($event)" data-size="60%" data-title="Parent Information" data-id="#showParentInfo" type="button" style="display: none;">
+    <div class="panel-body">
+        <table class="table datatable-parentInformation">
+            <thead>
+            <tr>
+                <th data-priority="1">Parent Name</th>
+                <th>Mobile Number</th>
+                <th>No. of Wards</th>
+                <th>Updated By</th>
+                <th data-priority="2">Action</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+<div id="showParentInfo" class="overlay-popup footer-popup" style="display: none;">
+    <!-- RIGHT PANEL STARTS -->
+    <div class="cd-panel">
+        <div class="cd-panel-header">
+            <!-- <div class="hidden-xs simple-field-hf"></div> -->
+            <div class="simple-field-hf">
+            </div>
+            <a (click)="closeOverlay()" class="cd-panel-close">Close</a>
+        </div>
+        <div class="cd-panel-container">
+            <div class="cd-panel-content" id="side-panel-container">
+                    <div class="modal-body" *ngIf="parentInfomation">
+                        <div class="form-group">
+                            <div class="row">Parent Name : <b> {{parentInfomation.father_name}}</b></div><br/>
+                            <div class="row">Mobile Number : <b> {{parentInfomation.user_name}}</b></div>
+                        </div>
+                        <div class="form-group">
+                            <b>WARD(S):</b>
+                            <hr/>
+                        </div>
+                        <div class="form-group">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>S.No</th>
+                                        <th>Ward Name</th>
+                                        <th>Class & Section</th>
+                                        <th>Status</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody *ngIf="parentInfomation.childs">
+                                    <tr *ngFor="let child of parentInfomation.childs; let i=index">
+                                        <td> {{i+1}} </td>
+                                        <td>{{child.first_name}}</td>
+                                        <td>{{child.class_name}} - {{child.section_name}}</td>
+                                        <td><span *ngIf="child.active" class="label label-success">Active</span>
+                                            <span *ngIf="!child.active" class="label label-danger">Deactive</span>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="overlay-footer">
+                        <div class="overlay-footer-content-rt">
+                            <a class="left-align"><button type="button" id="changeMobile" (click)="getChangeMobileNumberModel('changeNumber')" class="btn btn-primary">Change Mobile Number</button></a>
+                            <a class="right-align" style="margin-left: 8px"><button type="button" id="newWard" (click)="associateNewWard('addWard')" class="btn btn-primary">Associate New Ward</button></a>
+                            <a class="right-align"> <button type="button" class="btn btn-default" (click)="closeOverlay($event)">Close</button></a>
+                        </div>
+                    </div>
+            </div>
+            <!-- cd-panel-container -->
+        </div>
+    </div>
+    <!-- right panel script -->
+</div>
+
+<input type="hidden" id="deleteButton" (click)="request_warning()" />
+<input type="hidden" id="confirmSubmit" (click)="confirmChange('saveNumber')"/>
+<!--Change Mobile Number Model -->
+<div id="changeNumber" class="modal fade refuse">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header bg-info">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h5 class="modal-title">Change Parent Mobile Number</h5>
+            </div>
+            <form action="#" class="form-horizontal" [formGroup]="addMobileNumberForm">
+                <div class="modal-body">
+                    <div class="form-group" *ngIf="parentInfomation">
+                        <label class="control-label col-md-6">Existing Mobile Number :</label>
+                            <label class="control-label col-md-6"><b>{{parentInfomation.user_name}}</b></label>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-6">New Mobile Number: <span class="text-danger">*</span>
+                        </label>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" formControlName="NewNumber">
+                        </div>
+                    </div>
+                </div>
+                <hr/>
+                <div class="modal-footer" >
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" id="saveNumber" [disabled]="!addMobileNumberForm.valid" class="btn btn-primary btn-ladda btn-ladda-progres" (click)="saveNumber()">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--Associate Ward Model -->
+<div id="addWard" class="modal fade refuse">
+    <div class="modal-dialog modal-sm" style=" width: 550px;margin: auto;">
+        <div class="modal-content">
+            <div class="modal-header bg-info">
+                <button type="button" class="close" data-dismiss="modal" (click)="addStudentInfo =undefined;studentClassInfo =undefined;">&times;</button>
+                <h5 class="modal-title">Associate New Ward</h5>
+            </div>
+            <form action="#" class="form-horizontal" [formGroup]="AddWardForm">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="control-label col-md-4">Search Student:
+                        </label>
+                        <div class="col-md-8">
+                            <p-autoComplete field="suggestStudent" placeholder="Search Students"
+                                            [(ngModel)]="texts" styleclass="wid100"  formControlName="NewWard"
+                                            [suggestions]="results" (completeMethod)="search($event);unSelectWard($event)" (onSelect)="studentInfo($event)"></p-autoComplete>
+                        </div><!--<span *ngIf="">This student already child of this parent.</span>-->
+                    </div>
+                    <div *ngIf="addStudentInfo">
+                        <div class="col-md-12 form-group">
+                            <label class="control-label txt-align-right col-md-4"><b>Student Name:</b>
+                            </label>
+                            <label class="control-label col-md-8">{{addStudentInfo.firstName}}</label>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label class="control-label txt-align-right col-md-4"><b>Admission Number:</b>
+                            </label><label class="control-label col-md-8">{{addStudentInfo.userCode}}</label>
+                        </div>
+                        <div class="col-md-12 form-group" *ngIf="studentClassInfo">
+                            <label class="control-label txt-align-right col-md-4"><b>Class:</b>
+                            </label><label class="control-label col-md-8">{{studentClassInfo.class_name}}</label>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label class="control-label txt-align-right col-md-4"><b>Section:</b>
+                            </label><label class="control-label col-md-8">{{studentClassInfo.section_name}}</label>
+                        </div>
+                    </div>
+                </div>
+                <hr/>
+                <div class="modal-footer" >
+                    <button type="button" class="btn btn-default" data-dismiss="modal" (click)="addStudentInfo =undefined;studentClassInfo =undefined;">Close</button>
+                    <button type="submit" id="saveWard" class="btn btn-primary btn-ladda btn-ladda-progres" (click)="addWard('saveWard')">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

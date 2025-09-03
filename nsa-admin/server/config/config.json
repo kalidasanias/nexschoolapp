@@ -1,0 +1,246 @@
+{
+  "development":{
+    "zone": "Asia/Calcutta",
+    "gps": {
+      "baseUrl": "http://gpsvts.net/apiMobile/",
+      "apiKeyUrl": "getApiKey",
+      "trackingUrl": "getVehicleLocations",
+      "trackingSingle": "getSelectedVehicleLocation",
+      "userId": "magsun",
+      "signature": "6fa21a3ff9bc0abf350617c673ee98ef",
+      "apiKey": "b269aaee4f655fc475b0706f707e140d",
+      "interval": 10000,
+      "validity" : 380
+    },
+    "cassandra":{
+      "contactPoints":[
+        "35.200.203.250"
+      ],
+      "protocolOptions":"{ port: 9042 }",
+      "keyspace":"nsa",
+      "queryOptions":"{consistency: models.consistencies.one}",
+      "username": "cassandra",
+      "password":"cassandra"
+
+    },
+    "elasticSearch":{
+      "master" : {
+        "host": "35.200.150.110",
+        "port": 9200,
+        "log": "trace"
+      },
+      "slave" : {
+        "host": "35.200.150.110",
+        "port": 9200,
+        "log": "trace"
+      },
+      "indexDefaultName" : "nsa",
+      "defaultTypeName" : "users",
+      "index" : {
+        "userIndex": "users",
+        "studentType": "student",
+        "empType": "employee",
+        "vehicleType": "vehicle",
+        "parentType":"parentInformation",
+        "calendarIndex" : "calendar",
+        "notesType" : "notes",
+        "eventsType" : "events",
+        "examsType" : "exams",
+        "assignmentsType" : "assignments",
+        "attendanceType" : "attendance",
+        "assessmentIndex" : "assessment",
+        "marksType": "marks",
+        "notificationsIndex" : "notifications",
+        "notificationsType" : "notification_master",
+        "notificationDetailsType" : "notification_details",
+        "assignmentsIndex": "assignments",
+        "assignmentsMasterType" : "assignment_master",
+        "assignmentDetailsType" : "assignment_details"
+      }
+    },
+    "sms": {
+      "valueLeaf": {
+        "url": "http://alerts.valueleaf.com/api/v3/?method=sms.json&api_key=A0ad91a9c237d01dfaa7a86b9dc8a9b1f&format=json&json=",
+        "groupStatusUrl": "http://alerts.valueleaf.com/api/v3/?method=sms.groupstatus&api_key=A0ad91a9c237d01dfaa7a86b9dc8a9b1f&format=json&groupid=",
+        "statusUrl": "http://alerts.valueleaf.com/api/v3/?method=sms.status&api_key=A0ad91a9c237d01dfaa7a86b9dc8a9b1f&format=json&id="
+      },
+      "voice": {
+        "api_key": "84a5acadbd821a2e9587ea12615469fe3d9d8f39",
+        "uploadMethod": "voicefileupload",
+        "host": "api.mobtexting.in",
+        "audioUrl": "http://api.mobtexting.in/api.v1/json/?method=voicefile&api_key=84a5acadbd821a2e9587ea12615469fe3d9d8f39&type=transactional",
+        "audioUploadUrl": "http://api.mobtexting.in/api.v1/json",
+        "scheduleUrl": "http://api.mobtexting.in/api.v1/json/?method=scheduleobd&api_key=84a5acadbd821a2e9587ea12615469fe3d9d8f39&pilot_number=918033931736&type=transactional&receiver="
+      },
+      "voice_demo": {
+        "api_key": "c124968eb7e491a452385b84d4b49b6a7566cd43",
+        "uploadMethod": "voicefileupload",
+        "host": "api.mobtexting.in",
+        "audioUrl": "http://api.mobtexting.in/api.v1/json/?method=voicefile&api_key=c124968eb7e491a452385b84d4b49b6a7566cd43&type=transactional",
+        "audioUploadUrl": "http://api.mobtexting.in/api.v1/json",
+        "scheduleUrl": "http://api.mobtexting.in/api.v1/json/?method=scheduleobd&api_key=c124968eb7e491a452385b84d4b49b6a7566cd43&pilot_number=918030072339&type=transactional&receiver="
+      }
+    },
+    "server" : {
+       "host" : "localhost",
+       "port" : 3333
+    },
+    "kafka" : {
+      "host" : "localhost",
+      "port" : 2222,
+      "topic" : {
+        "logger": "logger-topic",
+        "sms": "sms-topic"
+      }
+    },
+    "payment": {
+      "gateway": {
+        "ccavenue": {
+          "nexschoolapp.com": {
+            "url": "https://secure.ccavenue.com/transaction/transaction.do?command=initiateTransaction",
+            "workingKey": "39CD2E18318FB056E3DD27013F2FD82D",
+            "accessCode": "AVVW72EG02BN91WVNB"
+          },
+          "52.66.126.193": {
+            "url": "http://secure.ccavenue.com/transaction/transaction.do?command=initiateTransaction",
+            "workingKey": "39CD2E18318FB056E3DD27013F2FD82D",
+            "accessCode": "AVVW72EG02BN91WVNB"
+          },
+          "app.nexschoolapp.com": {
+            "url": "http://secure.ccavenue.com/transaction/transaction.do?command=initiateTransaction",
+            "workingKey": "39CD2E18318FB056E3DD27013F2FD82D",
+            "accessCode": "AVVW72EG02BN91WVNB"
+          },
+          "qa.nexschoolapp.com": {
+            "url": "http://test.ccavenue.com/transaction/transaction.do?command=initiateTransaction",
+            "workingKey": "E1A32B833767A22C6103EE9DD06D9A06",
+            "accessCode": "AVSU00EB90BV18USVB"
+          },
+          "localhost": {
+            "url": "http://test.ccavenue.com/transaction/transaction.do?command=initiateTransaction",
+            "workingKey": "2AA65C24B4C130003C1D33A45A41C43B",
+            "accessCode": "AVIG00EC93BU86GIUB"
+          }
+        }
+      }
+    },
+    "aws": {
+      "s3BaseUrl":"https://s3.amazonaws.com/",
+      "s3AccessUrl" : "https://s3.ap-south-1.amazonaws.com/"
+    },
+    "notificationHost": ["nexschoolapp.com", "app.nexschoolapp.com", "52.66.126.193"]
+  },
+  "production":{
+    "zone": "Asia/Calcutta",
+    "gps": {
+      "baseUrl": "http://gpsvts.net/apiMobile/",
+      "apiKeyUrl": "getApiKey",
+      "trackingUrl": "getVehicleLocations",
+      "trackingSingle": "getSelectedVehicleLocation",
+      "userId": "magsun",
+      "signature": "6fa21a3ff9bc0abf350617c673ee98ef",
+      "apiKey": "b269aaee4f655fc475b0706f707e140d",
+      "interval": 3000,
+      "validity" : 380
+    },
+    "cassandra":{
+      "contactPoints":[
+        "127.0.0.1"
+      ],
+      "protocolOptions":"{ port: 9042 }",
+      "keyspace":"nsa",
+      "queryOptions":"{consistency: models.consistencies.one}",
+      "username": "cassandra",
+      "password":"cassandra"
+    },
+    "elasticSearch":{
+      "master" : {
+        "host": "localhost",
+        "port": 9200,
+        "log": "trace"
+      },
+      "slave" : {
+        "host": "localhost",
+        "port": 9200,
+        "log": "trace"
+      },
+      "indexDefaultName" : "nsa",
+      "defaultTypeName" : "users",
+      "index" : {
+        "userIndex": "users",
+        "vehicleType": "vehicle",
+        "studentType": "student",
+        "empType": "employee",
+        "calendarIndex" : "calendar",
+        "notesType" : "notes",
+        "eventsType" : "events",
+        "examsType" : "exams",
+        "assignmentsType" : "assignments",
+        "attendanceType" : "attendance"
+      }
+    },
+    "sms": {
+      "valueLeaf": {
+        "url": "http://alerts.valueleaf.com/api/v3/?method=sms.json&api_key=A0ad91a9c237d01dfaa7a86b9dc8a9b1f&format=json&json=",
+        "groupStatusUrl": "http://alerts.valueleaf.com/api/v3/?method=sms.groupstatus&api_key=A0ad91a9c237d01dfaa7a86b9dc8a9b1f&format=json&groupid=",
+        "statusUrl": "http://alerts.valueleaf.com/api/v3/?method=sms.status&api_key=A0ad91a9c237d01dfaa7a86b9dc8a9b1f&format=json&id="
+      },
+      "voice": {
+        "api_key": "c124968eb7e491a452385b84d4b49b6a7566cd43",
+        "uploadMethod": "voicefileupload",
+        "host": "api.mobtexting.in",
+        "audioUrl": "http://api.mobtexting.in/api.v1/json/?method=voicefile&api_key=c124968eb7e491a452385b84d4b49b6a7566cd43&type=transactional",
+        "audioUploadUrl": "http://api.mobtexting.in/api.v1/json",
+        "scheduleUrl": "http://api.mobtexting.in/api.v1/json/?method=scheduleobd&api_key=c124968eb7e491a452385b84d4b49b6a7566cd43&pilot_number=918030072339&prompt_id=651&type=transactional&receiver="
+      }
+    },
+    "server" : {
+      "host" : "localhost",
+      "port" : 3333
+    },
+    "kafka" : {
+      "host" : "localhost",
+      "port" : 2222,
+      "topic" : {
+        "logger": "logger-topic",
+        "sms": "sms-topic"
+      }
+    },
+    "payment": {
+      "gateway": {
+        "ccavenue": {
+          "nexschoolapp.com": {
+            "url": "http://secure.ccavenue.com/transaction/transaction.do?command=initiateTransaction",
+            "workingKey": "39CD2E18318FB056E3DD27013F2FD82D",
+            "accessCode": "AVVW72EG02BN91WVNB"
+          },
+          "52.66.126.193": {
+            "url": "http://secure.ccavenue.com/transaction/transaction.do?command=initiateTransaction",
+            "workingKey": "39CD2E18318FB056E3DD27013F2FD82D",
+            "accessCode": "AVVW72EG02BN91WVNB"
+          },
+          "app.nexschoolapp.com": {
+            "url": "http://secure.ccavenue.com/transaction/transaction.do?command=initiateTransaction",
+            "workingKey": "39CD2E18318FB056E3DD27013F2FD82D",
+            "accessCode": "AVVW72EG02BN91WVNB"
+          },
+          "qa.nexschoolapp.com": {
+            "url": "http://test.ccavenue.com/transaction/transaction.do?command=initiateTransaction",
+            "workingKey": "E1A32B833767A22C6103EE9DD06D9A06",
+            "accessCode": "AVSU00EB90BV18USVB"
+          },
+          "localhost": {
+            "url": "http://test.ccavenue.com/transaction/transaction.do?command=initiateTransaction",
+            "workingKey": "2AA65C24B4C130003C1D33A45A41C43B",
+            "accessCode": "AVIG00EC93BU86GIUB"
+          }
+        }
+      }
+    }
+  },
+  "aws": {
+    "s3BaseUrl":"https://s3.amazonaws.com/",
+    "s3AccessUrl" : "https://s3.ap-south-1.amazonaws.com/"
+  },
+  "notificationHost": ["nexschoolapp.com", "app.nexschoolapp.com"]
+}

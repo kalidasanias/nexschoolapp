@@ -1,0 +1,77 @@
+<!-- Second navbar -->
+<div class="navbar navbar-default" id="navbar-second">
+    <ul class="nav navbar-nav no-border visible-xs-block">
+        <li><a class="text-center collapsed" data-toggle="collapse" data-target="#navbar-second-toggle"><i class="icon-menu7"></i></a></li>
+    </ul>
+    <div class="navbar-collapse collapse" id="navbar-second-toggle">
+        <template  [ngIf]="user.user_type == 'Student'">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="icon-cash3 position-left"></i> Fee Management <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu width-200">
+                        <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a routerLink="./pay-fee" ><i class="icon-pencil3"></i>Pay Fee</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </template>
+        <template  [ngIf]="user.user_type == 'Employee' || user.user_type == 'SchoolAdmin'">
+            <ul class="nav navbar-nav" *ngFor="let feature of features">
+                <li *ngIf="!feature.hasChildren" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a routerLink="{{feature.link}}" [queryParams]="{fi: feature.featureId}"><i class="{{feature.icon}} position-left"></i> {{feature.featureName}}</a></li>
+
+                <ng-container *ngIf="feature.hasChildren && (feature.featureName == 'Activities' || feature.featureName == 'Asset Management' || feature.featureName == 'Transport' || feature.featureName == 'Academics')">
+                    <li class="dropdown" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="{{feature.icon}} position-left"></i> {{feature.featureName}} <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu width-200">
+                            <ng-container *ngFor="let children of feature.children">
+                                <li *ngIf="!children.hasChildren" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a routerLink="{{children.link}}" [queryParams]="{fi: children.featureId}"><i class="{{children.icon}}"></i>{{children.featureName}}</a></li>
+                                <li *ngIf="children.hasChildren" class="dropdown-submenu" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="{{children.icon}}"></i>{{children.featureName}}</a>
+                                    <ul class="dropdown-menu">
+                                        <li *ngFor="let child of children.children" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a routerLink="{{child.link}}" [queryParams]="{fi: child.featureId}"><i class="{{child.icon}}"></i>{{child.featureName}}</a></li>
+                                    </ul>
+                                </li>
+                            </ng-container>
+                        </ul>
+                    </li>
+                </ng-container>
+                <ng-container *ngIf="feature.hasChildren && (feature.featureName == 'School Management' || feature.featureName == 'User Management')">
+                    <li class="dropdown mega-menu mega-menu-wide" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="{{feature.icon}} position-left"></i> {{feature.featureName}} <span class="caret"></span></a>
+                        <div class="dropdown-menu dropdown-content">
+                            <div class="dropdown-content-body">
+                                <div class="row">
+                                    <ng-container *ngFor="let children of feature.children">
+                                        <div class="col-md-2">
+                                            <span class="menu-heading underlined">{{children.featureName}} </span>
+                                            <ul class="menu-list">
+                                                <ng-container *ngIf="children.hasChildren">
+                                                    <ng-container *ngFor="let child of children.children">
+                                                        <ng-container *ngIf="child.hasChildren">
+                                                            <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a><i class="{{child.icon}}"></i>{{child.featureName}}</a>
+                                                                <ul>
+                                                                    <li *ngFor="let subChild of child.children" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a routerLink="{{subChild.link}}" [queryParams]="{fi: subChild.featureId}"><i class="{{subChild.icon}}"></i>{{subChild.featureName}}</a></li>
+                                                                </ul>
+                                                            </li>
+                                                        </ng-container>
+                                                        <ng-container *ngIf="!child.hasChildren">
+                                                            <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a routerLink="{{child.link}}" [queryParams]="{fi: child.featureId}"><i class="{{child.icon}}"></i>{{child.featureName}}</a></li>
+                                                        </ng-container>
+                                                    </ng-container>
+                                                </ng-container>
+                                            </ul>
+                                        </div>
+                                    </ng-container>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ng-container>
+            </ul>
+        </template>
+    </div>
+</div>
+<!-- /second navbar -->

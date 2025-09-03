@@ -1,0 +1,65 @@
+{
+  "success": true,
+  "data": [
+    {
+      "label": "Employee",
+      "children": []
+    },
+    {
+      "label": "Classes",
+      "children": [
+        {
+          "label": "Class 3",
+          "children": [
+            {
+              "label": "Section A",
+              "children": []
+            },
+            {
+              "label": "Section C",
+              "children": []
+            },
+            {
+              "label": "Section B",
+              "children": []
+            }
+          ]
+        },
+        {
+          "label": "Class 2",
+          "children": [
+            {
+              "label": "Section B",
+              "children": []
+            },
+            {
+              "label": "Section A",
+              "children": []
+            },
+            {
+              "label": "Section C",
+              "children": []
+            }
+          ]
+        },
+        {
+          "label": "Class 1",
+          "children": [
+            {
+              "label": "Section C",
+              "children": []
+            },
+            {
+              "label": "Section B",
+              "children": []
+            },
+            {
+              "label": "Section A",
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

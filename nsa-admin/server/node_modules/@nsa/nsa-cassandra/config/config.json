@@ -1,0 +1,18 @@
+{
+  "development" : {
+    "contactPoints": ["127.0.0.1"],
+    "protocolOptions" : "{ port: 9042 }",
+    "keyspace": "nsa",
+    "queryOptions": "{consistency: models.consistencies.one}",
+    "password" : "cassandra"
+  },
+  "production" : {
+    "contactPoints": ["127.0.0.1"],
+    "protocolOptions" : "{ port: 9042 }",
+    "keyspace": "nsa",
+    "queryOptions": "{consistency: models.consistencies.one}",
+    "password" : "cassandra"
+  }
+}
+
+

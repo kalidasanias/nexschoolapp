@@ -1,0 +1,95 @@
+<div id="applyLeave" class="overlay-popup footer-popup" style="">
+    <!-- RIGHT PANEL STARTS -->
+    <div class="cd-panel">
+        <div class="cd-panel-header">
+            <!-- <div class="hidden-xs simple-field-hf"></div> -->
+            <div class="simple-field-hf">
+            </div>
+            <a (click)="closeOverlay()" class="cd-panel-close">Close</a>
+        </div>
+        <div class="cd-panel-container">
+            <div class="cd-panel-content" id="side-panel-container">
+                <form action="#" class="form-horizontal" [formGroup]="applyLeaveForm" >
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label class="control-label col-sm-4">Type Name <span class="text-danger">*</span>
+                            </label>
+                            <div class="col-sm-8">
+                                    <select  class="select-change" #leaveType id="select-leaveType" data-width="100%">
+                                    </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-4">Duration  <span class="text-danger">*</span>
+                            </label>
+                            <div class="col-sm-8" >
+                                <button #fullDate type="button" class="col-sm-12 btn btn-default daterange-basic-disabled">
+                                    <i class="icon-calendar22 position-left" style="float: left;padding: 4px;"></i>
+                                    <span style="text-align: center" class="selectedDate"></span>
+                                    <b class="caret" style="padding: 4px; float: right;"></b>
+
+                                </button>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-4">Reason <span class="text-danger">*</span>
+                            </label>
+                            <div class="col-md-8">
+                                <textarea rows="2" cols="5" class="form-control" formControlName="leaveReason" placeholder=""></textarea>
+                                <div control-messages class="validation-error-label" [control]="applyLeaveForm.controls.leaveReason"></div>
+                            </div>
+                        </div>
+                        <!--<div class="form-group">
+                            <label class="control-label col-md-4">No of Days <span class="text-danger">*</span>
+                            </label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" placeholder="Enter Total Days" >
+                            </div>
+                        </div>-->
+                        <div formGroupName="notify">
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Notification
+                                </label>
+                                <div class="col-sm-8">
+                                    <div class="row">
+                                        <div class="col-md-3 sms ">
+                                            <div class="form-group">
+                                                <label class="checkbox-inline" style="font-size:12px;">
+                                                    <input  #sms type="checkbox" class="smsChecked">SMS
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 email hide">
+                                            <div class="form-group">
+                                                <label class="checkbox-inline" style="font-size:12px;">
+                                                    <input #email type="checkbox" class="emailChecked">Email
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 push">
+                                            <div class="form-group">
+                                                <label class="checkbox-inline" style="font-size:12px;">
+                                                    <input #push type="checkbox" class="pushChecked">App
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+                <div class="overlay-footer">
+                    <div class="right-align overlay-footer-content-rt">
+                        <button type="button" class="btn btn-sm btn-default" (click)="closeOverlay()">Close</button>
+                        <button type="button" id="cancel" class="btn btn-sm btn-danger btn-ladda btn-ladda-progress hide" (click)="update('cancel')">Cancel Leave</button>
+                        <button type="submit" class="btn btn-primary btn-ladda btn-ladda-progress" data-spinner-size="20" data-style="expand-right" id="saveLeaveType" [disabled]="!applyLeaveForm.valid" (click)="saveLeaveType('saveLeaveType')" >{{buttonVal}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- cd-panel-container -->
+    </div>
+</div>

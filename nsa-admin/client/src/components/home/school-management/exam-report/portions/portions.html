@@ -1,0 +1,336 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h6 class="panel-title"><span class="text-semibold text-uppercase"><i class="fa fa-newspaper-o fa-lg position-left"></i>
+         PORTIONS </span><i class="icon-arrow-right15 text-pink-600"></i> <small>List of Portions </small>
+        </h6>
+        <div class="heading-elements">
+            <button type="button" class="btn btn-sm btn-primary heading-btn" data-toggle="modal" data-target="#modal_full">Add Portions</button>
+        </div>
+    </div>
+    <div class="panel-body">
+        <table class="table datatable-export21">
+            <thead>
+            <tr>
+                <th class="col-lg-1">S.No.</th>
+                <th  class="col-lg-2">Exam Name</th>
+                <th  class="col-lg-1">Date</th>
+                <th class="col-lg-1">Subject</th>
+                <th class="col-lg-1">Class</th>
+                <th class="col-lg-1">Section</th>
+                <th class="col-lg-2">Portions</th>
+                <th class="col-lg-2">Uploaded by</th>
+                <th class="col-lg-2">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1 </td>
+                <td>FA1</td>
+                <td>sep 20 2016</td>
+                <td>Maths</td>
+                <td>Class1</td>
+                <td>Section A</td>
+                <td>2 files attached</td>
+                <td>Admin</td>
+                <td>
+                    <a class="icon-primary" data-toggle="modal" data-target="#modal_full"><i class="fa fa-pencil-square-o fa-lg"></i></a>
+                    <a class="icon-danger"><i class="fa fa-trash-o fa-lg"></i></a>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>FA1</td>
+                <td>sep 20 2016</td>
+                <td>Science</td>
+                <td>Class1</td>
+                <td>Section A</td>
+                <td>2 files attached</td>
+                <td>Admin</td>
+                <td>
+                    <a class="icon-primary" data-toggle="modal" data-target="#modal_full"><i class="fa fa-pencil-square-o fa-lg"></i></a>
+                    <a class="icon-danger"><i class="fa fa-trash-o fa-lg"></i></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div id="modal_full" class="modal fade refuse">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-info">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h5 class="modal-title">Add Portions</h5>
+            </div>
+            <div class="modal-body">
+                <form action="#" class="form-horizontal">
+                    <div class="row ">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label col-sm-5">Exam Name
+                                </label>
+                                <div class="col-sm-7">
+                                    <div class="row">
+                                        <select class="bootstrap-select" data-width="100%">
+                                            <option value="term1">-Select Exam-</option>
+                                            <option value="term2">FA 1</option>
+                                            <option value="term2">FA 2</option>
+                                            <option value="term3">FA 3</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 margin-left30">
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Class
+                                </label>
+                                <div class="col-sm-8">
+                                    <div class="row">
+                                        <select class="bootstrap-select" data-width="100%">
+                                            <option value="term1">-- Select Class --</option>
+                                            <option value="term2">Class 1</option>
+                                            <option value="term2">Class 2</option>
+                                            <option value="term3">Class 3</option>
+                                            <option value="term4">Class 4</option>
+                                            <option value="term5">Class 5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 margin-left40">
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Section
+                                </label>
+                                <div class="col-sm-8">
+                                    <div class="row">
+                                        <select class="bootstrap-select" data-width="100%">
+                                            <option value="sub1">-- Select Section --</option>
+                                            <option value="sub2">Section A</option>
+                                            <option value="sub2">Section B</option>
+                                            <option value="sub3">Section C</option>
+                                            <option value="sub4">Section D</option>
+                                            <option value="sub5">Section E</option>
+                                            <option value="sub6">Section F</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 navbar-right txt-align-right">
+                            <div class="form-group">
+                                <input class="btn btn-default " id="cancel-back" value="Clear"  type="reset">
+                                <input class="btn btn btn-primary ui-wizard-content margin-right10 ui-formwizard-button" id="cancel-next" value="Submit" type="submit">
+                            </div>
+                        </div>
+                    </div>
+                    <legend class="text-semibold">
+                        <i class="icon-cloud-upload2"></i>
+                        Upload Portions for below subjects
+                    </legend>
+                    <div class="row">
+                        <div class = "form-group">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label col-md-6 text-semibold">Subject</label>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <label class="control-label col-md-12 text-semibold">Subject Staff</label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label col-md-12 text-center text-semibold">Portions</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class = "form-group">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label col-md-6">Mathematics</label>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label col-md-12">Mathew Parker</label>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="EnterText">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <input type="file" class="file-styled">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class = "form-group">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label  col-md-6">Social Studies</label>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label col-md-12">George Hamen</label>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="EnterText">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <input type="file" class="file-styled">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class = "form-group">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label col-md-6">Science</label>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label col-md-12">Dennis Paul</label>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="EnterText">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <input type="file" class="file-styled">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class = "form-group">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label col-md-10">2nd Language-Hindi</label>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label col-md-12">Shownak</label>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="EnterText">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <input type="file" class="file-styled">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class = "form-group">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label col-md-10">2nd Language-Tamil</label>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label col-md-12">Ramesh</label>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="EnterText">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <input type="file" class="file-styled">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class = "form-group">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-6">English</label>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label col-md-12">George David</label>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="EnterText">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <input type="file" class="file-styled">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 ">
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Notify
+                                </label>
+                                <div class="col-sm-8">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="checkbox-inline" style="font-size:12px;">
+                                                    <input type="checkbox" class="styled"  checked="checked">SMS
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="checkbox-inline" style="font-size:12px;">
+                                                    <input type="checkbox" class="styled" checked="">Email
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="checkbox-inline" style="font-size:12px;">
+                                                    <input type="checkbox" class="styled" checked="">Push
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer" >
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary"style="padding-right:15px;">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

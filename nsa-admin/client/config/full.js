@@ -1,0 +1,1 @@
+require('./../public/assets/js/admin/fullcalendar.js');

@@ -1,0 +1,26 @@
+[
+{
+	"eventName": "Stroy Telling",
+	"eventDesc" : "desc",
+	"startDate": "April 29,2017",
+	"endDate": "April 30, 2017",
+	"startTime": "12:30",
+	"endTime": "1:30"
+},
+{
+	"eventName": "Sports Day",
+	"eventDesc" : "desc",
+	"startDate": "April 01,2017",
+	"endDate": "April 02, 2017",
+	"startTime": "12:30",
+	"endTime": "1:30"
+},
+{
+	"eventName": "Alumini Day",
+	"eventDesc" : "desc",
+	"startDate": "April 03,2017",
+	"endDate": "April 04, 2017",
+	"startTime": "12:30",
+	"endTime": "1:30"
+}
+]

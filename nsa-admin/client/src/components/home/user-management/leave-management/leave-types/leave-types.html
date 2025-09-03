@@ -1,0 +1,27 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h6 class="panel-title"><span class="text-semibold text-uppercase"><i class="icon-target position-left"></i>Leave Types </span><i class="icon-arrow-right15 text-pink-600"></i> <small>List of Leave Types </small></h6>
+        <div class="heading-elements">
+            <input *ngIf="enable" type="button" value="Add Leave Types" data-size="50%" data-title="Add Leave Types" data-toggle="from-right" data-id="#addLeaveType" class="btn btn-sm btn-primary" (click)="addLeaveType($event)"/>
+            <input id="updateLeav" type="hidden" data-size="50%"  data-toggle="from-right" data-id="#addLeaveType" (click)="updateLeaveType($event)"/>
+
+        </div>
+    </div>
+
+    <div class="panel-body">
+        <input type="hidden" id="deleteButton" (click)="confirmDelete($event)" />
+        <input type="hidden" id="warningLeav" (click)="deleteLeaveType()" />
+        <table class="table datatable-align datatable-leave-type">
+            <thead>
+            <tr>
+                <th data-priority="1">Leave Type</th>
+                <th>Description</th>
+                <th>Total No of Days</th>
+                <th>Updated By</th>
+                <th data-priority="2">Action</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+<create-leave></create-leave>

@@ -1,0 +1,144 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h6 class="panel-title"><span class="text-semibold text-uppercase"><i class="glyphicon glyphicon-bell position-left"></i>Notifications </span><i class="icon-arrow-right15 text-pink-600"></i> <small>List of Messages </small></h6>
+        <div class="heading-elements">
+            <button type="button" class="btn btn-sm btn-primary heading-btn" data-toggle="modal" data-target="#modal_theme_primary">Create Notification</button>
+        </div>
+    </div>
+    <div class="panel-body">
+        <table class="table datatable-export">
+            <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Notification Title</th>
+                <th>Channel</th>
+                <th>Total Count</th>
+                <th>Status</th>
+                <th>Updated By</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1</td>
+                <td>Sports Meet</td>
+                <td>SMS</td>
+                <td>30</td>
+                <td><span class="label label-success">Sent</span></td>
+                <td>Admin-Jan 13 2017 3:18 PM</td>
+                <td>
+                    <a class="icon-primary" data-toggle="modal" data-target="#modal_theme_primary"><i class="fa fa-pencil-square-o fa-lg"></i></a>
+                    <a class="icon-danger"><i class="fa fa-trash-o fa-lg"></i></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div id="modal_theme_primary" class="modal fade refuse">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header bg-info">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h5 class="modal-title">Create New Notification </h5>
+            </div>
+            <div class="modal-body">
+                <form action="#" class="form-horizontal">
+
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <div class="alert alert-sm alert-info-new alert-info alert-styled-left alert-arrow-left alert-component">
+                                <label class="control-label col-md-offset-1 col-sm-offset-1">Tolal SMS : </label><label class="text-danger"> 5165</label>
+                                <label class="control-label col-md-offset-2 col-sm-offset-2">Used : </label><label class="text-danger"> 2651</label>
+                                <label class="control-label col-md-offset-2 col-sm-offset-2">Available : </label><label class="text-danger"> 2651</label>
+                            </div>
+                        </div>
+                        <label class="control-label col-md-3">Notification Title </label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3">Message for <span class="text-danger">*</span>
+                        </label>
+                        <div class="col-md-9">
+                            <div class="multi-select-full">
+                                <select class="multiselect-select-all-filtering" multiple="multiple">
+                                    <optgroup label="Class">
+                                        <option value="Sec1">Sec1</option>
+                                        <option value="Sec2">Sec2</option>
+                                        <option value="Sec3">Sec3</option>
+                                    </optgroup>
+                                    <optgroup label="Subjects">
+                                        <option value="Sub1">Sub1</option>
+                                        <option value="Sub2">Sub2</option>
+                                        <option value="Sub3">Sub3</option>
+                                    </optgroup>
+                                    <optgroup label="Employees">
+                                        <option value="Half">Emp1</option>
+                                        <option value="Full">Emp2</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3">Templates<span class="text-danger">*</span>
+                        </label>
+                        <div class="col-md-9">
+                            <select class="bootstrap-select" data-width="100%">
+                                <option value="term1">-- Select Template --</option>
+                                <option value="term2">Sports Meet</option>
+                                <option value="term2">Annual Day</option>
+                                <option value="term2">Holidays</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3">Message
+                        </label>
+                        <div class="col-md-9">
+                            <textarea rows="5" cols="5" class="form-control" placeholder=""></textarea>
+                            <span>80/200 characters Remaining</span><br>
+                            <label class="text-danger">Replace * with valid data</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-3">Channel
+                        </label>
+                        <div class="col-sm-9">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="checkbox-inline" style="font-size:12px;">
+                                            <input type="checkbox" class="styled"  checked="checked">SMS
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="checkbox-inline" style="font-size:12px;">
+                                            <input type="checkbox" class="styled" checked="">Email
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label class="checkbox-inline" style="font-size:12px;">
+                                            <input type="checkbox" class="styled" checked="">Push Notification
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+              </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary btn-ladda btn-ladda-progress" data-style="expand-right" data-spinner-size="20"><span class="ladda-label">Save As Draft</span></button>
+                <button type="submit" class="btn btn-primary btn-ladda btn-ladda-progress" data-style="expand-right" data-spinner-size="20"><span class="ladda-label">Send</span></button>
+            </div>
+        </div>
+    </div>
+</div>

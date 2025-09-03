@@ -1,0 +1,54 @@
+<div id="add_assessment" class="overlay-popup footer-popup" style="display: none;">
+    <div class="cd-panel">
+        <div class="cd-panel-header">
+            <div class="simple-field-hf">
+            </div>
+            <a (click)="closeOverlay()" class="cd-panel-close">Close</a>
+        </div>
+        <div class="cd-panel-container">
+            <div class="cd-panel-content" id="side-panel-container">
+                <form class="form-horizontal" action="#">
+                    <fieldset class="">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label col-sm-3">Assessment Name <span
+                                        class="text-danger">*</span>
+                                </label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" id="name">
+                                </div>
+
+                                <label class="control-label col-sm-3">Code <span
+                                        class="text-danger">*</span>
+                                </label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" id="code">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label col-sm-3">Description
+                                </label>
+                                <div class="col-sm-9">
+                                                        <textarea rows="5" cols="1" class="form-control"
+                                                                  placeholder=""></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </fieldset>
+
+                </form>
+            </div>
+            <hr/>
+            <div class="overlay-footer">
+                <div class="right-align overlay-footer-content-rt">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

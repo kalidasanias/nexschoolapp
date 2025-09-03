@@ -1,0 +1,18 @@
+//For IOS Start
+http://localhost:9200/assignments/_mapping/assignment_details
+{
+"_parent": {"type": "assignment_master"},
+"properties": {
+"deactivated": {"type": "boolean"},
+"is_read": {"type": "boolean"}
+}
+}
+
+http://localhost:9200/notifications/_mapping/notification_details
+{
+"_parent": {"type": "notification_master"},
+"properties": {
+"is_read": {"type": "boolean"}
+}
+}
+//For IOS End

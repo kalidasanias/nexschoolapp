@@ -1,0 +1,127 @@
+<div id="edit_attendance" class="overlay-popup footer-popup" style="display: none;">
+    <!-- RIGHT PANEL STARTS -->
+    <div class="cd-panel">
+        <div class="cd-panel-header">
+            <!-- <div class="hidden-xs simple-field-hf"></div> -->
+            <div class="simple-field-hf"></div>
+            <a (click)="closeOverlay($event)" class="cd-panel-close">Close</a>
+        </div>
+        <div class="cd-panel-container">
+            <div class="cd-panel-content" id="side-panel-container">
+                <form class="form-horizontal">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <div class="col-sm-6">
+                                <div class="alert alert-sm alert-styled-left alert-styled-custom alert-arrow-left alpha-info alert-component">
+                                    <label class="control-label col-md-offset-1 col-sm-offset-1">Present Percentage {{presentPercent}}%</label>
+                                    <label class="control-label col-md-offset-1 col-sm-offset-1"> Present : </label><label class="text-success"> {{noOfPresent}} </label>
+                                    <label class="control-label col-md-offset-1 col-sm-offset-1">Absent : </label><label class="text-danger"> {{noOfAbsent}} </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <legend class="text-semibold">
+                            <i class="icon-paragraph-justify2"></i>
+                            Student Information List
+                        </legend>
+                        <!--<table class="table datatable-responsive">
+                            <thead>
+                            <tr>
+                                <th class="text-center">S.No</th>
+                                <th class="text-center">Ad.No</th>
+                                <th class="text-center">Student ID</th>
+                                <th class="text-center">Student Name</th>
+                                <th class="text-center col-lg-1">Class</th>
+                                <th class="text-center col-lg-1">Section</th>
+                                <th class="text-center">Attendance</th>
+                                <th class="text-center">Recorded by</th>
+                                <th class="text-center">Updated by</th>
+                                <th class="text-center col-lg-2">Remarks</th>
+                            </tr>
+                            </thead>
+
+                        </table>-->
+                        <table class="table datatable-edit-attendance" [ngClass]="{'not-active': !enableData}">
+
+                            <thead>
+                            <tr>
+                                <th class="">Admn No. / Roll No.</th>
+                                <th class="">Student Name</th>
+                                <th class="">Record Attendance</th>
+                                <th class="">Reason</th>
+                            </tr>
+                            </thead>
+                        </table>
+                        <div class="form-group" *ngIf="enableData">
+                            <label class="control-label col-md-2">Notify For
+                            </label>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="checkbox-inline" style="font-size:12px;">
+                                                        <input  #present type="checkbox" class="">Present
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="checkbox-inline" style="font-size:12px;">
+                                                        <input #absent type="checkbox" class="" checked="checked">Absent
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <label class="control-label col-md-2">Notification
+                            </label>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <div class="row">
+                                            <div class="col-md-3 sms hide">
+                                                <div class="form-group">
+                                                    <label class="checkbox-inline" style="font-size:12px;">
+                                                        <input  #sms type="checkbox" class="smsChecked">SMS
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 email hide">
+                                                <div class="form-group">
+                                                    <label class="checkbox-inline" style="font-size:12px;">
+                                                        <input #email type="checkbox" class="emailChecked">Email
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 push hide">
+
+                                                <div class="form-group">
+                                                    <label class="checkbox-inline" style="font-size:12px;">
+                                                        <input #push type="checkbox" class="pushChecked">App
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="overlay-footer">
+                        <div class="right-align overlay-footer-content-rt">
+                            <button type="button" class="btn btn-default" (click)="closeOverlay($event)">Close</button>
+                            <input *ngIf="enableData" hidden id="editAtdnce" (click)="save('saveAttendance', $event)" type="button" style="display: none;">
+                            <button *ngIf="enableData" type="submit" id="editAttendance" class="btn btn-primary btn-ladda btn-ladda-progress" style="padding-right:15px;">Update</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- cd-panel-container -->
+        </div>
+    </div>
+    <!-- right panel script -->
+</div>

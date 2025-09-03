@@ -1,0 +1,184 @@
+<!--
+<div id="add_special_timetable" class="modal fade refuse">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h5 class="modal-title">Configure Special Timetable </h5>
+            </div>
+
+        </div>
+    </div>
+</div>
+-->
+
+<div id="addSpecialTimetable" class="overlay-popup footer-popup" style="display: none;">
+    <!-- RIGHT PANEL STARTS -->
+    <div class="cd-panel">
+        <div class="cd-panel-header">
+            <!-- <div class="hidden-xs simple-field-hf"></div> -->
+            <div class="simple-field-hf">
+            </div>
+            <a (click)="closeOverlay($event)" class="cd-panel-close">Close</a>
+        </div>
+        <div class="cd-panel-container" id="hiflame-cart-popup">
+            <div class="cd-panel-content" id="side-panel-container">
+                <div class="modal-body">
+                    <form class="form-horizontal form-validate" [formGroup]="specialDayForm">
+                        <!--<div class="form-group">
+                            <label class="col-lg-4 control-label">Timetable for</label>
+                            <div class="form-group col-md-4">
+                                <label class="radio-inline"><input type="radio" name="timetable" class="styled" checked="checked" value="sss">Special Day</label>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label class="radio-inline"><input type="radio" name="timetable" class="styled" value="yyy">Special Class</label>
+                            </div>
+                        </div>
+                        <div class="yyy">
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Class&nbsp;<span class="text-danger">*</span></label>
+                                <div class="col-md-8">
+                                    <select (click)="getSectionByClass()" #singleClass id="attendance-class" "></select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Section&nbsp;<span class="text-danger">*</span></label>
+                                <div class="col-md-8">
+                                    <select #singleSection id="attendance-section" ></select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-4 control-label">Date&nbsp;<span class="text-danger">*</span></label>
+                                <div class="form-group col-md-8">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="icon-calendar22"></i></span><input type="text" class="form-control pickadate" placeholder="Select Date&hellip;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-4">Duration<span class="text-danger">*</span></label>
+                                <div class="col-md-4">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="icon-watch2"></i></span> <input class="form-control" id="anytime-time6" placeholder="From" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="icon-watch2"></i></span> <input class="form-control" id="anytime-time7" placeholder="To" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Subject</label>
+                                <div class="col-md-8 multi-select-full">
+                                    <select class="multiselect-select-all" multiple="multiple" data-width="100%" data-placeholder="&#45;&#45;Select Subject&#45;&#45;">
+                                        <option value="AZ">English</option>
+                                        <option value="CO">Maths</option>
+                                        <option value="ID">Physics</option>
+                                        <option value="WY">Computer Science</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Students</label>
+                                <div class="col-md-8 multi-select-full">
+                                    <select class="multiselect-select-all-filtering" multiple="multiple" data-width="100%" data-placeholder="&#45;&#45;Select Students&#45;&#45;">
+                                        <optgroup label="Class">
+                                            <option value="AZ">Ramesh</option>
+                                            <option value="CO">Suresh</option>
+                                            <option value="ID">Dinesh</option>
+                                            <option value="WY">Mahesh</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-4 control-label">Notification</label>
+                                <div class="form-group col-md-3">
+                                    <label class="checkbox-inline"><input type="checkbox" name="" class="styled" checked="checked">SMS</label>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label class="checkbox-inline"><input type="checkbox" name="" class="styled" checked="checked">APP</label>
+                                </div>
+                            </div>
+                        </div>-->
+                        <div class="sss">
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Class&nbsp;<span class="text-danger">*</span></label>
+                                <div class="col-md-8">
+                                    <select class="select-change" (click)="getSectionByClass()" #singleClass id="special-day-class" data-width="100%"></select>
+                                </div>
+                            </div>
+                            <div class="form-group hide" id="sections">
+                                <label class="control-label col-sm-4">Section&nbsp;<span class="text-danger">*</span></label>
+                                <div class="col-md-8">
+                                    <select #singleSection id="special-day-section" class="select-change" (click)="getDayByTimetable()" data-width="100%"></select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-4 control-label">Date&nbsp;<span class="text-danger">*</span></label>
+                                <div class="form-group col-md-8">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="icon-calendar22"></i></span><input #dueDate type="text" formControlName="date" class="form-control pickadate-disable-past" placeholder="Select Date&hellip;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group" [hidden]="timetableFollowed">
+                                <label class="control-label col-sm-4">Timetable Followed&nbsp;<span class="text-danger">*</span>
+                                </label>
+                                <div class="col-sm-8">
+                                    <select #singleTimetable id="special-day-timetable" data-width="100%"></select>
+                                </div>
+                            </div>
+                            <div class="form-group" formGroupName="notify">
+                                <label class="col-lg-4 control-label">Notification</label>
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <div class="row">
+                                                <div class="col-md-3 sms hide">
+                                                    <div class="form-group">
+                                                        <label class="checkbox-inline" style="font-size:12px;">
+                                                            <input  #sms type="checkbox" class="smsChecked">SMS
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3 email hide">
+                                                    <div class="form-group">
+                                                        <label class="checkbox-inline" style="font-size:12px;">
+                                                            <input #email type="checkbox" class="emailChecked">Email
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3 push hide">
+                                                    <div class="form-group">
+                                                        <label class="checkbox-inline" style="font-size:12px;">
+                                                            <input #push type="checkbox" class="pushChecked">App
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="overlay-footer">
+                    <div class="right-align overlay-footer-content-rt">
+                        <button type="button" class="btn btn-sm btn-default" (click)="closeOverlay($event)">Close</button>
+                        <button type="submit" [disabled]="!specialDayForm.valid" id="sent" (click)="save('sent')" class="btn btn-primary btn-ladda btn-ladda-progress" data-style="expand-right" data-spinner-size="20"><span class="ladda-label">Save</span></button>
+                    </div>
+                </div>
+            </div>
+            <!-- cd-panel-container -->
+        </div>
+    </div>
+    <!-- right panel script -->
+</div>
+
+
+
+

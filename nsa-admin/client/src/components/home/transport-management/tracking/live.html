@@ -1,0 +1,22 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h6 class="panel-title"><span class="text-semibold text-uppercase"><i class="icon-bus position-left"></i>Live Tracking </span></h6>
+        <div class="heading-elements">
+            <input type="button" *ngIf="enable" value="Transport Notification Logs" data-size="85%" data-title="Transport Notification Logs" data-toggle="from-right" data-id ="#transportnotificationlogs" class="btn btn-sm btn-primary" (click)="transportLogs($event)">
+        </div>
+    </div>
+
+    <div class="panel-body">
+        <div id="floating-panel-live" class="panel-opened">
+            <div class="panel panel-flat panel-live" id="routeOptions">
+                <select #selectRoute name="route_summary" id="selectRoute" (click)="changeRoute()" class="floating-panel-heading" multiple>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div id="liveMap" class="map-wrapper"></div>
+        </div>
+    </div>
+</div>
+<transport-notification-logs></transport-notification-logs>

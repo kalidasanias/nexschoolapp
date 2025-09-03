@@ -1,0 +1,21 @@
+[
+{
+	"leaveTypeId" : "4d12dd30-c301-4b78-9575-bc355d64c9fa",
+	"leaveTypeName": "Casual Leaves",
+	"totalLeaves": "10",
+	"remainingLeaves" : "5"	
+},
+{
+	"leaveTypeId" : "4d12dd30-c301-4b78-9575-bc355d64c9fa",
+	"leaveTypeName": "Emergency Leaves",
+	"totalLeaves": "10",
+	"remainingLeaves" : "6"	
+},
+{
+	"leaveTypeId" : "4d12dd30-c301-4b78-9575-bc355d64c9fa",
+	"leaveTypeName": "Sick Leaves",
+	"totalLeaves": "10",
+	"remainingLeaves" : "3"	
+}
+
+]

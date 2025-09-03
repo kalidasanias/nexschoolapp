@@ -1,0 +1,27 @@
+<hr/>
+
+<div class="panel-heading">
+    <h6 class="panel-title"><span class="text-semibold text-uppercase"><i
+            class="icon-clipboard position-left"></i>List of Written Examination Types</span></h6>
+    <div class="heading-elements">
+        <input type="button" value="Add Written Examination Type" data-size="50%" data-title="Add Written Examination Type"
+               data-toggle="from-right" data-id="#add_exam" class="btn btn-sm btn-primary heading-btn"
+               (click)="addWrittenExam($event)"/>
+    </div>
+</div>
+<hr/>
+<div class="panel-body">
+    <table class="table datatable-export">
+        <thead>
+        <tr>
+            <th>S.No</th>
+            <th>Term</th>
+            <th>Written Exam Name</th>
+            <th>Updated By</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+
+    </table>
+</div>
+<add-exam></add-exam>

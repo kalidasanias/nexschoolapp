@@ -1,0 +1,149 @@
+<div id="viewEvent" class="overlay-popup footer-popup" style="display: none;">
+    <!-- RIGHT PANEL STARTS -->
+    <div class="cd-panel">
+        <div class="cd-panel-header">
+            <!-- <div class="hidden-xs simple-field-hf"></div> -->
+            <div class="simple-field-hf">
+            </div>
+            <a (click)="closeOverlay($event)" class="cd-panel-close">Close</a>
+        </div>
+        <div class="cd-panel-container" id="hiflame-cart-popup">
+            <input type="hidden" id="existingFiles" (click)="getExistingFiles($event)">
+            <div class="cd-panel-content" id="side-panel-container">
+                <form class="form-horizontal">
+                    <div class="modal-body">
+                        <div class="row form-horizontal">
+                            <div class="col-md-6">
+                                <div class="panel panel-flat">
+                                    <div class="panel-default">
+                                        <div class="panel-heading">
+                                            <h6 class="panel-title"><span class=""><i class="fa fa-list"></i> Activity Details</span></h6>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="col-md-12 form-group" *ngIf="event">
+                                                <label class="control-label col-sm-4 font14">Activity Title  :
+                                                </label>
+                                                <label class="control-label col-sm-8 font14">{{event.eventName}}
+                                                </label>
+                                            </div>
+                                            <div class="col-md-12 form-group">
+                                                <label class="control-label col-sm-4 font14">Type  :
+                                                </label>
+                                                <label class="control-label col-sm-8 font14">{{event.activityTypeName}}
+                                                </label>
+                                            </div>
+                                            <div class="col-md-12 form-group">
+                                                <label class="control-label col-sm-4 font14">Category  :
+                                                </label>
+                                                <label class="control-label col-sm-8 font14">{{event.eventTypeName}}
+                                                </label>
+                                            </div>
+                                            <div class="col-md-12 form-group">
+                                                <label class="control-label col-sm-4 font14">Date :
+                                                </label>
+                                                <label class="control-label col-sm-8 font14">{{event.startDate}} - {{event.endDate}}
+                                                </label>
+                                            </div>
+                                            <div class="col-md-12 form-group">
+                                                <label class="control-label col-sm-4 font14">Time  :
+                                                </label>
+                                                <label class="control-label col-sm-8 font14">{{event.startTime}} - {{event.endTime}}
+                                                </label>
+                                            </div>
+                                            <div class="col-md-12 form-group">
+                                                <label class="control-label col-sm-4 font14">Venue :
+                                                </label>
+                                                <label class="control-label col-sm-8 font14">{{venueName}}
+                                                </label>
+                                            </div>
+                                            <div class="col-md-12 form-group">
+                                                <label class="control-label col-sm-4 font14">Description :
+                                                </label>
+                                                <label class="control-label col-sm-8 font14" title="{{event.eventDesc}}" data-popup="tooltip" class="fc-title-400 col-xs-6" >{{event.eventDesc}}
+                                                </label>
+                                            </div>
+                                            <div class="col-md-12 form-group" *ngIf="event.attachments">
+                                                <label class="control-label col-sm-4 font14">Attachments :
+                                                </label>
+                                                <a class="control-label col-sm-8 font14" id="viewAttachment" (click)="viewAttachment()">View Attachments
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-6 ">
+                                <div class="panel panel-flat">
+                                    <form action="#" class="form-horizontal">
+                                        <div class="panel-default">
+                                            <div class="panel-heading">
+                                                <h6 class="panel-title"><span class=""><i class="icon-users"></i> Attendees </span></h6>
+                                            </div>
+                                            <div class="panel-body scroll-panel">
+                                                <div class="form-group"  *ngFor="let event of eventDetails">
+                                                    <div data-popup="tooltip" title="{{event.first_name}}" data-placement="bottom"  class="col-lg-5 col-xs-3 fc-title-400">
+                                                        {{event.first_name}}
+                                                    </div>
+                                                    <!-- <label class="col-lg-3 control-label">Name:</label> -->
+                                                    <div class="col-xs-5">
+                                                        {{event.class_name}} - {{event.section_name}}
+                                                    </div>
+                                                    <div class="col-xs-2" *ngIf="event.is_registered == true">
+                                                        <i class="icon-checkmark3 text-success"></i>
+                                                    </div>
+                                                    <div class="col-xs-2" *ngIf="event.is_registered == false">
+                                                        <i class="icon-cross2 text-danger"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <!-- Basic layout-->
+                                    <!-- /basic layout -->
+                                    <!-- /basic layout -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row form-horizontal">
+                            <div class="col-md-6"  *ngIf="event">
+                                    <div class="col-md-12 form-group" *ngIf ="event.isMandatory ==true" align="left"><i class="fa fa-exclamation-circle"></i><b>&nbsp;This activity is mandatory to attend</b></div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-md-4 form-group">
+                                    <label class="control-label">Registered :
+                                    </label>
+                                    <label class="control-label">{{eve.registered}}
+                                    </label>
+                                </div>
+                                <div class="col-md-4 form-group">
+                                    <label class="control-label">Declined :
+                                    </label>
+                                    <label class="control-label">{{eve.declined}}
+                                    </label>
+                                </div>
+                                <div class="col-md-4 form-group">
+                                    <label class="control-label">Not Responded :
+                                    </label>
+                                    <label class="control-label">{{eve.notResponded}}
+                                    </label>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="overlay-footer">
+                        <div class="right-align overlay-footer-content-rt">
+                            <button type="button" class="btn btn-default" (click)="closeOverlay($event)">Close</button>
+                            <button *ngIf="enable" type="button" class="btn btn-default btn-danger" (click)="requested_warning()">Delete</button>
+                            <input hidden id="deleteButton" (click)="requested_delete()" type="button" style="display: none;">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- cd-panel-container -->
+        </div>
+    </div>
+    <!-- right panel script -->
+</div>
+<attachment></attachment>

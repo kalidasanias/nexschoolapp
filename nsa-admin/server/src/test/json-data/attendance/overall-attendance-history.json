@@ -1,0 +1,50 @@
+[
+      {
+         "userId":"587200S",
+         "firstName":"Kumar",
+         "class_id":"ec3c41b2-f403-11e6-858f-57a174c743dc",
+         "class_name":"Class 10",
+         "section_id":"ec3c68c2-f403-11e6-858f-57a174c743dc",
+         "section_name":" Section B",
+         "totalNoOfWorkingDays":"90",
+         "noOfDaysPresent":"45",
+         "noOfDaysAbsent":"5",
+         "attendancePercentage":"78"
+      },
+      {
+         "userId":"587258S",
+         "firstName":"Sathish",
+         "class_id":"ec3c41b2-f403-11e6-858f-57a174c743dc",
+         "class_name":"Class 10",
+         "section_id":"ec3c68c2-f403-11e6-858f-57a174c743dc",
+         "section_name":" Section B",
+         "totalNoOfWorkingDays":"90",
+         "noOfDaysPresent":"20",
+         "noOfDaysAbsent":"10",
+         "attendancePercentage":"62"
+      },
+      {
+         "userId":"587224S",
+         "firstName":"Vel",
+         "class_id":"ec3c41b2-f403-11e6-858f-57a174c743dc",
+         "class_name":"Class 10",
+         "section_id":"ec3c68c2-f403-11e6-858f-57a174c743dc",
+         "section_name":" Section B",
+         "totalNoOfWorkingDays":"90",
+         "noOfDaysPresent":"70",
+         "noOfDaysAbsent":"20",
+         "attendancePercentage":"80"
+      },
+      {
+         "userId":"587145S",
+         "firstName":"Andrew",
+         "class_id":"ec3c41b2-f403-11e6-858f-57a174c743dc",
+         "class_name":"Class 10",
+         "section_id":"ec3c68c2-f403-11e6-858f-57a174c743dc",
+         "section_name":" Section B",
+         "totalNoOfWorkingDays":"90",
+         "noOfDaysPresent":"89",
+         "noOfDaysAbsent":"1",
+         "attendancePercentage":"99"
+      }
+]

@@ -1,0 +1,28 @@
+<hr/>
+
+<div class="panel-heading">
+    <h6 class="panel-title"><span class="text-semibold text-uppercase">
+        <i class="icon-clipboard position-left"></i>List of Aspect - Subject Association</span></h6>
+    <div class="heading-elements">
+        <input type="button" value="Add Grading Association" data-size="50%" data-title="Add Grading Association"
+               data-toggle="from-right" data-id="#add_association" class="btn btn-sm btn-primary heading-btn"
+               (click)="addGradingAspectAssoc($event)"/>
+    </div>
+</div>
+<hr/>
+<div class="panel-body">
+    <table class="table datatable-export">
+        <thead>
+        <tr>
+            <th>S.No</th>
+            <th>Subject Name</th>
+            <th>Grading Aspect</th>
+            <th>Updated By</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+
+    </table>
+</div>
+<add-grading-association></add-grading-association>

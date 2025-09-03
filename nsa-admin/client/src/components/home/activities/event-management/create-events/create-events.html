@@ -1,0 +1,168 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h6 class="panel-title"><span class="text-semibold text-uppercase"><i class="icon-calendar3 position-left"></i>Activity Management </span></h6>
+        <div class="heading-elements">
+            <input *ngIf="enable" type="button" value="Create Activity" data-size="75%" data-title="Create Activity" data-toggle="from-right" data-id="#addEvent" class="btn btn-sm btn-primary" (click)="addEvent($event)"/>
+        </div>
+    </div>
+    <input type="hidden" id="eventData" (click)="getWeekData($event)" value="">
+    <input type="hidden" id="reRenderData" (click)="render()" value="">
+    <input hidden id="viewEveDet" (click)="getEventById($event)" data-title="Activity Details" data-size="75%" data-id="#viewEvent" type="button" style="display: none;">
+    <input hidden id="createButton" (click)="addEvent($event)" data-size="75%" data-title="Create Activity" data-id="#addEvent" type="button" style="display: none;">
+    
+
+    <div class="panel-body">
+        <div class="content">
+            <!-- Vertical form options -->
+            <div class="row">
+                <div class="col-md-4">
+                    <!-- Basic layout-->
+                    <form action="#" class="form-horizontal">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h6 class="panel-title"><span><i class="icon-calendar52"></i> My Activities</span></h6>
+                            </div>
+                            <div class="panel-body ">
+                                <div class="demof user-slider" *ngIf="userEve != 0">
+                                    <ul class="col-md-12">
+                                        <li *ngFor="let event of userEve"><div id="" class="form-group">
+                                            <div class="col-lg-3 col-xs-3">
+                                                <time datetime="2014-09-20" class="ic">
+                                                    <strong>{{event.month}}</strong>
+                                                    <span>{{event.date}}</span>
+                                                </time>
+                                            </div>
+                                            <div class="events col-xs-9">
+                                                {{event.eventName}}&nbsp;&nbsp;-&nbsp;&nbsp;{{event.eventDesc}}
+                                            </div>
+                                        </div></li>
+                                    </ul>
+                                </div>
+                                <div *ngIf="userEve ==0" style="height: 170px;">
+                                    <span class="text-center no-slider-content">
+                                    <strong>No activity to show</strong></span>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- /basic layout -->
+                </div>
+                <div class="col-md-4">
+                    <!-- Basic layout-->
+                    <form action="#" class="form-horizontal">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h6 class="panel-title"><span><i class="fa fa-list"></i> Today's Activities</span></h6>
+                            </div>
+                            <div class="panel-body ">
+                                <div class="demof slider" *ngIf="todayEve != 0">
+                                    <ul class="col-md-12">
+                                        <li *ngFor="let event of todayEve"><div id="" class="form-group">
+                                            <div class="col-lg-3 col-xs-3">
+                                                <time datetime="2014-09-20" class="ic">
+                                                    <strong>{{event.month}}</strong>
+                                                    <span>{{event.date}}</span>
+                                                </time>
+                                            </div>
+                                            <div class="events col-xs-9">
+                                                {{event.eventName}}&nbsp;&nbsp;-&nbsp;&nbsp;{{event.eventDesc}}
+                                            </div>
+                                        </div></li>
+                                    </ul>
+                                </div>
+                                <div  *ngIf="todayEve == 0" style="height: 170px;">
+                                    <span class="text-center no-slider-content">
+                                    <strong>No activity to show</strong></span>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- /basic layout -->
+                </div>
+                <div class="col-md-4">
+                    <!-- Basic layout-->
+                    <form action="#" class="form-horizontal">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h6 class="panel-title"><span><i class="icon-newspaper"></i> Upcoming Activities</span></h6>
+                            </div>
+                            <div class="panel-body ">
+                                <div class="demof latest-slider" *ngIf="latestEve != 0">
+                                    <ul class="col-md-12">
+                                        <li *ngFor="let event of latestEve"><div id="" class="form-group">
+                                            <div class="col-lg-3 col-xs-3">
+                                                <time datetime="2014-09-20" class="ic">
+                                                    <strong>{{event.month}}</strong>
+                                                    <span>{{event.date}}</span>
+                                                </time>
+                                            </div>
+                                            <div class="events col-xs-9">
+                                                {{event.eventName}}&nbsp;&nbsp;-&nbsp;&nbsp;{{event.eventDesc}}
+                                            </div>
+                                        </div></li>
+                                    </ul>
+                                </div>
+
+                                <div *ngIf="latestEve ==0" style="height: 170px;">
+                                    <span class="text-center no-slider-content">
+                                    <strong>No activity to show</strong></span>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- /basic layout -->
+                </div>
+
+            </div>
+            <!-- /vertical form options -->
+        </div>
+        <hr/>
+        <div class="row ">
+            <div class="col-md-4">
+                <!-- Basic layout-->
+                <div class="panel panel-flat">
+                    <form action="#" class="form-horizontal">
+                        <div class="panel-default">
+                            <div class="panel-heading">
+                                <h6 class="panel-title"><span class=""><i class="icon-calendar52"></i> My Class Activities</span></h6>
+                            </div>
+                            <div class="panel-body ">
+                                <div class="demof class-slider" *ngIf="classEve != 0">
+                                    <ul class="col-md-12">
+                                        <li *ngFor="let event of classEve"><div id="" class="form-group">
+                                            <div class="col-lg-3 col-xs-3">
+                                                <time datetime="2014-09-20" class="ic">
+                                                    <strong>{{event.month}}</strong>
+                                                    <span>{{event.date}}</span>
+                                                </time>
+                                            </div>
+                                            <div class="events col-xs-9">
+                                                {{event.eventName}}&nbsp;&nbsp;-&nbsp;&nbsp;{{event.eventDesc}}
+                                            </div>
+                                        </div></li>
+                                    </ul>
+                                </div>
+                                <div *ngIf="classEve ==0" style="height: 170px;">
+                                    <span class="text-center no-slider-content">
+                                    <strong>No activity to show</strong></span>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- Basic layout-->
+                    <!-- /basic layout -->
+                    <!-- /basic layout -->
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="panel-body">
+                        <ext-calendar></ext-calendar>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<add-event></add-event>
+<view-event></view-event>

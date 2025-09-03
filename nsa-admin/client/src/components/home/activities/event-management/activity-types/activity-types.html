@@ -1,0 +1,25 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h6 class="panel-title"><span class="text-semibold text-uppercase"><i class="icon-copy3 position-left"></i>Activity Type</span> <i class="icon-arrow-right15 text-pink-600"></i> <small>List of Types</small></h6>
+        <div class="heading-elements">
+            <input *ngIf="enable" type="button" value="Add Activity Type" data-size="50%" data-title="Add Category" data-toggle="from-right" data-id="#addActivityType" class="btn btn-sm btn-primary" (click)="addActivityType($event)"/>
+        </div>
+    </div>
+
+    <input hidden id="warningEventType" (click)="requested_warning()" type="button" style="display: none;">
+    <input hidden id="deleteButton" (click)="requested_delete($event)" type="button" style="display: none;">
+    <input hidden id="activityTypeEditButton" (click)="getActivityType('addActivityType',$event)" data-size="50%" data-id="#addActivityType" type="button" style="display: none;">
+    <div class="panel-body">
+        <table class="table datatable-activity-types">
+            <thead>
+            <tr>
+                <th data-priority="1">Activity Name</th>
+                <th>Description</th>
+                <th>Updated By</th>
+                <th data-priority="2">Action</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+<add-activity-type></add-activity-type>

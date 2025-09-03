@@ -1,0 +1,29 @@
+{
+  "status":{
+    "code":200,
+    "message":"Success"
+  },
+  "admissionNo":"645",
+  "name":"Ram",
+  "userId":"34343",
+  "messages":[
+    {
+      "message":"Hello Madam",
+      "time":"15-05-2017 10:20 AM",
+      "commentedBy":"645",
+      "commentedName":"Ram"
+    },
+    {
+      "message":"I have a doubt",
+      "time":"15-05-2017 10:21 AM",
+      "commentedBy":"645",
+      "commentedName":"Ram"
+    },
+    {
+      "message":"What is it?",
+      "time":"15-05-2017 10:21 AM",
+      "commentedBy":"700",
+      "commentedName":"Vidhya"
+    }
+  ]
+}
